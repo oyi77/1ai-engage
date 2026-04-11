@@ -55,10 +55,16 @@ WAHA_SESSION = os.getenv("WAHA_SESSION", "default")
 WAHA_OWN_NUMBER = "6282247006969"   # BerkahKarya WA number
 
 # ---------------------------------------------------------------------------
-# n8n workflows
+# n8n workflows (optional — leave N8N_MEETING_WF empty to skip)
 # ---------------------------------------------------------------------------
 N8N_BASE        = "https://n8n.aitradepulse.com/webhook"
-N8N_MEETING_WF  = os.getenv("N8N_MEETING_WF", "")   # set when workflow exists
+N8N_MEETING_WF  = os.getenv("N8N_MEETING_WF", "")
+
+# ---------------------------------------------------------------------------
+# Telegram (team alerts)
+# ---------------------------------------------------------------------------
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8581574594:AAGzrA9DGjzJx3Ak2D6P3NhoQyXyskpMF2Q")
+TELEGRAM_CHAT_ID   = os.getenv("TELEGRAM_CHAT_ID", "5220170786")
 
 # ---------------------------------------------------------------------------
 # PaperClip (AI Company OS)

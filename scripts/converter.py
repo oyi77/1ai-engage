@@ -22,6 +22,8 @@ from config import (
     N8N_BASE, N8N_MEETING_WF,
     PAPERCLIP_URL, PAPERCLIP_COMPANY_ID, PAPERCLIP_AGENT_CMO,
     GMAIL_ACCOUNT, GMAIL_KEYRING_PASSWORD,
+    TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID,
+    WAHA_URL, WAHA_API_KEY, WAHA_SESSION, WAHA_OWN_NUMBER,
 )
 from leads import load_leads, save_leads
 from senders import send_email
@@ -57,6 +59,57 @@ def _n8n_trigger(lead_name: str, email: str, vertical: str) -> bool:
     except Exception as e:
         print(f"  [n8n] Failed: {e}", file=sys.stderr)
     return False
+
+
+def _notify_team(lead_name: str, email: str, vertical: str, phone: str) -> None:
+    """Alert the BerkahKarya team via Telegram + WhatsApp when a lead replies."""
+    if not _HTTP_OK:
+        return
+    from datetime import datetime
+    now = datetime.now().strftime("%d %b %Y %H:%M WIB")
+    tg_msg = (
+        f"🔥 *HOT LEAD — 1ai-engage*\n\n"
+        f"👤 *{lead_name}*\n"
+        f"💼 {vertical}\n"
+        f"📧 {email}\n"
+        f"📱 {phone or 'N/A'}\n\n"
+        f"📅 {CALENDLY_LINK}\n"
+        f"⏰ {now}"
+    )
+    wa_msg = (
+        f"🔥 *HOT LEAD!*\n"
+        f"{lead_name} ({vertical}) balas email outreach kita!\n"
+        f"Email: {email}\n"
+        f"Book meeting: {CALENDLY_LINK}"
+    )
+    # Telegram
+    try:
+        r = _req.post(
+            f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage",
+            json={"chat_id": TELEGRAM_CHAT_ID, "text": tg_msg, "parse_mode": "Markdown"},
+            timeout=10,
+        )
+        if r.status_code < 300:
+            print(f"  [telegram] Team notified")
+        else:
+            print(f"  [telegram] Error {r.status_code}: {r.text[:100]}", file=sys.stderr)
+    except Exception as e:
+        print(f"  [telegram] Failed: {e}", file=sys.stderr)
+
+    # WhatsApp to team's own number
+    if WAHA_OWN_NUMBER:
+        clean = "".join(filter(str.isdigit, WAHA_OWN_NUMBER))
+        try:
+            r = _req.post(
+                f"{WAHA_URL}/api/sendText",
+                json={"chatId": f"{clean}@c.us", "text": wa_msg, "session": WAHA_SESSION},
+                headers={"X-Api-Key": WAHA_API_KEY, "Content-Type": "application/json"},
+                timeout=10,
+            )
+            if r.status_code < 300:
+                print(f"  [whatsapp] Team notified via WA")
+        except Exception as e:
+            print(f"  [whatsapp] Team alert failed: {e}", file=sys.stderr)
 
 
 def _paperclip_create_issue(lead_name: str, email: str, vertical: str, phone: str) -> bool:
@@ -144,10 +197,13 @@ def process_replied_leads() -> None:
         # 1. Send warm reply with calendar link
         sent = _send_meeting_email(name, email, vertical)
 
-        # 2. n8n automation (non-blocking)
+        # 2. Team alerts: Telegram + WhatsApp (direct, no n8n needed)
+        _notify_team(name, email, vertical, phone)
+
+        # 3. n8n extra automation (optional, non-blocking)
         _n8n_trigger(name, email, vertical)
 
-        # 3. PaperClip issue (non-blocking)
+        # 4. PaperClip issue (non-blocking)
         _paperclip_create_issue(name, email, vertical, phone)
 
         if sent:
