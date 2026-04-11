@@ -1,3 +1,34 @@
-🧿 oracle 0.8.6 — Token mop for agent spillover.
-Session running in background. Reattach via: oracle session create-a-profession-business-proposal-5
-Pro runs can take up to 60 minutes (usually 10-15). Add --wait to stay attached.
+---PROPOSAL---
+Subject: How AI Automation Can Help Creative Agency Indo Scale Faster
+
+Hi [Name],
+
+I hope this message finds you well. My name is Vilona, and I represent BerkahKarya — a company specializing in AI Automation, Digital Marketing, and Software Development.
+
+I came across Creative Agency Indo and was impressed by what you're building. Creative agencies today face a unique set of pressures: managing client pipelines, producing content at scale, hitting deadlines, and maintaining quality — all at the same time. It's a lot to juggle.
+
+That's exactly where we've been helping businesses like yours. Here's what AI automation can realistically do for a creative agency:
+
+- **Client onboarding & project intake** — Automate briefs, approvals, and status updates so your team focuses on creating, not chasing clients.
+- **Content production workflows** — AI-assisted copywriting, scheduling, and reporting that cuts production time by up to 40%.
+- **Lead generation & follow-up** — Automated outreach sequences that keep your sales pipeline warm without manual effort.
+- **Performance reporting** — Real-time dashboards that surface what's working across campaigns, so you can optimize faster.
+
+We've helped agencies move from reactive to proactive operations — spending less time on admin and more time on high-value creative work.
+
+I'd love to schedule a quick 20-minute call to understand your current workflow and share a few specific ideas that could apply directly to Creative Agency Indo. No hard sell — just a focused conversation about what's possible.
+
+Would any time this week or next work for you?
+
+Looking forward to connecting.
+
+Warm regards,
+**Vilona**
+BerkahKarya | AI Automation · Digital Marketing · Software Development
+
+---WHATSAPP---
+Halo [Nama]! Saya Vilona dari BerkahKarya 👋
+
+Kami bantu agensi kreatif kayak Creative Agency Indo buat otomasi workflow, hemat waktu, dan ningkatin revenue lewat AI.
+
+Boleh ngobrol sebentar, 20 menit aja? Mau share beberapa ide yang mungkin langsung relevan buat tim kamu 🙏

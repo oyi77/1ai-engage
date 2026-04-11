@@ -1,3 +1,29 @@
-🧿 oracle 0.8.6 — We QA the AI so you can ship the code.
-Session running in background. Reattach via: oracle session create-a-profession-business-proposal-4
-Pro runs can take up to 60 minutes (usually 10-15). Add --wait to stay attached.
+---PROPOSAL---
+Subject: How AI Can Drive Efficiency and Revenue for Digital Media Jakarta
+
+Hi Digital Media Jakarta Team,
+
+I hope this message finds you well. My name is Vilona, and I represent BerkahKarya — a company specializing in AI Automation, Digital Marketing, and Software Development.
+
+I've been looking at how media businesses in Jakarta are navigating an increasingly competitive digital landscape, and I believe there are real, untapped opportunities where AI can give Digital Media Jakarta a significant edge.
+
+Specifically, here's what businesses in your space are achieving with the right AI systems in place:
+
+- **Content & Campaign Automation** — Automating repetitive content scheduling, reporting, and audience segmentation so your team focuses on strategy, not admin.
+- **Lead & Client Management** — AI-powered CRM workflows that capture, nurture, and convert prospects faster with less manual follow-up.
+- **Data-Driven Decision Making** — Real-time analytics dashboards that surface performance insights your team can act on immediately.
+
+These aren't hypothetical — they're solutions we've already built and deployed for businesses in the digital and media sector.
+
+I'd love to schedule a quick 20-minute call to understand your current workflow and show you exactly where AI can move the needle for your business — no commitment required.
+
+Would you be open to a brief conversation this week or next?
+
+Looking forward to hearing from you.
+
+Best regards,
+**Vilona**
+BerkahKarya — AI Automation | Digital Marketing | Software Development
+
+---WHATSAPP---
+Halo kak! Perkenalkan, saya Vilona dari BerkahKarya 😊 Kami bantu bisnis digital media kayak Digital Media Jakarta buat ningkatin efisiensi & revenue lewat AI Automation. Boleh ngobrol santai 20 menit minggu ini? Siapa tahu ada sesuatu yang bisa kami bantu! 🙏

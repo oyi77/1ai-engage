@@ -1,0 +1,82 @@
+import os
+from pathlib import Path
+
+# ---------------------------------------------------------------------------
+# Base paths (absolute, relative to this file's location)
+# ---------------------------------------------------------------------------
+_SCRIPTS_DIR = Path(__file__).parent
+_ROOT        = _SCRIPTS_DIR.parent          # 1ai-engage/
+_HUB_DIR     = Path("/home/openclaw/projects/berkahkarya-hub")
+
+DATA_DIR      = _ROOT / "data"
+RESEARCH_DIR  = DATA_DIR / "research"
+PROPOSALS_DIR = _ROOT / "proposals" / "drafts"
+LOGS_DIR      = _ROOT / "logs"
+LEADS_FILE    = DATA_DIR / "leads.csv"
+
+
+def _load_dotenv() -> None:
+    env_path = _ROOT / ".env"
+    if not env_path.exists():
+        return
+    for line in env_path.read_text().splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            key, val = line.split("=", 1)
+            os.environ.setdefault(key.strip(), val.strip())
+
+
+_load_dotenv()
+
+# ---------------------------------------------------------------------------
+# API keys
+# ---------------------------------------------------------------------------
+GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", "")
+
+# ---------------------------------------------------------------------------
+# Gmail / gog
+# ---------------------------------------------------------------------------
+GMAIL_ACCOUNT          = "moliangellina@gmail.com"
+GMAIL_KEYRING_PASSWORD = "openclaw"
+SHEET_ID               = "10tRBCuRl_T6_nmdN1ycHaSRmsK-7jGKLtbJewKAUz_I"
+
+# ---------------------------------------------------------------------------
+# BerkahKarya Hub (FastAPI, port 9099)
+# ---------------------------------------------------------------------------
+HUB_URL     = os.getenv("HUB_URL", "http://localhost:9099")
+HUB_API_KEY = os.getenv("HUB_HUB_API_KEY", "")   # empty = dev mode (no auth)
+
+# ---------------------------------------------------------------------------
+# WAHA (WhatsApp HTTP API)
+# ---------------------------------------------------------------------------
+WAHA_URL     = os.getenv("WAHA_URL", "http://5.189.138.144:3000")
+WAHA_API_KEY = os.getenv("WAHA_API_KEY", "321")
+WAHA_SESSION = os.getenv("WAHA_SESSION", "default")
+WAHA_OWN_NUMBER = "6282247006969"   # BerkahKarya WA number
+
+# ---------------------------------------------------------------------------
+# n8n workflows
+# ---------------------------------------------------------------------------
+N8N_BASE        = "https://n8n.aitradepulse.com/webhook"
+N8N_MEETING_WF  = os.getenv("N8N_MEETING_WF", "")   # set when workflow exists
+
+# ---------------------------------------------------------------------------
+# PaperClip (AI Company OS)
+# ---------------------------------------------------------------------------
+PAPERCLIP_URL        = "http://localhost:3100"
+PAPERCLIP_COMPANY_ID = "33e1e20e-d9f2-45f2-b907-0579ab795942"
+PAPERCLIP_AGENT_CMO  = "ea3bb337-656a-4158-804d-fa1f7fab6dbc"
+
+# ---------------------------------------------------------------------------
+# Aggregator domains to skip in scraper
+# ---------------------------------------------------------------------------
+AGGREGATOR_DOMAINS = {
+    "clutch.co", "sortlist.com", "themanifest.com", "goodfirms.co",
+    "upwork.com", "fiverr.com", "linkedin.com", "facebook.com",
+    "instagram.com", "twitter.com", "youtube.com", "wikipedia.org",
+    "blogspot.com", "medium.com", "wordpress.com",
+    "kumparan.com", "detik.com", "kompas.com", "tribunnews.com",
+    "bisnis.com", "kontan.co.id", "cnbcindonesia.com",
+    "yelp.com", "yellowpages.com", "foursquare.com",
+    "g2.com", "capterra.com", "trustpilot.com",
+}

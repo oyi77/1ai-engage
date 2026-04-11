@@ -1,86 +1,146 @@
-import pandas as pd
-import subprocess
-import os
-import json
-
-def generate_proposal_fallback(lead_name, lead_business):
-    """
-    Local template fallback if LLM API fails.
-    """
-    return f"""
----PROPOSAL---
-Subject: Strategic Partnership Proposal for {lead_name}
-
-Dear {lead_name} Team,
-
-I am Vilona from BerkahKarya. We have been monitoring your progress in {lead_business} and see significant potential for optimization through AI.
-
-Our solution offers:
-- Automated Lead Generation
-- 24/7 AI Customer Engagement
-- Efficiency scaling by 40%
-
-I would love to discuss how we can help {lead_name} dominate the market.
-
-Best regards,
-Vilona
----WHATSAPP---
-Halo Tim {lead_name}! Saya Vilona dari BerkahKarya. Saya lihat bisnis {lead_business} Anda potensial banget buat di-automate pake AI biar makin scale. Boleh ngobrol bentar soal peluang kerjasamanya?
 """
+AI proposal generator.
 
-def generate_proposal(lead_name, lead_business):
-    prompt = f"""
-    Create a professional business proposal and a short WhatsApp draft for the following lead:
-    Business Name: {lead_name}
-    Niche: {lead_business}
-    
-    Our Company: BerkahKarya
-    Services: AI Automation, Digital Marketing, and Software Development.
-    Goal: Help them improve efficiency and revenue with AI.
-    
-    Format output:
-    ---PROPOSAL---
-    [Long professional text]
-    ---WHATSAPP---
-    [Short engaging text with clear call to action]
-    """
-    
-    # Try multiple LLM tools
-    for tool in ["gemini", "oracle"]:
-        cmd = [tool, "ask", prompt] if tool == "gemini" else [tool, prompt]
+For each lead with an email:
+  1. Loads prospect research brief (from data/research/ if available)
+  2. Passes research + lead info to Claude for a truly personalized proposal
+  3. Falls back to gemini → oracle if Claude unavailable
+  4. Skips lead (logs error) if all LLMs fail — no template fallback
+"""
+import os
+import subprocess
+import sys
+
+from leads import load_leads
+from utils import parse_display_name, draft_path, safe_filename
+
+from config import PROPOSALS_DIR as _PROPOSALS_DIR, RESEARCH_DIR as _RESEARCH_DIR
+import brain_client as _brain
+
+PROPOSALS_DIR = str(_PROPOSALS_DIR)
+RESEARCH_DIR  = str(_RESEARCH_DIR)
+
+
+def _load_research(index: int, name: str) -> str:
+    """Load the research brief for this lead if it exists."""
+    path = os.path.join(RESEARCH_DIR, f"{index}_{safe_filename(name)}.txt")
+    if os.path.exists(path):
+        with open(path) as f:
+            return f.read().strip()
+    return ""
+
+
+def _build_prompt(lead_name: str, lead_business: str, research: str, csv_research: str,
+                  brain_context: str = "") -> str:
+    research_section = ""
+    if research:
+        research_section = f"\nProspect Research (scraped from their website):\n{research}\n"
+    elif csv_research and csv_research.lower() not in ("nan", "none", "no_data", ""):
+        research_section = f"\nProspect Research Summary: {csv_research}\n"
+
+    brain_section = f"\n{brain_context}\n" if brain_context else ""
+
+    pain_instruction = (
+        "Use the research above to write a HIGHLY PERSONALIZED proposal. "
+        "Reference their specific services, observed gaps, or tech stack. "
+        "Do NOT write generic filler."
+        if research_section else
+        "Write a proposal specific to their business type. "
+        "Reference challenges common to this niche."
+    )
+
+    return (
+        f"You are writing a cold outreach email and WhatsApp message on behalf of Vilona from BerkahKarya.\n\n"
+        f"BerkahKarya offers: AI Automation, Digital Marketing, and Software Development.\n"
+        f"Goal: Convince {lead_name} to book a 15-minute discovery call.\n\n"
+        f"Prospect: {lead_name}\n"
+        f"Business Type: {lead_business}\n"
+        f"{research_section}"
+        f"{brain_section}\n"
+        f"Instructions:\n"
+        f"- {pain_instruction}\n"
+        f"- The email must open with a specific observation about their business (not 'I hope this email finds you well').\n"
+        f"- Mention 1-2 concrete benefits of AI automation relevant to their niche.\n"
+        f"- End with a low-friction CTA: offer a 15-minute call or a free audit.\n"
+        f"- The WhatsApp message must be SHORT (3-4 sentences), casual, in Indonesian (Bahasa Indonesia).\n"
+        f"- The WhatsApp message should feel human, not like a sales pitch.\n\n"
+        f"Output format (use these exact separators, nothing before or after):\n"
+        f"---PROPOSAL---\n"
+        f"[professional email body in English]\n"
+        f"---WHATSAPP---\n"
+        f"[short casual WhatsApp message in Indonesian]"
+    )
+
+
+def generate_proposal(index: int, lead_name: str, lead_business: str, csv_research: str = "") -> str:
+    research = _load_research(index, lead_name)
+    brain_context = _brain.get_strategy(lead_business)
+    prompt = _build_prompt(lead_name, lead_business, research, csv_research, brain_context)
+
+    tools = [
+        ("claude", ["claude", "-p", "--model", "sonnet"], True),
+        ("gemini", ["gemini", "ask", prompt], False),
+        ("oracle", ["oracle", prompt], False),
+    ]
+
+    for tool, cmd, use_stdin in tools:
         try:
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+            kwargs = dict(capture_output=True, text=True, timeout=90)
+            if use_stdin:
+                kwargs["input"] = prompt
+            result = subprocess.run(cmd, **kwargs)
             if result.returncode == 0 and result.stdout.strip():
                 return result.stdout
-        except:
-            continue
-            
-    return generate_proposal_fallback(lead_name, lead_business)
+            print(f"{tool} failed (exit {result.returncode}): {result.stderr.strip()[:120]}", file=sys.stderr)
+        except Exception as e:
+            print(f"{tool} error: {e}", file=sys.stderr)
 
-def process_proposals(filename="data/leads.csv"):
-    if not os.path.exists(filename):
-        print("No leads file found.")
+    print(f"ERROR: All LLM tools failed for {lead_name}. Skipping.", file=sys.stderr)
+    return ""
+
+
+def process_proposals() -> None:
+    df = load_leads()
+    if df is None:
         return
-    df = pd.read_csv(filename)
-    os.makedirs("1ai-engage/proposals/drafts", exist_ok=True)
-    
+    os.makedirs(PROPOSALS_DIR, exist_ok=True)
+
+    generated = skipped = 0
     for index, row in df.iterrows():
-        name = row['displayName']
-        if isinstance(name, str) and name.startswith('{'):
-            try:
-                name = json.loads(name.replace("'", '"'))['text']
-            except:
-                pass
-        
-        # Determine business type from categories or name
-        business = "Local Business"
-        
-        print(f"Generating proposal for {name}...")
-        proposal_text = generate_proposal(name, business)
-        
-        safe_name = "".join([c if c.isalnum() else "_" for c in str(name)])
-        with open(f"1ai-engage/proposals/drafts/{index}_{safe_name}.txt", "w") as f:
+        name = parse_display_name(row.get("displayName"))
+        status = str(row.get("status") or "")
+
+        # Skip already-processed leads (reviewed, contacted, replied, etc.)
+        if status in ("reviewed", "contacted", "followed_up", "replied", "meeting_booked", "won", "lost"):
+            skipped += 1
+            continue
+
+        # Only generate for leads with email (so we can actually reach them)
+        email = str(row.get("email") or "").strip()
+        if not email or email.lower() in ("nan", "none", ""):
+            skipped += 1
+            continue
+
+        # Skip if draft already exists and lead has no needs_revision flag
+        path = draft_path(index, name)
+        if os.path.exists(path) and status != "needs_revision":
+            skipped += 1
+            continue
+
+        business = str(row.get("type") or row.get("primaryType") or "Business")
+        csv_research = str(row.get("research") or "")
+
+        print(f"Generating proposal for {name} ({business})...")
+        proposal_text = generate_proposal(index, name, business, csv_research)
+        if not proposal_text:
+            continue
+
+        with open(path, "w") as f:
             f.write(proposal_text)
+        generated += 1
+
+    print(f"\nGeneration complete. {generated} generated, {skipped} skipped.")
+
 
 if __name__ == "__main__":
     process_proposals()
