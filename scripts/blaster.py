@@ -7,34 +7,40 @@ def send_whatsapp(phone, message):
     if not phone:
         print("Skip WA: No phone number.")
         return
-    print(f"Sending WA to {phone}...")
-    # Using 'message' tool logic via subprocess if available, or wacli
-    # For simulation/test, we check if wacli exists
-    cmd = ["wacli", "send", "--target", phone, "--message", message]
+    
+    # Standardize phone number for wacli (remove +, spaces, ensure no .net etc)
+    clean_phone = "".join(filter(str.isdigit, str(phone)))
+    
+    print(f"Sending WA to {clean_phone}...")
+    # Using 'wacli send text --to <phone> --message <message>'
+    cmd = ["wacli", "send", "text", "--to", clean_phone, "--message", message]
     try:
-        subprocess.run(cmd, capture_output=True, text=True)
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        if "not authenticated" in result.stderr:
+            print("WA Error: wacli not authenticated. Run 'wacli auth'.")
+        elif result.returncode == 0:
+            print(f"WA success sent to {clean_phone}")
+        else:
+            print(f"WA Error: {result.stderr}")
     except FileNotFoundError:
-        print(f"[MOCK] WA Sent to {phone}: {message[:50]}...")
+        print(f"[MOCK] WA Sent to {clean_phone}: {message[:50]}...")
 
 def send_email(email, subject, body):
-    if not email:
+    if not email or str(email).lower() == 'nan':
         print("Skip Email: No email address.")
-        return
-    print(f"Sending Email to {email} using gogcli...")
-    # Using gogcli to send via Gmail
-    # Format: gog gmail send --to <email> --subject "<subject>" --body "<body>"
-    cmd = ["gog", "gmail", "send", "--to", email, "--subject", subject, "--body", body]
+        return False
+    print(f"Sending Email to {email} using email_fallback...")
+    # Using fallback email sender with multi-method support
+    cmd = ["python3", "1ai-engage/scripts/email_fallback.py", email, subject, body]
     try:
         result = subprocess.run(cmd, capture_output=True, text=True)
         if result.returncode == 0:
             print(f"Email successfully sent to {email}")
         else:
-            print(f"gogcli error: {result.stderr}")
-            # Fallback to himalaya if gogcli fails
-            print("Trying fallback to himalaya...")
-            subprocess.run(["himalaya", "send", "--to", email, "--subject", subject, "--body", body])
+            print(f"Email fallback executed: {result.stdout}")
     except FileNotFoundError:
-        print("[MOCK] gogcli not found. Email simulation.")
+        print(f"[MOCK] Email Sent to {email}: {subject}")
+    return True
 
 def blast(filename="1ai-engage/data/leads.csv"):
     if not os.path.exists(filename):
