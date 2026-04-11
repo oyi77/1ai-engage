@@ -34,7 +34,7 @@ def enrich_lead(website, name):
             pass
     return None
 
-def process_leads(filename="data/leads.csv"):
+def process_leads(filename="1ai-engage/data/leads.csv"):
     if not os.path.exists(filename):
         print("No leads file found.")
         return

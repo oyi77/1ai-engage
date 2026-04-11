@@ -1,0 +1,3 @@
+🧿 oracle 0.8.6 — Hallucination hotline: we answer, not the pager.
+Session running in background. Reattach via: oracle session create-a-profession-business-proposal-6
+Pro runs can take up to 60 minutes (usually 10-15). Add --wait to stay attached.

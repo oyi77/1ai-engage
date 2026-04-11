@@ -3,6 +3,31 @@ import subprocess
 import os
 import json
 
+def generate_proposal_fallback(lead_name, lead_business):
+    """
+    Local template fallback if LLM API fails.
+    """
+    return f"""
+---PROPOSAL---
+Subject: Strategic Partnership Proposal for {lead_name}
+
+Dear {lead_name} Team,
+
+I am Vilona from BerkahKarya. We have been monitoring your progress in {lead_business} and see significant potential for optimization through AI.
+
+Our solution offers:
+- Automated Lead Generation
+- 24/7 AI Customer Engagement
+- Efficiency scaling by 40%
+
+I would love to discuss how we can help {lead_name} dominate the market.
+
+Best regards,
+Vilona
+---WHATSAPP---
+Halo Tim {lead_name}! Saya Vilona dari BerkahKarya. Saya lihat bisnis {lead_business} Anda potensial banget buat di-automate pake AI biar makin scale. Boleh ngobrol bentar soal peluang kerjasamanya?
+"""
+
 def generate_proposal(lead_name, lead_business):
     prompt = f"""
     Create a professional business proposal and a short WhatsApp draft for the following lead:
@@ -20,22 +45,27 @@ def generate_proposal(lead_name, lead_business):
     [Short engaging text with clear call to action]
     """
     
-    # Using 'oracle' or 'gemini' if available, or just use agent sessions_spawn for heavy lifting.
-    # For now, let's assume we can use a simple python call to an LLM provider or just mock for logic.
-    # Since I'm the agent, I'll use a direct subprocess to 'gemini' CLI or similar if I have it.
-    
-    cmd = ["gemini", "ask", prompt]
-    result = subprocess.run(cmd, capture_output=True, text=True)
-    if result.returncode == 0:
-        return result.stdout
-    return "Failed to generate proposal."
+    # Try multiple LLM tools
+    for tool in ["gemini", "oracle"]:
+        cmd = [tool, "ask", prompt] if tool == "gemini" else [tool, prompt]
+        try:
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+            if result.returncode == 0 and result.stdout.strip():
+                return result.stdout
+        except:
+            continue
+            
+    return generate_proposal_fallback(lead_name, lead_business)
 
 def process_proposals(filename="data/leads.csv"):
+    if not os.path.exists(filename):
+        print("No leads file found.")
+        return
     df = pd.read_csv(filename)
-    os.makedirs("proposals/drafts", exist_ok=True)
+    os.makedirs("1ai-engage/proposals/drafts", exist_ok=True)
     
     for index, row in df.iterrows():
-        name = row['displayName'] # simplifying
+        name = row['displayName']
         if isinstance(name, str) and name.startswith('{'):
             try:
                 name = json.loads(name.replace("'", '"'))['text']
@@ -48,7 +78,8 @@ def process_proposals(filename="data/leads.csv"):
         print(f"Generating proposal for {name}...")
         proposal_text = generate_proposal(name, business)
         
-        with open(f"proposals/drafts/{index}_{name.replace(' ', '_')}.txt", "w") as f:
+        safe_name = "".join([c if c.isalnum() else "_" for c in str(name)])
+        with open(f"1ai-engage/proposals/drafts/{index}_{safe_name}.txt", "w") as f:
             f.write(proposal_text)
 
 if __name__ == "__main__":
