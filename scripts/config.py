@@ -34,7 +34,16 @@ _load_dotenv()
 GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", "")
 
 # ---------------------------------------------------------------------------
-# Gmail / gog
+# Stalwart SMTP (primary outbound — marketing@berkahkarya.org)
+# ---------------------------------------------------------------------------
+SMTP_HOST     = os.getenv("SMTP_HOST", "mail.berkahkarya.org")
+SMTP_PORT     = int(os.getenv("SMTP_PORT", "587"))
+SMTP_USER     = os.getenv("SMTP_USER", "marketing")
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD", "BerkahKarya2026!")
+SMTP_FROM     = os.getenv("SMTP_FROM", "BerkahKarya <marketing@berkahkarya.org>")
+
+# ---------------------------------------------------------------------------
+# Gmail / gog (fallback)
 # ---------------------------------------------------------------------------
 GMAIL_ACCOUNT          = "moliangellina@gmail.com"
 GMAIL_KEYRING_PASSWORD = "openclaw"
@@ -49,9 +58,9 @@ HUB_API_KEY = os.getenv("HUB_HUB_API_KEY", "")   # empty = dev mode (no auth)
 # ---------------------------------------------------------------------------
 # WAHA (WhatsApp HTTP API)
 # ---------------------------------------------------------------------------
-WAHA_URL     = os.getenv("WAHA_URL", "http://5.189.138.144:3000")
-WAHA_API_KEY = os.getenv("WAHA_API_KEY", "321")
-WAHA_SESSION = os.getenv("WAHA_SESSION", "default")
+WAHA_URL     = os.getenv("WAHA_URL", "https://waha.aitradepulse.com")
+WAHA_API_KEY = os.getenv("WAHA_API_KEY", "0673158ede14970b922f7e62075bd0f211490ca335111a9e")
+WAHA_SESSION = os.getenv("WAHA_SESSION", "warung_kecantikan")
 WAHA_OWN_NUMBER = "6282247006969"   # BerkahKarya WA number
 
 # ---------------------------------------------------------------------------

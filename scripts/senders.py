@@ -8,9 +8,14 @@ try:
 except ImportError:
     _HTTP_OK = False
 
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
 from config import (
     GMAIL_ACCOUNT, GMAIL_KEYRING_PASSWORD, LOGS_DIR,
     WAHA_URL, WAHA_API_KEY, WAHA_SESSION,
+    SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, SMTP_FROM,
 )
 
 EMAIL_QUEUE_LOG = str(LOGS_DIR / "email_queue.log")
@@ -77,6 +82,30 @@ def send_whatsapp(phone: str, message: str) -> bool:
     return False
 
 
+def _send_via_stalwart(email: str, subject: str, body: str) -> bool:
+    """Primary: send via Stalwart SMTP as marketing@berkahkarya.org."""
+    from email.utils import parseaddr
+    print(f"Attempting email via Stalwart SMTP to {email}...")
+    try:
+        msg = MIMEMultipart("alternative")
+        msg["From"]    = SMTP_FROM
+        msg["To"]      = email
+        msg["Subject"] = subject
+        msg.attach(MIMEText(body, "plain", "utf-8"))
+        _, mail_from = parseaddr(SMTP_FROM)
+        mail_from = mail_from or SMTP_USER
+        with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=30) as server:
+            server.ehlo()
+            server.starttls()
+            server.login(SMTP_USER, SMTP_PASSWORD)
+            server.sendmail(mail_from, [email], msg.as_string())
+        print(f"✅ Email sent via Stalwart to {email}")
+        return True
+    except Exception as e:
+        print(f"❌ Stalwart SMTP failed: {e}")
+        return False
+
+
 def _send_via_gog(email: str, subject: str, body: str) -> bool:
     """Primary: send via gog Gmail CLI (free)."""
     print(f"Attempting email via gog to {email}...")
@@ -129,6 +158,7 @@ def send_email(email: str, subject: str, body: str) -> bool:
         print("Skip Email: No email address.")
         return False
     for name, method in [
+        ("stalwart", lambda: _send_via_stalwart(email, subject, body)),
         ("gog",      lambda: _send_via_gog(email, subject, body)),
         ("himalaya", lambda: _send_via_himalaya(email, subject, body)),
         ("queue",    lambda: _send_via_mock(email, subject, body)),
