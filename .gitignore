@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 data/leads*.csv
 logs/
+.agent-control/
+.venv/

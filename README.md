@@ -21,6 +21,44 @@ Tell Vilona:
 - "Generate proposals for the leads"
 - "Blast the leads"
 
+## Agent Control (MCP)
+
+`1ai-engage` now exposes an MCP control plane so other AI agents can inspect and operate the backend safely.
+
+### Install MCP dependencies
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -e .
+```
+
+### Start MCP over stdio
+```bash
+python3 mcp_server.py --transport stdio
+```
+
+### Start MCP over HTTP
+```bash
+python3 mcp_server.py --transport http --host 127.0.0.1 --port 8765
+```
+
+HTTP MCP endpoint:
+```text
+http://127.0.0.1:8765/mcp
+```
+
+### Main MCP capabilities
+- Read funnel state and lead records
+- Read control-plane audit history
+- Inspect WAHA / hub brain integrations
+- Preview autonomous decisions
+- Run individual pipeline stages
+- Start/stop/list long-running background jobs
+- Send live test email / WhatsApp messages
+- Enforce DB-backed job tracking and singleton loop ownership
+
+See `SKILL.md` for the agent workflow and tool inventory.
+
 Or run the orchestrator:
 ```bash
 python3 scripts/orchestrator.py "Coffee Shop in Jakarta"
