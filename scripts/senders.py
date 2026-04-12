@@ -83,6 +83,37 @@ def send_whatsapp(phone: str, message: str) -> bool:
     return False
 
 
+LOGO_URL = "https://raw.githubusercontent.com/oyi77/1ai-engage/master/assets/logo.svg"
+
+def _make_html_body(body: str) -> str:
+    """Wrap plain text body in a branded HTML email template."""
+    paragraphs = "".join(f"<p>{line if line.strip() else '&nbsp;'}</p>" for line in body.split("\n"))
+    return f"""<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background:#f4f6f8;font-family:Arial,Helvetica,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6f8;padding:30px 0;">
+    <tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+        <!-- Header -->
+        <tr><td style="background:#1a7a4a;padding:28px;text-align:center;">
+          <img src="{LOGO_URL}" width="72" height="72" alt="BerkahKarya" style="border-radius:50%;display:block;margin:0 auto 12px;">
+          <span style="color:#ffffff;font-size:20px;font-weight:bold;letter-spacing:1px;">BerkahKarya</span>
+        </td></tr>
+        <!-- Body -->
+        <tr><td style="padding:36px 40px;color:#333333;font-size:15px;line-height:1.7;">
+          {paragraphs}
+        </td></tr>
+        <!-- Footer -->
+        <tr><td style="background:#f4f6f8;padding:20px;text-align:center;font-size:12px;color:#888888;">
+          &copy; 2026 BerkahKarya &bull; marketing@berkahkarya.org<br>
+          <span style="font-size:11px;">Jika Anda tidak ingin menerima email ini, balas dengan kata "berhenti".</span>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body></html>"""
+
+
 def _send_via_brevo(email: str, subject: str, body: str) -> bool:
     """Primary: send via Brevo HTTP API (trusted IP, 300/day free)."""
     from email.utils import parseaddr
@@ -101,6 +132,7 @@ def _send_via_brevo(email: str, subject: str, body: str) -> bool:
                 "to": [{"email": email}],
                 "subject": subject,
                 "textContent": body,
+                "htmlContent": _make_html_body(body),
             },
             timeout=30,
         )
