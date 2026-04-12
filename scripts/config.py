@@ -63,9 +63,9 @@ HUB_API_KEY = os.getenv("HUB_HUB_API_KEY", "")   # empty = dev mode (no auth)
 # ---------------------------------------------------------------------------
 # WAHA (WhatsApp HTTP API)
 # ---------------------------------------------------------------------------
-WAHA_URL     = os.getenv("WAHA_URL", "https://waha.aitradepulse.com")
-WAHA_API_KEY = os.getenv("WAHA_API_KEY", "0673158ede14970b922f7e62075bd0f211490ca335111a9e")
-WAHA_SESSION = os.getenv("WAHA_SESSION", "warung_kecantikan")
+WAHA_URL     = os.getenv("WAHA_URL", "http://localhost:3333")
+WAHA_API_KEY = os.getenv("WAHA_API_KEY", "666")
+WAHA_SESSION = os.getenv("WAHA_SESSION", "berkahkarya")
 WAHA_OWN_NUMBER = "6282247006969"   # BerkahKarya WA number
 
 # ---------------------------------------------------------------------------
