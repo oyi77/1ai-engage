@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oneai-engage"
+version = "0.1.0"
+description = "Agent-controllable outreach backend and MCP server for BerkahKarya 1ai-engage"
+requires-python = ">=3.10"
+dependencies = [
+  "mcp[cli]>=1.6.0",
+  "pydantic>=2.0",
+  "pandas>=2.0",
+  "requests>=2.31.0",
+]
+
+[project.scripts]
+engage-mcp = "mcp_server:main"
+
+[tool.setuptools]
+py-modules = ["agent_control", "mcp_server"]
