@@ -1,0 +1,127 @@
+I'll check what tools and capabilities I have available for help with software engineering tasks.
+
+## Available MCP Servers
+
+Based on the available tools, here are the MCP servers I can connect to:
+
+### 1. **Adspirer** (claude.ai)
+A comprehensive ad management system with tools for:
+- **Campaign Management**: Create and manage campaigns across Google Ads, Meta (Facebook/Instagram), TikTok, and LinkedIn Ads
+- **Performance Analytics**: Analyze campaign performance, ROAS, CTR, conversions, and wasted spend
+- **Campaign Optimization**: Budget allocation optimization across campaigns
+- **Creative Management**: Ad creation, image upload, video validation, asset discovery
+- **Keywords & Search**: Keyword research, search term analysis, audience targeting research
+
+### 2. **oh-my-claudecode** (claude.ai)
+Development tool with MCP server integration:
+- **Code Tools**: Read, write, search, AST operations, project structure analysis
+- **Code Search**: Find symbols, functions, classes, navigate codebase
+- **Code Refactoring**: Rename symbols, extract text, AST manipulation
+- **Documentation**: Code navigation, reference lookup, Context7 integration
+
+### 3. **AgentCash** (agentcash.ai)
+Wallet management for paid APIs (SIWX endpoints):
+- **Balance Management**: Check wallet balance, list accounts
+- **Payment Operations**: Deposit USDC, switch primary account
+- **Transaction History**: View deposits, withdrawals
+
+### 4. **Google Calendar** (claude.ai)
+Calendar integration for event scheduling and management
+- **Authentication**: OAuth flow to authorize access
+
+### 5. **Gmail Tools** (claude.ai)
+Email operations:
+- **Draft Management**: Create, list, and send email drafts
+- **Thread Operations**: Read threads, add labels, delete messages
+- **Label Management**: List, create, manage labels
+
+### 6. **LinkedIn Ads** (claude.ai)
+LinkedIn professional networking:
+- **Company Research**: Find companies, enrich prospect data, fetch events
+- **Prospecting**: Search for prospects, match prospects, export data
+- **Intelligence & Stats**: Company insights, financial data, tech stack analysis
+
+### 7. **VibeProspecting** (claude.ai)
+Business intelligence:
+- **Search & Enrichment**: Query business data, find opportunities
+- **Autocomplete**: Industry categories, NAICS codes, tech stacks, job titles
+
+### 8. **Code Analysis Tools** (claude.ai)
+Code intelligence:
+- **Language Detection**: Identify programming languages (JavaScript, TypeScript, Python, etc.)
+- **Framework Detection**: Detect frameworks (React, Vue, Angular, Django, etc.)
+- **AST Manipulation**: Parse and analyze code structure
+- **Documentation Navigation**: Context7 docs lookup, symbol resolution
+- **Code Search**: Find code patterns, grep files
+- **Visual Diff & UI**: Compare UI states, screenshots
+
+### 9. **Code Visualization** (claude.ai)
+- **Charts & Graphs**: Data visualization and analysis
+- **Arch Diagrams**: System architecture and design diagrams (UML, ER, flowcharts)
+- **Screenshot to Artifact**: Convert UI designs to code/specs
+
+### 10. **Image & Video Analysis** (claude.ai)
+- **OCR**: Extract text from images/screenshots
+- **Video Analysis**: Analyze video content, extract key moments
+
+---
+
+## Tool Capabilities Summary
+
+| Platform | Primary Purpose | Key Capabilities |
+|-----------|---------------|---------------|-------------|
+| **Adspirer** | Ad Management | Full campaign lifecycle, analytics, creative management | 45+ tools |
+| **oh-my-claudecode** | Code Development | AST operations, code search, documentation | 25+ tools |
+| **AgentCash** | Wallet Management | Balance, transactions, USDC support | 8+ tools |
+| **Google Calendar** | Calendar Events | OAuth integration, scheduling | 4+ tools |
+| **Gmail Tools** | Email Operations | Drafts, threads, labels | 6+ tools |
+| **LinkedIn Ads** | Company Research, Prospecting, Enrichment | 10+ tools |
+| **VibeProspecting** | Business Intelligence | Search, autocomplete, enrichment | 10+ tools |
+| **Code Analysis** | Language detection, frameworks, patterns, search | 15+ tools |
+| **Image/Video** | OCR, video analysis | 2+ tools |
+| **Code Visualization** | Charts, diagrams, UI diffs | 5+ tools |
+
+**Total Available Tools**: 150+ specialized tools across 8 MCP servers and 10 major platforms
+
+---
+
+## How Can I Help You?
+
+I can assist you with:
+
+1. **Ad Campaign Management**
+   - Creating Google Ads or Meta campaigns
+   - Optimizing budgets and bids
+   - Adding keywords, ad groups, extensions
+   - Analyzing performance and ROAS
+   - Managing creative assets
+
+2. **Code Development**
+   - Reading and editing code files
+   - Searching and analyzing code structure
+   - Refactoring and code optimization
+   - AST manipulation and pattern matching
+
+3. **Wallet & Payments**
+   - Checking USDC wallet balance
+   - Managing deposits and withdrawals
+
+4. **Calendar & Scheduling**
+   - Managing calendar events
+
+5. **Email Operations**
+   - Creating and managing Gmail drafts
+   - Thread management with labels
+
+6. **Business Research**
+   - Finding companies and prospects
+   - Enriching company data
+   - Autocomplete for targeting
+
+7. **Image & Video Analysis**
+   - Extracting text from images
+   - Analyzing video content
+
+---
+
+**Which area would you like help with today?**

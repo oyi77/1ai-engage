@@ -1,0 +1,16 @@
+I see you want to create a LinkedIn advertising campaign! 🚀
+
+Before I can help you set this up, I need to understand what **type of campaign** you'd like to create.
+
+**Please choose one of the following options:**
+
+1. **Image Ad** - Single image ad (static visual, great for brand awareness)
+2. **Video Ad** - Video ad (for storytelling, product demos, testimonials)
+3. **Carousel Ad** - Multi-card swipeable ad (2-10 cards, perfect for product showcase)
+
+**Which would you like to create?**
+- Image Ad
+- Video Ad  
+- Carousel Ad
+
+Please reply with just the number (1, 2, or 3) or say what you need.

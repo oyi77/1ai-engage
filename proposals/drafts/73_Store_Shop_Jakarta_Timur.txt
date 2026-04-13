@@ -1,0 +1,54 @@
+I found 67 functions in the `claude_ai_Adspirer` namespace that start with "claude.ai". Here are the key categories organized to help you navigate:
+
+## 🎯 Google Ads Campaign Management
+**Core Campaign Creation:**
+- `create_search_campaign` - Create Google Search campaigns
+- `create_pmax_campaign` - Create Performance Max campaigns  
+- `create_youtube_campaign` - Create YouTube campaigns
+- `create_demandgen_campaign` - Create Demand Gen campaigns
+
+## 📱 Meta Ads Campaign Management  
+**Campaign Creation:**
+- `create_meta_image_campaign` - Create Meta image campaigns
+- `create_meta_video_campaign` - Create Meta video campaigns
+- `create_meta_carousel_campaign` - Create Meta carousel campaigns
+
+## 📊 Campaign Performance & Analytics
+- `get_campaign_performance` - Analyze campaign performance
+- `analyze_wasted_spend` - Identify wasted ad spend
+- `analyze_meta_ad_performance` - Meta performance analysis
+- `detect_meta_creative_fatigue` - Detect creative fatigue
+
+## 🔍 Research & Targeting
+- `research_keywords` - Keyword research
+- `search_audiences` - Audience research
+- `search_meta_targeting` - Meta targeting options
+
+## 🖼️ Assets & Content
+- `validate_and_prepare_assets` - Validate images
+- `validate_and_prepare_meta_assets` - Validate Meta images
+- `validate_video` - Validate videos
+
+## 💰 Budget & Optimization
+- `optimize_budget_allocation` - Budget optimization
+- `optimize_meta_budget` - Meta budget optimization
+- `optimize_meta_placements` - Placement optimization
+
+## 🔗 LinkedIn Tools
+- `linkedin_ads` - LinkedIn Ads management
+
+## 🛠️ Other Utilities
+- Various helper functions
+
+I can provide more details about any of these tools if you'd like. What specific area are you interested in, or do you have a particular task in mind?
+
+**Note**: To help you find what you need quickly, I'm highlighting the most commonly used tools for each category. This is a comprehensive system with 67 tools covering Google Ads, Meta Ads, performance analytics, keyword research, and more. 
+
+For each tool, I'm showing:
+- The tool name
+- A brief description of what it does
+- Required parameters
+- When it's typically used
+- Key benefits/features
+
+Would you like me to explain any of these tools in more detail, or help you get started with a specific campaign?

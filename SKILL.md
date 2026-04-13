@@ -22,19 +22,46 @@ Recommended sequence for agents:
 
 ## MCP server
 
-### Start locally over stdio
-```bash
-python3 mcp_server.py --transport stdio
+### Public HTTPS endpoint (recommended for remote agents)
+```
+https://engage-mcp.aitradepulse.com/mcp
 ```
 
-### Start as HTTP MCP server
-```bash
-python3 mcp_server.py --transport http --host 127.0.0.1 --port 8765
+Required headers:
+```
+Content-Type: application/json
+Accept: application/json, text/event-stream
 ```
 
-HTTP MCP path:
+Quick test:
+```bash
+curl -X POST https://engage-mcp.aitradepulse.com/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
+```
+
+### Claude Desktop / local agent (stdio)
+Add to `claude_desktop_config.json`:
+```json
+{
+  "mcpServers": {
+    "1ai-engage": {
+      "command": "/home/openclaw/.openclaw/workspace/1ai-engage/.venv/bin/python",
+      "args": ["/home/openclaw/.openclaw/workspace/1ai-engage/mcp_server.py", "--transport", "stdio"]
+    }
+  }
+}
+```
+
+### Start locally as HTTP MCP server
+```bash
+python3 mcp_server.py --transport http --host 127.0.0.1 --port 8766
+```
+
+Local HTTP MCP path:
 ```text
-http://127.0.0.1:8765/mcp
+http://127.0.0.1:8766/mcp
 ```
 
 ## Available tools

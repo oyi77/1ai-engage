@@ -315,21 +315,20 @@ def main() -> None:
         "--transport", choices=["stdio", "http", "sse"], default="stdio"
     )
     parser.add_argument("--host", default="127.0.0.1")
-    parser.add_argument("--port", type=int, default=8765)
+    parser.add_argument("--port", type=int, default=8766)
     args = parser.parse_args()
 
     if args.transport == "stdio":
         mcp.run(transport="stdio")
-    elif args.transport == "sse":
-        mcp.run(transport="sse", host=args.host, port=args.port)
     else:
-        mcp.run(
-            transport="streamable-http",
-            host=args.host,
-            port=args.port,
-            streamable_http_path="/mcp",
-            stateless_http=True,
-        )
+        mcp.settings.host = args.host
+        mcp.settings.port = args.port
+        if args.transport == "sse":
+            mcp.run(transport="sse")
+        else:
+            mcp.settings.streamable_http_path = "/mcp"
+            mcp.settings.stateless_http = True
+            mcp.run(transport="streamable-http")
 
 
 if __name__ == "__main__":

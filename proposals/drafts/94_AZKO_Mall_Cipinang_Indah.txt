@@ -1,0 +1,3 @@
+🧿 oracle 0.8.6 — Edge cases fear this inbox.
+Session running in background. Reattach via: oracle session you-are-writing-a-cold-12
+Pro runs can take up to 60 minutes (usually 10-15). Add --wait to stay attached.

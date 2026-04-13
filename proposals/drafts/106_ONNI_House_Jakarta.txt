@@ -1,0 +1,42 @@
+I can see you've shared a comprehensive workflow document for prospecting and campaign creation. That's very detailed! 
+
+Let me help you understand what you need and guide you through the next steps:
+
+**My Observations:**
+
+You're looking at a multi-stage prospecting and campaign system with:
+- Multiple AI analysis tools (video, image analysis)
+- Research/enrichment capabilities
+- Campaign creation tools (Google Ads, Meta, TikTok)
+- Email draft generation
+
+**What I Need to Clarify:**
+
+Before I can provide specific implementation guidance, I need to understand:
+
+1. **What's your primary goal?** Are you looking to generate leads, build awareness, or drive sales?
+2. **What's your target audience?** B2B companies, decision makers, startup founders, etc.?
+3. **What's your budget?** Do you have a specific budget range in mind?
+4. **What's your product/service?** What are you promoting - software services, consulting, physical products?
+5. **Which platform?** Google Ads, Meta (Facebook/Instagram), or TikTok?
+
+**Let me start by asking the key questions:**
+
+Based on this workflow document, it appears you have the tools to:
+- **Research prospects** (find companies matching criteria)
+- **Enrich data** (add business intelligence, tech stack, financials)
+- **Analyze opportunities** (AI analysis for patterns, trends)
+- **Generate proposals** (create email drafts for outreach)
+
+The workflow shows this as a **progressive funnel**:
+Discovery → Research → Enrichment → AI Analysis → Proposal Generation → Campaign Setup → Launch
+
+To give you the most helpful guidance, I need to know which phase you're at or want to focus on.
+
+**Are you at the Discovery phase** - finding and qualifying prospects?
+
+Or are you ready to move to the **Proposal Generation phase** and need help creating a customized email?
+
+Or perhaps you want to skip ahead to **Campaign Creation** and need help setting up ads?
+
+Let me ask these questions so I can guide you properly through the right phase of the workflow.

@@ -1,0 +1,14 @@
+---PROPOSAL---
+I noticed AZKO Buaran Plaza is already leveraging Next.js and running SEM campaigns with AI tools—that's a smart tech foundation for a home improvement retailer.
+
+However, I spotted an opportunity: while your site drives traffic through paid channels, you're missing the conversion boost that live support provides. Adding an AI-powered chat assistant could turn more of that SEM investment into actual leads—answering product questions, capturing quote requests, and scheduling showroom visits 24/7 without hiring extra staff.
+
+For furniture and home improvement stores, AI automation can also analyze visitor behavior to surface relevant product recommendations automatically, increasing average order value.
+
+I'd love to show you how a quick chat implementation could start converting your SEM traffic immediately. Would you be open to a 15-minute discovery call this week?
+
+Best,
+Vilona
+BerkahKarya
+---WHATSAPP---
+Halo, saya Vilona dari BerkahKarya. Saya lihat website AZKO Buaran Plaza sudah pakai Next.js dan SEM—keren banget! Coba saya bantu tambahin chatbot AI biar bisa jawab pertanyaan pembeli 24 jam? Free audit, kalau tertarik yuk ngobrol 15 menit aja.</arg_value>

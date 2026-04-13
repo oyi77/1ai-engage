@@ -1,0 +1,3 @@
+🧿 oracle 0.8.6 — The cleanup crew for speculative stack traces.
+Session running in background. Reattach via: oracle session you-are-writing-a-cold-18
+Pro runs can take up to 60 minutes (usually 10-15). Add --wait to stay attached.
