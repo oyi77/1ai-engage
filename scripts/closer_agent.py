@@ -16,7 +16,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 import brain_client
-from config import PAYMENT_LINK, CALENDLY_LINK
+from config import PAYMENT_LINK, CALENDLY_LINK, GENERATOR_MODEL
 from senders import send_email, send_whatsapp
 from state_manager import (
     get_lead_by_id,
@@ -56,7 +56,7 @@ def classify_intent(reply_text: str, lead_name: str) -> str:
     )
     try:
         result = subprocess.run(
-            ["claude", "-p", "--model", "sonnet"],
+            ["claude", "-p", "--model", GENERATOR_MODEL],
             input=prompt,
             capture_output=True,
             text=True,

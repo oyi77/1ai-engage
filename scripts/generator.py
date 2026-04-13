@@ -21,7 +21,11 @@ import sys
 
 from leads import load_leads
 from utils import parse_display_name, draft_path, safe_filename, is_empty
-from config import PROPOSALS_DIR as _PROPOSALS_DIR, RESEARCH_DIR as _RESEARCH_DIR
+from config import (
+    PROPOSALS_DIR as _PROPOSALS_DIR,
+    RESEARCH_DIR as _RESEARCH_DIR,
+    GENERATOR_MODEL,
+)
 import brain_client as _brain
 import state_manager as _sm
 
@@ -184,7 +188,7 @@ def generate_proposal(lead: dict, dry_run: bool = False) -> str:
         return ""
 
     tools = [
-        ("claude", ["claude", "-p", "--model", "sonnet"], True),
+        ("claude", ["claude", "-p", "--model", GENERATOR_MODEL], True),
         ("gemini", ["gemini", "ask", full_prompt], False),
         ("oracle", ["oracle", full_prompt], False),
     ]

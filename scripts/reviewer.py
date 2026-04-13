@@ -13,6 +13,7 @@ import sys
 
 from leads import load_leads, save_leads
 from utils import parse_display_name, draft_path
+from config import REVIEWER_MODEL
 
 PASS_THRESHOLD = 6  # out of 10 — below this, regenerate
 
@@ -40,7 +41,7 @@ def _review_prompt(name: str, proposal: str, research: str) -> str:
 def _call_claude(prompt: str) -> str:
     try:
         result = subprocess.run(
-            ["claude", "-p", "--model", "sonnet"],
+            ["claude", "-p", "--model", REVIEWER_MODEL],
             input=prompt,
             capture_output=True,
             text=True,

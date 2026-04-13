@@ -17,6 +17,7 @@ from datetime import datetime, timedelta, timezone
 from leads import load_leads, save_leads
 from senders import send_email
 from utils import parse_display_name, is_empty
+from config import REVIEWER_MODEL
 
 FOLLOWUP_DAYS = 7  # days after first contact before follow-up
 SECOND_FOLLOWUP_DAYS = 14  # days after first contact before marking cold
@@ -47,7 +48,7 @@ def _generate_followup(name: str, business_type: str, is_second: bool = False) -
     prompt = _build_followup_prompt(name, business_type, is_second)
     try:
         result = subprocess.run(
-            ["claude", "-p", "--model", "haiku"],
+            ["claude", "-p", "--model", REVIEWER_MODEL],
             input=prompt,
             capture_output=True,
             text=True,

@@ -24,6 +24,12 @@ LOOP_SLEEP_SECONDS = int(os.getenv("LOOP_SLEEP_SECONDS", "60"))
 MIN_NEW_LEADS_THRESHOLD = int(os.getenv("MIN_NEW_LEADS_THRESHOLD", "10"))
 
 # ---------------------------------------------------------------------------
+# AI Models
+# ---------------------------------------------------------------------------
+GENERATOR_MODEL = os.getenv("GENERATOR_MODEL", "sonnet")
+REVIEWER_MODEL = os.getenv("REVIEWER_MODEL", "sonnet")
+
+# ---------------------------------------------------------------------------
 # Payment & booking links
 # ---------------------------------------------------------------------------
 PAYMENT_LINK = os.getenv("PAYMENT_LINK", "https://berkahkarya.org/pay")
