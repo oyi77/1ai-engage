@@ -1,10 +1,7 @@
 """
 1ai-engage Streamlit WebUI Dashboard
 
-Main entrypoint for the WebUI. Provides sidebar navigation with 4 sections:
-- Funnel: Lead status visualization
-- Run Pipeline: Pipeline controls and execution
-- Draft Editor: Proposal draft editing interface
+Main entrypoint. Uses sidebar radio buttons as primary navigation.
 """
 
 import sys
@@ -22,73 +19,93 @@ from ui.components.conversations import render_conversations
 from ui.components.wa_numbers import render_wa_numbers
 from ui.components.kb_editor import render_kb_editor
 
-# Configure page
 st.set_page_config(
-    page_title="1ai-engage Dashboard", layout="wide", initial_sidebar_state="expanded"
+    page_title="1ai-engage Dashboard",
+    layout="wide",
+    initial_sidebar_state="expanded",
 )
 
-# Initialize global session state
-if "job_running" not in st.session_state:
-    st.session_state["job_running"] = False
-if "job_log" not in st.session_state:
-    st.session_state["job_log"] = ""
-if "job_exit_code" not in st.session_state:
-    st.session_state["job_exit_code"] = None
-if "job_label" not in st.session_state:
-    st.session_state["job_label"] = ""
+PAGES = [
+    "📊 Funnel",
+    "🚀 Run Pipeline",
+    "✏️ Draft Editor",
+    "⚙️ Settings",
+    "📱 WA Numbers",
+    "💬 Conversations",
+    "📚 Knowledge Base",
+    "💰 Sales Pipeline",
+]
 
-# Main title
-st.title("1ai-engage Dashboard")
+if "current_page" not in st.session_state:
+    st.session_state["current_page"] = PAGES[0]
 
-# Sidebar navigation
 with st.sidebar:
-    st.header("Navigation")
-    st.markdown("Use the tabs in the main area to navigate.")
+    st.markdown("### 🚀 1ai-engage")
+    selected = st.radio(
+        "Navigate",
+        PAGES,
+        index=PAGES.index(st.session_state["current_page"]),
+        label_visibility="collapsed",
+    )
+    st.session_state["current_page"] = selected
+    st.divider()
 
-# Page routing via tabs
-tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs(
-    [
-        "📊 Funnel",
-        "🚀 Run Pipeline",
-        "✏️ Draft Editor",
-        "⚙️ Settings",
-        "📱 WA Numbers",
-        "💬 Conversations",
-        "📚 Knowledge Base",
-        "💰 Sales Pipeline",
-    ]
-)
+    st.markdown("**Hub Services**")
+    hub_services = []
+    try:
+        import json
 
-with tab1:
+        svc_file = Path("/home/openclaw/projects/berkahkarya-hub/config/services.json")
+        if svc_file.exists():
+            svc = json.loads(svc_file.read_text())
+            for name, key in [
+                ("WAHA", "waha"),
+                ("n8n", "n8n"),
+                ("PaperClip", "paperclip"),
+            ]:
+                entry = svc.get(key, {})
+                url = entry.get("domain_url") or entry.get("base_url")
+                if url:
+                    hub_services.append((name, url))
+    except Exception:
+        pass
+
+    if hub_services:
+        for name, url in hub_services:
+            st.markdown(f"• [{name}]({url})")
+    else:
+        st.caption("Hub config not found")
+
+    st.divider()
+    st.caption("v1.0.0")
+
+st.title(st.session_state["current_page"])
+
+if selected == "📊 Funnel":
     render_funnel()
 
-with tab2:
+elif selected == "🚀 Run Pipeline":
     render_controls()
 
-with tab3:
-    st.header("✏️ Draft Editor")
+elif selected == "✏️ Draft Editor":
     render_editor()
 
-with tab4:
+elif selected == "⚙️ Settings":
     render_settings()
 
-with tab5:
+elif selected == "📱 WA Numbers":
     render_wa_numbers()
 
-with tab6:
+elif selected == "💬 Conversations":
     render_conversations()
 
-with tab7:
+elif selected == "📚 Knowledge Base":
     render_kb_editor()
 
-with tab8:
-    st.subheader("💰 Sales Pipeline")
-
-    import sys
-
+elif selected == "💰 Sales Pipeline":
     sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
-    from state_manager import get_wa_numbers, get_all_conversation_stages
     from conversation_tracker import get_messages
+    from state_manager import get_wa_numbers, get_all_conversation_stages
     from datetime import datetime
 
     sessions = get_wa_numbers()
@@ -117,7 +134,6 @@ with tab8:
         "close_lost": "❌",
     }
 
-    # Group conversations by stage
     by_stage = {s: [] for s in STAGE_COLS}
     for conv in convs:
         stage = conv.get("stage") or "discovery"
@@ -143,7 +159,7 @@ with tab8:
                         time_str = f"{ago}d ago"
                     else:
                         time_str = "new"
-                except:
+                except Exception:
                     time_str = "new"
 
                 msg = get_messages(conv["id"], limit=1)
