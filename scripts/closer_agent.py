@@ -42,6 +42,9 @@ _MOCK_DEFAULT = "Can you tell me more about your services?"
 # -------------------------------------------------------------------------
 
 
+import llm_client
+
+
 def classify_intent(reply_text: str, lead_name: str) -> str:
     prompt = (
         "Classify the intent of this sales reply into exactly one of: "
@@ -54,21 +57,9 @@ def classify_intent(reply_text: str, lead_name: str) -> str:
         f"Reply: {reply_text}\n\n"
         "Respond with ONLY the intent word (BUY/INFO/REJECT/UNCLEAR), nothing else."
     )
-    try:
-        result = subprocess.run(
-            ["claude", "-p", "--model", GENERATOR_MODEL],
-            input=prompt,
-            capture_output=True,
-            text=True,
-            timeout=60,
-        )
-        if result.returncode == 0:
-            raw = result.stdout.strip().split()[0].upper()
-            if raw in _VALID_INTENTS:
-                return raw
-    except Exception as e:
-        print(f"[closer] Claude classification failed: {e}", file=sys.stderr)
-
+    result = llm_client.classify(prompt)
+    if result in _VALID_INTENTS:
+        return result
     return _classify_heuristic(reply_text)
 
 

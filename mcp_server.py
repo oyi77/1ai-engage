@@ -23,11 +23,16 @@ from starlette.responses import JSONResponse
 
 import agent_control as control  # noqa: E402  (also adds scripts/ to sys.path)
 from config import WAHA_OWN_NUMBER, WAHA_WEBHOOK_SECRET  # noqa: E402
+from cs_engine import handle_inbound_message as cs_handle  # noqa: E402
+from warmcall_engine import process_reply as warmcall_handle  # noqa: E402
 from state_manager import (  # noqa: E402
     add_event_log,
     get_wa_number_by_session,
     upsert_wa_number,
 )
+
+# Track running background tasks
+_background_tasks = set()
 
 mcp = FastMCP(
     "1ai-engage",
@@ -605,7 +610,7 @@ async def _process_webhook_event(session: str, event: str, payload: dict) -> Non
             return
 
         if event in ("message", "message.any"):
-            if sender == own or not sender:
+            if not sender:
                 return
 
             wa_number = get_wa_number_by_session(session)
@@ -615,21 +620,81 @@ async def _process_webhook_event(session: str, event: str, payload: dict) -> Non
             mode = wa_number.get("mode", "cold")
             body_text = str(payload.get("body") or "")
 
-            # Handlers added in Tasks 7 (cs) and 9 (warmcall)
-            if mode in ("cs", "warmcall"):
+            wa_number_id = wa_number.get("id", "")
+
+            if mode == "cs" and wa_number.get("auto_reply"):
                 add_event_log(
                     lead_id="webhook",
-                    event_type=f"inbound_{mode}",
+                    event_type="inbound_cs",
                     details=_json.dumps(
                         {
                             "session": session,
                             "from": sender,
                             "body": body_text[:500],
-                            "wa_number_id": wa_number.get("id"),
+                            "wa_number_id": wa_number_id,
                             "mode": mode,
                         }
                     ),
                 )
+                try:
+                    result = await asyncio.to_thread(
+                        cs_handle,
+                        wa_number_id=wa_number_id,
+                        contact_phone=sender,
+                        message_text=body_text,
+                        session_name=session,
+                    )
+                    add_event_log(
+                        lead_id="webhook",
+                        event_type="cs_response",
+                        details=_json.dumps(result),
+                    )
+                except Exception as e:
+                    print(f"[webhook] CS engine error: {e}", file=_sys.stderr)
+                    add_event_log(
+                        lead_id="webhook",
+                        event_type="cs_error",
+                        details=str(e)[:500],
+                    )
+            elif mode == "warmcall":
+                add_event_log(
+                    lead_id="webhook",
+                    event_type="inbound_warmcall",
+                    details=_json.dumps(
+                        {
+                            "session": session,
+                            "from": sender,
+                            "body": body_text[:500],
+                            "wa_number_id": wa_number_id,
+                            "mode": mode,
+                        }
+                    ),
+                )
+                try:
+                    from state_manager import get_or_create_conversation
+
+                    conv = get_or_create_conversation(
+                        wa_number_id=wa_number_id,
+                        contact_phone=sender,
+                        engine_mode="warmcall",
+                    )
+                    result = await asyncio.to_thread(
+                        warmcall_handle,
+                        conv["id"],
+                        body_text,
+                    )
+                    add_event_log(
+                        lead_id="webhook",
+                        event_type="warmcall_response",
+                        details=_json.dumps(result),
+                    )
+                except Exception as e:
+                    print(f"[webhook] Warmcall engine error: {e}", file=_sys.stderr)
+                    add_event_log(
+                        lead_id="webhook",
+                        event_type="warmcall_error",
+                        details=str(e)[:500],
+                    )
     except Exception as e:
         print(f"[webhook] background error: {e}", file=_sys.stderr)
 
@@ -660,7 +725,9 @@ async def webhook_waha(request: Request) -> JSONResponse:
             details=body.decode("utf-8", errors="replace")[:1000],
         )
 
-        asyncio.create_task(_process_webhook_event(session, event, payload))
+        task = asyncio.create_task(_process_webhook_event(session, event, payload))
+        _background_tasks.add(task)
+        task.add_done_callback(_background_tasks.discard)
 
         return JSONResponse({"status": "ok", "event": event})
 

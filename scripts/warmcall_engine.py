@@ -759,8 +759,9 @@ def _run_test() -> None:
     print("[warmcall] Running test mode...")
     init_db()
 
-    # Monkey-patch senders to prevent real sends
-    import warmcall_engine as _self
+    # Monkey-patch via globals() so __main__ module sees the patches
+    # (avoids the classic __main__ vs module dual-import problem)
+    _g = globals()
 
     _send_log: list[str] = []
 
@@ -771,8 +772,13 @@ def _run_test() -> None:
     def _mock_typing(*a, **kw):
         return True
 
-    _self.send_whatsapp_session = _mock_send
-    _self.send_typing_indicator = _mock_typing
+    _orig_send = _g.get("send_whatsapp_session")
+    _orig_typing = _g.get("send_typing_indicator")
+    _orig_generate = _g.get("_generate_message")
+    _orig_classify = _g.get("classify_intent")
+
+    _g["send_whatsapp_session"] = _mock_send
+    _g["send_typing_indicator"] = _mock_typing
 
     # Patch _generate_message to avoid real Claude calls
     _turn_messages = [
@@ -787,7 +793,10 @@ def _run_test() -> None:
         _turn_counter["n"] += 1
         return _turn_messages[idx]
 
-    _self._generate_message = _mock_generate
+    _g["_generate_message"] = _mock_generate
+
+    # Patch classify_intent to use heuristic only (no Claude call)
+    _g["classify_intent"] = lambda text, name: _classify_heuristic(text)
 
     # Also patch time.sleep to not actually sleep
     original_sleep = time.sleep
@@ -810,9 +819,6 @@ def _run_test() -> None:
 
         # Turn 2: Simulate prospect reply (INFO intent)
         print("\n--- Turn 2: Process INFO reply ---")
-        # Patch classify_intent for test
-        _self.classify_intent = lambda text, name: _classify_heuristic(text)
-
         result2 = process_reply(conv_id, "Bisa ceritakan lebih detail tentang jasanya?")
         print(f"  Result: {result2}")
         assert result2["intent"] == "INFO", f"Expected INFO, got {result2['intent']}"
@@ -835,6 +841,15 @@ def _run_test() -> None:
 
     finally:
         time.sleep = original_sleep
+        # Restore originals
+        if _orig_send:
+            _g["send_whatsapp_session"] = _orig_send
+        if _orig_typing:
+            _g["send_typing_indicator"] = _orig_typing
+        if _orig_generate:
+            _g["_generate_message"] = _orig_generate
+        if _orig_classify:
+            _g["classify_intent"] = _orig_classify
 
 
 def main() -> None:

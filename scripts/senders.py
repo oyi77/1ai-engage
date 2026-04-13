@@ -106,32 +106,35 @@ def _send_wa_waha(phone: str, message: str, session_name: str = None) -> bool:
     chat_id = _phone_to_chat_id(phone)
 
     if session_name is not None:
-        url = str(WAHA_DIRECT_URL or "").rstrip("/")
-        key = str(WAHA_DIRECT_API_KEY or "")
-        if not url:
-            print(
-                "❌ WAHA_DIRECT_URL not configured for session-aware send",
-                file=sys.stderr,
-            )
-            return False
-        headers = {"X-Api-Key": key, "Content-Type": "application/json"}
-        try:
-            r = _req.post(
-                f"{url}/api/sendText",
-                json={"chatId": chat_id, "text": message, "session": session_name},
-                headers=headers,
-                timeout=15,
-            )
-            if r.status_code < 300:
-                print(f"✅ WA sent via WAHA_DIRECT ({session_name}) to {clean}")
-                return True
-            print(
-                f"❌ WAHA_DIRECT ({session_name}) error {r.status_code}: "
-                f"{r.text[:200]}",
-                file=sys.stderr,
-            )
-        except Exception as e:
-            print(f"❌ WAHA_DIRECT ({session_name}) failed: {e}", file=sys.stderr)
+        # Prefer WAHA_URL (PLUS tier supports multiple sessions) over WAHA_DIRECT (CORE tier)
+        targets_to_try = [
+            ("WAHA", WAHA_URL, WAHA_API_KEY),
+            ("WAHA_DIRECT", WAHA_DIRECT_URL, WAHA_DIRECT_API_KEY),
+        ]
+
+        for target_name, base_url, api_key in targets_to_try:
+            url = str(base_url or "").rstrip("/")
+            key = str(api_key or "")
+            if not url:
+                continue
+            headers = {"X-Api-Key": key, "Content-Type": "application/json"}
+            try:
+                r = _req.post(
+                    f"{url}/api/sendText",
+                    json={"chatId": chat_id, "text": message, "session": session_name},
+                    headers=headers,
+                    timeout=15,
+                )
+                if r.status_code < 300:
+                    print(f"✅ WA sent via {target_name} ({session_name}) to {clean}")
+                    return True
+                print(
+                    f"❌ {target_name} ({session_name}) error {r.status_code}: "
+                    f"{r.text[:200]}",
+                    file=sys.stderr,
+                )
+            except Exception as e:
+                print(f"❌ {target_name} ({session_name}) failed: {e}", file=sys.stderr)
         return False
 
     for target_name, base_url, headers in _waha_targets():

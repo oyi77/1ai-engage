@@ -181,16 +181,19 @@ def should_escalate(message: str, kb_results: list[dict], conversation: dict) ->
 # ---------------------------------------------------------------------------
 
 
+import llm_client
+
+
 def generate_cs_response(
     conversation_context: str,
     kb_results: list[dict],
     persona: str,
     message: str,
 ) -> str:
-    """Generate a customer service response using Claude.
+    """Generate a customer service response.
 
-    Uses KB results as grounding context.  Falls back to a polite
-    "I'll check and get back to you" if the LLM call fails.
+    Tries claude CLI, opencode CLI, Ollama, Groq in order.
+    Falls back to KB answer or polite deferral if all fail.
     """
     lang = _detect_language(message)
     lang_instruction = (
@@ -199,7 +202,6 @@ def generate_cs_response(
         else "Respond in English."
     )
 
-    # Format KB context
     kb_context = ""
     if kb_results:
         kb_parts = []
@@ -242,22 +244,15 @@ def generate_cs_response(
 
     full_prompt = "\n".join(prompt_parts)
 
-    try:
-        result = subprocess.run(
-            ["claude", "-p", "--model", GENERATOR_MODEL],
-            input=full_prompt,
-            capture_output=True,
-            text=True,
-            timeout=60,
-        )
-        if result.returncode == 0:
-            response = result.stdout.strip()
-            if response:
-                return response
-    except Exception as e:
-        print(f"[cs_engine] Claude call failed: {e}", file=sys.stderr)
+    # Try multi-provider LLM chain (claude → opencode → ollama → groq → openai)
+    response = llm_client.generate(full_prompt)
+    if response:
+        return response
 
-    # Fallback — polite deferral
+    # Fallback — use KB answer or polite deferral
+    if kb_results:
+        return kb_results[0].get("answer", "")
+
     if lang == "id":
         return (
             "Terima kasih atas pertanyaannya. Saya akan cek dengan tim kami "
