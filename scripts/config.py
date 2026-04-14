@@ -116,12 +116,17 @@ HUB_API_KEY = os.getenv("HUB_HUB_API_KEY", "")  # empty = dev mode (no auth)
 WAHA_URL = os.getenv(
     "WAHA_URL", _WAHA_CFG.get("domain_url", "https://waha.aitradepulse.com")
 )
-WAHA_DIRECT_URL = os.getenv(
-    "WAHA_DIRECT_URL", _WAHA_CFG.get("base_url", "http://5.189.138.144:3000")
+WAHA_DIRECT_URL = "https://waha.aitradepulse.com"
+WAHA_API_KEY = os.getenv(
+    "WAHA_API_KEY", "0673158ede14970b922f7e62075bd0f211490ca335111a9e"
+)
+WAHA_DIRECT_API_KEY = os.getenv(
+    "WAHA_DIRECT_API_KEY", "0673158ede14970b922f7e62075bd0f211490ca335111a9e"
 )
 WAHA_API_KEY = os.getenv("WAHA_API_KEY", _WAHA_CFG.get("api_key", ""))
 WAHA_DIRECT_API_KEY = os.getenv(
-    "WAHA_DIRECT_API_KEY", _WAHA_CFG.get("api_key", WAHA_API_KEY)
+    "WAHA_DIRECT_API_KEY",
+    os.getenv("WAHA_API_KEY", "0673158ede14970b922f7e62075bd0f211490ca335111a9e"),
 )
 WAHA_SESSION = os.getenv("WAHA_SESSION", _WAHA_CFG.get("default_session", "default"))
 WAHA_OWN_NUMBER = os.getenv(
