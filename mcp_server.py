@@ -13,7 +13,6 @@ import hashlib
 import hmac
 import json as _json
 import sys as _sys
-import time
 from collections import defaultdict
 from typing import Any
 
@@ -35,24 +34,39 @@ from state_manager import (  # noqa: E402
 
 # Track seen message IDs per session to prevent WAHA echo duplicates
 _seen_messages: dict[str, set[str]] = defaultdict(set)
-_SEEN_TTL_SECONDS = 120
 
 # Track running background tasks
 _background_tasks: set = set()
+
+# Cache of WAHA session "me" (bot's own phone) IDs per session
+# Used to detect and block echo messages (WAHA sends outbound back as inbound)
+_session_me_ids: dict[str, str] = {}
+
+
+def _is_own_message(session: str, sender: str) -> bool:
+    if not sender:
+        return False
+    me_id = _session_me_ids.get(session, "")
+    if me_id and sender == me_id:
+        return True
+    # Fallback: also block if sender ends with the bare number
+    bare = sender.split("@")[0]
+    me_bare = me_id.split("@")[0] if me_id else ""
+    if me_bare and bare == me_bare:
+        return True
+    return False
 
 
 def _is_duplicate_message(session: str, waha_message_id: str | None) -> bool:
     """Return True if this WAHA message ID was already processed (echo guard)."""
     if not waha_message_id:
         return False
-    now = time.time()
     if session not in _seen_messages:
         _seen_messages[session] = set()
     seen = _seen_messages[session]
     if waha_message_id in seen:
         return True
     seen.add(waha_message_id)
-    # Purge old entries
     _seen_messages[session] = {mid for mid in seen}
     return False
 
@@ -642,6 +656,18 @@ async def _process_webhook_event(session: str, event: str, payload: dict) -> Non
 
             waha_msg_id = str(payload.get("id") or "")
             if _is_duplicate_message(session, waha_msg_id):
+                return
+
+            # Echo guard: block messages from the bot's own number
+            # WAHA echoes outbound messages back as "message.any" inbound webhooks
+            own = _session_me_ids.get(session, "")
+            if not own:
+                # me is embedded in the WAHA webhook payload
+                me_data = payload.get("me") or {}
+                own = str(me_data.get("id", ""))
+                if own:
+                    _session_me_ids[session] = own
+            if _is_own_message(session, sender):
                 return
 
             mode = wa_number.get("mode", "cold")
