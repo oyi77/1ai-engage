@@ -40,7 +40,71 @@ import re as _re
 
 from kb_manager import search as _kb_search_raw
 from senders import send_typing_indicator, send_whatsapp_session
-from state_manager import init_db
+from state_manager import init_db, add_event_log
+import capi_tracker
+
+
+def _is_purchase_signal(text: str) -> bool:
+    """Return True if message looks like a payment confirmation."""
+    markers = [
+        "transfer",
+        "tf",
+        "bukti",
+        "lunas",
+        "bayar",
+        "udah dikirim",
+        "sudah dikirim",
+    ]
+    return any(m in text.lower() for m in markers)
+
+
+def _is_shipping_complaint(text: str) -> bool:
+    """Return True if message contains shipping cost complaints."""
+    markers = ["ongkir mahal", "kemahalan", "jauh", "luar jawa", "pengiriman mahal"]
+    return any(m in text.lower() for m in markers)
+
+
+def _detect_user_type(text: str, conversation_id: int) -> str:
+    """Detect user mindset based on behavior and message content."""
+    text = text.lower()
+
+    # 1. Bulk / Grosir
+    if any(
+        k in text
+        for k in [
+            "banyak",
+            "grosir",
+            "reseller",
+            "partai",
+            "liter banyak",
+            "jerigen banyak",
+        ]
+    ):
+        return "bulk"
+
+    # 2. Urgent / Fast Response
+    if any(
+        k in text
+        for k in ["sekarang", "cepat", "buru-buru", "hari ini", "kapan sampai", "besok"]
+    ):
+        return "urgent"
+
+    # 3. Price Sensitive
+    if any(
+        k in text
+        for k in ["mahal", "diskon", "kurangin", "nego", "murah mana", "turun harga"]
+    ):
+        return "price_sensitive"
+
+    # 4. Friction / Skeptical
+    if any(
+        k in text
+        for k in ["ragu", "takut tipu", "cod", "shopee aja", "bisa percaya", "aman gak"]
+    ):
+        return "friction"
+
+    return "normal"
+
 
 _FTS_UNSAFE = _re.compile(r"[^\w\s]", _re.UNICODE)
 
@@ -213,6 +277,7 @@ def generate_cs_response(
     persona: str,
     message: str,
     stage_context: str = "",
+    user_type: str = "normal",
 ) -> str:
     """Generate a customer service response.
 
@@ -226,6 +291,16 @@ def generate_cs_response(
         else "Respond in English."
     )
 
+    # Adaptive Strategy Mapping
+    strategies = {
+        "normal": "Use soft closing. Guide the user gently to purchase.",
+        "price_sensitive": "Emphasize value & suggest bundling / paket hemat for better price.",
+        "urgent": "Fast closing mode. Minimal explanation, get payment info out quickly.",
+        "bulk": "Offer cargo solution (KALOG) and emphasize pricing for volume.",
+        "friction": "Address doubts briefly, offer Shopee link as a safe fallback solution: https://s.shopee.co.id/1Lbo3T6GmI",
+    }
+    strategy_instruction = strategies.get(user_type, strategies["normal"])
+
     kb_context = ""
     if kb_results:
         kb_parts = []
@@ -237,6 +312,18 @@ def generate_cs_response(
 
     prompt_parts = [
         f"[SYSTEM]\n{persona}\n",
+        "## CLOSING PRIORITY MODE (ACTIVE)\n"
+        "- Your primary goal is to increase conversion.\n"
+        "- ALWAYS prioritize direct order via WhatsApp.\n"
+        "- Do NOT suggest marketplace (Shopee) unless user explicitly complains about shipping cost or shipping distance.\n"
+        "- Always include a soft closing CTA (e.g., 'Mau dipesankan sekarang?', 'Bisa dikirim hari ini Kak?').\n"
+        "- Frame shipping cost as normal and acceptable (e.g., 'Ongkir ke Jombang cuma Rp10rb aja Kak, masih sangat masuk akal.').\n"
+        "- Reduce user thinking effort. Give direct choices.\n"
+        "- If user hesitates or asks for discount → suggest bundling / paket hemat.\n"
+        "- If user complains about shipping cost → offer Shopee as fallback: https://s.shopee.co.id/1Lbo3T6GmI\n"
+        "- Never present multiple options at once unless necessary.\n",
+        f"## ADAPTIVE STRATEGY: {user_type.upper()}\n"
+        f"Instruction: {strategy_instruction}\n",
         f"Language instruction: {lang_instruction}\n",
     ]
 
@@ -307,6 +394,20 @@ def handle_inbound_message(
     Returns a dict with keys: action, response, conversation_id, reason.
     """
     # 1. Cross-contamination guard
+    from state_manager import get_wa_number_by_session
+
+    wa_num_rec = get_wa_number_by_session(session_name)
+    if wa_num_rec:
+        own_phone = "".join(filter(str.isdigit, str(wa_num_rec.get("phone") or "")))
+        clean_contact = "".join(filter(str.isdigit, str(contact_phone)))
+        if own_phone and clean_contact == own_phone:
+            return {
+                "action": "skipped",
+                "response": "",
+                "conversation_id": 0,
+                "reason": "Self-loop guard: contact is the bot itself",
+            }
+
     if should_skip(contact_phone, wa_number_id):
         return {
             "action": "skipped",
@@ -330,6 +431,17 @@ def handle_inbound_message(
 
     # 4. Record inbound message
     add_message(conv_id, direction="in", message_text=message_text)
+
+    # 4b. Track Meta CAPI - Lead (every new message is a fresh lead interaction)
+    capi_tracker.track_lead(contact_phone)
+
+    # 4c. Track Meta CAPI - Purchase (detect payment signals)
+    if _is_purchase_signal(message_text):
+        capi_tracker.track_purchase(contact_phone)
+
+    # 4d. Track Meta CAPI - AddToCart (detect shipping complaints -> likely shopee redirect)
+    if _is_shipping_complaint(message_text):
+        capi_tracker.track_atc(contact_phone)
 
     # 5. Search KB
     kb_results = kb_search(wa_number_id, message_text, limit=5)
@@ -381,15 +493,80 @@ def handle_inbound_message(
     advance_stage(conv_id, message_text, kb_results)
     stage_context = get_stage_context(conv_id)
 
+    # 7b. Detect User Type (Hybrid Adaptive Mode)
+    user_type = _detect_user_type(message_text, conv_id)
+
     # 8. Generate AI response
-    conversation_context = get_conversation_context(conv_id, max_messages=10)
-    response_text = generate_cs_response(
-        conversation_context,
-        kb_results,
-        persona,
-        message_text,
-        stage_context,
-    )
+    response_text = ""
+
+    if kb_results:
+        conversation_context = get_conversation_context(conv_id, max_messages=10)
+        response_text = generate_cs_response(
+            conversation_context,
+            kb_results,
+            persona,
+            message_text,
+            stage_context,
+            user_type,
+        )
+
+    if not response_text:
+        import flosia_sales_engine
+
+        fs = flosia_sales_engine.FlosiaSalesEngine(
+            {
+                "state": conv.get("sales_state", "ENTRY"),
+                "user_type": user_type,
+                "product_name": "Flosia",
+                "ongkir": 15000,
+                "order_value": 0,
+                "customer_type": "new",
+            }
+        )
+
+        flosia_result = fs.get_response(message_text)
+        response_text = flosia_result["response"]
+
+    if not response_text:
+        conversation_context = get_conversation_context(conv_id, max_messages=10)
+        response_text = generate_cs_response(
+            conversation_context,
+            kb_results,
+            persona,
+            message_text,
+            stage_context,
+            user_type,
+        )
+
+    # If no KB or LLM failed, try Flosia sales engine for sales scenarios
+    if not response_text:
+        import flosia_sales_engine
+
+        fs = flosia_sales_engine.FlosiaSalesEngine(
+            {
+                "state": conv.get("sales_state", "ENTRY"),
+                "user_type": user_type,
+                "product_name": "Flosia",
+                "ongkir": 15000,
+                "order_value": 0,
+                "customer_type": "new",
+            }
+        )
+
+        flosia_result = fs.get_response(message_text)
+        response_text = flosia_result["response"]
+
+    # Final fallback: LLM generates response for unknown questions
+    if not response_text:
+        conversation_context = get_conversation_context(conv_id, max_messages=10)
+        response_text = generate_cs_response(
+            conversation_context,
+            kb_results,
+            persona,
+            message_text,
+            stage_context,
+            user_type,
+        )
 
     # 9. Send reply with typing indicator
     send_typing_indicator(session_name, contact_phone, typing=True)
