@@ -234,6 +234,119 @@ def export_entries(wa_number_id: str) -> list[dict]:
     return [{k: r.get(k, "") for k in export_keys} for r in rows]
 
 
+def search_with_outcome_weighting(
+    wa_number_id: str, query: str, limit: int = 5
+) -> list[dict]:
+    """Search KB entries weighted by historical effectiveness."""
+    conn = _connect()
+    try:
+        # First get regular search results
+        base_results = search(wa_number_id, query, limit * 3)
+        if not base_results:
+            return []
+
+        # Get effectiveness scores for these entries
+        entry_ids = [str(r["id"]) for r in base_results]
+        placeholders = ",".join(["?"] * len(entry_ids))
+
+        effectiveness = {}
+        try:
+            cursor = conn.execute(
+                f"""
+                SELECT 
+                    CAST(json_extract(kb_entry_ids, '$[0]') AS INTEGER) as kb_id,
+                    AVG(outcome_score) as avg_score,
+                    COUNT(*) as uses
+                FROM response_outcomes
+                WHERE kb_entry_ids IS NOT NULL
+                AND kb_entry_ids != '[]'
+                GROUP BY kb_id
+                HAVING kb_id IN ({placeholders})
+                """,
+                entry_ids,
+            )
+            for row in cursor.fetchall():
+                if row["kb_id"] and row["uses"] >= 2:
+                    effectiveness[row["kb_id"]] = row["avg_score"] or 0.5
+        except Exception:
+            pass
+
+        # Weight and re-rank results
+        weighted = []
+        for r in base_results:
+            base_score = r.get("rank", 1.0) or 1.0
+            outcome_boost = effectiveness.get(r["id"], 0.5)
+            # Combine FTS rank with outcome score
+            combined_score = (1.0 / (base_score + 0.1)) * (0.5 + outcome_boost)
+            weighted.append((combined_score, r))
+
+        weighted.sort(reverse=True, key=lambda x: x[0])
+        return [r for _, r in weighted[:limit]]
+    finally:
+        conn.close()
+
+
+def auto_learn_from_outcomes(
+    wa_number_id: str, min_score: float = 0.8, min_uses: int = 2
+) -> int:
+    """Auto-create KB entries from high-performing responses.
+    Returns count of new entries created."""
+    from cs_outcomes import extract_learnings, mark_learning_extracted
+    from cs_playbook import CSPlaybook
+
+    learnings = extract_lecomings(limit=20)
+    playbook = CSPlaybook()
+    created = 0
+
+    for learning in learnings:
+        for resp_data in learning["responses"]:
+            response_text = resp_data.get("response", "")
+            if len(response_text) < 20:
+                continue
+
+            # Check if similar entry already exists
+            existing = search(wa_number_id, response_text[:50], limit=1)
+            if existing and existing[0].get("rank", 100) < 5:
+                continue
+
+            # Generate question from response
+            scenario = learning.get("scenario", "general")
+            question_templates = {
+                "price_objection": "Bagaimana menangani keluhan harga?",
+                "closing": "Bagaimana meyakinkan customer untuk order?",
+                "bulk_order": "Bagaimana menanggapi inquiry grosir?",
+                "shipping": "Bagaimana menanggapi keluhan ongkir?",
+                "general": "Jawaban customer service terbaik",
+            }
+            question = question_templates.get(scenario, question_templates["general"])
+
+            # Add to KB
+            try:
+                add_entry(
+                    wa_number_id=wa_number_id,
+                    category="snippet",
+                    question=question,
+                    answer=response_text,
+                    content=f"auto_learned {scenario}",
+                    tags=f"learned,{scenario},auto",
+                    priority=5,
+                )
+                created += 1
+            except Exception:
+                pass
+
+        mark_learning_extracted(learning["id"])
+
+    return created
+
+
+def get_learned_entries(wa_number_id: str, limit: int = 20) -> list[dict]:
+    """Get auto-learned KB entries."""
+    entries = get_entries(wa_number_id)
+    learned = [e for e in entries if "learned" in str(e.get("tags", ""))]
+    return learned[:limit]
+
+
 # ---------------------------------------------------------------------------
 # Default BerkahKarya FAQ seed
 # ---------------------------------------------------------------------------

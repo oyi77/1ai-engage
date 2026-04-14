@@ -38,7 +38,7 @@ from conversation_tracker import (
 )
 import re as _re
 
-from kb_manager import search as _kb_search_raw
+from kb_manager import search as _kb_search_raw, search_with_outcome_weighting
 from senders import send_typing_indicator, send_whatsapp_session
 from state_manager import init_db, add_event_log
 import capi_tracker
@@ -49,6 +49,16 @@ from n8n_client import (
     notify_hot_lead,
     notify_purchase_signal,
 )
+
+from cs_outcomes import (
+    init_outcomes_db,
+    record_conversation_start,
+    record_response_sent,
+    record_user_reply,
+    record_journey_step,
+    record_final_outcome,
+)
+from cs_playbook import get_playbook, AdaptiveContext
 
 
 def _is_purchase_signal(text: str) -> bool:

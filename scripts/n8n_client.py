@@ -28,8 +28,8 @@ def trigger_n8n(event_type: str, data: dict) -> bool:
         return False
 
 
-def notify_conversation_started(phone: str, session: str, wa_number_id: str):
-    trigger_n8n(
+def notify_conversation_started(phone: str, session: str, wa_number_id: str) -> bool:
+    return trigger_n8n(
         "cs_conversation_started",
         {
             "phone": phone,
@@ -40,8 +40,8 @@ def notify_conversation_started(phone: str, session: str, wa_number_id: str):
     )
 
 
-def notify_escalation(phone: str, reason: str, conversation_id: int):
-    trigger_n8n(
+def notify_escalation(phone: str, reason: str, conversation_id: int) -> bool:
+    return trigger_n8n(
         "cs_escalated",
         {
             "phone": phone,
@@ -52,8 +52,8 @@ def notify_escalation(phone: str, reason: str, conversation_id: int):
     )
 
 
-def notify_hot_lead(phone: str, message_count: int, conversation_id: int):
-    trigger_n8n(
+def notify_hot_lead(phone: str, message_count: int, conversation_id: int) -> bool:
+    return trigger_n8n(
         "cs_hot_lead",
         {
             "phone": phone,
@@ -64,8 +64,8 @@ def notify_hot_lead(phone: str, message_count: int, conversation_id: int):
     )
 
 
-def notify_purchase_signal(phone: str, message: str, conversation_id: int):
-    trigger_n8n(
+def notify_purchase_signal(phone: str, message: str, conversation_id: int) -> bool:
+    return trigger_n8n(
         "cs_purchase_signal",
         {
             "phone": phone,
