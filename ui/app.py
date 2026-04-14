@@ -141,13 +141,31 @@ elif selected == "💰 Sales Pipeline":
             stage = "discovery"
         by_stage[stage].append(conv)
 
+    st.markdown(
+        """
+    <style>
+    .kanban-board { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 12px; }
+    .kanban-col { flex: 0 0 220px; }
+    .kanban-header { position: sticky; top: 0; background: #fff; z-index: 10; padding: 4px 0 8px 0; border-bottom: 2px solid #eee; margin-bottom: 8px; }
+    .kanban-cards { max-height: calc(100vh - 280px); overflow-y: auto; }
+    .kanban-card { background: #f5f5f5; padding: 8px; border-radius: 6px; margin-bottom: 6px; font-size: 12px; }
+    </style>
+    """,
+        unsafe_allow_html=True,
+    )
+
     cols = st.columns(len(STAGE_COLS))
     for col, stage in zip(cols, STAGE_COLS):
         with col:
             count = len(by_stage[stage])
+            label = stage.replace("_", " ").title()
             st.markdown(
-                f"**{STAGE_EMOJI.get(stage, '')} {stage.replace('_', ' ').title()}** `({count})`"
+                f"<div class='kanban-header'>"
+                f"<strong>{STAGE_EMOJI.get(stage, '')} {label}</strong> <code>({count})</code>"
+                f"</div>",
+                unsafe_allow_html=True,
             )
+            st.markdown("<div class='kanban-cards'>", unsafe_allow_html=True)
             for conv in by_stage[stage]:
                 phone = conv.get("contact_phone", "Unknown")
                 name = conv.get("contact_name") or phone.split("@")[0]
@@ -163,15 +181,14 @@ elif selected == "💰 Sales Pipeline":
                     time_str = "new"
 
                 msg = get_messages(conv["id"], limit=1)
-                last_msg = msg[-1]["message_text"][:50] if msg else "..."
+                last_msg = msg[-1]["message_text"][:60] if msg else "..."
 
                 st.markdown(
-                    f"""
-                <div style="background:#f0f0f0;padding:8px;border-radius:6px;margin-bottom:6px;font-size:12px;">
-                    <strong>{name}</strong><br/>
-                    <span style="color:#666">{last_msg}...</span><br/>
-                    <span style="color:#999;font-size:10px">{time_str}</span>
-                </div>
-                """,
+                    f"<div class='kanban-card'>"
+                    f"<strong>{name}</strong><br/>"
+                    f"<span style='color:#666'>{last_msg}...</span><br/>"
+                    f"<span style='color:#999;font-size:10px'>{time_str}</span>"
+                    f"</div>",
                     unsafe_allow_html=True,
                 )
+            st.markdown("</div>", unsafe_allow_html=True)

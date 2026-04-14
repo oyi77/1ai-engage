@@ -13,6 +13,8 @@ import hashlib
 import hmac
 import json as _json
 import sys as _sys
+import time
+from collections import defaultdict
 from typing import Any
 
 from mcp.server.fastmcp import FastMCP
@@ -31,8 +33,26 @@ from state_manager import (  # noqa: E402
     upsert_wa_number,
 )
 
-# Track running background tasks
-_background_tasks = set()
+# Track seen message IDs per session to prevent WAHA echo duplicates
+_seen_messages: dict[str, set[str]] = defaultdict(set)
+_SEEN_TTL_SECONDS = 120
+
+
+def _is_duplicate_message(session: str, waha_message_id: str | None) -> bool:
+    """Return True if this WAHA message ID was already processed (echo guard)."""
+    if not waha_message_id:
+        return False
+    now = time.time()
+    if session not in _seen_messages:
+        _seen_messages[session] = set()
+    seen = _seen_messages[session]
+    if waha_message_id in seen:
+        return True
+    seen.add(waha_message_id)
+    # Purge old entries
+    _seen_messages[session] = {mid for mid in seen}
+    return False
+
 
 mcp = FastMCP(
     "1ai-engage",
@@ -617,6 +637,10 @@ async def _process_webhook_event(session: str, event: str, payload: dict) -> Non
             if not wa_number:
                 return
 
+            waha_msg_id = str(payload.get("id") or "")
+            if _is_duplicate_message(session, waha_msg_id):
+                return
+
             mode = wa_number.get("mode", "cold")
             body_text = str(payload.get("body") or "")
 
@@ -673,14 +697,14 @@ async def _process_webhook_event(session: str, event: str, payload: dict) -> Non
                 try:
                     from state_manager import get_or_create_conversation
 
-                    conv = get_or_create_conversation(
+                    conv_id = get_or_create_conversation(
                         wa_number_id=wa_number_id,
                         contact_phone=sender,
                         engine_mode="warmcall",
                     )
                     result = await asyncio.to_thread(
                         warmcall_handle,
-                        conv["id"],
+                        conv_id,
                         body_text,
                     )
                     add_event_log(

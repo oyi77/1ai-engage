@@ -54,8 +54,6 @@ def write_env(updates: dict[str, str]) -> None:
 
 
 def render_settings():
-    st.header("⚙️ Settings")
-
     env_vars = read_env()
 
     with st.form("settings_form"):

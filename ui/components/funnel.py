@@ -6,7 +6,6 @@ from scripts.config import LEADS_FILE
 
 
 def render_funnel(df=None):
-    st.header("📊 Funnel")
 
     if df is None:
         if not os.path.exists(LEADS_FILE) or os.path.getsize(LEADS_FILE) == 0:

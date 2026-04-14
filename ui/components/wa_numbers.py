@@ -19,8 +19,6 @@ except ImportError:
 
 
 def render_wa_numbers():
-    st.header("📱 WA Numbers")
-
     if not wa_manager or not state_manager:
         st.warning("Dependencies not loaded.")
         return

@@ -94,8 +94,6 @@ def _run_job(cmd: list[str], label: str) -> None:
 def render_controls() -> None:
     _init_session_state()
 
-    st.header("🚀 Run Pipeline")
-
     query = st.text_input(
         "Search query",
         value="Digital Agency in Jakarta",
