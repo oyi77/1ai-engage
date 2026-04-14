@@ -10,7 +10,7 @@ if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
 try:
-    from scripts.state_manager import _connect
+    from scripts.state_manager import _connect, set_manual_mode, is_manual_mode
 except ImportError:
     _connect = None
 
@@ -232,3 +232,39 @@ def render_conversations():
                             st.rerun()
                         else:
                             st.error("Failed to escalate.")
+
+            # Manual mode toggle
+            st.divider()
+            col_m1, col_m2 = st.columns([1, 3])
+
+            with col_m1:
+                # Check current manual mode state
+                current_manual = is_manual_mode(cid)
+                btn_label = "👤 Manual" if current_manual else "🤖 Auto"
+                if st.button(btn_label, key=f"manual_{cid}"):
+                    set_manual_mode(cid, not current_manual)
+                    st.rerun()
+
+            with col_m2:
+                # Reply input (only show if in manual mode)
+                if current_manual:
+                    st.info("Manual mode enabled - AI auto-reply disabled")
+                    reply_text = st.text_input(
+                        "Type your reply", key=f"reply_text_{cid}"
+                    )
+                    if st.button("Send Reply", key=f"send_{cid}"):
+                        if reply_text:
+                            # Send via WAHA
+                            from scripts.senders import send_whatsapp_session
+                            from scripts.conversation_tracker import add_message
+
+                            success = send_whatsapp_session(
+                                c_phone, reply_text, conv.get("wa_number_id", "default")
+                            )
+                            if success:
+                                # Add to conversation_messages
+                                add_message(cid, "out", reply_text)
+                                st.success("Sent!")
+                                st.rerun()
+                            else:
+                                st.error("Failed to send")

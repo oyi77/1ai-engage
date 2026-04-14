@@ -741,6 +741,41 @@ def update_conversation_status(conversation_id: int, status: str) -> None:
         conn.close()
 
 
+def set_manual_mode(conversation_id: int, enabled: bool) -> bool:
+    """Enable or disable manual mode for a conversation."""
+    conn = _connect()
+    try:
+        conn.execute("BEGIN IMMEDIATE")
+        conn.execute(
+            "UPDATE conversations SET manual_mode = ?, updated_at = datetime('now') WHERE id = ?",
+            (1 if enabled else 0, conversation_id),
+        )
+        conn.commit()
+        return True
+    except Exception as e:
+        print(f"Error setting manual mode: {e}")
+        conn.rollback()
+        return False
+    finally:
+        conn.close()
+
+
+def is_manual_mode(conversation_id: int) -> bool:
+    """Check if conversation is in manual mode."""
+    conn = _connect()
+    try:
+        cur = conn.execute(
+            "SELECT manual_mode FROM conversations WHERE id = ?",
+            (conversation_id,),
+        )
+        row = cur.fetchone()
+        return bool(row and row[0])
+    except Exception:
+        return False
+    finally:
+        conn.close()
+
+
 def set_conversation_stage(
     conversation_id: int, stage: str, trigger: str = None
 ) -> None:
