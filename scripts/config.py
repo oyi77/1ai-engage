@@ -157,6 +157,7 @@ ENGINE_MODES = {"cold": "Cold Call", "cs": "Customer Service", "warmcall": "Warm
 # ---------------------------------------------------------------------------
 N8N_BASE = "https://n8n.aitradepulse.com/webhook"
 N8N_MEETING_WF = os.getenv("N8N_MEETING_WF", "")
+N8N_WEBHOOK_URL = os.getenv("N8N_WEBHOOK_URL", "")
 
 # ---------------------------------------------------------------------------
 # Telegram (team alerts)
