@@ -8,26 +8,30 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Play, Square, RefreshCw, FileText } from "lucide-react";
+import { Play, Square, RefreshCw, FileText, Loader2 } from "lucide-react";
 
 const LOG_FILES = [
   { value: "webhook", label: "Webhook Server" },
   { value: "autonomous", label: "Autonomous Loop" },
-  { value: "webhook_server", label: "Webhook (legacy)" },
-  { value: "streamlit", label: "Streamlit" },
-  { value: "pipeline_scraper.py", label: "Scraper" },
-  { value: "pipeline_enricher.py", label: "Enricher" },
-  { value: "pipeline_generator.py", label: "Generator" },
+  { value: "dashboard", label: "Dashboard (Next.js)" },
+  { value: "enricher_manual", label: "Enricher" },
+  { value: "cron_reply_tracker", label: "Reply Tracker" },
+  { value: "cron_followup", label: "Follow-up" },
+  { value: "cron_sheets_sync", label: "Sheets Sync" },
 ];
 
 export default function ServicesPage() {
-  const { data: svcData, mutate: mutateSvc } = useSWR<{ services: ServiceStatus[] }>("/api/services", fetcher, { refreshInterval: 3000 });
+  const { data: svcData, mutate: mutateSvc, isLoading } = useSWR<{ services: ServiceStatus[] }>("/api/services", fetcher, { refreshInterval: 3000 });
   const [selectedLog, setSelectedLog] = useState("webhook");
   const [mode, setMode] = useState<"normal" | "dry_run" | "run_once">("dry_run");
 
   const { data: logData } = useSWR<{ lines: string[] }>(
     selectedLog ? `/api/logs/${selectedLog}?lines=80` : null, fetcher, { refreshInterval: 5000 }
   );
+
+  if (isLoading) {
+    return <div className="p-6 flex items-center justify-center h-[50vh]"><Loader2 className="h-8 w-8 animate-spin text-orange-500" /></div>;
+  }
 
   const services = svcData?.services ?? [];
   const autonomous = services.find((s) => s.key === "autonomous");

@@ -15,7 +15,11 @@ const SCRIPT_ICONS: Record<string, string> = {
 };
 
 export default function PipelineControlPage() {
-  const { data: scriptsData } = useSWR<{ scripts: PipelineScript[] }>("/api/pipeline/scripts", fetcher);
+  const { data: scriptsData, isLoading } = useSWR<{ scripts: PipelineScript[] }>("/api/pipeline/scripts", fetcher);
+
+  if (isLoading) {
+    return <div className="p-6 flex items-center justify-center h-[50vh]"><Loader2 className="h-8 w-8 animate-spin text-orange-500" /></div>;
+  }
   const [query, setQuery] = useState("Digital Agency in Jakarta");
   const [running, setRunning] = useState<string | null>(null);
   const [results, setResults] = useState<Record<string, string>>({});

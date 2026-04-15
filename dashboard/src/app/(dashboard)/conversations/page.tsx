@@ -9,10 +9,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Send, User } from "lucide-react";
+import { Send, User, Loader2 } from "lucide-react";
 
 export default function ConversationsPage() {
-  const { data: waData } = useSWR<{ numbers: WANumber[] }>("/api/wa-numbers", fetcher);
+  const { data: waData, isLoading: waLoad } = useSWR<{ numbers: WANumber[] }>("/api/wa-numbers", fetcher);
   const [selectedWA, setSelectedWA] = useState<string>("");
   const [selectedConv, setSelectedConv] = useState<number | null>(null);
   const [replyText, setReplyText] = useState("");
@@ -27,6 +27,10 @@ export default function ConversationsPage() {
 
   const conversations = convData?.conversations ?? [];
   const messages = msgData?.messages ?? [];
+
+  if (waLoad) {
+    return <div className="p-6 flex items-center justify-center h-[50vh]"><Loader2 className="h-8 w-8 animate-spin text-orange-500" /></div>;
+  }
 
   async function sendReply() {
     if (!selectedConv || !replyText.trim()) return;

@@ -6,7 +6,7 @@ import { fetcher, patchJSON, type Conversation } from "@/lib/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { GripVertical } from "lucide-react";
+import { GripVertical, Loader2 } from "lucide-react";
 import type { WANumber } from "@/lib/api";
 
 const STAGES = ["discovery", "interest", "proposal", "negotiation", "close_won", "close_lost"];
@@ -16,7 +16,7 @@ const STAGE_COLORS: Record<string, string> = {
 };
 
 export default function PipelinePage() {
-  const { data: waData } = useSWR<{ numbers: WANumber[] }>("/api/wa-numbers", fetcher);
+  const { data: waData, isLoading: waLoad } = useSWR<{ numbers: WANumber[] }>("/api/wa-numbers", fetcher);
   const [selectedWA, setSelectedWA] = useState<string>("");
   const waId = selectedWA || waData?.numbers[0]?.id || "";
 
@@ -25,11 +25,32 @@ export default function PipelinePage() {
   );
   const conversations = convData?.conversations ?? [];
 
+  if (waLoad) {
+    return <div className="p-6 flex items-center justify-center h-[50vh]"><Loader2 className="h-8 w-8 animate-spin text-orange-500" /></div>;
+  }
+
   const byStage = Object.fromEntries(STAGES.map((s) => [s, conversations.filter((c) => (c.stage || "discovery") === s)]));
+  const [draggedId, setDraggedId] = useState<number | null>(null);
 
   async function changeStage(convId: number, stage: string) {
     await patchJSON(`/api/conversations/${convId}/stage`, { stage });
     mutate();
+  }
+
+  function handleDragStart(e: React.DragEvent, convId: number) {
+    e.dataTransfer.setData("text/plain", String(convId));
+    setDraggedId(convId);
+  }
+
+  function handleDragOver(e: React.DragEvent) {
+    e.preventDefault();
+  }
+
+  function handleDrop(e: React.DragEvent, stage: string) {
+    e.preventDefault();
+    const convId = Number(e.dataTransfer.getData("text/plain"));
+    if (convId) changeStage(convId, stage);
+    setDraggedId(null);
   }
 
   return (
@@ -50,7 +71,7 @@ export default function PipelinePage() {
 
       <div className="grid grid-cols-6 gap-3 h-[calc(100vh-180px)]">
         {STAGES.map((stage) => (
-          <div key={stage} className="flex flex-col bg-neutral-900 rounded-lg border border-neutral-800">
+          <div key={stage} className="flex flex-col bg-neutral-900 rounded-lg border border-neutral-800" onDragOver={handleDragOver} onDrop={(e) => handleDrop(e, stage)}>
             <div className={`px-3 py-2 border-b border-neutral-800 border-l-4 ${STAGE_COLORS[stage]}`}>
               <div className="flex items-center justify-between">
                 <span className="text-xs font-semibold uppercase tracking-wider">{stage.replace("_", " ")}</span>
@@ -62,8 +83,8 @@ export default function PipelinePage() {
                 <div
                   key={conv.id}
                   draggable
-                  onDragStart={(e) => e.dataTransfer.setData("text/plain", String(conv.id))}
-                  className="bg-neutral-800 rounded-md p-2.5 cursor-grab active:cursor-grabbing hover:bg-neutral-750 border border-neutral-700"
+                  onDragStart={(e) => handleDragStart(e, conv.id)}
+                  className={`bg-neutral-800 rounded-md p-2.5 cursor-grab active:cursor-grabbing hover:bg-neutral-750 border border-neutral-700 ${draggedId === conv.id ? "opacity-50" : ""}`}
                 >
                   <p className="text-sm font-medium truncate">{conv.contact_name || conv.contact_phone}</p>
                   <p className="text-xs text-neutral-500 mt-1">{conv.contact_phone}</p>

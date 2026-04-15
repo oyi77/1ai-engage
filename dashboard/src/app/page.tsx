@@ -5,7 +5,7 @@ import { fetcher, type ServiceStatus, type FunnelData } from "@/lib/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from "recharts";
-import { Activity, Server, Zap, Users } from "lucide-react";
+import { Activity, Server, Zap, Users, Loader2 } from "lucide-react";
 
 const STAGE_COLORS: Record<string, string> = {
   new: "#3b82f6", enriched: "#8b5cf6", draft_ready: "#f59e0b", needs_revision: "#ef4444",
@@ -14,8 +14,14 @@ const STAGE_COLORS: Record<string, string> = {
 };
 
 export default function DashboardPage() {
-  const { data: funnel } = useSWR<FunnelData>("/api/funnel", fetcher, { refreshInterval: 5000 });
-  const { data: svcData } = useSWR<{ services: ServiceStatus[] }>("/api/services", fetcher, { refreshInterval: 3000 });
+  const { data: funnel, isLoading: funnelLoading } = useSWR<FunnelData>("/api/funnel", fetcher, { refreshInterval: 5000 });
+  const { data: svcData, isLoading: svcLoading } = useSWR<{ services: ServiceStatus[] }>("/api/services", fetcher, { refreshInterval: 3000 });
+  const { data: healthData } = useSWR<{ status: string }>("/health", fetcher, { refreshInterval: 10000, errorRetryCount: 2 });
+  const apiOnline = healthData?.status === "ok";
+
+  if (funnelLoading && svcLoading) {
+    return <div className="flex items-center justify-center h-[50vh]"><Loader2 className="h-8 w-8 animate-spin text-orange-500" /></div>;
+  }
 
   const services = svcData?.services ?? [];
   const running = services.filter((s) => s.running).length;
@@ -60,7 +66,11 @@ export default function DashboardPage() {
             <CardTitle className="text-sm font-medium text-neutral-400">API Status</CardTitle>
             <Activity className="h-4 w-4 text-neutral-500" />
           </CardHeader>
-          <CardContent><Badge className="bg-green-600">ONLINE</Badge></CardContent>
+          <CardContent>
+            <Badge className={apiOnline === false ? "bg-red-600" : "bg-green-600"}>
+              {apiOnline === false ? "OFFLINE" : apiOnline ? "ONLINE" : "CHECKING..."}
+            </Badge>
+          </CardContent>
         </Card>
       </div>
       <Card className="bg-neutral-900 border-neutral-800">

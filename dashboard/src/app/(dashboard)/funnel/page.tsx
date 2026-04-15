@@ -5,6 +5,7 @@ import { fetcher, type FunnelData, type Lead } from "@/lib/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Loader2 } from "lucide-react";
 
 const STAGES = ["new","enriched","draft_ready","needs_revision","reviewed","contacted","followed_up","replied","meeting_booked","won","lost","cold"];
 const STAGE_COLORS: Record<string, string> = {
@@ -14,9 +15,13 @@ const STAGE_COLORS: Record<string, string> = {
 };
 
 export default function FunnelPage() {
-  const { data: funnel } = useSWR<FunnelData>("/api/funnel", fetcher, { refreshInterval: 5000 });
-  const { data: leadsData } = useSWR<{ leads: Lead[] }>("/api/leads", fetcher, { refreshInterval: 10000 });
+  const { data: funnel, isLoading: fLoad } = useSWR<FunnelData>("/api/funnel", fetcher, { refreshInterval: 5000 });
+  const { data: leadsData, isLoading: lLoad } = useSWR<{ leads: Lead[] }>("/api/leads", fetcher, { refreshInterval: 10000 });
   const leads = leadsData?.leads ?? [];
+
+  if (fLoad && lLoad) {
+    return <div className="p-6 flex items-center justify-center h-[50vh]"><Loader2 className="h-8 w-8 animate-spin text-orange-500" /></div>;
+  }
 
   return (
     <div className="p-6 space-y-6">
