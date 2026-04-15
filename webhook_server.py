@@ -187,8 +187,8 @@ def api_kb_add(wa_number_id):
         wa_number_id=wa_number_id,
         question=data["question"],
         answer=data["answer"],
-        category=data.get("category", "general"),
-        keywords=data.get("keywords", ""),
+        category=data.get("category", "faq"),
+        tags=data.get("tags", ""),
     )
     return jsonify({"ok": True, "entry_id": entry_id}), 201
 
@@ -256,8 +256,8 @@ def api_conversation_send(conv_id):
     msg_id = add_conversation_message(
         conversation_id=conv_id,
         message_text=text,
-        direction="outbound",
-        source="manual",
+        direction="out",
+        message_type="text",
     )
     return jsonify({"ok": True, "message_id": msg_id}), 201
 

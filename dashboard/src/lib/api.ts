@@ -40,8 +40,9 @@ export interface KBEntry {
   question: string;
   answer: string;
   category: string;
-  keywords?: string;
-  enabled?: number;
+  tags?: string;
+  content?: string;
+  priority?: number;
   created_at?: string;
   updated_at?: string;
 }
@@ -62,9 +63,10 @@ export interface Message {
   id: number;
   conversation_id: number;
   message_text: string;
-  direction: "inbound" | "outbound";
-  source?: string;
-  created_at?: string;
+  direction: "in" | "out";
+  message_type?: string;
+  timestamp?: string;
+  waha_message_id?: string;
 }
 
 export interface ServiceStatus {

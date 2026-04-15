@@ -18,7 +18,7 @@ export default function KBPage() {
   const [selectedWA, setSelectedWA] = useState<string>("");
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editId, setEditId] = useState<number | null>(null);
-  const [form, setForm] = useState({ question: "", answer: "", category: "general", keywords: "" });
+  const [form, setForm] = useState({ question: "", answer: "", category: "faq", tags: "" });
 
   const waId = selectedWA || waData?.numbers[0]?.id || "";
   const { data: kbData, mutate } = useSWR<{ entries: KBEntry[]; count: number }>(
@@ -32,13 +32,13 @@ export default function KBPage() {
 
   function openAdd() {
     setEditId(null);
-    setForm({ question: "", answer: "", category: "general", keywords: "" });
+    setForm({ question: "", answer: "", category: "faq", tags: "" });
     setDialogOpen(true);
   }
 
   function openEdit(entry: KBEntry) {
     setEditId(entry.id);
-    setForm({ question: entry.question, answer: entry.answer, category: entry.category, keywords: entry.keywords || "" });
+    setForm({ question: entry.question, answer: entry.answer, category: entry.category, tags: entry.tags || "" });
     setDialogOpen(true);
   }
 
@@ -84,7 +84,7 @@ export default function KBPage() {
                 <Textarea placeholder="Answer" value={form.answer} onChange={(e) => setForm({ ...form, answer: e.target.value })} rows={4} className="bg-neutral-800 border-neutral-700" />
                 <div className="grid grid-cols-2 gap-2">
                   <Input placeholder="Category" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} className="bg-neutral-800 border-neutral-700" />
-                  <Input placeholder="Keywords (comma separated)" value={form.keywords} onChange={(e) => setForm({ ...form, keywords: e.target.value })} className="bg-neutral-800 border-neutral-700" />
+                  <Input placeholder="Tags (comma separated)" value={form.tags} onChange={(e) => setForm({ ...form, tags: e.target.value })} className="bg-neutral-800 border-neutral-700" />
                 </div>
                 <Button onClick={saveEntry} className="w-full bg-orange-600 hover:bg-orange-700">Save</Button>
               </div>

@@ -91,15 +91,15 @@ export default function ConversationsPage() {
                 <ScrollArea className="h-[calc(100vh-330px)] p-4">
                   <div className="space-y-3">
                     {messages.map((msg) => (
-                      <div key={msg.id} className={`flex ${msg.direction === "outbound" ? "justify-end" : "justify-start"}`}>
+                      <div key={msg.id} className={`flex ${msg.direction === "out" ? "justify-end" : "justify-start"}`}>
                         <div className={`max-w-[70%] rounded-lg px-3 py-2 text-sm ${
-                          msg.direction === "outbound"
+                          msg.direction === "out"
                             ? "bg-orange-600 text-white"
                             : "bg-neutral-800 text-neutral-200"
                         }`}>
                           <p>{msg.message_text}</p>
-                          <p className={`text-xs mt-1 ${msg.direction === "outbound" ? "text-orange-200" : "text-neutral-500"}`}>
-                            {msg.created_at?.slice(11, 16)} {msg.source && `(${msg.source})`}
+                          <p className={`text-xs mt-1 ${msg.direction === "out" ? "text-orange-200" : "text-neutral-500"}`}>
+                            {msg.timestamp?.slice(11, 16)}
                           </p>
                         </div>
                       </div>
