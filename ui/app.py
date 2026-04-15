@@ -19,6 +19,7 @@ from ui.components.conversations import render_conversations
 from ui.components.wa_numbers import render_wa_numbers
 from ui.components.kb_editor import render_kb_editor
 from ui.components.event_log import render_event_log
+from ui.components.autonomous import render_autonomous
 
 st.set_page_config(
     page_title="1ai-engage Dashboard",
@@ -28,6 +29,7 @@ st.set_page_config(
 
 PAGES = [
     "📊 Funnel",
+    "🤖 Autonomous",
     "🚀 Run Pipeline",
     "✏️ Draft Editor",
     "⚙️ Settings",
@@ -85,6 +87,9 @@ st.title(st.session_state["current_page"])
 
 if selected == "📊 Funnel":
     render_funnel()
+
+elif selected == "🤖 Autonomous":
+    render_autonomous()
 
 elif selected == "🚀 Run Pipeline":
     render_controls()

@@ -1,0 +1,50 @@
+[
+  {
+    "category": "faq",
+    "question": "Apa saja template yang dijual?",
+    "answer": "Kami jual berbagai template bisnis:\n\n1️⃣ Template Notion - Rp75.000\n   • Project Management\n   • Habit Tracker\n   • Content Calendar\n\n2️⃣ Template Excel - Rp50.000\n   • Laporan Keuangan Otomatis\n   • CRM Sederhana\n\n3️⃣ Template Canva - Rp65.000\n   • 100+ Feed Instagram\n   • Story Template\n\n4️⃣ Chatbot Templates - Rp150.000\n   • Auto-reply WhatsApp\n   • Customer Service AI",
+    "content": "template notion excel canva chatbot bisnis",
+    "tags": "product,digital,template",
+    "priority": 10
+  },
+  {
+    "category": "faq",
+    "question": "Berapa harga template dan tools?",
+    "answer": "Harga produk digital kami:\n\n• Template Notion: Rp75.000\n• Template Excel: Rp50.000\n• Template Canva: Rp65.000\n• Chatbot Templates: Rp150.000\n• Automation Scripts: Rp100.000-500.000\n\nPromo: Beli 2 gratis 1 template apa aja! Atau ambil Bundle Business (semua template) hanya Rp300.000 (hemat Rp140.000)",
+    "content": "harga template notion excel canva chatbot bundle",
+    "tags": "harga,pricing,product",
+    "priority": 10
+  },
+  {
+    "category": "faq",
+    "question": "Cara download dan pakai template?",
+    "answer": "Cara pakai template digital:\n\n1. Checkout & bayar\n2. Link download dikirim ke email/whatsapp\n3. Download file\n4. Buka dengan aplikasi terkait (Notion/Excel/Canva)\n5. Sudah bisa langsung pakai!\n\nBonus: Video tutorial cara pakai + grup support\nGaransi: 7 hari uang kembali kalau tidak cocok",
+    "content": "cara pakai download tutorial support garansi",
+    "tags": "usage,cara pakai,digital",
+    "priority": 9
+  },
+  {
+    "category": "snippet",
+    "question": "Menangani mahal template",
+    "answer": "Kak, template ini bisa dipakai berulang kali dan lifetime. Coba hitung: kalau template Excel Rp50.000 dipakai buat 100 transaksi, itu cuma Rp500 per transaksi.\n\nBandingin sama hire admin Rp3jt/bulan. Template ini automate kerjaan admin!\n\nPlus ada garansi 7 hari uang kembali. Kalau gak cocok, refund. Jadi zero risk. Gimana Kak?",
+    "content": "harga mahal lifetime automate admin garansi refund",
+    "tags": "price_objection,value,learned",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Closing template digital",
+    "answer": "Oke Kak! Langsung saya kirim link download ya.\n\n📦 [Nama Template]\n💰 Total: Rp[harga]\n📧 Email: [blm diisi]\n\nTransfer ke BCA 1122334455 a/n Digital Tools. Setelah bayar, template dikirim INSTAN ke email. Ready pakai dalam 5 menit! 🚀",
+    "content": "closing download instant email transfer BCA",
+    "tags": "closing,order,digital",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Testimoni template bisnis",
+    "answer": "Template kami udah dipakai 500+ bisnis owner. Contoh:\n\n• Pak Budi: Pakai template Notion, produktivitas tim naik 40%\n• Bu Sarah: Template Excel otomatis, hemat 10 jam/bulan\n• Startup ABC: Chatbot template, CS cost turun 60%\n\nMau lihat case study lengkap? Bisa cek di testimoni kami ya Kak 👍",
+    "content": "testimoni produktivitas hemat cost case study bisnis",
+    "tags": "testimoni,social_proof,business",
+    "priority": 9
+  }
+]

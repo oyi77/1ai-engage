@@ -1,0 +1,66 @@
+[
+  {
+    "category": "snippet",
+    "question": "Mirroring - Matching customer style",
+    "answer": "Iya kak, aku ngerti banget perasaan Kakak. Tenang ya, kita bahas pelan-pelan sampai Kakak merasa yakin. Gak ada yang buru-buru kok 😊",
+    "content": "mirroring empati pelan-pelan tenang gak buru-buru",
+    "tags": "soft_psychology,empathy,mirroring",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Emotional Labeling - Guess their feeling",
+    "answer": "Kayaknya Kakak masih mikir-mikir karena belum lihat testinya ya? Atau ada yang mau ditanyain lagi? Nih aku share testimoni real dari customer yang udah pakai~",
+    "content": "emotional labeling mikir-mikir ragu testimoni real",
+    "tags": "soft_psychology,labeling,testimoni",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Choice Framing - Two options both lead to yes",
+    "answer": "Kak mau yang dicoba dulu pakai trial size? Atau langsung ambil yang full size aja biar lebih hemat? Dua-duanya bagus kok, tinggal pilih yang cocok aja buat Kakak 😊",
+    "content": "choice framing trial full size hemat pilihan",
+    "tags": "soft_psychology,choice,closing",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Micro-commitment - Small yes first",
+    "answer": "Kak pernah gak sih ngerasa produk skincare tuh pas awal glowing, lama-lama jadi biasa aja? Kalau ada yang bisa bikin hasilnya tahan lama, Kakak minat cobain?",
+    "content": "micro commitment glowing tahan lama minat cobain",
+    "tags": "soft_psychology,micro_commitment,opening",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Gibah style opening",
+    "answer": "Kak, aku baru aja denger cerita customer aku. Dia tuh awalnya ragu-ragu juga kayak Kakak. Tapi pas udah coba, malah jadi langganan terus. Penasaran gak sih kenapa? 😄",
+    "content": "gibah cerita ragu langganan storytelling",
+    "tags": "soft_psychology,storytelling,gibah",
+    "priority": 9
+  },
+  {
+    "category": "snippet",
+    "question": "Handling nanti dulu objection",
+    "answer": "Wajar banget Kak mikirnya gitu. Gak ada yang salah kok mau compare dulu. Tapi cuma mau info aja nih, stoknya lagi menipis dan harga promo cuma sampe besok. Kalau cocok, barangkali bisa disave dulu?",
+    "content": "nanti dulu compare stok menipis promo besok",
+    "tags": "soft_psychology,urgency,scarcity",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Soft close with feeling",
+    "answer": "Aku ngerasa Kakak tuh orangnya hati-hati sebelum beli, dan itu bagus banget! Cuma mau mastiin aja, kalau ternyata cocok dan sesuai harapan, Kakak mau lanjut ordernya kan? Biar aku prepare-in dulu~",
+    "content": "soft close hati-hati cocok sesuai harapan prepare",
+    "tags": "soft_psychology,validation,closing",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Trust building - Social proof receh",
+    "answer": "Soalnya banyak yang ngalamin hal sama kayak Kakak, dan mereka rata-rata cocoknya pakai yang ini sih... Nggak sengaja malah jadi langganan terus 😅",
+    "content": "trust building banyak cocok langganan receh",
+    "tags": "soft_psychology,social_proof,trust",
+    "priority": 9
+  }
+]

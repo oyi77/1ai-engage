@@ -1,0 +1,138 @@
+[
+  {
+    "category": "faq",
+    "question": "Apa saja produk skincare yang tersedia?",
+    "answer": "Kami menyediakan rangkaian skincare premium:\n\n1️⃣ Facial Wash - Rp150.000 (100ml)\n2️⃣ Toner Brightening - Rp180.000 (150ml)\n3️⃣ Serum Vitamin C - Rp350.000 (30ml)\n4️⃣ Moisturizer Gel - Rp250.000 (50ml)\n5️⃣ Sunscreen SPF 50 - Rp200.000 (40ml)\n6️⃣ Eye Cream - Rp280.000 (20ml)\n7️⃣ Sleeping Mask - Rp220.000 (80ml)\n\nSemua produk BPOM dan cocok untuk kulit sensitif.",
+    "content": "produk skincare facial wash toner serum vitamin c moisturizer sunscreen eye cream sleeping mask BPOM",
+    "tags": "product,skincare,info",
+    "priority": 10
+  },
+  {
+    "category": "faq",
+    "question": "Berapa harga skincare?",
+    "answer": "Harga skincare kami:\n\n• Facial Wash: Rp150.000\n• Toner: Rp180.000\n• Serum Vitamin C: Rp350.000\n• Moisturizer: Rp250.000\n• Sunscreen: Rp200.000\n• Paket Basic (Wash+Toner+Moist): Rp500.000 (hemat Rp80.000)\n• Paket Complete (All in): Rp1.200.000 (hemat Rp210.000)\n\nFree ongkir untuk order Rp500.000+",
+    "content": "harga skincare facial wash toner serum moisturizer sunscreen paket basic complete",
+    "tags": "harga,pricing,product",
+    "priority": 10
+  },
+  {
+    "category": "faq",
+    "question": "Skincare ini cocok untuk kulit apa?",
+    "answer": "Skincare kami cocok untuk SEMUA jenis kulit:\n\n✅ Kulit normal\n✅ Kulit sensitif\n✅ Kulit berjerawat\n✅ Kulit kering\n✅ Kulit berminyak\n✅ Kulit kombinasi\n\nFormula gentle, fragrance-free, alcohol-free. Sudah dermatologically tested dan BPOM certified.",
+    "content": "cocok kulit normal sensitif berjerawat kering berminyak kombinasi BPOM",
+    "tags": "cocok,skin type,aman",
+    "priority": 10
+  },
+  {
+    "category": "faq",
+    "question": "Cara pakai skincare yang benar?",
+    "answer": "Urutan pemakaian skincare:\n\n🌅 PAGI:\n1. Facial Wash\n2. Toner\n3. Serum\n4. Moisturizer\n5. Sunscreen (WAJIB!)\n\n🌙 MALAM:\n1. Facial Wash\n2. Toner\n3. Serum\n4. Eye Cream\n5. Moisturizer\n6. Sleeping Mask (2-3x seminggu)\n\nTips: Tunggu 1-2 menit antar produk agar meresap sempurna.",
+    "content": "cara pakai urutan pagi malam facial wash toner serum moisturizer sunscreen tips",
+    "tags": "usage,cara pakai,routine",
+    "priority": 10
+  },
+  {
+    "category": "faq",
+    "question": "Berapa lama hasil skincare terlihat?",
+    "answer": "Timeline hasil skincare:\n\n• Minggu 1-2: Kulit terasa lebih lembap dan halus\n• Minggu 3-4: Warna kulit mulai merata, glowing\n• Minggu 6-8: Hasil maksimal, bekas jerawat memudar\n• 3 bulan+: Kulit sehat dan glowing natural\n\n⚠️ Penting: Consistency is key! Pakai rutin pagi dan malam untuk hasil optimal.",
+    "content": "hasil timeline minggu glowing glowing bekas jerawat consistency rutin",
+    "tags": "hasil,waktu,efek",
+    "priority": 9
+  },
+  {
+    "category": "faq",
+    "question": "Apakah skincare ini aman?",
+    "answer": "Sangat aman! Skincare kami:\n\n✅ Sudah BPOM certified\n✅ Dermatologically tested\n✅ Fragrance-free (tidak mengandung pewangi)\n✅ Alcohol-free\n✅ Paraben-free\n✅ Cruelty-free (tidak diuji pada hewan)\n✅ Cocok untuk remaja dan dewasa\n\nRibuan customer sudah membuktikan keamanannya!",
+    "content": "aman BPOM dermatologically tested fragrance free alcohol free paraben free cruelty free",
+    "tags": "safety,aman,BPOM",
+    "priority": 10
+  },
+  {
+    "category": "faq",
+    "question": "Cara order dan pembayaran skincare?",
+    "answer": "Cara order skincare:\n\n1. Pilih produk yang diinginkan\n2. Transfer ke BCA 1131339351 a/n Andik Veris Febriyanto\n3. Kirim screenshot transfer + alamat lengkap\n4. Pesanan diproses & dikirim HARI INI\n\nMetode:\n• Transfer Bank (BCA, Mandiri, BNI)\n• QRIS (semua e-wallet)\n• Shopee Official (bisa COD): https://s.shopee.co.id/xyz\n\nPengiriman: JNE/J&T (1-3 hari)",
+    "content": "cara order transfer BCA 1131339351 Andik Veris Febriyanto QRIS Shopee COD",
+    "tags": "order,cara beli,pembayaran",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Menangani harga skincare mahal",
+    "answer": "Kak, skincare ini memang investasi, tapi coba hitung ya:\n\n• Satu set lengkap bisa dipakai 2-3 bulan\n• Jadi cuma Rp15.000-20.000 per hari untuk kulit glowing\n• Lebih murah dari treatment klinik (Rp500rb-1jt per sesi)\n\nAtau Kakak bisa mulai dari Paket Basic Rp500.000 aja dulu. Kalau cocok, baru upgrade ke Complete.\n\nMau saya bantu hitung paket mana yang paling hemat buat Kakak?",
+    "content": "harga mahal investasi per hari treatment klinik paket basic hemat",
+    "tags": "price_objection,value,learned",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Menangani masih mau pikir-pikir",
+    "answer": "Wajar banget Kak mikirnya gitu. Skincare memang perlu cocok-cocokan.\n\nTapi cuma mau info aja nih, stok Serum Vitamin C tinggal 5 unit lagi untuk batch ini. Kalau Kakak minat, bisa saya reserve dulu tanpa DP.\n\nAtau kalau masih ragu, gapapa Kak. Bisa tanya-tanya dulu tentang kondisi kulitnya. Saya bantu rekomendasikan yang cocok 😊",
+    "content": "pikir-pikir stok habis reserve tanpa DP tanya-tanya ragu",
+    "tags": "objection,urgency,scarcity",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Closing skincare langsung",
+    "answer": "Mantap Kak! Saya catat order skincarenya:\n\n📦 [Nama Produk Skincare]\n💰 Total: Rp[total]\n📍 Alamat lengkap: [blm diisi]\n📱 No HP: [blm diisi]\n\nTransfer ke BCA 1131339351 a/n Andik Veris Febriyanto ya Kak. Screenshot transfer + alamat, langsung saya proses kirim hari ini! ✨\n\nBonus: Free sample size product untuk customer hari ini!",
+    "content": "closing order BCA 1131339351 kirim hari ini bonus sample",
+    "tags": "closing,order,payment",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Menangani takut tidak cocok",
+    "answer": "Wajar Kak kalau takut gak cocok. Banyak customer kami juga gitu awalnya.\n\nSolusinya:\n1. Mulai dari Paket Basic Rp500.000 (produk essential)\n2. Atau ambil Travel Size dulu Rp250.000 (ukuran kecil)\n3. Kalau cocok, baru upgrade\n\nPlus ada garansi: Kalau dalam 7 hari kulit iritasi (jarang banget), uang kembali 100%!\n\nMau dicoba yang mana dulu Kak?",
+    "content": "tidak cocok takut paket basic travel size garansi uang kembali",
+    "tags": "fear,objection,guarantee,learned",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Soft psychology - Empathy",
+    "answer": "Iya Kak, aku ngerti banget perasaan Kakak. Beli skincare online tuh memang kadang ragu ya, takut gak cocok atau kurang sesuai ekspektasi. Tenang aja, kita bahas pelan-pelan sampai Kakak merasa yakin. Gak ada yang buru-buru kok 😊",
+    "content": "empathy ngerti perasaan ragu online pelan pelan yakin",
+    "tags": "soft_psychology,empathy,learned",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Soft psychology - Emotional labeling",
+    "answer": "Kayaknya Kakak masih mikir-mikir karena belum yakin sama kondisi kulitnya ya? Atau ada yang mau ditanyain lagi? Nih aku share testimoni real dari customer yang kulitnya sama kayak Kakak, udah glowing sekarang~",
+    "content": "emotional labeling mikir mikir yakin testimoni real glowing",
+    "tags": "soft_psychology,labeling,learned",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Soft psychology - Choice framing",
+    "answer": "Kak mau yang dicoba dulu paket Travel Size Rp250.000? Atau langsung ambil Paket Basic Rp500.000 aja biar lebih hemat? Dua-duanya bagus kok, tinggal pilih yang cocok aja buat kebutuhan Kakak 😊",
+    "content": "choice framing travel size paket basic hemat pilihan",
+    "tags": "soft_psychology,choice,closing",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Soft psychology - Micro commitment",
+    "answer": "Kak pernah gak sih ngerasa skincare tuh kadang awalnya glowing, tapi lama-lama jadi biasa aja? Kalau ada skincare yang hasilnya tahan lama dan glowing-nya natural, Kakak minat cobain?",
+    "content": "micro commitment glowing tahan lama natural minat cobain",
+    "tags": "soft_psychology,micro_commitment,opening",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Testimoni skincare",
+    "answer": "Banyak customer kami yang awalnya skeptis, tapi pas udah coba malah repeat order terus.\n\n👩 Mba Sari (28): 'Awalnya ragu, tapi setelah 2 minggu kulit glowing banget. Sekarang langganan terus!'\n\n👩 Bu Ani (45): 'Bekas jerawat memudar dalam 1 bulan. Pelembabnya juara!'\n\n👨 Mas Budi (30): 'Pakai sunscreennya, kulit gak gosong lagi. Recommended!'\n\nMau lihat before-after mereka? Bisa cek di @skincare.official kami ya Kak 😊",
+    "content": "testimoni skeptis glowing bekas jerawat memudar langganan before after",
+    "tags": "testimoni,social_proof,trust",
+    "priority": 10
+  },
+  {
+    "category": "doc",
+    "question": "Ingredients skincare",
+    "answer": "Key ingredients skincare kami:\n\n🍊 Vitamin C: Brightening, antioksidan\n💧 Hyaluronic Acid: Hydration\n🌿 Niacinamide: Minimize pores, meratakan warna kulit\n☀️ SPF 50 PA++++: Protect dari UV\n\nNo alcohol, no fragrance, no paraben.",
+    "content": "ingredients vitamin c hyaluronic acid niacinamide SPF no alcohol fragrance paraben",
+    "tags": "ingredients,kandungan,doc",
+    "priority": 8
+  }
+]

@@ -220,13 +220,11 @@ _INDONESIAN_MARKERS = frozenset(
 
 
 def _detect_language(text: str) -> str:
-    """Return 'id' for Indonesian, 'en' for English."""
     words = set(text.lower().split())
     matches = words & _INDONESIAN_MARKERS
-    # Single marker is enough for short messages (question phrases)
     if len(matches) >= 1:
         return "id"
-    return "en"
+    return "id"
 
 
 # ---------------------------------------------------------------------------
@@ -521,36 +519,21 @@ def handle_inbound_message(
     # 7b. Detect User Type (Hybrid Adaptive Mode)
     user_type = _detect_user_type(message_text, conv_id)
 
-    # 8. Generate AI response
+    # 8. Generate response - try KB first, then playbook, then LLM
     response_text = ""
 
+    # Try KB direct answer first (most reliable)
     if kb_results:
-        conversation_context = get_conversation_context(conv_id, max_messages=10)
-        response_text = generate_cs_response(
-            conversation_context,
-            kb_results,
-            persona,
-            message_text,
-            stage_context,
-            user_type,
-        )
+        # Use the first KB result directly without LLM
+        kb_answer = kb_results[0].get("answer", "")
+        if kb_answer:
+            response_text = kb_answer
 
     if not response_text:
-        import flosia_sales_engine
+        from cs_playbook import get_response_for_message
 
-        fs = flosia_sales_engine.FlosiaSalesEngine(
-            {
-                "state": conv.get("sales_state", "ENTRY"),
-                "user_type": user_type,
-                "product_name": "Flosia",
-                "ongkir": 15000,
-                "order_value": 0,
-                "customer_type": "new",
-            }
-        )
-
-        flosia_result = fs.get_response(message_text)
-        response_text = flosia_result["response"]
+        pb_result = get_response_for_message(message_text, user_type)
+        response_text = pb_result.get("response", "")
 
     if not response_text:
         conversation_context = get_conversation_context(conv_id, max_messages=10)
@@ -563,35 +546,8 @@ def handle_inbound_message(
             user_type,
         )
 
-    # If no KB or LLM failed, try Flosia sales engine for sales scenarios
     if not response_text:
-        import flosia_sales_engine
-
-        fs = flosia_sales_engine.FlosiaSalesEngine(
-            {
-                "state": conv.get("sales_state", "ENTRY"),
-                "user_type": user_type,
-                "product_name": "Flosia",
-                "ongkir": 15000,
-                "order_value": 0,
-                "customer_type": "new",
-            }
-        )
-
-        flosia_result = fs.get_response(message_text)
-        response_text = flosia_result["response"]
-
-    # Final fallback: LLM generates response for unknown questions
-    if not response_text:
-        conversation_context = get_conversation_context(conv_id, max_messages=10)
-        response_text = generate_cs_response(
-            conversation_context,
-            kb_results,
-            persona,
-            message_text,
-            stage_context,
-            user_type,
-        )
+        response_text = "Terima kasih atas pesannya. Saya akan membantu segera."
 
     # 9. Send reply with typing indicator
     send_typing_indicator(session_name, contact_phone, typing=True)

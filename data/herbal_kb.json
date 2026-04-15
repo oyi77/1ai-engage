@@ -1,0 +1,58 @@
+[
+  {
+    "category": "faq",
+    "question": "Apa saja produk herbal yang tersedia?",
+    "answer": "Kami menyediakan berbagai produk herbal alami:\n\n1️⃣ Madu Hutan Asli - Rp85.000 (500gr)\n2️⃣ Jahe Merah Instan - Rp45.000 (10 sachet)\n3️⃣ Kunyit Asem - Rp35.000 (250gr)\n4️⃣ Teh Herbal Pelangsing - Rp65.000 (20 kantong)\n5️⃣ Jamu Tradisional - Rp25.000/botol\n\nSemua produk 100% alami tanpa pengawet.",
+    "content": "produk herbal madu jahe merah kunyit asem teh jamu alami",
+    "tags": "product,herbal,info",
+    "priority": 10
+  },
+  {
+    "category": "faq", 
+    "question": "Berapa harga produk herbal?",
+    "answer": "Harga produk herbal kami:\n\n• Madu Hutan: Rp85.000 (hemat vs supermarket Rp120.000)\n• Jahe Merah: Rp45.000 (10 sachet)\n• Paket Hemat: Beli 3 gratis 1 (hemat 25%)\n• Bundling Sehat: Madu + Jahe + Kunyit = Rp150.000 (hemat Rp15.000)\n\nFree ongkir untuk order Rp150.000+",
+    "content": "harga herbal madu jahe paket hemat bundling",
+    "tags": "harga,pricing,product",
+    "priority": 10
+  },
+  {
+    "category": "faq",
+    "question": "Apakah produk herbal ini aman?",
+    "answer": "Sangat aman! Keunggulan produk herbal kami:\n\n✅ 100% bahan alami tanpa pengawet kimia\n✅ Sudah BPOM dan Halal certified\n✅ Petani lokal, proses tradisional\n✅ Ribuan testimoni pelanggan puas\n✅ Bisa dikonsumsi jangka panjang\n\nBisa cek testimoni di @herbalsehat.id",
+    "content": "aman BPOM halal alami tanpa pengawet testimoni",
+    "tags": "safety,aman,trust",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Menangani harga mahal herbal",
+    "answer": "Kak, memang di luaran ada yang lebih murah, tapi produk herbal kami 100% alami dan langsung dari petani. Coba bandingin: madu supermarket Rp120.000, kita cuma Rp85.000 untuk kualitas sama.\n\nAtau Kakak bisa ambil Paket Hemat (Beli 3 Gratis 1), jadi hemat banget! Mau saya hitungin?",
+    "content": "harga mahal bandingin supermarket petani alami paket hemat",
+    "tags": "price_objection,value,learned",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Closing herbal",
+    "answer": "Mantap Kak! Saya catat order herbalnya:\n\n📦 [Produk Herbal]\n💰 Total: Rp[total]\n📍 Alamat lengkap: [blm diisi]\n📱 No HP: [blm diisi]\n\nTransfer ke Mandiri 123-456-789 a/n Herbal Sehat. Screenshot + alamat, langsung saya proses kirim hari ini! 🌿",
+    "content": "closing order transfer mandiri kirim hari ini",
+    "tags": "closing,order,payment",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Reseller herbal",
+    "answer": "Wih mantap Kak mau jualan herbal! Kami punya sistem reseller:\n\n• Modal min. 10 produk (bebas pilih)\n• Diskon 30% dari harga normal\n• Bisa dropship (kitu kirim atas nama Kakak)\n• Bonus marketing kit + foto produk\n• Support group reseller\n\nMinat jadi reseller? Bisa mulai dari Rp500.000 aja!",
+    "content": "reseller dropship diskon marketing kit modal",
+    "tags": "reseller,opportunity,bulk",
+    "priority": 9
+  },
+  {
+    "category": "snippet",
+    "question": "Testimoni herbal receh",
+    "answer": "Soalnya banyak customer kami yang awalnya skeptis, tapi pas udah coba malah repeat order terus. Contohnya Bu Ani dari Jakarta, diabetesnya turun setelah rutin minum jamu kunyit.\n\nMau lihat testimoni lengkap? Bisa cek di @herbalsehat.id ya Kak 😊",
+    "content": "testimoni diabetes turun repeat order skeptis",
+    "tags": "testimoni,social_proof,trust",
+    "priority": 9
+  }
+]

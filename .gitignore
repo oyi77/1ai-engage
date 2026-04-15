@@ -2,6 +2,13 @@
 __pycache__/
 *.pyc
 data/leads*.csv
+data/*.db
 logs/
 .agent-control/
 .venv/
+.omc/
+.sisyphus/
+.playwright-mcp/
+dashboard/node_modules/
+dashboard/.next/
+*.core

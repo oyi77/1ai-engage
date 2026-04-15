@@ -1,7 +1,7 @@
 import json
 import requests
 from datetime import datetime
-from scripts.config import N8N_WEBHOOK_URL
+from config import N8N_WEBHOOK_URL
 
 
 def trigger_n8n(event_type: str, data: dict) -> bool:

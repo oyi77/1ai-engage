@@ -1,0 +1,122 @@
+[
+  {
+    "category": "faq",
+    "question": "Apa itu Flosia dan apa keunggulannya?",
+    "answer": "Flosia adalah parfum laundry premium dengan konsentrat tinggi. Keunggulan:\n\n1. Wangi tahan 3 hari pada pakaian\n2. 1 jerigen 5L = 150kg pakaian (cuma Rp633/kg)\n3. 3 varian: Aqua Fresh, Sweet Bubblegum, Royal Perfume\n4. Cocok untuk laundry komersial & pribadi\n5. Harga reseller tersedia untuk bulk order",
+    "content": "flosia parfum laundry premium konsentrat wangi awet 3 hari 150kg",
+    "tags": "product,flosia,keunggulan,info",
+    "priority": 10
+  },
+  {
+    "category": "faq",
+    "question": "Berapa harga Flosia per jerigen?",
+    "answer": "Harga Flosia:\n\n• Paket Trial 500ml: Rp35.000\n• Jerigen 5L: Rp95.000 (hemat Rp633/kg)\n• Paket Hemat 3 Jerigen: Rp242.250 (hemat 15% + FREE parfum spray 250ml)\n• Harga Grosir: Hubungi untuk min. 3 jerigen\n• Reseller: 20% OFF min. 5 jerigen + marketing kit",
+    "content": "harga flosia 5L 500ml trial paket hemat grosir reseller",
+    "tags": "harga,pricing,product",
+    "priority": 10
+  },
+  {
+    "category": "faq",
+    "question": "Berapa takaran penggunaan Flosia?",
+    "answer": "Takaran Flosia:\n\n• Laundry pribadi: 1-2 tutup per kg pakaian kering\n• Laundry komersial: 2-3 tutup per kg\n• 1 jerigen 5L = ±150kg pakaian\n\nTips: Gunakan sesuai takaran untuk hasil optimal dan hemat.",
+    "content": "takaran penggunaan 1-2 tutup kg pakaian kering 150kg",
+    "tags": "usage,cara pakai,takaran",
+    "priority": 9
+  },
+  {
+    "category": "faq",
+    "question": "Apa saja varian wanginya?",
+    "answer": "Flosia tersedia dalam 3 varian:\n\n1️⃣ Aqua Fresh - Wangi segar sepetik laundry\n2️⃣ Sweet Bubblegum - Aroma manis bubblegum\n3️⃣ Royal Perfume - Wangi mewah tahan lama\n\nSemua varian tersedia untuk jerigen 5L dan paket trial 500ml.",
+    "content": "varian wangi aqua fresh sweet bubblegum royal perfume",
+    "tags": "varian,product,wangi",
+    "priority": 9
+  },
+  {
+    "category": "faq",
+    "question": "Cara order dan pembayaran?",
+    "answer": "Cara order Flosia:\n\n1. Pilih varian & jumlah\n2. Transfer ke BCA 1131339351 a/n Andik Veris Febriyanto\n3. Kirim screenshot transfer + alamat lengkap\n4. Pesanan diproses & dikirim HARI INI\n\nMetode:\n• Transfer Bank (BCA, Mandiri, BNI)\n• QRIS (semua e-wallet)\n• Shopee (gratis ongkir, bisa COD)",
+    "content": "cara order transfer BCA 1131339351 Andik Veris Febriyanto pembayaran",
+    "tags": "order,cara beli,pembayaran",
+    "priority": 10
+  },
+  {
+    "category": "faq",
+    "question": "Berapa ongkir ke luar kota?",
+    "answer": "Ongkir Flosia:\n\n• Jombang & sekitar: Rp10.000-15.000\n• Jawa Timur: Rp15.000-25.000\n• Luar Jawa: Rp25.000-40.000\n\nSolusi hemat:\n• Order via Shopee = GRATIS ONGKIR\n• Order min. 3 jerigen = KALOG Cargo (ongkir lebih murah)\n\nLink Shopee: https://s.shopee.co.id/1Lbo3T6GmI",
+    "content": "ongkir jombang jawa timur luar jawa gratis shopee cargo",
+    "tags": "ongkir,pengiriman,shipping",
+    "priority": 9
+  },
+  {
+    "category": "snippet",
+    "question": "Menangani harga mahal",
+    "answer": "Kak, coba hitung ya: 1 jerigen 5L Flosia = 150kg pakaian. Jadi cuma Rp633 per kg, lebih hemat dari deterjen biasa! Wanginya juga awet 3 hari.\n\nKalau mau coba dulu, ada Paket Trial 500ml Rp35.000. Atau ambil 3 jerigen langsung hemat 15% + FREE spray. Mau yang mana Kak?",
+    "content": "harga mahal reframe hemat Rp633 per kg trial 500ml",
+    "tags": "price_objection,closing,learned",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Menangani ongkir mahal",
+    "answer": "Ongkir ke {location} Rp{ongkir} ya Kak, masih terjangkau untuk kualitas premium. Tapi ada solusi lebih hemat:\n\n1️⃣ Order via Shopee = GRATIS ONGKIR → https://s.shopee.co.id/1Lbo3T6GmI\n2️⃣ Ambil min. 3 jerigen = Kirim KALOG Cargo (ongkir jauh lebih murah)\n\nMau saya bantu order via mana Kak?",
+    "content": "ongkir mahal shopee gratis cargo hemat solusi",
+    "tags": "shipping_concern,closing,learned",
+    "priority": 9
+  },
+  {
+    "category": "snippet",
+    "question": "Closing langsung order",
+    "answer": "Mantap Kak! Saya catat pesanan:\n\n📦 {product} Flosia\n💰 Total: Rp{total}\n📍 Alamat: [blm diisi]\n📱 No HP: [blm diisi]\n\nTransfer ke BCA 1131339351 a/n Andik Veris Febriyanto ya Kak. Screenshot transfer + alamat lengkap, langsung saya proses kirim HARI INI! 🚀",
+    "content": "closing order BCA 1131339351 Andik Veris Febriyanto langsung kirim",
+    "tags": "closing,order_ready,direct_cta",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Menanggapi reseller/grosir",
+    "answer": "Wah keren Kak! Buat jadi reseller/buka laundry, minimal 5 jerigen dapat harga reseller 20% OFF + bonus marketing kit + support promosi.\n\nAtau kalau order grosir min. 3 jerigen, dapat harga khusus + kirim KALOG Cargo (ongkir hemat).\n\nMau saya jelaskan detail sistem reseller-nya?",
+    "content": "reseller grosir 5 jerigen 20% OFF marketing kit cargo",
+    "tags": "bulk,reseller,grosir,opportunity",
+    "priority": 9
+  },
+  {
+    "category": "snippet",
+    "question": "Menanggapi ragu/takut ditipu",
+    "answer": "Wajar Kak was-was, saya ngerti 😊 Flosia sudah 500+ customer aktif, rating Shopee 4.9/5. Ada testimoni real @flosia.jombang\n\nKalau mau lebih aman, bisa order via Shopee (bisa COD/cicilan) atau cek dulu review-nya. Link Shopee official: https://s.shopee.co.id/1Lbo3T6GmI\n\nPT Berkah Karya Teknologi - legal & terpercaya 👍",
+    "content": "ragu aman tipu shopee COD review terpercaya legal",
+    "tags": "trust_doubt,aman,closing",
+    "priority": 9
+  },
+  {
+    "category": "snippet",
+    "question": "Follow up setelah beberapa hari",
+    "answer": "Halo Kak! Masih tertarik dengan parfum laundry Flosia? Stock jerigen 5L tinggal 3 unit lagi nih untuk harga normal.\n\nMau saya reserve 1 untuk Kakak? Kalau cocok bisa langsung transfer, saya kirim hari ini juga. 😊",
+    "content": "followup stock habis reserve reminder gentle scarcity",
+    "tags": "followup,scarcity,gentle",
+    "priority": 8
+  },
+  {
+    "category": "doc",
+    "question": "Perbandingan harga Flosia vs deterjen",
+    "answer": "Perbandingan biaya (per kg pakaian):\n\n• Deterjen biasa: Rp1.500-2.000/kg + pewangi terpisah\n• Flosia: Rp633/kg (sudah termasuk wangi)\n• Hemat: 60-70% per kg!\n\nPlus wanginya awet 3 hari, konsentrat tingga, dan customer puas. Worth it untuk laundry dan pribadi!",
+    "content": "perbandingan harga deterjen Rp1500-2000 flosia Rp633 hemat 60%",
+    "tags": "value,comparison,learned",
+    "priority": 9
+  },
+  {
+    "category": "doc",
+    "question": "FAQ - Apakah bisa COD?",
+    "answer": "Ya! Bisa COD melalui Shopee official Flosia:\n\n• Buka Shopee app\n• Cari: Flosia Jombang Official\n• Atau klik: https://s.shopee.co.id/1Lbo3T6GmI\n• Pilih varian, checkout pakai COD\n\nBarang sampai baru bayar, lebih aman! 👍",
+    "content": "COD shopee official link bayar ditempat aman",
+    "tags": "COD,shopee,pembayaran,aman",
+    "priority": 9
+  },
+  {
+    "category": "doc",
+    "question": "Cara menyimpan Flosia dengan benar",
+    "answer": "Tips menyimpan Flosia:\n\n1. Tutup rapat setelah pakai\n2. Simpan di tempat sejuk & kering\n3. Hindari sinar matahari langsung\n4. Jauhkan dari jangkauan anak\n5. Exp: 2 tahun dari produksi\n\nDengan penyimpanan benar, kualitas tetap terjaga!",
+    "content": "tips menyimpan simpan sejuk kering tutup rapat",
+    "tags": "tips,penyimpanan,cara simpan",
+    "priority": 7
+  }
+]

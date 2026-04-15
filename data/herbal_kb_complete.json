@@ -1,0 +1,130 @@
+[
+  {
+    "category": "faq",
+    "question": "Apa saja produk herbal yang tersedia?",
+    "answer": "Kami menyediakan berbagai produk herbal alami:\n\n1️⃣ Madu Hutan Asli - Rp85.000 (500gr)\n2️⃣ Jahe Merah Instan - Rp45.000 (10 sachet)\n3️⃣ Kunyit Asem - Rp35.000 (250gr)\n4️⃣ Teh Herbal Pelangsing - Rp65.000 (20 kantong)\n5️⃣ Jamu Tradisional - Rp25.000/botol\n6️⃣ Sari Temulawak - Rp55.000 (100ml)\n7️⃣ Minyak Herbal Otot - Rp75.000 (60ml)\n\nSemua produk 100% alami tanpa pengawet.",
+    "content": "produk herbal madu jahe merah kunyit asem teh jamu alami temulawak minyak otot",
+    "tags": "product,herbal,info",
+    "priority": 10
+  },
+  {
+    "category": "faq", 
+    "question": "Berapa harga produk herbal?",
+    "answer": "Harga produk herbal kami:\n\n• Madu Hutan: Rp85.000 (hemat vs supermarket Rp120.000)\n• Jahe Merah: Rp45.000 (10 sachet)\n• Kunyit Asem: Rp35.000\n• Teh Pelangsing: Rp65.000\n• Paket Hemat: Beli 3 gratis 1 (hemat 25%)\n• Bundling Sehat: Madu + Jahe + Kunyit = Rp150.000 (hemat Rp15.000)\n• Paket Lengkap (7 produk): Rp300.000 (hemat Rp65.000)\n\nFree ongkir untuk order Rp150.000+",
+    "content": "harga herbal madu jahe paket hemat bundling lengkap free ongkir",
+    "tags": "harga,pricing,product",
+    "priority": 10
+  },
+  {
+    "category": "faq",
+    "question": "Apakah produk herbal ini aman?",
+    "answer": "Sangat aman! Keunggulan produk herbal kami:\n\n✅ 100% bahan alami tanpa pengawet kimia\n✅ Sudah BPOM dan Halal certified\n✅ Petani lokal, proses tradisional\n✅ Ribuan testimoni pelanggan puas\n✅ Bisa dikonsumsi jangka panjang\n✅ Tidak ada efek samping\n\nBisa cek testimoni di @herbalsehat.id",
+    "content": "aman BPOM halal alami tanpa pengawet testimoni efek samping",
+    "tags": "safety,aman,trust",
+    "priority": 10
+  },
+  {
+    "category": "faq",
+    "question": "Cara minum jamu herbal yang benar?",
+    "answer": "Cara konsumsi herbal:\n\n🍯 Madu: 1-2 sdm pagi hari (sebelum sarapan)\n🫚 Jahe Merah: 1 sachet per hari, larutkan air hangat\n🟡 Kunyit Asem: 1-2 sdm per hari\n🍵 Teh Pelangsing: 1-2 kantong per hari\n\nTips:\n• Minum rutin untuk hasil maksimal\n• Jaga pola makan sehat\n• Tidak untuk ibu hamil tanpa konsultasi",
+    "content": "cara minum jamu madu jahe kunyit teh konsumsi rutin",
+    "tags": "usage,cara pakai,jamu",
+    "priority": 9
+  },
+  {
+    "category": "faq",
+    "question": "Herbal ini cocok untuk siapa?",
+    "answer": "Produk herbal cocok untuk:\n\n✓ Orang sibuk yang ingin jaga stamina\n✓ Yang suka pola hidup sehat alami\n✓ Penderita asam urat (jahe, kunyit)\n✓ Yang ingin diet sehat (teh pelangsing)\n✓ Penderita diabetes (temu lawak)\n✓ Ibu menyusui (kecuali teh pelangsing)\n\n❌ Tidak untuk: Ibu hamil tanpa konsultasi dokter",
+    "content": "cocok untuk stamina sehat asam urat diabetes diet ibu menyusui",
+    "tags": "target,cocok untuk,who",
+    "priority": 9
+  },
+  {
+    "category": "faq",
+    "question": "Berapa lama efek herbal terasa?",
+    "answer": "Waktu efek herbal:\n\n• Madu Hutan: 1-2 minggu (stamina naik)\n• Jahe Merah: 2-4 minggu (asam urat turun)\n• Teh Pelangsing: 2-6 minggu (berat turun 2-5kg)\n• Kunyit: 2-3 minggu (kolesterol turun)\n\nCatatan: Hasil bervariasi tergantung metabolisme dan pola hidup. Minum rutin + pola makan sehat = hasil maksimal!",
+    "content": "efek herbal madu stamina jahe asam urat teh pelangsing berat turun",
+    "tags": "efek,waktu,hasil",
+    "priority": 9
+  },
+  {
+    "category": "faq",
+    "question": "Cara order dan pembayaran herbal?",
+    "answer": "Cara order herbal:\n\n1. Pilih produk yang diinginkan\n2. Transfer ke Mandiri 123-456-789 a/n Herbal Sehat\n3. Kirim bukti transfer + alamat lengkap\n4. Pesanan diproses & dikirim HARI INI\n\nMetode:\n• Transfer Bank (Mandiri, BCA, BRI)\n• QRIS (semua e-wallet)\n• COD untuk area Jombang\n\nPengiriman: JNE/J&T (1-3 hari)",
+    "content": "cara order transfer mandiri BCA BRI QRIS COD JNE J&T",
+    "tags": "order,cara beli,pembayaran",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Menangani harga mahal herbal",
+    "answer": "Kak, memang di luaran ada yang lebih murah, tapi produk herbal kami 100% alami dan langsung dari petani. Coba bandingin: madu supermarket Rp120.000, kita cuma Rp85.000 untuk kualitas sama.\n\nAtau Kakak bisa ambil Paket Hemat (Beli 3 Gratis 1), jadi hemat 25%! Kalau hitung-hitung per hari, cuma Rp2.800 per hari untuk sehat. Murah banget kan?\n\nMau saya hitungin paket mana yang paling hemat buat Kakak?",
+    "content": "harga mahal bandingin supermarket petani alami paket hemat hitung per hari",
+    "tags": "price_objection,value,learned",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Menangani efek herbal lama",
+    "answer": "Iya Kak, herbal memang butuh waktu karena alami. Bukan obat kimia yang instan tapi ada efek samping. Herbal bekerja pelan tapi pasti dan aman jangka panjang.\n\nCustomer kami rata-rata baru ngerasain efek minggu ke-2, tapi setelah itu malah langganan terus karena cocok.\n\nMau saya kasih tips minum herbal biar efeknya maksimal?",
+    "content": "efek lama herbal alami pelan tapi pasti aman langganan",
+    "tags": "objection,time,patience,learned",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Closing herbal langsung",
+    "answer": "Mantap Kak! Saya catat order herbalnya:\n\n📦 [Produk Herbal]\n💰 Total: Rp[total]\n📍 Alamat lengkap: [blm diisi]\n📱 No HP: [blm diisi]\n\nTransfer ke Mandiri 123-456-789 a/n Herbal Sehat. Screenshot + alamat, langsung saya proses kirim hari ini! 🌿\n\nBonus: Free ebook tips hidup sehat!",
+    "content": "closing order transfer mandiri kirim hari ini bonus ebook",
+    "tags": "closing,order,payment",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Reseller herbal komplit",
+    "answer": "Wih mantap Kak mau jualan herbal! Ini peluang bagus karena permintaan herbal naik 200% tahun ini. Kami punya sistem reseller lengkap:\n\n• Modal min. 10 produk bebas pilih (start Rp350.000)\n• Diskon 30% dari harga normal\n• Bisa dropship (kita kirim atas nama Kakak)\n• Bonus marketing kit + foto produk HD\n• Grup support reseller + tips jualan\n• Garansi retur produk tidak laku (3 bulan)\n\nMinat? Bisa mulai dari Rp350.000 aja! Sudah dapat 10 produk + bonus. Mau saya jelaskan cara dropshipnya?",
+    "content": "reseller dropship diskon marketing kit support garansi retur modal",
+    "tags": "reseller,opportunity,bulk,learned",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Testimoni herbal detail",
+    "answer": "Soalnya banyak customer kami yang awalnya skeptis, tapi pas udah coba malah repeat order terus. Ini beberapa testimoni real:\n\n👩 Bu Ani (52 th): Diabetes turun dari 300 ke 180 setelah 2 bulan minum jamu temulawak rutin\n\n👨 Pak Budi (45 th): Asam urat sembuh total setelah 1 bulan jahe merah + kunyit\n\n👩‍💼 Mba Sari (35 th): Berat turun 7kg dalam 2 bulan pakai teh pelangsing + diet sehat\n\nMau lihat testimoni lengkap dengan foto before-after? Bisa cek di @herbalsehat.id ya Kak 😊",
+    "content": "testimoni diabetes turun asam urat sembuh berat turun before after real",
+    "tags": "testimoni,social_proof,trust,learned",
+    "priority": 10
+  },
+  {
+    "category": "snippet",
+    "question": "Follow up herbal gentle",
+    "answer": "Halo Kak! Gimana kabarnya? Masih minat dengan herbal untuk jaga kesehatannya?\n\nInfo aja nih, stok Madu Hutan Asli tinggal 3 toples lagi untuk bulan ini. Kalau Kakak minat, bisa saya reserve dulu tanpa DP.\n\nAtau kalau masih mikir-mikir, gapapa Kak. Bisa tanya-tanya dulu tentang herbal yang cocok buat kebutuhan Kakak. Saya bantu jelaskan 😊",
+    "content": "followup stok habis reserve tanpa DP tanya-tanya gentle",
+    "tags": "followup,scarcity,gentle,learned",
+    "priority": 9
+  },
+  {
+    "category": "snippet",
+    "question": "Menangani belum pernah coba herbal",
+    "answer": "Wajar Kak kalau belum pernah coba. Banyak customer kami juga gitu awalnya. Saran saya, coba mulai dari yang paling safe dulu:\n\n1. Madu Hutan (paling umum, semua cocok)\n2. Atau ambil Paket Trial Mini (Rp50.000 - 3 jenis herbal)\n\nKalau cocok, baru lanjut ke yang lain. Kalau tidak cocok, uang kembali (garansi 7 hari).\n\nMau dicoba yang mana dulu Kak?",
+    "content": "belum pernah coba trial mini safe garansi uang kembali",
+    "tags": "newbie,trial,safety,learned",
+    "priority": 10
+  },
+  {
+    "category": "doc",
+    "question": "Perbandingan herbal vs obat kimia",
+    "answer": "Perbedaan Herbal vs Obat Kimia:\n\nHerbal:\n✅ Alami, tidak ada efek samping\n✅ Bisa dikonsumsi jangka panjang\n✅ Menyembuhkan dari akar\n✅ Murah untuk jangka panjang\n⏳ Butuh waktu untuk efek\n\nObat Kimia:\n✅ Efek instan\n❌ Ada efek samping\n❌ Tidak boleh jangka panjang\n❌ Mahal untuk jangka panjang\n\nRekomendasi: Herbal untuk pencegahan & pemeliharaan, obat kimia untuk emergency.",
+    "content": "perbandingan herbal alami obat kimia efek samping jangka panjang",
+    "tags": "comparison,education,learned",
+    "priority": 9
+  },
+  {
+    "category": "doc",
+    "question": "Syarat dan ketentuan reseller herbal",
+    "answer": "Ketentuan Reseller Herbal:\n\n1. Minimal order pertama 10 produk (bebas pilih)\n2. Diskon 30% dari harga normal\n3. Wajib jual di atas harga modal (tidak boleh underprice)\n4. Dropship available tanpa minimum\n5. Retur produk tidak laku maksimal 3 bulan\n6. Bonus marketing kit setiap bulan untuk top reseller\n\nCara daftar: Order pertama 10 produk otomatis jadi reseller.",
+    "content": "syarat ketentuan reseller diskon dropship retur marketing kit",
+    "tags": "reseller,terms,doc",
+    "priority": 8
+  }
+]
