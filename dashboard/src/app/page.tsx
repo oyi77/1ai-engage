@@ -16,8 +16,7 @@ const STAGE_COLORS: Record<string, string> = {
 export default function DashboardPage() {
   const { data: funnel, isLoading: funnelLoading } = useSWR<FunnelData>("/api/funnel", fetcher, { refreshInterval: 5000 });
   const { data: svcData, isLoading: svcLoading } = useSWR<{ services: ServiceStatus[] }>("/api/services", fetcher, { refreshInterval: 3000 });
-  const { data: healthData } = useSWR<{ status: string }>("/health", fetcher, { refreshInterval: 10000, errorRetryCount: 2 });
-  const apiOnline = healthData?.status === "ok";
+  const apiOnline = funnel !== undefined;
 
   if (funnelLoading && svcLoading) {
     return <div className="flex items-center justify-center h-[50vh]"><Loader2 className="h-8 w-8 animate-spin text-orange-500" /></div>;
