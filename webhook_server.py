@@ -36,6 +36,8 @@ from state_manager import (
     set_manual_mode,
     is_manual_mode,
     add_conversation_message,
+    get_voice_config,
+    update_voice_config,
 )
 from kb_manager import (
     add_entry as kb_add_entry,
@@ -91,12 +93,15 @@ def webhook_waha():
             # Voice note handling
             if msg_type in ("audio", "ptt"):
                 try:
-                    from voice_config import VOICE_ENABLED
-                    if VOICE_ENABLED:
+                    from voice_config import get_voice_config
+
+                    voice_config = get_voice_config(session)
+                    if voice_config.get("voice_enabled"):
                         media_url = payload.get("media", {}).get("url", "")
                         if media_url:
                             # Route to voice pipeline
                             from voice_pipeline import process_inbound_voice
+
                             voice_result = process_inbound_voice(
                                 media_url=media_url,
                                 wa_number_id=wa_number.get("id", session),
@@ -104,16 +109,19 @@ def webhook_waha():
                                 session_name=session,
                                 msg_type=msg_type,
                             )
-                            return jsonify({
-                                "status": "ok",
-                                "action": voice_result.get("action"),
-                                "transcription": voice_result.get("transcription", "")[:100],
-                            })
+                            return jsonify(
+                                {
+                                    "status": "ok",
+                                    "action": voice_result.get("action"),
+                                    "transcription": voice_result.get(
+                                        "transcription", ""
+                                    )[:100],
+                                }
+                            )
                 except ImportError:
-                    pass  # Voice modules not available, fall back to text
+                    pass
                 except Exception as e:
                     print(f"[webhook] Voice processing error: {e}")
-                    # Fall through to text handling
 
             if msg_type in ("image", "video", "document", "audio", "ptt"):
                 media_labels = {
@@ -217,6 +225,36 @@ def api_lead_update(lead_id):
 def api_wa_numbers():
     numbers = get_wa_numbers()
     return jsonify({"numbers": numbers, "count": len(numbers)})
+
+
+@app.route("/api/voice-config/<session_name>", methods=["GET"])
+def api_voice_config_get(session_name):
+    config = get_voice_config(session_name)
+    if config is None:
+        config = {
+            "voice_enabled": False,
+            "voice_reply_mode": "auto",
+            "voice_language": "ms",
+        }
+    return jsonify(config)
+
+
+@app.route("/api/voice-config/<session_name>", methods=["PATCH"])
+def api_voice_config_update(session_name):
+    data = request.get_json() or {}
+    voice_enabled = data.get("voice_enabled")
+    voice_reply_mode = data.get("voice_reply_mode")
+    voice_language = data.get("voice_language")
+
+    ok = update_voice_config(
+        session_name,
+        voice_enabled=voice_enabled,
+        voice_reply_mode=voice_reply_mode,
+        voice_language=voice_language,
+    )
+    if not ok:
+        return jsonify({"error": "update_failed"}), 500
+    return jsonify({"ok": True})
 
 
 # ── Knowledge Base ───────────────────────────────────────────────────────

@@ -11,6 +11,7 @@ import {
   Server,
   Play,
   Menu,
+  Mic,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -26,6 +27,7 @@ const NAV_ITEMS = [
   { href: "/pipeline", label: "Sales Pipeline", icon: Kanban },
   { href: "/services", label: "Services", icon: Server },
   { href: "/pipeline-control", label: "Run Pipeline", icon: Play },
+  { href: "/voice-settings", label: "Voice Settings", icon: Mic },
 ];
 
 function NavContent({ onNavigate }: { onNavigate?: () => void }) {

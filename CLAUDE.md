@@ -109,6 +109,48 @@ won / lost / cold / unsubscribed
 
 All hub config lives in `config.py` — never hardcode URLs or keys in scripts.
 
+## Voice Features (WhatsApp Customer Service)
+
+The system supports voice note replies for WhatsApp CS mode. Voice settings are configured per WA number.
+
+### Voice Pipeline
+
+```
+Voice Input (OGG) → faster-whisper (STT) → cs_engine (AI response) → ChatterBox TTS (TTS) → WAHA (voice note)
+```
+
+### Voice Configuration (per WA number)
+
+| Setting | Options | Description |
+|---|---|---|
+| `voice_enabled` | 0/1 | Enable/disable voice replies |
+| `voice_reply_mode` | auto/voice_only/text_only | When to use voice vs text |
+| `voice_language` | ms/id/en | TTS response language |
+
+### Voice Scripts
+
+| Script | Purpose |
+|---|---|
+| `scripts/voice_config.py` | Voice config constants (models, paths) |
+| `scripts/audio_utils.py` | WAV ↔ OGG conversion |
+| `scripts/stt_engine.py` | faster-whisper STT |
+| `scripts/tts_engine.py` | ChatterBox Multilingual TTS |
+| `scripts/voice_pipeline.py` | Orchestration layer |
+| `scripts/senders.py` | `send_voice_note()` function |
+
+### Voice API Endpoints
+
+```
+GET  /api/voice-config/<session_name>  → get voice config
+PATCH /api/voice-config/<session_name> → update voice config
+```
+
+### Dashboard
+
+Voice settings UI: `/voice-settings` — configure per-number voice settings from the dashboard.
+
+All hub config lives in `config.py` — never hardcode URLs or keys in scripts.
+
 ## Key Details
 
 **Proposal file format:**

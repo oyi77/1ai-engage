@@ -32,6 +32,15 @@ export interface WANumber {
   webhook_url?: string;
   created_at?: string;
   updated_at?: string;
+  voice_enabled?: number;
+  voice_reply_mode?: string;
+  voice_language?: string;
+}
+
+export interface VoiceConfig {
+  voice_enabled: boolean;
+  voice_reply_mode: string;
+  voice_language: string;
 }
 
 export interface KBEntry {

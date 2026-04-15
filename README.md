@@ -7,12 +7,42 @@ Cold Calling & Lead Automation System for BerkahKarya.
 2. **Enrichment**: Email & Phone number extraction via Minerva/Apollo.
 3. **Drafting**: AI-generated proposals and WhatsApp messages.
 4. **Blasting**: Automated sending via `wacli` and `himalaya`.
+5. **Voice Support**: Voice note replies with ChatterBox TTS for WhatsApp CS mode.
 
 ## Directory Structure
 - `scripts/`: Python modules for each step.
 - `data/`: Lead databases (`leads.csv`).
 - `proposals/`: Generated proposals.
 - `logs/`: Execution logs.
+
+## Voice Features (WhatsApp Customer Service)
+
+The system supports voice note replies for WhatsApp CS mode. When enabled, customers can send voice notes and receive AI-generated voice responses.
+
+### Voice Pipeline
+
+```
+Voice Input (OGG) → faster-whisper (STT) → cs_engine (AI response) → ChatterBox TTS (TTS) → WAHA (voice note)
+```
+
+### Configuration
+
+Voice settings are configurable per WA number via the dashboard at `/voice-settings` or via API:
+
+```
+GET  /api/voice-config/<session_name>  → get voice config
+PATCH /api/voice-config/<session_name> → update voice config
+```
+
+### Voice Settings
+
+| Setting | Options | Description |
+|---|---|---|
+| `voice_enabled` | true/false | Enable/disable voice replies |
+| `voice_reply_mode` | auto/voice_only/text_only | When to use voice vs text |
+| `voice_language` | ms/id/en | TTS response language |
+
+Default language is Indonesian (Bahasa Indonesia).
 
 ## Usage (via Telegram)
 Tell Vilona:
