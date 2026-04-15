@@ -58,7 +58,10 @@ from cs_outcomes import (
     record_journey_step,
     record_final_outcome,
 )
-from cs_playbook import get_playbook, AdaptiveContext
+from cs_playbook import (
+    get_playbook,
+    AdaptiveContext,
+)  # kept for future adaptive context features
 
 
 def _is_purchase_signal(text: str) -> bool:
@@ -327,16 +330,19 @@ def generate_cs_response(
 
     prompt_parts = [
         f"[SYSTEM]\n{persona}\n",
-        "## CLOSING PRIORITY MODE (ACTIVE)\n"
-        "- Your primary goal is to increase conversion.\n"
-        "- ALWAYS prioritize direct order via WhatsApp.\n"
-        "- Do NOT suggest marketplace (Shopee) unless user explicitly complains about shipping cost or shipping distance.\n"
-        "- Always include a soft closing CTA (e.g., 'Mau dipesankan sekarang?', 'Bisa dikirim hari ini Kak?').\n"
-        "- Frame shipping cost as normal and acceptable (e.g., 'Ongkir ke Jombang cuma Rp10rb aja Kak, masih sangat masuk akal.').\n"
-        "- Reduce user thinking effort. Give direct choices.\n"
-        "- If user hesitates or asks for discount → suggest bundling / paket hemat.\n"
-        "- If user complains about shipping cost → offer marketplace as fallback.\n"
-        "- Never present multiple options at once unless necessary.\n",
+        "## RESPONSE STYLE (CRITICAL)\n"
+        "- You are a REAL human CS agent chatting on WhatsApp. Sound natural and casual, NOT like a bot or AI.\n"
+        "- Use informal Bahasa Indonesia: 'Kak', 'nih', 'ya', 'banget', 'dong', 'sih' — like chatting with a friend.\n"
+        "- Keep it SHORT. 1-3 sentences max. Real people don't write essays on WhatsApp.\n"
+        "- NO bullet points, NO numbered lists, NO emoji spam (max 1-2 per message).\n"
+        "- NO markdown formatting whatsoever (no **, no ##, no *).\n"
+        "- NEVER say 'Sebagai AI' or 'Saya adalah asisten' — you are a human agent.\n"
+        "- Sound warm, friendly, and genuinely helpful — not salesy or pushy.\n\n",
+        "## CONVERSATION APPROACH\n"
+        "- Prioritize direct WhatsApp order. Only suggest marketplace if user complains about shipping.\n"
+        "- Include a natural soft CTA when appropriate (e.g., 'Mau dicoba Kak?', 'Bisa kirim hari ini nih').\n"
+        "- If user hesitates → suggest trying a smaller package first, don't push.\n"
+        "- If user asks about price → be transparent, don't dodge the question.\n\n",
         f"## ADAPTIVE STRATEGY: {user_type.upper()}\n"
         f"Instruction: {strategy_instruction}\n",
         f"Language instruction: {lang_instruction}\n",
@@ -361,14 +367,9 @@ def generate_cs_response(
 
     prompt_parts.append(
         f"[USER]\nCustomer's latest message: {message}\n\n"
-        "Instructions:\n"
-        "- Answer the customer's question directly and helpfully.\n"
-        "- Keep response concise (2-4 sentences max).\n"
-        "- If the KB has a relevant answer, use it but rephrase naturally.\n"
-        "- Do NOT mention 'knowledge base' or 'database' to the customer.\n"
-        "- Be warm and professional.\n"
-        "- Do NOT use markdown formatting (no **, no ##, no bullet points with *).\n"
-        "- Output ONLY the reply text, nothing else."
+        "Reply as a real human CS agent would on WhatsApp. Be concise, warm, and natural. "
+        "If the KB has a relevant answer, use the information but rephrase in your own casual words. "
+        "Output ONLY the reply text — no labels, no meta-commentary."
     )
 
     full_prompt = "\n".join(prompt_parts)
@@ -519,32 +520,18 @@ def handle_inbound_message(
     # 7b. Detect User Type (Hybrid Adaptive Mode)
     user_type = _detect_user_type(message_text, conv_id)
 
-    # 8. Generate response - try KB first, then playbook, then LLM
+    # 8. Generate response
     response_text = ""
+    conversation_context = get_conversation_context(conv_id, max_messages=10)
 
-    # Try KB direct answer first (most reliable)
-    if kb_results:
-        # Use the first KB result directly without LLM
-        kb_answer = kb_results[0].get("answer", "")
-        if kb_answer:
-            response_text = kb_answer
-
-    if not response_text:
-        from cs_playbook import get_response_for_message
-
-        pb_result = get_response_for_message(message_text, user_type)
-        response_text = pb_result.get("response", "")
-
-    if not response_text:
-        conversation_context = get_conversation_context(conv_id, max_messages=10)
-        response_text = generate_cs_response(
-            conversation_context,
-            kb_results,
-            persona,
-            message_text,
-            stage_context,
-            user_type,
-        )
+    response_text = generate_cs_response(
+        conversation_context,
+        kb_results,
+        persona,
+        message_text,
+        stage_context,
+        user_type,
+    )
 
     if not response_text:
         response_text = "Terima kasih atas pesannya. Saya akan membantu segera."
