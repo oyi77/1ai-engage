@@ -312,7 +312,7 @@ def generate_cs_response(
         "price_sensitive": "Emphasize value & suggest bundling / paket hemat for better price.",
         "urgent": "Fast closing mode. Minimal explanation, get payment info out quickly.",
         "bulk": "Offer cargo solution (KALOG) and emphasize pricing for volume.",
-        "friction": "Address doubts briefly, offer Shopee link as a safe fallback solution: https://s.shopee.co.id/1Lbo3T6GmI",
+        "friction": "Address doubts briefly, offer marketplace link as a safe fallback solution.",
     }
     strategy_instruction = strategies.get(user_type, strategies["normal"])
 
@@ -335,7 +335,7 @@ def generate_cs_response(
         "- Frame shipping cost as normal and acceptable (e.g., 'Ongkir ke Jombang cuma Rp10rb aja Kak, masih sangat masuk akal.').\n"
         "- Reduce user thinking effort. Give direct choices.\n"
         "- If user hesitates or asks for discount → suggest bundling / paket hemat.\n"
-        "- If user complains about shipping cost → offer Shopee as fallback: https://s.shopee.co.id/1Lbo3T6GmI\n"
+        "- If user complains about shipping cost → offer marketplace as fallback.\n"
         "- Never present multiple options at once unless necessary.\n",
         f"## ADAPTIVE STRATEGY: {user_type.upper()}\n"
         f"Instruction: {strategy_instruction}\n",

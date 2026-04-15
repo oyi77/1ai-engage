@@ -125,36 +125,30 @@ class CSPlaybook:
             "price_objection": [
                 ResponsePattern(
                     "price_reframe_value",
-                    "Kak, Flosia emang investasi awalnya lebih besar sedikit, tapi coba hitung: 1 jerigen 5L bisa buat 150kg pakaian, jadi cuma Rp{price_per_kg}/kg. Lebih hemat dari deterjen biasa dan wangi awet 3 hari! Mau saya hitung untuk kebutuhan Kakak?",
+                    "Kak, produk kami emang investasi awalnya lebih besar sedikit, tapi coba hitung: kualitas premium, hasilnya memuaskan, dan tahan lama! Lebih hemat dalam jangka panjang. Mau saya bantu hitung untuk kebutuhan Kakak?",
                     "price_objection",
                     ["value", "reframe", "calculation"],
                 ),
                 ResponsePattern(
                     "price_bundle_offer",
-                    "Kak, saya ngerti budget penting 😊 Yuk, saya bantu: kalau ambil Paket Hemat 3 jerigen, harganya turun 15% + gratis parfum spray! Jadi Rp{package_price} aja. Mau saya rekapkan?",
+                    "Kak, saya ngerti budget penting 😊 Yuk, saya bantu: kalau ambil paket hemat, harganya turun 15% + ada bonusnya! Mau saya rekapkan?",
                     "price_objection",
                     ["bundle", "discount", "value_add"],
                 ),
                 ResponsePattern(
                     "price_quality_compare",
-                    "Kak, banyak yang bilang mahal di awal, tapi setelah pakai bilang worth it karena wanginya premium dan konsentratnya tinggi. Ada juga versi ekonomis Rp{economy_price} kalau Kakak mau coba dulu. Minat yang mana?",
+                    "Kak, banyak yang bilang mahal di awal, tapi setelah pakai bilang worth it karena kualitasnya premium dan hasilnya konsisten. Ada juga versi ekonomis kalau Kakak mau coba dulu. Minat yang mana?",
                     "price_objection",
                     ["compare", "alternative", "social_proof"],
                 ),
                 ResponsePattern(
                     "price_trial_offer",
-                    "Kak, saya kasih solusi: ada Paket Trial 500ml cuma Rp{trial_price}. Kalau cocok baru upgrade ke 5L. Gimana? Bisa transfer ke BCA 1131339351 a/n Andik Veris Febriyanto, langsung kirim hari ini.",
+                    "Kak, saya kasih solusi: ada paket trial dengan harga terjangkau. Kalau cocok baru upgrade. Gimana?",
                     "price_objection",
                     ["trial", "low_risk", "direct_cta"],
                 ),
             ],
             "closing_ready": [
-                ResponsePattern(
-                    "close_direct_bca",
-                    "Siap Kak! Total Rp{order_value}. Transfer ke BCA 1131339351 a/n Andik Veris Febriyanto ya. Screenshot transfer + kirim alamat lengkap & no HP, langsung kami proses hari ini! 🚀",
-                    "closing_ready",
-                    ["direct", "payment_info", "urgency"],
-                ),
                 ResponsePattern(
                     "close_confirm_details",
                     "Mantap Kak! Saya catat dulu:\n\n📦 {product_name}\n💰 Rp{order_value}\n📍 Alamat: [blm diisi]\n📱 No HP: [blm diisi]\n\nBisa diisi datanya? Biar langsung kirim hari ini!",
@@ -171,13 +165,13 @@ class CSPlaybook:
             "bulk_inquiry": [
                 ResponsePattern(
                     "bulk_cargo_offer",
-                    "Halo Kak! Buat order besar minimal 3 jerigen, kita kasih harga khusus grosir + kirim via KALOG cargo (ongkir jauh lebih murah dari reguler). Minat detailnya?",
+                    "Halo Kak! Buat order besar, kita kasih harga khusus grosir + kirim via cargo (ongkir jauh lebih murah dari reguler). Minat detailnya?",
                     "bulk_inquiry",
                     ["cargo", "volume_discount", "savings"],
                 ),
                 ResponsePattern(
                     "bulk_reseller_info",
-                    "Kak mau jadi reseller? Minimal 5 jerigen dapat harga reseller 20% off + bonus marketing kit. Cocok buat laundry atau dijual lagi. Mau saya jelaskan sistemnya?",
+                    "Kak mau jadi reseller? Dapat harga reseller spesial + bonus marketing kit. Cocok buat bisnis atau dijual lagi. Mau saya jelaskan sistemnya?",
                     "bulk_inquiry",
                     ["reseller", "opportunity", "partnership"],
                 ),
@@ -199,7 +193,7 @@ class CSPlaybook:
             "product_inquiry": [
                 ResponsePattern(
                     "product_variants",
-                    "Kak, kita ada 3 varian:\n1️⃣ {variant_1} - {desc_1}\n2️⃣ {variant_2} - {desc_2}\n3️⃣ {variant_3} - {desc_3}\n\nYang mana sesuai kebutuhan Kakak?",
+                    "Kak, kita ada beberapa pilihan:\n1️⃣ {variant_1} - {desc_1}\n2️⃣ {variant_2} - {desc_2}\n3️⃣ {variant_3} - {desc_3}\n\nYang mana sesuai kebutuhan Kakak?",
                     "product_inquiry",
                     ["options", "comparison", "consultative"],
                 ),
@@ -207,7 +201,7 @@ class CSPlaybook:
             "trust_doubt": [
                 ResponsePattern(
                     "trust_social_proof",
-                    "Ngerti banget Kak, wajar was-wada 😊 Kita sudah 500+ customer, banyak di Shopee rating 4.9/5. Testimoni real ada di {testimonial_link}. Atau bisa COD lewat Shopee: {shopee_link} biar aman.",
+                    "Ngerti banget Kak, wajar was-wada 😊 Kita sudah 500+ customer dengan rating bagus. Testimoni real ada di {testimonial_link}. Atau bisa COD lewat Shopee: {shopee_link} biar aman.",
                     "trust_doubt",
                     ["social_proof", "rating", "cod_option"],
                 ),
@@ -221,7 +215,7 @@ class CSPlaybook:
             "follow_up": [
                 ResponsePattern(
                     "follow_up_gentle",
-                    "Halo Kak! Masih tertarik dengan {product_name}? Stock masih ada nih, tapi tinggal 5 jerigen lagi. Mau saya reserve satu?",
+                    "Halo Kak! Masih tertarik dengan {product_name}? Stock masih ada nih. Mau saya bantu?",
                     "follow_up",
                     ["scarcity", "gentle", "opportunity"],
                 ),
