@@ -16,7 +16,6 @@ if str(SCRIPT_DIR) not in sys.path:
 from cs_engine import handle_inbound_message
 from state_manager import (
     init_db,
-    get_wa_number_by_session,
     add_event_log,
     get_wa_numbers,
     get_wa_number_by_session,
@@ -38,7 +37,12 @@ from state_manager import (
     is_manual_mode,
     add_conversation_message,
 )
-from kb_manager import add_entry as kb_add_entry, update_entry as kb_update_entry, import_entries, export_entries
+from kb_manager import (
+    add_entry as kb_add_entry,
+    update_entry as kb_update_entry,
+    import_entries,
+    export_entries,
+)
 
 app = Flask(__name__)
 CORS(app, origins=["*"])
@@ -48,6 +52,7 @@ init_db()
 
 
 # ── WAHA Webhook ──────────────────────────────────────────────────────────
+
 
 @app.route("/webhook/waha", methods=["POST"])
 def webhook_waha():
@@ -93,11 +98,15 @@ def webhook_waha():
                 message_text=body_text,
                 session_name=session,
             )
-            return jsonify({
-                "status": "ok",
-                "action": result.get("action"),
-                "response_sent": (result.get("response", "")[:100] + "...") if result.get("response") else "",
-            })
+            return jsonify(
+                {
+                    "status": "ok",
+                    "action": result.get("action"),
+                    "response_sent": (result.get("response", "")[:100] + "...")
+                    if result.get("response")
+                    else "",
+                }
+            )
 
         return jsonify({"status": "ok", "event": event})
     except Exception as e:
@@ -107,12 +116,14 @@ def webhook_waha():
 
 # ── Health ────────────────────────────────────────────────────────────────
 
+
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({"status": "ok", "service": "1ai-engage-api", "version": "2.0.0"})
 
 
 # ── Funnel / Leads ───────────────────────────────────────────────────────
+
 
 @app.route("/api/funnel", methods=["GET"])
 def api_funnel():
@@ -149,6 +160,7 @@ def api_lead_update(lead_id):
 
 # ── WA Numbers ───────────────────────────────────────────────────────────
 
+
 @app.route("/api/wa-numbers", methods=["GET"])
 def api_wa_numbers():
     numbers = get_wa_numbers()
@@ -156,6 +168,7 @@ def api_wa_numbers():
 
 
 # ── Knowledge Base ───────────────────────────────────────────────────────
+
 
 @app.route("/api/kb/<wa_number_id>", methods=["GET"])
 def api_kb_list(wa_number_id):
@@ -219,6 +232,7 @@ def api_kb_export(wa_number_id):
 
 # ── Conversations ────────────────────────────────────────────────────────
 
+
 @app.route("/api/conversations", methods=["GET"])
 def api_conversations():
     wa_filter = request.args.get("wa_number_id")
@@ -268,6 +282,7 @@ def api_conversation_manual(conv_id):
 
 # ── Event Log ────────────────────────────────────────────────────────────
 
+
 @app.route("/api/events", methods=["GET"])
 def api_events():
     lead_id = request.args.get("lead_id")
@@ -278,19 +293,39 @@ def api_events():
 
 # ── Service Control ──────────────────────────────────────────────────────
 
+
 @app.route("/api/services", methods=["GET"])
 def api_services():
     services = []
     checks = [
-        {"key": "webhook", "label": "Webhook Server", "pattern": "webhook_server.py", "port": 8766},
-        {"key": "autonomous", "label": "Autonomous Loop", "pattern": "autonomous_loop.py"},
-        {"key": "streamlit", "label": "Streamlit UI", "pattern": "streamlit run", "port": 8502},
+        {
+            "key": "webhook",
+            "label": "Webhook Server",
+            "pattern": "webhook_server.py",
+            "port": 8766,
+        },
+        {
+            "key": "autonomous",
+            "label": "Autonomous Loop",
+            "pattern": "autonomous_loop.py",
+        },
+        {
+            "key": "streamlit",
+            "label": "Streamlit UI",
+            "pattern": "streamlit run",
+            "port": 8502,
+        },
         {"key": "tunnel", "label": "Cloudflare Tunnel", "pattern": "cloudflared"},
     ]
     for svc in checks:
         running = _is_process_running(svc["pattern"])
         pid = _get_pid(svc["pattern"]) if running else None
-        info = {"key": svc["key"], "label": svc["label"], "running": running, "pid": pid}
+        info = {
+            "key": svc["key"],
+            "label": svc["label"],
+            "running": running,
+            "pid": pid,
+        }
         if svc.get("port"):
             info["port"] = svc["port"]
         services.append(info)
@@ -317,8 +352,16 @@ def api_autonomous_start():
 
     try:
         with open(log_file, "a") as lf:
-            lf.write(f"\n[{datetime.now().isoformat()}] Starting loop (dry_run={dry_run}, run_once={run_once})\n")
-            subprocess.Popen(cmd, stdout=lf, stderr=subprocess.STDOUT, start_new_session=True, cwd=str(Path(__file__).parent))
+            lf.write(
+                f"\n[{datetime.now().isoformat()}] Starting loop (dry_run={dry_run}, run_once={run_once})\n"
+            )
+            subprocess.Popen(
+                cmd,
+                stdout=lf,
+                stderr=subprocess.STDOUT,
+                start_new_session=True,
+                cwd=str(Path(__file__).parent),
+            )
         return jsonify({"ok": True, "message": "Autonomous loop started"})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -327,7 +370,9 @@ def api_autonomous_start():
 @app.route("/api/services/autonomous/stop", methods=["POST"])
 def api_autonomous_stop():
     try:
-        subprocess.run(["pkill", "-f", "autonomous_loop.py"], capture_output=True, timeout=5)
+        subprocess.run(
+            ["pkill", "-f", "autonomous_loop.py"], capture_output=True, timeout=5
+        )
         return jsonify({"ok": True, "message": "Autonomous loop stopped"})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -335,7 +380,12 @@ def api_autonomous_stop():
 
 @app.route("/api/services/webhook/restart", methods=["POST"])
 def api_webhook_restart():
-    return jsonify({"ok": False, "message": "Cannot restart self — use systemd: sudo systemctl restart 1ai-engage-mcp"})
+    return jsonify(
+        {
+            "ok": False,
+            "message": "Cannot restart self — use systemd: sudo systemctl restart 1ai-engage-mcp",
+        }
+    )
 
 
 # ── Pipeline Control ─────────────────────────────────────────────────────
@@ -351,6 +401,7 @@ PIPELINE_SCRIPTS = [
     {"key": "followup", "script": "followup.py"},
     {"key": "sync", "script": "sheets_sync.py"},
 ]
+
 
 @app.route("/api/pipeline/scripts", methods=["GET"])
 def api_pipeline_scripts():
@@ -389,13 +440,19 @@ def api_pipeline_run():
 
 # ── Logs ─────────────────────────────────────────────────────────────────
 
+
 @app.route("/api/logs/<name>", methods=["GET"])
 def api_logs(name):
     lines = int(request.args.get("lines", 50))
     log_dir = Path(__file__).parent / "logs"
     log_file = log_dir / f"{name}.log"
     if not log_file.exists():
-        return jsonify({"error": "log not found", "available": [p.stem for p in log_dir.glob("*.log")]}), 404
+        return jsonify(
+            {
+                "error": "log not found",
+                "available": [p.stem for p in log_dir.glob("*.log")],
+            }
+        ), 404
     try:
         text = log_file.read_text(errors="replace")
         tail = text.strip().splitlines()[-lines:]
@@ -405,6 +462,7 @@ def api_logs(name):
 
 
 # ── Helpers ──────────────────────────────────────────────────────────────
+
 
 def _is_process_running(pattern: str) -> bool:
     try:
@@ -416,7 +474,9 @@ def _is_process_running(pattern: str) -> bool:
 
 def _get_pid(pattern: str) -> int | None:
     try:
-        r = subprocess.run(["pgrep", "-f", pattern], capture_output=True, text=True, timeout=5)
+        r = subprocess.run(
+            ["pgrep", "-f", pattern], capture_output=True, text=True, timeout=5
+        )
         if r.returncode == 0 and r.stdout.strip():
             return int(r.stdout.strip().splitlines()[0])
         return None

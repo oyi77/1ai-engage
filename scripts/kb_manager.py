@@ -294,7 +294,7 @@ def auto_learn_from_outcomes(
     from cs_outcomes import extract_learnings, mark_learning_extracted
     from cs_playbook import CSPlaybook
 
-    learnings = extract_lecomings(limit=20)
+    learnings = extract_learnings(limit=20)
     playbook = CSPlaybook()
     created = 0
 
@@ -472,8 +472,6 @@ def seed_default_kb(wa_number_id: str) -> int:
         count += 1
 
     _rebuild_fts()
-    return count
-
     return count
 
 

@@ -124,6 +124,7 @@ CREATE TABLE IF NOT EXISTS conversations (
     lead_id TEXT,
     engine_mode TEXT NOT NULL,
     status TEXT DEFAULT 'active',
+    manual_mode INTEGER DEFAULT 0,
     last_message_at TEXT,
     message_count INTEGER DEFAULT 0,
     created_at TEXT DEFAULT (datetime('now')),
@@ -190,6 +191,14 @@ def init_db() -> None:
     conn = _connect()
     try:
         conn.executescript(_SCHEMA_SQL)
+        # Migrations: add columns that may be missing in older DBs
+        try:
+            conn.execute(
+                "ALTER TABLE conversations ADD COLUMN manual_mode INTEGER DEFAULT 0"
+            )
+        except Exception:
+            pass  # Column already exists
+        conn.commit()
     finally:
         conn.close()
 

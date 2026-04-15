@@ -224,7 +224,7 @@ def _detect_language(text: str) -> str:
     matches = words & _INDONESIAN_MARKERS
     if len(matches) >= 1:
         return "id"
-    return "id"
+    return "en"
 
 
 # ---------------------------------------------------------------------------

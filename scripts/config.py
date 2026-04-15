@@ -118,12 +118,9 @@ WAHA_URL = os.getenv(
 )
 WAHA_DIRECT_URL = "https://waha.aitradepulse.com"
 WAHA_API_KEY = os.getenv(
-    "WAHA_API_KEY", "0673158ede14970b922f7e62075bd0f211490ca335111a9e"
+    "WAHA_API_KEY",
+    _WAHA_CFG.get("api_key", "0673158ede14970b922f7e62075bd0f211490ca335111a9e"),
 )
-WAHA_DIRECT_API_KEY = os.getenv(
-    "WAHA_DIRECT_API_KEY", "0673158ede14970b922f7e62075bd0f211490ca335111a9e"
-)
-WAHA_API_KEY = os.getenv("WAHA_API_KEY", _WAHA_CFG.get("api_key", ""))
 WAHA_DIRECT_API_KEY = os.getenv(
     "WAHA_DIRECT_API_KEY",
     os.getenv("WAHA_API_KEY", "0673158ede14970b922f7e62075bd0f211490ca335111a9e"),
