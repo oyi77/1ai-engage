@@ -82,16 +82,22 @@ def process_inbound_voice(
         # 4. LLM: Generate response (via cs_engine)
         print(f"[voice] Generating response via cs_engine...")
         from cs_engine import handle_inbound_message
+        from senders import send_typing_indicator
+        import time
+
+        send_typing_indicator(session_name, contact_phone, typing=True)
 
         cs_result = handle_inbound_message(
             wa_number_id=wa_number_id,
             contact_phone=contact_phone,
             message_text=transcription,
             session_name=session_name,
+            skip_send=True,
         )
 
         response_text = cs_result.get("response", "")
         if not response_text:
+            send_typing_indicator(session_name, contact_phone, typing=False)
             print(f"[voice] CS engine returned empty response")
             return {
                 "action": "text_fallback",
@@ -136,6 +142,8 @@ def process_inbound_voice(
 
         sent = send_voice_note(contact_phone, ogg_bytes, session_name)
 
+        send_typing_indicator(session_name, contact_phone, typing=False)
+
         return {
             "action": "voice_replied",
             "transcription": transcription,
@@ -145,6 +153,12 @@ def process_inbound_voice(
 
     except Exception as e:
         print(f"[voice] Pipeline error: {e}")
+        try:
+            from senders import send_typing_indicator
+
+            send_typing_indicator(session_name, contact_phone, typing=False)
+        except:
+            pass
         return {
             "action": "error",
             "reason": str(e),
