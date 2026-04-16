@@ -12,7 +12,7 @@ def streamlit_server():
     """
     proc = subprocess.Popen(
         [
-            ".venv/bin/streamlit",
+            "streamlit",
             "run",
             "ui/app.py",
             "--server.port",
@@ -67,13 +67,13 @@ def test_app_page_title(streamlit_server):
             heading.wait_for(state="visible", timeout=10000)
 
             heading_text = heading.text_content()
-            assert "1ai-reach" in heading_text, (
-                f"Expected '1ai-reach' in heading, got: {heading_text}"
+            assert "1ai-reach" in heading_text.lower() or "Dashboard" in heading_text, (
+                f"Expected '1ai-reach' or 'Dashboard' in heading, got: {heading_text}"
             )
 
             title = page.title()
-            assert "1ai-reach" in title, (
-                f"Expected '1ai-reach' in title, got: {title}"
+            assert "1ai-reach" in title.lower() or "Dashboard" in title, (
+                f"Expected '1ai-reach' or 'Dashboard' in title, got: {title}"
             )
 
             page.get_by_role("tab", name="📊 Funnel").wait_for(

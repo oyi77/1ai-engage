@@ -19,7 +19,7 @@ def test_render_funnel_with_data(mock_st):
 
     render_funnel(df=df)
 
-    mock_st.header.assert_called_once_with("📊 Funnel")
+    # Header was removed - page title is now handled by app.py
     mock_st.columns.assert_called_once_with(8)
 
     mock_cols[0].metric.assert_called_once_with(label="New", value=2)
