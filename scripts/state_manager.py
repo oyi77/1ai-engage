@@ -893,37 +893,53 @@ def get_conversation_stage(conversation_id: int) -> str | None:
 
 
 def get_all_conversation_stages(wa_number_id: str | None = None) -> list[dict]:
-    """Get all conversations with their current sales stage."""
+    """Get all conversations with their current sales stage, showing only the latest conversation per contact."""
     conn = _connect()
     try:
         if wa_number_id:
             rows = conn.execute(
                 """
-                SELECT c.id, c.contact_phone, c.contact_name, c.wa_number_id, c.status,
-                       c.manual_mode, s.stage, s.entry_trigger, s.updated_at
-                FROM conversations c
-                LEFT JOIN (
+                WITH latest_conversations AS (
+                    SELECT c.id, c.contact_phone, c.contact_name, c.wa_number_id, c.status,
+                           c.manual_mode, c.updated_at,
+                           ROW_NUMBER() OVER (PARTITION BY c.contact_phone ORDER BY c.updated_at DESC) as conv_rn
+                    FROM conversations c
+                    WHERE c.wa_number_id = ? AND c.engine_mode = 'cs'
+                ),
+                latest_stages AS (
                     SELECT conversation_id, stage, entry_trigger, updated_at,
-                           ROW_NUMBER() OVER (PARTITION BY conversation_id ORDER BY updated_at DESC) as rn
+                           ROW_NUMBER() OVER (PARTITION BY conversation_id ORDER BY updated_at DESC) as stage_rn
                     FROM sales_stages
-                ) s ON c.id = s.conversation_id AND s.rn = 1
-                WHERE c.wa_number_id = ? AND c.engine_mode = 'cs'
-                ORDER BY COALESCE(s.updated_at, c.updated_at) DESC
+                )
+                SELECT lc.id, lc.contact_phone, lc.contact_name, lc.wa_number_id, lc.status,
+                       lc.manual_mode, ls.stage, ls.entry_trigger, ls.updated_at
+                FROM latest_conversations lc
+                LEFT JOIN latest_stages ls ON lc.id = ls.conversation_id AND ls.stage_rn = 1
+                WHERE lc.conv_rn = 1
+                ORDER BY COALESCE(ls.updated_at, lc.updated_at) DESC
             """,
                 (wa_number_id,),
             ).fetchall()
         else:
             rows = conn.execute("""
-            SELECT c.id, c.contact_phone, c.contact_name, c.wa_number_id, c.status,
-                   c.manual_mode, s.stage, s.entry_trigger, s.updated_at
-            FROM conversations c
-            LEFT JOIN (
+            WITH latest_conversations AS (
+                SELECT c.id, c.contact_phone, c.contact_name, c.wa_number_id, c.status,
+                       c.manual_mode, c.updated_at,
+                       ROW_NUMBER() OVER (PARTITION BY c.contact_phone ORDER BY c.updated_at DESC) as conv_rn
+                FROM conversations c
+                WHERE c.engine_mode = 'cs'
+            ),
+            latest_stages AS (
                 SELECT conversation_id, stage, entry_trigger, updated_at,
-                       ROW_NUMBER() OVER (PARTITION BY conversation_id ORDER BY updated_at DESC) as rn
+                       ROW_NUMBER() OVER (PARTITION BY conversation_id ORDER BY updated_at DESC) as stage_rn
                 FROM sales_stages
-            ) s ON c.id = s.conversation_id AND s.rn = 1
-            WHERE c.engine_mode = 'cs'
-            ORDER BY COALESCE(s.updated_at, c.updated_at) DESC
+            )
+            SELECT lc.id, lc.contact_phone, lc.contact_name, lc.wa_number_id, lc.status,
+                   lc.manual_mode, ls.stage, ls.entry_trigger, ls.updated_at
+            FROM latest_conversations lc
+            LEFT JOIN latest_stages ls ON lc.id = ls.conversation_id AND ls.stage_rn = 1
+            WHERE lc.conv_rn = 1
+            ORDER BY COALESCE(ls.updated_at, lc.updated_at) DESC
             """).fetchall()
         return [dict(r) for r in rows]
     finally:
