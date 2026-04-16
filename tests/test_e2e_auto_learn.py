@@ -32,6 +32,17 @@ def test_db():
     init_db()
     init_outcomes_db()
 
+    import sqlite3
+
+    conn = sqlite3.connect(db_path)
+    try:
+        conn.execute("ALTER TABLE response_outcomes ADD COLUMN wa_number_id TEXT")
+        conn.commit()
+    except sqlite3.OperationalError:
+        pass
+    finally:
+        conn.close()
+
     yield db_path
 
     config.DB_FILE = original_db
