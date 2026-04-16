@@ -24,6 +24,7 @@ export default function ServicesPage() {
   const { data: svcData, mutate: mutateSvc, isLoading } = useSWR<{ services: ServiceStatus[] }>("/api/services", fetcher, { refreshInterval: 3000 });
   const [selectedLog, setSelectedLog] = useState("webhook");
   const [mode, setMode] = useState<"normal" | "dry_run" | "run_once">("dry_run");
+  const [acting, setActing] = useState<string | null>(null);
 
   const { data: logData } = useSWR<{ lines: string[] }>(
     selectedLog ? `/api/logs/${selectedLog}?lines=80` : null, fetcher, { refreshInterval: 5000 }
@@ -37,40 +38,75 @@ export default function ServicesPage() {
   const autonomous = services.find((s) => s.key === "autonomous");
 
   async function startLoop() {
+    setActing("autonomous-start");
     await postJSON("/api/services/autonomous/start", { dry_run: mode === "dry_run", run_once: mode === "run_once" });
-    setTimeout(() => mutateSvc(), 1000);
+    setTimeout(() => { mutateSvc(); setActing(null); }, 1500);
   }
 
   async function stopLoop() {
+    setActing("autonomous-stop");
     await postJSON("/api/services/autonomous/stop", {});
-    setTimeout(() => mutateSvc(), 1000);
+    setTimeout(() => { mutateSvc(); setActing(null); }, 1500);
   }
+
+  async function restartService(key: string) {
+    setActing(`${key}-restart`);
+    await postJSON(`/api/services/${key}/restart`, {});
+    setTimeout(() => { mutateSvc(); setActing(null); }, 2000);
+  }
+
+  async function stopService(key: string) {
+    setActing(`${key}-stop`);
+    await postJSON(`/api/services/${key}/stop`, {});
+    setTimeout(() => { mutateSvc(); setActing(null); }, 1500);
+  }
+
+  const serviceActions: Record<string, { canStart?: boolean; canStop?: boolean; canRestart?: boolean }> = {
+    webhook: { canRestart: true },
+    autonomous: { canStart: true, canStop: true },
+    dashboard: { canRestart: true },
+  };
 
   return (
     <div className="p-6 space-y-6">
       <h1 className="text-2xl font-bold">Services</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {services.map((s) => (
-          <Card key={s.key} className="bg-neutral-900 border-neutral-800">
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className={`h-3 w-3 rounded-full ${s.running ? "bg-green-500 animate-pulse" : "bg-neutral-600"}`} />
-                  <div>
-                    <h3 className="font-semibold">{s.label}</h3>
-                    <p className="text-xs text-neutral-500">
-                      {s.pid ? `PID ${s.pid}` : "Not running"}{s.port ? ` — port ${s.port}` : ""}
-                    </p>
+        {services.map((s) => {
+          const actions = serviceActions[s.key] || {};
+          return (
+            <Card key={s.key} className="bg-neutral-900 border-neutral-800">
+              <CardContent className="pt-6">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className={`h-3 w-3 rounded-full ${s.running ? "bg-green-500 animate-pulse" : "bg-neutral-600"}`} />
+                    <div>
+                      <h3 className="font-semibold">{s.label}</h3>
+                      <p className="text-xs text-neutral-500">
+                        {s.pid ? `PID ${s.pid}` : "Not running"}{s.port ? ` — port ${s.port}` : ""}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Badge variant={s.running ? "default" : "secondary"} className={s.running ? "bg-green-600" : "bg-neutral-700"}>
+                      {s.running ? "Running" : "Stopped"}
+                    </Badge>
+                    {actions.canRestart && (
+                      <Button size="sm" variant="outline" className="h-7 text-xs border-neutral-700" onClick={() => restartService(s.key)} disabled={acting === `${s.key}-restart`}>
+                        {acting === `${s.key}-restart` ? <Loader2 className="h-3 w-3 animate-spin" /> : <RefreshCw className="h-3 w-3" />}
+                      </Button>
+                    )}
+                    {actions.canStop && s.running && (
+                      <Button size="sm" variant="destructive" className="h-7 text-xs" onClick={() => stopService(s.key)} disabled={acting === `${s.key}-stop`}>
+                        {acting === `${s.key}-stop` ? <Loader2 className="h-3 w-3 animate-spin" /> : <Square className="h-3 w-3" />}
+                      </Button>
+                    )}
                   </div>
                 </div>
-                <Badge variant={s.running ? "default" : "secondary"} className={s.running ? "bg-green-600" : "bg-neutral-700"}>
-                  {s.running ? "Running" : "Stopped"}
-                </Badge>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+              </CardContent>
+            </Card>
+          );
+        })}
       </div>
 
       <Card className="bg-neutral-900 border-neutral-800">

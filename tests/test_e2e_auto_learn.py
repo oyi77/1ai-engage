@@ -1,45 +1,24 @@
 """E2E Tests for Auto-Learn System"""
 
 import sys
-import tempfile
 from pathlib import Path
+
 import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 
-from cs_outcomes import (
-    init_outcomes_db,
-    record_conversation_start,
-    record_response_sent,
-    record_user_reply,
-    record_final_outcome,
-    get_conversation_metrics,
-)
-from cs_self_improve import SelfImprovementEngine
-from state_manager import init_db
-
-
-@pytest.fixture
-def test_db():
-    with tempfile.NamedTemporaryFile(suffix=".db", delete=False) as f:
-        db_path = f.name
-
-    import config
-
-    original_db = config.DB_FILE
-    config.DB_FILE = Path(db_path)
-
-    init_db()
-    init_outcomes_db()
-
-    yield db_path
-
-    config.DB_FILE = original_db
-    Path(db_path).unlink(missing_ok=True)
-
 
 class TestAutoLearnE2E:
-    def test_complete_learning_cycle(self, test_db):
+    def test_complete_learning_cycle(self, fresh_db):
+        from cs_outcomes import (
+            record_conversation_start,
+            record_response_sent,
+            record_user_reply,
+            record_final_outcome,
+            get_conversation_metrics,
+        )
+        from cs_self_improve import SelfImprovementEngine
+
         wa_number_id = "test_session"
         conv_id = 1
 

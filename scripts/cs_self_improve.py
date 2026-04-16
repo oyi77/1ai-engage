@@ -122,6 +122,36 @@ class SelfImprovementEngine:
                 }
             )
 
+        # Also include admin-corrected responses (these are gold)
+        try:
+            corrected_rows = conn.execute(
+                """
+                SELECT af.corrected_response, af.note, af.rating
+                FROM admin_feedback af
+                JOIN conversations c ON af.conversation_id = c.id
+                WHERE c.wa_number_id = ?
+                AND af.corrected_response IS NOT NULL
+                AND af.corrected_response != ''
+                AND af.created_at >= datetime('now', '-{} days')
+                """.format(days),
+                (self.wa_number_id,),
+            ).fetchall()
+            for row in corrected_rows:
+                winners.append(
+                    {
+                        "text": row["corrected_response"],
+                        "pattern": "admin_corrected",
+                        "user_type": "unknown",
+                        "score": 1.0,
+                        "uses": 1,
+                        "successes": 1,
+                        "source": "admin_feedback",
+                        "note": row["note"],
+                    }
+                )
+        except Exception:
+            pass  # admin_feedback table may not exist yet
+
         conn.close()
         return winners
 
@@ -199,10 +229,10 @@ class SelfImprovementEngine:
             "winning_patterns": self.extract_winning_patterns(days=7),
             "low_performers": self.identify_low_performers(days=7),
             "suggested_entries": self.suggest_new_kb_entries(days=7),
+            "admin_feedback_summary": self._get_admin_feedback_summary(),
             "recommendations": [],
         }
 
-        # Generate recommendations
         if report["winning_patterns"]:
             report["recommendations"].append(
                 f"✅ Add {len(report['winning_patterns'])} winning patterns to KB"
@@ -218,20 +248,59 @@ class SelfImprovementEngine:
                 "🎯 Focus on closing techniques - conversion rate below 10%"
             )
 
+        fb = report["admin_feedback_summary"]
+        if fb.get("bad_ratings", 0) > 0:
+            report["recommendations"].append(
+                f"📝 {fb['bad_ratings']} admin-flagged bad responses — review corrected versions"
+            )
+
         return report
 
+    def _get_admin_feedback_summary(self) -> dict:
+        conn = sqlite3.connect(str(DB_FILE))
+        try:
+            conn.execute(
+                """CREATE TABLE IF NOT EXISTS admin_feedback (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    conversation_id INTEGER NOT NULL,
+                    message_id INTEGER NOT NULL,
+                    rating TEXT NOT NULL,
+                    note TEXT DEFAULT '',
+                    corrected_response TEXT DEFAULT '',
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )"""
+            )
+            good = conn.execute(
+                "SELECT COUNT(*) FROM admin_feedback WHERE rating = 'good'"
+            ).fetchone()[0]
+            bad = conn.execute(
+                "SELECT COUNT(*) FROM admin_feedback WHERE rating = 'bad'"
+            ).fetchone()[0]
+            corrected = conn.execute(
+                "SELECT COUNT(*) FROM admin_feedback WHERE corrected_response IS NOT NULL AND corrected_response != ''"
+            ).fetchone()[0]
+            return {
+                "good_ratings": good,
+                "bad_ratings": bad,
+                "corrected_responses": corrected,
+            }
+        except Exception:
+            return {"good_ratings": 0, "bad_ratings": 0, "corrected_responses": 0}
+        finally:
+            conn.close()
+
     def apply_learnings(self, dry_run: bool = True) -> dict:
-        """Automatically apply learned improvements to the system."""
         results = {
             "patterns_added": 0,
             "entries_updated": 0,
             "suggestions_created": 0,
+            "admin_corrections_applied": 0,
             "errors": [],
         }
 
         # 1. Add winning patterns to KB
         winners = self.extract_winning_patterns(min_score=0.8)
-        for pattern in winners[:5]:  # Top 5 only
+        for pattern in winners[:5]:
             if dry_run:
                 results["patterns_added"] += 1
                 continue
@@ -250,7 +319,59 @@ class SelfImprovementEngine:
             except Exception as e:
                 results["errors"].append(f"Failed to add pattern: {e}")
 
-        # 2. Create suggestions for new entries
+        # 2. Apply admin-corrected responses as high-priority KB entries
+        conn = sqlite3.connect(str(DB_FILE))
+        try:
+            conn.execute(
+                """CREATE TABLE IF NOT EXISTS admin_feedback (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    conversation_id INTEGER NOT NULL,
+                    message_id INTEGER NOT NULL,
+                    rating TEXT NOT NULL,
+                    note TEXT DEFAULT '',
+                    corrected_response TEXT DEFAULT '',
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )"""
+            )
+            corrected = conn.execute(
+                """
+                SELECT af.corrected_response, af.note, m.message_text as original
+                FROM admin_feedback af
+                JOIN conversation_messages m ON af.message_id = m.id
+                JOIN conversations c ON af.conversation_id = c.id
+                WHERE c.wa_number_id = ?
+                AND af.corrected_response IS NOT NULL
+                AND af.corrected_response != ''
+                AND af.rating = 'bad'
+                ORDER BY af.created_at DESC
+                LIMIT 10
+                """,
+                (self.wa_number_id,),
+            ).fetchall()
+
+            for row in corrected:
+                if dry_run:
+                    results["admin_corrections_applied"] += 1
+                    continue
+                try:
+                    add_entry(
+                        wa_number_id=self.wa_number_id,
+                        category="snippet",
+                        question=f"Admin correction for: {row['original'][:100]}",
+                        answer=row["corrected_response"],
+                        content=f"admin_corrected note={row['note']}",
+                        tags="learned,admin,corrected",
+                        priority=9,
+                    )
+                    results["admin_corrections_applied"] += 1
+                except Exception as e:
+                    results["errors"].append(f"Failed to add correction: {e}")
+        except Exception as e:
+            results["errors"].append(f"Admin feedback query failed: {e}")
+        finally:
+            conn.close()
+
+        # 3. Create suggestions for new entries
         suggestions = self.suggest_new_kb_entries()
         results["suggestions_created"] = len(suggestions)
 
@@ -319,6 +440,10 @@ def analyze_and_improve(wa_number_id: str = "warung_kecantikan") -> dict:
     print(f"  Winning patterns: {len(report['winning_patterns'])}")
     print(f"  Low performers: {len(report['low_performers'])}")
     print(f"  Suggested entries: {len(report['suggested_entries'])}")
+    fb = report.get("admin_feedback_summary", {})
+    print(
+        f"  Admin feedback: {fb.get('good_ratings', 0)} good, {fb.get('bad_ratings', 0)} bad, {fb.get('corrected_responses', 0)} corrected"
+    )
 
     if report["recommendations"]:
         print(f"\n💡 Recommendations:")

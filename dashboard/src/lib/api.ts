@@ -64,6 +64,8 @@ export interface Conversation {
   stage: string;
   status?: string;
   manual_mode?: number;
+  last_message_text?: string;
+  last_message_at?: string;
   created_at?: string;
   updated_at?: string;
 }

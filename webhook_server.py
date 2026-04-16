@@ -370,6 +370,98 @@ def api_conversation_manual(conv_id):
     return jsonify({"ok": True, "manual_mode": enabled})
 
 
+# ── Admin Feedback ───────────────────────────────────────────────────────
+
+
+@app.route("/api/conversations/<int:conv_id>/feedback", methods=["POST"])
+def api_conversation_feedback(conv_id):
+    data = request.get_json() or {}
+    message_id = data.get("message_id")
+    rating = data.get("rating")
+    note = data.get("note", "")
+    corrected = data.get("corrected_response", "")
+
+    if not message_id or rating not in ("good", "bad"):
+        return jsonify({"error": "message_id and rating (good/bad) required"}), 400
+
+    conn = _connect()
+    try:
+        conn.execute(
+            """CREATE TABLE IF NOT EXISTS admin_feedback (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                conversation_id INTEGER NOT NULL,
+                message_id INTEGER NOT NULL,
+                rating TEXT NOT NULL,
+                note TEXT DEFAULT '',
+                corrected_response TEXT DEFAULT '',
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )"""
+        )
+        conn.execute(
+            """INSERT INTO admin_feedback (conversation_id, message_id, rating, note, corrected_response)
+               VALUES (?, ?, ?, ?, ?)""",
+            (conv_id, message_id, rating, note, corrected),
+        )
+
+        if rating == "good":
+            conn.execute(
+                "UPDATE response_outcomes SET was_effective = 1, outcome_score = 1.0 WHERE conversation_id = ?",
+                (conv_id,),
+            )
+        elif rating == "bad":
+            conn.execute(
+                "UPDATE response_outcomes SET was_effective = 0, outcome_score = 0.0 WHERE conversation_id = ?",
+                (conv_id,),
+            )
+        conn.commit()
+    finally:
+        conn.close()
+
+    return jsonify({"ok": True, "rating": rating, "note": note})
+
+
+@app.route("/api/conversations/<int:conv_id>/feedback", methods=["GET"])
+def api_conversation_feedback_get(conv_id):
+    conn = _connect()
+    try:
+        conn.execute(
+            """CREATE TABLE IF NOT EXISTS admin_feedback (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                conversation_id INTEGER NOT NULL,
+                message_id INTEGER NOT NULL,
+                rating TEXT NOT NULL,
+                note TEXT DEFAULT '',
+                corrected_response TEXT DEFAULT '',
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )"""
+        )
+        rows = conn.execute(
+            "SELECT * FROM admin_feedback WHERE conversation_id = ? ORDER BY created_at DESC",
+            (conv_id,),
+        ).fetchall()
+        return jsonify({"feedback": [dict(r) for r in rows]})
+    finally:
+        conn.close()
+
+
+@app.route("/api/conversations/<int:conv_id>/takeover", methods=["POST"])
+def api_conversation_takeover(conv_id):
+    set_manual_mode(conv_id, True)
+    return jsonify(
+        {
+            "ok": True,
+            "manual_mode": True,
+            "message": "Admin has taken over this conversation",
+        }
+    )
+
+
+@app.route("/api/conversations/<int:conv_id>/release", methods=["POST"])
+def api_conversation_release(conv_id):
+    set_manual_mode(conv_id, False)
+    return jsonify({"ok": True, "manual_mode": False, "message": "AI resumed control"})
+
+
 # ── Event Log ────────────────────────────────────────────────────────────
 
 
@@ -476,6 +568,38 @@ def api_webhook_restart():
             "message": "Cannot restart self — use systemd: sudo systemctl restart 1ai-reach-mcp",
         }
     )
+
+
+@app.route("/api/services/webhook/stop", methods=["POST"])
+def api_webhook_stop():
+    return jsonify(
+        {
+            "ok": False,
+            "message": "Cannot stop self — use systemd: sudo systemctl stop 1ai-reach-mcp",
+        }
+    )
+
+
+@app.route("/api/services/dashboard/restart", methods=["POST"])
+def api_dashboard_restart():
+    try:
+        subprocess.run(["pkill", "-f", "next start"], capture_output=True, timeout=5)
+        time.sleep(1)
+        dashboard_dir = Path(__file__).parent / "dashboard"
+        log_dir = Path(__file__).parent / "logs"
+        log_dir.mkdir(exist_ok=True)
+        log_file = log_dir / "dashboard.log"
+        with open(log_file, "a") as lf:
+            subprocess.Popen(
+                ["npx", "next", "start", "-p", "8502"],
+                stdout=lf,
+                stderr=subprocess.STDOUT,
+                start_new_session=True,
+                cwd=str(dashboard_dir),
+            )
+        return jsonify({"ok": True, "message": "Dashboard restarted"})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 # ── Pipeline Control ─────────────────────────────────────────────────────

@@ -210,11 +210,10 @@ def start_sequence(
     if not message:
         # Static fallback
         message = (
-            f"Halo {contact_name}! 👋\n\n"
-            f"Saya Vilona dari BerkahKarya. Kami baru saja melihat bisnis Anda "
-            f"dan punya beberapa ide menarik tentang bagaimana AI automation bisa "
-            f"membantu meningkatkan operasional Anda.\n\n"
-            f"Apakah ada waktu untuk ngobrol sebentar minggu ini? 😊"
+            f"Halo {contact_name}! 👋 Saya Vilona dari BerkahKarya.\n\n"
+            f"Saya baru aja lihat bisnis Kakak, dan jujur ada beberapa ide yang menarik "
+            f"nih soal AI automation yang bisa bantu bikin operasional Kakak jadi lebih lancar.\n\n"
+            f"Dari pada lama mikir, mending ngobrol sebentar aja? Bisa via WhatsApp atau Zoom, Kakak tentuin aja waktunya 😊"
         )
 
     # Send via WhatsApp session
@@ -304,8 +303,8 @@ def process_reply(conversation_id: int, message_text: str) -> dict:
         )
         if not ack_msg:
             ack_msg = (
-                f"Terima kasih banyak {contact_name}! 🙏🎉\n"
-                f"Senang sekali mendengarnya! Saya akan segera kirimkan detail selanjutnya."
+                f"Wah senang banget Kak {contact_name}! 🙏🎉\n"
+                f"Oke saya langsung siapin detailnya ya, bentar aja!"
             )
 
         wa_number_id = conv.get("wa_number_id", "default")
@@ -351,8 +350,8 @@ def process_reply(conversation_id: int, message_text: str) -> dict:
         )
         if not close_msg:
             close_msg = (
-                f"Terima kasih atas waktunya {contact_name} 🙏\n"
-                f"Jika suatu saat butuh bantuan, jangan ragu untuk menghubungi kami."
+                f"Siap Kak {contact_name}, makasih banyak ya udah mau ngobrol 🙏\n"
+                f"Kalau nanti butuh bantuan, kami selalu ada kok. Sukses terus buat bisnisnya!"
             )
 
         wa_number_id = conv.get("wa_number_id", "default")
@@ -407,9 +406,10 @@ def process_reply(conversation_id: int, message_text: str) -> dict:
     reply_msg = _generate_message(prompt)
     if not reply_msg:
         reply_msg = (
-            f"Terima kasih atas balasannya {contact_name}! 🙏\n\n"
-            f"Boleh saya tahu lebih detail tentang kebutuhan Anda? "
-            f"Kami bisa atur panggilan singkat 15 menit untuk diskusi lebih lanjut."
+            f"Makasih balasannya Kak {contact_name}! 🙏\n\n"
+            f"Boleh ceritain lebih detail nggak kebutuhannya? Biar saya bisa bantuin "
+            f"lebih tepat sasaran. Atau kalau mau, kita bisa panggilan singkat 15 menit aja, "
+            f"biar lebih jelas."
         )
 
     # Check max turns before sending
@@ -566,15 +566,15 @@ def send_scheduled_followup(conversation_id: int) -> dict:
     if not message:
         if urgency == "final":
             message = (
-                f"Halo {contact_name}, ini pesan terakhir dari saya 🙏\n"
-                f"Jika suatu saat butuh bantuan AI automation atau digital marketing, "
-                f"kami selalu siap membantu. Sukses selalu!"
+                f"Halo Kak {contact_name}, ini pesan terakhir dari saya ya 🙏\n"
+                f"Kalau suatu hari butuh bantuan AI automation atau digital marketing, "
+                f"kami selalu siap kok. Semoga bisnisnya makin sukses!"
             )
         else:
             message = (
-                f"Halo {contact_name}! 👋\n"
-                f"Saya ingin follow-up tentang tawaran kami sebelumnya. "
-                f"Apakah ada waktu untuk ngobrol singkat? 😊"
+                f"Halo Kak {contact_name}! 👋\n"
+                f"Niat follow-up soal tawaran kami sebelumnya nih. "
+                f"Kalau Kakak berubah pikiran atau mau tanya-tanya, langsung balas aja ya, saya selalu cek 😊"
             )
 
     wa_number_id = conv.get("wa_number_id", "default")
