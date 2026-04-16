@@ -263,8 +263,11 @@ def record_user_reply(
                     reply_time_seconds = ?,
                     was_effective = ?,
                     outcome_score = ?
-                WHERE conversation_id = ? AND response_hash = ?
-                ORDER BY sent_at DESC LIMIT 1""",
+                WHERE id = (
+                    SELECT id FROM response_outcomes
+                    WHERE conversation_id = ? AND response_hash = ?
+                    ORDER BY sent_at DESC LIMIT 1
+                )""",
             (
                 time_to_reply_seconds,
                 is_effective,
