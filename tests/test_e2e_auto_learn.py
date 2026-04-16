@@ -57,6 +57,7 @@ class TestAutoLearnE2E:
             pattern_used="greeting",
             user_type="normal",
             sales_stage="ENTRY",
+            wa_number_id=wa_number_id,
         )
 
         record_user_reply(
