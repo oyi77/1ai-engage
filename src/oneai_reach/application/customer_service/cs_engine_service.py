@@ -329,6 +329,16 @@ class CSEngineService:
         voice_reply: bool = False,
         skip_send: bool = False,
     ) -> dict:
+        from oneai_reach.api.v1.admin import get_pause_flag
+
+        if get_pause_flag():
+            return {
+                "action": "paused",
+                "response": "",
+                "conversation_id": 0,
+                "reason": "CS engine paused by admin",
+            }
+
         from state_manager import get_wa_number_by_session
 
         wa_num_rec = get_wa_number_by_session(session_name)
