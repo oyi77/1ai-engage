@@ -9,6 +9,7 @@ from fastapi import FastAPI
 from oneai_reach.api.middleware import setup_exception_handlers, setup_middleware
 from oneai_reach.api.models import HealthResponse
 from oneai_reach.api.v1.admin import router as admin_router
+from oneai_reach.api.v1.agents import router as agents_router
 from oneai_reach.api.v1.mcp import router as mcp_router
 from oneai_reach.api.webhooks import capi_router, waha_router
 from oneai_reach.config.settings import get_settings
@@ -35,6 +36,7 @@ def create_app() -> FastAPI:
     app.include_router(capi_router)
     app.include_router(mcp_router)
     app.include_router(admin_router)
+    app.include_router(agents_router)
 
     @app.get("/health", response_model=HealthResponse, tags=["health"])
     async def health_check() -> HealthResponse:
