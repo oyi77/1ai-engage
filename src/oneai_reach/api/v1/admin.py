@@ -63,10 +63,15 @@ async def list_conversations() -> List[ConversationInfo]:
 
         result = []
         for conv in convs:
+            # Skip conversations with missing wa_number_id (data integrity issue)
+            wa_number_id = conv.get("wa_number_id")
+            if wa_number_id is None:
+                wa_number_id = "unknown"
+
             result.append(
                 ConversationInfo(
                     conversation_id=conv.get("id", 0),
-                    wa_number_id=conv.get("wa_number_id", ""),
+                    wa_number_id=wa_number_id,
                     contact_phone=conv.get("contact_phone", ""),
                     message_count=conv.get("message_count", 0),
                     last_message_time=conv.get("last_message_at"),

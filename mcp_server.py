@@ -1,4 +1,12 @@
-"""MCP server for controlling 1ai-reach.
+"""MCP server for controlling 1ai-reach (backward compatibility wrapper).
+
+DEPRECATED: This file is now a backward compatibility wrapper.
+The actual MCP implementation has been migrated to src/oneai_reach/api/v1/mcp.py
+
+For new deployments, use the unified FastAPI app instead:
+  python -m uvicorn oneai_reach.api.main:create_app --factory --host 0.0.0.0 --port 8000
+
+This wrapper maintains the original FastMCP interface for existing clients.
 
 Usage:
   python3 mcp_server.py --transport stdio
@@ -22,11 +30,11 @@ from pydantic import Field
 from starlette.requests import Request
 from starlette.responses import JSONResponse
 
-import agent_control as control  # noqa: E402  (also adds scripts/ to sys.path)
-from config import WAHA_WEBHOOK_SECRET  # noqa: E402
-from cs_engine import handle_inbound_message as cs_handle  # noqa: E402
-from warmcall_engine import process_reply as warmcall_handle  # noqa: E402
-from state_manager import (  # noqa: E402
+import agent_control as control
+from config import WAHA_WEBHOOK_SECRET
+from cs_engine import handle_inbound_message as cs_handle
+from warmcall_engine import process_reply as warmcall_handle
+from state_manager import (
     add_event_log,
     get_wa_number_by_session,
     upsert_wa_number,

@@ -71,6 +71,7 @@ def handle_get_funnel_summary(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_list_leads(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """List current leads from SQLite state."""
+    params = params or {}
     status = params.get("status")
     limit = params.get("limit", 100)
     return control.list_leads(status=status, limit=limit)
@@ -78,6 +79,7 @@ def handle_list_leads(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_get_lead(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Get one lead plus recent event log entries."""
+    params = params or {}
     lead_id = params.get("lead_id")
     if not lead_id:
         raise ValueError("lead_id is required")
@@ -86,12 +88,14 @@ def handle_get_lead(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_get_recent_events(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Return recent event log entries from the pipeline database."""
+    params = params or {}
     limit = params.get("limit", 100)
     return control.get_recent_events(limit=limit)
 
 
 def handle_get_tool_audit(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Return control-plane tool audit history."""
+    params = params or {}
     limit = params.get("limit", 100)
     return control.get_tool_audit(limit=limit)
 
@@ -108,6 +112,7 @@ def handle_preview_autonomous_decision(params: Dict[str, Any] = None) -> Dict[st
 
 def handle_run_stage(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Run a stage synchronously and return stdout/stderr/result."""
+    params = params or {}
     stage = params.get("stage")
     if not stage:
         raise ValueError("stage is required")
@@ -132,6 +137,7 @@ def handle_run_stage(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_start_background_stage(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Start a background job and return a job id plus log path."""
+    params = params or {}
     stage = params.get("stage")
     if not stage:
         raise ValueError("stage is required")
@@ -147,6 +153,7 @@ def handle_list_jobs(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_get_job(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Get one background job status plus tail of its log."""
+    params = params or {}
     job_id = params.get("job_id")
     if not job_id:
         raise ValueError("job_id is required")
@@ -157,6 +164,7 @@ def handle_get_job(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_stop_job(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Stop a background job started by the control plane."""
+    params = params or {}
     job_id = params.get("job_id")
     if not job_id:
         raise ValueError("job_id is required")
@@ -166,6 +174,7 @@ def handle_stop_job(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_send_test_email(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Send a real email using the repo's outbound chain."""
+    params = params or {}
     to = params.get("to")
     subject = params.get("subject")
     body = params.get("body")
@@ -178,6 +187,7 @@ def handle_send_test_email(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_send_test_whatsapp(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Send a real WhatsApp message using WAHA/wacli fallback."""
+    params = params or {}
     phone = params.get("phone")
     message = params.get("message")
 
@@ -189,6 +199,7 @@ def handle_send_test_whatsapp(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_set_lead_status(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Update one lead's funnel status directly."""
+    params = params or {}
     lead_id = params.get("lead_id")
     status = params.get("status")
 
@@ -201,6 +212,7 @@ def handle_set_lead_status(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_update_lead_fields(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Update arbitrary lead fields from a JSON payload."""
+    params = params or {}
     lead_id = params.get("lead_id")
     fields = params.get("fields")
 
@@ -212,6 +224,7 @@ def handle_update_lead_fields(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_load_dataframe_snapshot(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Return a tabular snapshot of current leads for agents that prefer dataframe-like data."""
+    params = params or {}
     limit = params.get("limit", 100)
     return control.load_dataframe_snapshot(limit=limit)
 
@@ -223,6 +236,7 @@ def handle_list_wa_sessions(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_create_wa_session(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Create a new WhatsApp session in WAHA + register in local DB + configure webhooks."""
+    params = params or {}
     session_name = params.get("session_name")
     if not session_name:
         raise ValueError("session_name is required")
@@ -239,6 +253,7 @@ def handle_create_wa_session(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_delete_wa_session(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Delete a WhatsApp session from WAHA and local DB."""
+    params = params or {}
     session_name = params.get("session_name")
     if not session_name:
         raise ValueError("session_name is required")
@@ -248,6 +263,7 @@ def handle_delete_wa_session(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_get_wa_session_status(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Get WAHA status for a specific WhatsApp session."""
+    params = params or {}
     session_name = params.get("session_name")
     if not session_name:
         raise ValueError("session_name is required")
@@ -257,6 +273,7 @@ def handle_get_wa_session_status(params: Dict[str, Any] = None) -> Dict[str, Any
 
 def handle_get_wa_qr_code(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Get QR code for a WhatsApp session as base64 image."""
+    params = params or {}
     session_name = params.get("session_name")
     if not session_name:
         raise ValueError("session_name is required")
@@ -266,6 +283,7 @@ def handle_get_wa_qr_code(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_list_kb_entries(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """List knowledge base entries for a WA number."""
+    params = params or {}
     wa_number_id = params.get("wa_number_id")
     if not wa_number_id:
         raise ValueError("wa_number_id is required")
@@ -276,6 +294,7 @@ def handle_list_kb_entries(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_add_kb_entry(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Add a new knowledge base entry."""
+    params = params or {}
     wa_number_id = params.get("wa_number_id")
     category = params.get("category")
     question = params.get("question")
@@ -290,6 +309,7 @@ def handle_add_kb_entry(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_search_kb(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Search knowledge base using full-text search."""
+    params = params or {}
     wa_number_id = params.get("wa_number_id")
     query = params.get("query")
 
@@ -301,6 +321,7 @@ def handle_search_kb(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_delete_kb_entry(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Delete a knowledge base entry by ID."""
+    params = params or {}
     entry_id = params.get("entry_id")
     if entry_id is None:
         raise ValueError("entry_id is required")
@@ -310,6 +331,7 @@ def handle_delete_kb_entry(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_seed_kb(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Seed default BerkahKarya FAQ entries for a WA number (skips duplicates)."""
+    params = params or {}
     wa_number_id = params.get("wa_number_id")
     if not wa_number_id:
         raise ValueError("wa_number_id is required")
@@ -319,12 +341,14 @@ def handle_seed_kb(params: Dict[str, Any] = None) -> Dict[str, Any]:
 
 def handle_list_active_conversations(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """List active conversations, optionally filtered by WA number."""
+    params = params or {}
     wa_number_id = params.get("wa_number_id")
     return control.list_active_conversations(wa_number_id=wa_number_id)
 
 
 def handle_get_conversation_history(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Get message history for a conversation."""
+    params = params or {}
     conversation_id = params.get("conversation_id")
     if conversation_id is None:
         raise ValueError("conversation_id is required")
@@ -335,6 +359,7 @@ def handle_get_conversation_history(params: Dict[str, Any] = None) -> Dict[str, 
 
 def handle_resolve_conversation(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Mark a conversation as resolved."""
+    params = params or {}
     conversation_id = params.get("conversation_id")
     if conversation_id is None:
         raise ValueError("conversation_id is required")
@@ -344,6 +369,7 @@ def handle_resolve_conversation(params: Dict[str, Any] = None) -> Dict[str, Any]
 
 def handle_escalate_conversation(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Escalate a conversation to human support (triggers Telegram alert)."""
+    params = params or {}
     conversation_id = params.get("conversation_id")
     reason = params.get("reason")
 
@@ -355,6 +381,7 @@ def handle_escalate_conversation(params: Dict[str, Any] = None) -> Dict[str, Any
 
 def handle_start_warmcall(params: Dict[str, Any] = None) -> Dict[str, Any]:
     """Start a warm-call outreach sequence for a contact."""
+    params = params or {}
     phone = params.get("phone")
     name = params.get("name")
     context = params.get("context")
