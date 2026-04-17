@@ -36,7 +36,6 @@ logger = get_logger(__name__)
 
 
 class WarmcallService:
-
     def __init__(self, config: Settings):
         self.config = config
         self.followup_intervals = config.warmcall.followup_intervals
@@ -99,15 +98,15 @@ class WarmcallService:
         logger.warning("All LLM providers failed for warmcall message generation")
         return ""
 
-    def start_sequence(
+    def start_warmcall(
         self,
-        wa_number_id: str,
-        contact_phone: str,
-        contact_name: str,
+        phone: str,
+        name: str,
         context: str,
+        session: str = "default",
         lead_id: str | None = None,
     ) -> dict:
-        if _is_cold_lead(contact_phone):
+        if _is_cold_lead(phone):
             return {
                 "conversation_id": None,
                 "status": "blocked",
@@ -116,10 +115,10 @@ class WarmcallService:
             }
 
         conv = get_or_create_conversation(
-            wa_number_id,
-            contact_phone,
+            session,
+            phone,
             engine_mode="warmcall",
-            contact_name=contact_name,
+            contact_name=name,
             lead_id=lead_id,
         )
         conv_id = conv["id"]
@@ -138,7 +137,7 @@ class WarmcallService:
         prompt = (
             "Write a short, casual WhatsApp follow-up message (3-5 sentences) in Indonesian.\n"
             "You are Vilona from BerkahKarya — an AI automation and digital marketing agency.\n\n"
-            f"Prospect: {contact_name}\n"
+            f"Prospect: {name}\n"
             f"Business context: {context}\n"
         )
         if research:
@@ -153,17 +152,17 @@ class WarmcallService:
         message = self._generate_message(prompt)
         if not message:
             message = (
-                f"Halo {contact_name}! 👋 Saya Vilona dari BerkahKarya.\n\n"
+                f"Halo {name}! 👋 Saya Vilona dari BerkahKarya.\n\n"
                 f"Saya baru aja lihat bisnis Kakak, dan jujur ada beberapa ide yang menarik "
                 f"nih soal AI automation yang bisa bantu bikin operasional Kakak jadi lebih lancar.\n\n"
                 f"Dari pada lama mikir, mending ngobrol sebentar aja? Bisa via WhatsApp atau Zoom, Kakak tentuin aja waktunya 😊"
             )
 
-        chat_id = self._phone_to_chat_id(contact_phone)
-        send_typing_indicator(wa_number_id, chat_id, typing=True)
+        chat_id = self._phone_to_chat_id(phone)
+        send_typing_indicator(session, chat_id, typing=True)
         time.sleep(2)
-        sent = send_whatsapp_session(contact_phone, message, wa_number_id)
-        send_typing_indicator(wa_number_id, chat_id, typing=False)
+        sent = send_whatsapp_session(phone, message, session)
+        send_typing_indicator(session, chat_id, typing=False)
 
         if sent:
             add_message(conv_id, "out", message)
@@ -299,7 +298,9 @@ class WarmcallService:
                 "error": None,
             }
 
-        conversation_context = get_conversation_context(conversation_id, max_messages=10)
+        conversation_context = get_conversation_context(
+            conversation_id, max_messages=10
+        )
         research = self._load_research_brief(lead_id)
 
         prompt = (
@@ -339,7 +340,9 @@ class WarmcallService:
         chat_id = self._phone_to_chat_id(conv.get("contact_phone", ""))
         send_typing_indicator(wa_number_id, chat_id, typing=True)
         time.sleep(2)
-        sent = send_whatsapp_session(conv.get("contact_phone", ""), reply_msg, wa_number_id)
+        sent = send_whatsapp_session(
+            conv.get("contact_phone", ""), reply_msg, wa_number_id
+        )
         send_typing_indicator(wa_number_id, chat_id, typing=False)
 
         if sent:
@@ -437,7 +440,137 @@ class WarmcallService:
 
         return due
 
-    def process_all_due(self) -> dict:
+    def send_scheduled_followup(self, conversation_id: int) -> dict:
+        """Send the next follow-up message for a conversation."""
+        conv = get_conversation(conversation_id)
+        if not conv:
+            return {
+                "sent": False,
+                "turn": 0,
+                "message": "",
+                "error": "Conversation not found",
+            }
+
+        if conv.get("status") != "active":
+            return {
+                "sent": False,
+                "turn": 0,
+                "message": "",
+                "error": f"Conversation is {conv.get('status')}, not active",
+            }
+
+        turns = self._outbound_turn_count(conversation_id)
+
+        if turns >= self.max_turns:
+            update_status(conversation_id, "cold")
+            lead_id = conv.get("lead_id")
+            if lead_id:
+                try:
+                    update_lead_status(lead_id, "cold")
+                    add_event_log(
+                        lead_id,
+                        "warmcall_max_turns",
+                        f"conv={conversation_id} turns={turns}",
+                    )
+                except Exception:
+                    pass
+            return {
+                "sent": False,
+                "turn": turns,
+                "message": "",
+                "error": "Max turns reached — marked cold",
+            }
+
+        last_ts = self._last_outbound_timestamp(conversation_id)
+        if last_ts:
+            elapsed = self._days_since(last_ts)
+            required = self._followup_interval(turns - 1)
+            if elapsed < required:
+                return {
+                    "sent": False,
+                    "turn": turns,
+                    "message": "",
+                    "error": f"Too early: {elapsed:.1f} days elapsed, need {required:.0f}",
+                }
+
+        contact_name = conv.get("contact_name") or "Prospect"
+        lead_id = conv.get("lead_id")
+        research = self._load_research_brief(lead_id)
+        conversation_context = get_conversation_context(
+            conversation_id, max_messages=10
+        )
+
+        turn_label = f"follow-up #{turns + 1}" if turns > 0 else "first message"
+        urgency = "gentle" if turns < 2 else ("moderate" if turns < 3 else "final")
+
+        prompt = (
+            f"Write a short WhatsApp {turn_label} message (3-4 sentences) in Indonesian.\n"
+            f"You are Vilona from BerkahKarya (AI automation & digital marketing agency).\n\n"
+            f"Prospect: {contact_name}\n"
+            f"This is {turn_label} — urgency level: {urgency}.\n"
+        )
+        if conversation_context:
+            prompt += f"\nConversation history:\n{conversation_context}\n"
+        if research:
+            prompt += f"\nResearch about their business:\n{research[:1000]}\n"
+        if urgency == "final":
+            prompt += (
+                "\nThis is the final follow-up. Be gracious, leave the door open.\n"
+                "Mention you won't bother them again unless they reach out.\n"
+            )
+        else:
+            prompt += (
+                "\nProvide new value — share a relevant insight, case study reference, or offer.\n"
+                "Do NOT repeat the same message as before. Be creative.\n"
+                "Include a soft CTA.\n"
+            )
+        prompt += "Output: Just the WhatsApp message text, nothing else."
+
+        message = self._generate_message(prompt)
+        if not message:
+            if urgency == "final":
+                message = (
+                    f"Halo Kak {contact_name}, ini pesan terakhir dari saya ya 🙏\n"
+                    f"Kalau suatu hari butuh bantuan AI automation atau digital marketing, "
+                    f"kami selalu siap kok. Semoga bisnisnya makin sukses!"
+                )
+            else:
+                message = (
+                    f"Halo Kak {contact_name}! 👋\n"
+                    f"Niat follow-up soal tawaran kami sebelumnya nih. "
+                    f"Kalau Kakak berubah pikiran atau mau tanya-tanya, langsung balas aja ya, saya selalu cek 😊"
+                )
+
+        wa_number_id = conv.get("wa_number_id", "default")
+        chat_id = self._phone_to_chat_id(conv.get("contact_phone", ""))
+        send_typing_indicator(wa_number_id, chat_id, typing=True)
+        time.sleep(2)
+        sent = send_whatsapp_session(
+            conv.get("contact_phone", ""), message, wa_number_id
+        )
+        send_typing_indicator(wa_number_id, chat_id, typing=False)
+
+        if sent:
+            add_message(conversation_id, "out", message)
+            if lead_id:
+                try:
+                    add_event_log(
+                        lead_id,
+                        "warmcall_followup",
+                        f"conv={conversation_id} turn={turns + 1}",
+                    )
+                except Exception:
+                    pass
+
+        return {
+            "sent": sent,
+            "turn": turns + 1,
+            "message": message if sent else "",
+            "error": None if sent else "WhatsApp send failed",
+        }
+
+    def process_due_warmcalls(self) -> dict:
+        """Process all warmcall conversations due for follow-up."""
         due = self.get_due_followups()
         if not due:
             logger.info("No warmcall follow-ups due")
@@ -450,10 +583,98 @@ class WarmcallService:
             }
 
         logger.info(f"Processing {len(due)} due warmcall follow-ups")
-        return {
+        sent = 0
+        failed = 0
+        cold_marked = 0
+        errors = []
+
+        for item in due:
+            conv_id = item["conversation_id"]
+            name = item["contact_name"] or item["contact_phone"]
+            turns = item["turns_sent"]
+
+            logger.info(
+                f"  [{conv_id}] {name} — turn {turns + 1}, "
+                f"{item['days_since_last']}d since last"
+            )
+
+            result = self.send_scheduled_followup(conv_id)
+            if result.get("sent"):
+                sent += 1
+                logger.info(f"    ✅ Follow-up #{result['turn']} sent")
+            elif "Max turns" in str(result.get("error", "")):
+                cold_marked += 1
+                logger.info(f"    ❄️ Max turns reached — marked cold")
+            else:
+                failed += 1
+                err = result.get("error", "unknown")
+                errors.append(f"conv={conv_id}: {err}")
+                logger.error(f"    ❌ Failed: {err}")
+
+        summary = {
             "total_due": len(due),
-            "sent": 0,
-            "failed": 0,
-            "cold_marked": 0,
-            "errors": [],
+            "sent": sent,
+            "failed": failed,
+            "cold_marked": cold_marked,
+            "errors": errors,
         }
+        logger.info(
+            f"Done: {sent} sent, {cold_marked} cold, {failed} failed "
+            f"out of {len(due)} due"
+        )
+        return summary
+
+    def classify_intent(self, reply_text: str, lead_name: str) -> str:
+        """Classify incoming reply intent using closer_agent."""
+        return classify_intent(reply_text, lead_name)
+
+    def generate_followup_message(
+        self, conversation_id: int, turn: int, contact_name: str, lead_id: str | None
+    ) -> str:
+        """Generate personalized follow-up message based on turn number."""
+        research = self._load_research_brief(lead_id)
+        conversation_context = get_conversation_context(
+            conversation_id, max_messages=10
+        )
+
+        turn_label = f"follow-up #{turn}" if turn > 1 else "first message"
+        urgency = "gentle" if turn < 3 else ("moderate" if turn < 4 else "final")
+
+        prompt = (
+            f"Write a short WhatsApp {turn_label} message (3-4 sentences) in Indonesian.\n"
+            f"You are Vilona from BerkahKarya (AI automation & digital marketing agency).\n\n"
+            f"Prospect: {contact_name}\n"
+            f"This is {turn_label} — urgency level: {urgency}.\n"
+        )
+        if conversation_context:
+            prompt += f"\nConversation history:\n{conversation_context}\n"
+        if research:
+            prompt += f"\nResearch about their business:\n{research[:1000]}\n"
+        if urgency == "final":
+            prompt += (
+                "\nThis is the final follow-up. Be gracious, leave the door open.\n"
+                "Mention you won't bother them again unless they reach out.\n"
+            )
+        else:
+            prompt += (
+                "\nProvide new value — share a relevant insight, case study reference, or offer.\n"
+                "Do NOT repeat the same message as before. Be creative.\n"
+                "Include a soft CTA.\n"
+            )
+        prompt += "Output: Just the WhatsApp message text, nothing else."
+
+        message = self._generate_message(prompt)
+        if not message:
+            if urgency == "final":
+                message = (
+                    f"Halo Kak {contact_name}, ini pesan terakhir dari saya ya 🙏\n"
+                    f"Kalau suatu hari butuh bantuan AI automation atau digital marketing, "
+                    f"kami selalu siap kok. Semoga bisnisnya makin sukses!"
+                )
+            else:
+                message = (
+                    f"Halo Kak {contact_name}! 👋\n"
+                    f"Niat follow-up soal tawaran kami sebelumnya nih. "
+                    f"Kalau Kakak berubah pikiran atau mau tanya-tanya, langsung balas aja ya, saya selalu cek 😊"
+                )
+        return message
