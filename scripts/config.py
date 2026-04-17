@@ -1,215 +1,93 @@
-import json
-import os
+import sys
 from pathlib import Path
 
-# ---------------------------------------------------------------------------
-# Base paths (absolute, relative to this file's location)
-# ---------------------------------------------------------------------------
-_SCRIPTS_DIR = Path(__file__).parent
-_ROOT = _SCRIPTS_DIR.parent  # 1ai-reach/
-_HUB_DIR = Path("/home/openclaw/projects/berkahkarya-hub")
-_HUB_SERVICES_JSON = _HUB_DIR / "config" / "services.json"
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-DATA_DIR = _ROOT / "data"
-RESEARCH_DIR = DATA_DIR / "research"
-PROPOSALS_DIR = _ROOT / "proposals" / "drafts"
-LOGS_DIR = _ROOT / "logs"
-LEADS_FILE = DATA_DIR / "leads.csv"
-DB_FILE = DATA_DIR / "leads.db"
+from oneai_reach.config.settings import get_settings
 
-# ---------------------------------------------------------------------------
+_settings = get_settings()
+
+# Database and file storage
+LEADS_FILE = Path(_settings.database.leads_file)
+DB_FILE = Path(_settings.database.db_file)
+DATA_DIR = Path(_settings.database.data_dir)
+RESEARCH_DIR = Path(_settings.database.research_dir)
+PROPOSALS_DIR = Path(_settings.database.proposals_dir)
+LOGS_DIR = Path(_settings.database.logs_dir)
+
 # Pipeline loop settings
-# ---------------------------------------------------------------------------
-LOOP_SLEEP_SECONDS = int(os.getenv("LOOP_SLEEP_SECONDS", "60"))
-MIN_NEW_LEADS_THRESHOLD = int(os.getenv("MIN_NEW_LEADS_THRESHOLD", "10"))
+LOOP_SLEEP_SECONDS = _settings.pipeline.loop_sleep_seconds
+MIN_NEW_LEADS_THRESHOLD = _settings.pipeline.min_new_leads_threshold
 
-# ---------------------------------------------------------------------------
 # AI Models
-# ---------------------------------------------------------------------------
-GENERATOR_MODEL = os.getenv("GENERATOR_MODEL", "sonnet")
-REVIEWER_MODEL = os.getenv("REVIEWER_MODEL", "sonnet")
+GENERATOR_MODEL = _settings.llm.generator_model
+REVIEWER_MODEL = _settings.llm.reviewer_model
 
-# ---------------------------------------------------------------------------
 # Payment & booking links
-# ---------------------------------------------------------------------------
-PAYMENT_LINK = os.getenv("PAYMENT_LINK", "https://berkahkarya.org/pay")
-CALENDLY_LINK = os.getenv("CALENDLY_LINK", "https://calendly.com/berkahkarya/15min")
+PAYMENT_LINK = _settings.booking.payment_link
+CALENDLY_LINK = _settings.booking.calendly_link
 
-# ---------------------------------------------------------------------------
 # Default verticals for autonomous scraping
-# ---------------------------------------------------------------------------
-DEFAULT_VERTICALS = [
-    "Digital Agency",
-    "Coffee Shop",
-    "Restaurant",
-    "Retail Store",
-    "Hotel",
-    "Clinic",
-    "E-commerce",
-    "Startup",
-    "Property",
-    "Education",
-]
+DEFAULT_VERTICALS = _settings.scraper.default_verticals
 
-
-def _load_dotenv() -> None:
-    env_path = _ROOT / ".env"
-    if not env_path.exists():
-        return
-    for line in env_path.read_text().splitlines():
-        line = line.strip()
-        if line and not line.startswith("#") and "=" in line:
-            key, val = line.split("=", 1)
-            os.environ.setdefault(key.strip(), val.strip())
-
-
-_load_dotenv()
-
-
-def _load_hub_services() -> dict:
-    if not _HUB_SERVICES_JSON.exists():
-        return {}
-    try:
-        return json.loads(_HUB_SERVICES_JSON.read_text())
-    except Exception:
-        return {}
-
-
-_HUB_SERVICES = _load_hub_services()
-_WAHA_CFG = _HUB_SERVICES.get("waha", {})
-
-# ---------------------------------------------------------------------------
 # API keys
-# ---------------------------------------------------------------------------
-GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", "")
+GOOGLE_API_KEY = _settings.external_api.google_api_key
 
-# ---------------------------------------------------------------------------
-# Brevo (primary outbound — trusted IP, 300 emails/day free)
-# ---------------------------------------------------------------------------
-BREVO_API_KEY = os.getenv("BREVO_API_KEY", "")
-SMTP_FROM = os.getenv("SMTP_FROM", "BerkahKarya <marketing@berkahkarya.org>")
+# Brevo (primary outbound)
+BREVO_API_KEY = _settings.email.brevo_api_key
+SMTP_FROM = _settings.email.smtp_from
 
-# ---------------------------------------------------------------------------
-# Stalwart SMTP (fallback outbound — marketing@berkahkarya.org)
-# ---------------------------------------------------------------------------
-SMTP_HOST = os.getenv("SMTP_HOST", "mail.berkahkarya.org")
-SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
-SMTP_USER = os.getenv("SMTP_USER", "marketing")
-SMTP_PASSWORD = os.getenv("SMTP_PASSWORD", "")
+# Stalwart SMTP (fallback outbound)
+SMTP_HOST = _settings.email.smtp_host
+SMTP_PORT = _settings.email.smtp_port
+SMTP_USER = _settings.email.smtp_user
+SMTP_PASSWORD = _settings.email.smtp_password
 
-# ---------------------------------------------------------------------------
 # Gmail / gog (fallback)
-# ---------------------------------------------------------------------------
-GMAIL_ACCOUNT = os.getenv("GMAIL_ACCOUNT", "moliangellina@gmail.com")
-GMAIL_KEYRING_PASSWORD = os.getenv("GMAIL_KEYRING_PASSWORD", "openclaw")
-SHEET_ID = os.getenv("SHEET_ID", "10tRBCuRl_T6_nmdN1ycHaSRmsK-7jGKLtbJewKAUz_I")
+GMAIL_ACCOUNT = _settings.gmail.account
+GMAIL_KEYRING_PASSWORD = _settings.gmail.keyring_password
+SHEET_ID = _settings.gmail.sheet_id
 
-# ---------------------------------------------------------------------------
 # BerkahKarya Hub (FastAPI, port 9099)
-# ---------------------------------------------------------------------------
-HUB_URL = os.getenv("HUB_URL", "http://localhost:9099")
-HUB_API_KEY = os.getenv("HUB_HUB_API_KEY", "")  # empty = dev mode (no auth)
+HUB_URL = _settings.hub.url
+HUB_API_KEY = _settings.hub.api_key
 
-# ---------------------------------------------------------------------------
 # WAHA (WhatsApp HTTP API)
-# ---------------------------------------------------------------------------
-WAHA_URL = os.getenv(
-    "WAHA_URL", _WAHA_CFG.get("domain_url", "https://waha.aitradepulse.com")
-)
-WAHA_DIRECT_URL = "https://waha.aitradepulse.com"
-WAHA_API_KEY = os.getenv(
-    "WAHA_API_KEY",
-    _WAHA_CFG.get("api_key", "0673158ede14970b922f7e62075bd0f211490ca335111a9e"),
-)
-WAHA_DIRECT_API_KEY = os.getenv(
-    "WAHA_DIRECT_API_KEY",
-    os.getenv("WAHA_API_KEY", "0673158ede14970b922f7e62075bd0f211490ca335111a9e"),
-)
-WAHA_SESSION = os.getenv("WAHA_SESSION", _WAHA_CFG.get("default_session", "default"))
-WAHA_OWN_NUMBER = os.getenv(
-    "WAHA_OWN_NUMBER", _WAHA_CFG.get("wa_number", "6282247006969")
-)
+WAHA_URL = _settings.waha.url
+WAHA_DIRECT_URL = _settings.waha.direct_url
+WAHA_API_KEY = _settings.waha.api_key
+WAHA_DIRECT_API_KEY = _settings.waha.direct_api_key
+WAHA_SESSION = _settings.waha.session
+WAHA_OWN_NUMBER = _settings.waha.own_number
 
-# ---------------------------------------------------------------------------
 # Multi-number CS / Warmcall engine
-# ---------------------------------------------------------------------------
-MCP_BASE_URL = os.getenv("MCP_BASE_URL", "http://localhost:8766")
-WAHA_WEBHOOK_PATH = "/webhook/waha"
-WAHA_WEBHOOK_SECRET = os.getenv("WAHA_WEBHOOK_SECRET", "")
-CS_REPLY_DELAY_SECONDS = int(os.getenv("CS_REPLY_DELAY_SECONDS", "3"))
-CS_MAX_REPLIES_PER_MINUTE = int(os.getenv("CS_MAX_REPLIES_PER_MINUTE", "10"))
-CS_ESCALATION_TELEGRAM = bool(int(os.getenv("CS_ESCALATION_TELEGRAM", "1")))
-CS_DEFAULT_PERSONA = os.getenv(
-    "CS_DEFAULT_PERSONA",
-    "You are a helpful customer service agent for BerkahKarya. "
-    "Answer questions about our services professionally in the same language the customer uses. "
-    "If you cannot answer, politely escalate to a human agent.",
-)
-WARMCALL_FOLLOWUP_INTERVALS = [1, 3, 7, 14]  # days between follow-ups
-WARMCALL_MAX_TURNS = int(os.getenv("WARMCALL_MAX_TURNS", "5"))
+MCP_BASE_URL = _settings.cs.mcp_base_url
+WAHA_WEBHOOK_PATH = _settings.waha.webhook_path
+WAHA_WEBHOOK_SECRET = _settings.waha.webhook_secret
+CS_REPLY_DELAY_SECONDS = _settings.cs.reply_delay_seconds
+CS_MAX_REPLIES_PER_MINUTE = _settings.cs.max_replies_per_minute
+CS_ESCALATION_TELEGRAM = _settings.cs.escalation_telegram
+CS_DEFAULT_PERSONA = _settings.cs.default_persona
+WARMCALL_FOLLOWUP_INTERVALS = [1, 3, 7, 14]
+WARMCALL_MAX_TURNS = _settings.cs.max_turns
 ENGINE_MODES = {"cold": "Cold Call", "cs": "Customer Service", "warmcall": "Warm Call"}
 
-# ---------------------------------------------------------------------------
-# n8n workflows (optional — leave N8N_MEETING_WF empty to skip)
-# ---------------------------------------------------------------------------
-N8N_BASE = "https://n8n.aitradepulse.com/webhook"
-N8N_MEETING_WF = os.getenv("N8N_MEETING_WF", "")
-N8N_WEBHOOK_URL = os.getenv("N8N_WEBHOOK_URL", "")
+# n8n workflows
+N8N_BASE = _settings.n8n.base
+N8N_MEETING_WF = _settings.n8n.meeting_wf
+N8N_WEBHOOK_URL = _settings.n8n.webhook_url
 
-# ---------------------------------------------------------------------------
 # Telegram (team alerts)
-# ---------------------------------------------------------------------------
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
+TELEGRAM_BOT_TOKEN = _settings.telegram.bot_token
+TELEGRAM_CHAT_ID = _settings.telegram.chat_id
 
-# ---------------------------------------------------------------------------
 # Local LLM proxy (aitradepulse, port 20128)
-# ---------------------------------------------------------------------------
-AITRADEPULSE_API_KEY = os.getenv(
-    "AITRADEPULSE_API_KEY", "sk-f0c1ddf471008e76-501723-c663b4ac"
-)
+AITRADEPULSE_API_KEY = _settings.external_api.aitradepulse_api_key
 
-# ---------------------------------------------------------------------------
 # PaperClip (AI Company OS)
-# ---------------------------------------------------------------------------
-PAPERCLIP_URL = os.getenv("PAPERCLIP_URL", "http://localhost:3100")
-PAPERCLIP_COMPANY_ID = os.getenv(
-    "PAPERCLIP_COMPANY_ID", "33e1e20e-d9f2-45f2-b907-0579ab795942"
-)
-PAPERCLIP_AGENT_CMO = os.getenv(
-    "PAPERCLIP_AGENT_CMO", "ea3bb337-656a-4158-804d-fa1f7fab6dbc"
-)
+PAPERCLIP_URL = _settings.paperclip.url
+PAPERCLIP_COMPANY_ID = _settings.paperclip.company_id
+PAPERCLIP_AGENT_CMO = _settings.paperclip.agent_cmo
 
-# ---------------------------------------------------------------------------
 # Aggregator domains to skip in scraper
-# ---------------------------------------------------------------------------
-AGGREGATOR_DOMAINS = {
-    "clutch.co",
-    "sortlist.com",
-    "themanifest.com",
-    "goodfirms.co",
-    "upwork.com",
-    "fiverr.com",
-    "linkedin.com",
-    "facebook.com",
-    "instagram.com",
-    "twitter.com",
-    "youtube.com",
-    "wikipedia.org",
-    "blogspot.com",
-    "medium.com",
-    "wordpress.com",
-    "kumparan.com",
-    "detik.com",
-    "kompas.com",
-    "tribunnews.com",
-    "bisnis.com",
-    "kontan.co.id",
-    "cnbcindonesia.com",
-    "yelp.com",
-    "yellowpages.com",
-    "foursquare.com",
-    "g2.com",
-    "capterra.com",
-    "trustpilot.com",
-}
+AGGREGATOR_DOMAINS = _settings.scraper.aggregator_domains
