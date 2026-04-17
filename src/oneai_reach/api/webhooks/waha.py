@@ -11,7 +11,7 @@ SCRIPTS_DIR = Path(__file__).resolve().parent.parent.parent.parent.parent / "scr
 if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_DIR))
 
-from cs_engine import handle_inbound_message
+from oneai_reach.application.customer_service import CSEngineService
 from state_manager import (
     get_wa_number_by_session,
     add_conversation_message,
@@ -220,7 +220,32 @@ async def handle_waha_webhook(request: Request) -> WAHAWebhookResponse:
                 )
                 return WAHAWebhookResponse(status="ok", skipped="manual_mode")
 
-            result = handle_inbound_message(
+            # Instantiate CS engine service and handle inbound message
+            from oneai_reach.config.settings import get_settings
+            from oneai_reach.application.customer_service import (
+                ConversationService,
+                OutcomesService,
+                PlaybookService,
+            )
+            from oneai_reach.infrastructure.database import (
+                SQLiteConversationRepository,
+            )
+            import sqlite3
+
+            settings = get_settings()
+            conv_repo = SQLiteConversationRepository(settings.database.path)
+
+            def get_db_connection():
+                return sqlite3.connect(settings.database.path)
+
+            conversation_service = ConversationService(conv_repo)
+            outcomes_service = OutcomesService(settings, get_db_connection)
+            playbook_service = PlaybookService()
+            cs_engine = CSEngineService(
+                settings, conversation_service, outcomes_service, playbook_service
+            )
+
+            result = cs_engine.handle_inbound_message(
                 wa_number_id=wa_number_id,
                 contact_phone=sender,
                 message_text=body_text,
