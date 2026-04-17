@@ -1,0 +1,5 @@
+# Prospect Research: Rocket Digital Indonesia
+Services detected: SEO, social media, digital PR, e-commerce, AI
+Tech stack: wordpress, react
+Observed gaps/pain points:
+  - No blog or content section (missing organic SEO leverage)

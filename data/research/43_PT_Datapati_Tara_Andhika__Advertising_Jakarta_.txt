@@ -1,0 +1,6 @@
+# Prospect Research: PT Datapati Tara Andhika (Advertising Jakarta)
+Services detected: KOL, AI
+Tech stack: wordpress, react
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No blog or content section (missing organic SEO leverage)

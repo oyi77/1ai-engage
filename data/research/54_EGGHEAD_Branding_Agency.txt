@@ -1,0 +1,8 @@
+# Prospect Research: EGGHEAD Branding Agency
+Services detected: branding, AI
+Tech stack: wordpress
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No blog or content section (missing organic SEO leverage)
+  - Weak or missing call-to-action
+  - No portfolio / 'our work' section

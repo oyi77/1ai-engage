@@ -1,0 +1,3 @@
+# Prospect Research: SAB | Digital Marketing Agency
+Services detected: social media, web design, e-commerce, automation, AI
+Tech stack: wordpress, shopify, webflow, google_analytics

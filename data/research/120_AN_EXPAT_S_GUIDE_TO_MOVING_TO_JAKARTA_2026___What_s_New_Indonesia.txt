@@ -1,0 +1,9 @@
+# Prospect Research: AN EXPAT'S GUIDE TO MOVING TO JAKARTA 2026 - What's New Indonesia
+Services detected: social media, AI
+Tech stack: google_analytics
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No blog or content section (missing organic SEO leverage)
+  - No visible client testimonials or case studies
+  - Weak or missing call-to-action
+  - No portfolio / 'our work' section

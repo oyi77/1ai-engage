@@ -1,0 +1,6 @@
+# Prospect Research: PT Levelon Digital Indonesia
+Services detected: SEO, SEM, social media, copywriting, email marketing, e-commerce, automation, AI
+Tech stack: wordpress, google_analytics
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - Weak or missing call-to-action

@@ -1,0 +1,4 @@
+# Prospect Research: Tanatap Coffee Matraman
+Services detected: SEM, AI
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site

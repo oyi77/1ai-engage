@@ -1,0 +1,5 @@
+# Prospect Research: Floothink Digital Agency
+Services detected: SEO, SEM, social media, content marketing, branding, AI
+Tech stack: google_analytics
+Observed gaps/pain points:
+  - No blog or content section (missing organic SEO leverage)

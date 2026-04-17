@@ -1,0 +1,5 @@
+# Prospect Research: Ematic Solutions Indonesia - Digital Marketing Agency
+Services detected: SEO, SEM, social media, influencer, e-commerce, UI/UX, AI
+Tech stack: wordpress, shopify, google_analytics
+Observed gaps/pain points:
+  - No blog or content section (missing organic SEO leverage)

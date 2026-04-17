@@ -1,0 +1,8 @@
+# Prospect Research: Digiagency | Digital Marketing Agency di Jakarta | Jasa SEO | Jasa SEM
+Services detected: SEO, SEM, social media, web design, branding, digital PR, UI/UX, automation, AI
+Tech stack: wordpress, google_analytics
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No blog or content section (missing organic SEO leverage)
+  - No visible client testimonials or case studies
+  - No portfolio / 'our work' section

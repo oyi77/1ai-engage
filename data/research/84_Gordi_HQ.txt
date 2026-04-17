@@ -1,0 +1,6 @@
+# Prospect Research: Gordi HQ
+Services detected: AI
+Tech stack: shopify
+Observed gaps/pain points:
+  - No blog or content section (missing organic SEO leverage)
+  - No visible client testimonials or case studies

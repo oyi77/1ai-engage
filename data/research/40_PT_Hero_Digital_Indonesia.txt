@@ -1,0 +1,6 @@
+# Prospect Research: PT Hero Digital Indonesia
+Services detected: SEO, Google Ads, Meta Ads, copywriting, e-commerce, AI
+Tech stack: wordpress, google_analytics
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No visible client testimonials or case studies

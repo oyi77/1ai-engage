@@ -1,0 +1,6 @@
+# Prospect Research: Warhol Digital Marketing Agency Jakarta: Social Media, Video Production, SEO, Ads & Web Development
+Services detected: SEO, SEM, social media, web development, digital PR, AI
+Tech stack: wordpress, google_analytics
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No blog or content section (missing organic SEO leverage)

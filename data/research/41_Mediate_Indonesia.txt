@@ -1,0 +1,5 @@
+# Prospect Research: Mediate Indonesia
+Services detected: SEM, KOL, AI
+Tech stack: wordpress, google_analytics
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site

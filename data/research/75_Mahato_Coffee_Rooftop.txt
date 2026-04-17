@@ -1,0 +1,8 @@
+# Prospect Research: Mahato Coffee Rooftop
+Services detected: SEM, KOL, AI
+Tech stack: shopify, react, next.js, google_ads
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No blog or content section (missing organic SEO leverage)
+  - No visible client testimonials or case studies
+  - Weak or missing call-to-action

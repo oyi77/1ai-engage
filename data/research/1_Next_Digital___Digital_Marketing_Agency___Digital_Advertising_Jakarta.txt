@@ -1,0 +1,5 @@
+# Prospect Research: Next Digital - Digital Marketing Agency | Digital Advertising Jakarta
+Services detected: SEO, SEM, Meta Ads, social media, web design, branding, AI
+Tech stack: wordpress, google_analytics
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site

@@ -1,0 +1,7 @@
+# Prospect Research: Redcomm Indonesia
+Services detected: social media, influencer, KOL, AI
+Tech stack: meta_pixel
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No blog or content section (missing organic SEO leverage)
+  - Weak or missing call-to-action

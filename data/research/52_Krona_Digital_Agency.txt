@@ -1,0 +1,6 @@
+# Prospect Research: Krona Digital Agency
+Services detected: SEO, social media, email marketing, mobile app, automation, AI
+Tech stack: wordpress, google_analytics
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - Weak or missing call-to-action

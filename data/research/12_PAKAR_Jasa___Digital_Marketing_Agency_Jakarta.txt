@@ -1,0 +1,5 @@
+# Prospect Research: PAKAR Jasa - Digital Marketing Agency Jakarta
+Services detected: SEO, Google Ads, Meta Ads, branding, AI
+Tech stack: wordpress, react, meta_pixel
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site

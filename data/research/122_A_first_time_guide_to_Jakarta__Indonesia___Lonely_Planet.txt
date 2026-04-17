@@ -1,0 +1,7 @@
+# Prospect Research: A first-time guide to Jakarta, Indonesia - Lonely Planet
+Services detected: SEM, AI
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No visible client testimonials or case studies
+  - Weak or missing call-to-action
+  - No portfolio / 'our work' section

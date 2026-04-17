@@ -1,0 +1,8 @@
+# Prospect Research: Expat. Roasters Mori Tower Jakarta
+Services detected: AI
+Tech stack: shopify
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No visible client testimonials or case studies
+  - Weak or missing call-to-action
+  - No portfolio / 'our work' section

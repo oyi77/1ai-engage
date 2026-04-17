@@ -1,0 +1,5 @@
+# Prospect Research: PT Senang Bikin Konten - Uraga Digital Agency
+Services detected: SEO, SEM, Google Ads, Meta Ads, social media, branding, copywriting, automation, AI
+Tech stack: meta_pixel, google_analytics
+Observed gaps/pain points:
+  - No blog or content section (missing organic SEO leverage)

@@ -1,0 +1,7 @@
+# Prospect Research: FSN INDONESIA | Digital Marketing Company
+Services detected: SEO, SEM, social media, web development, branding, influencer, AI
+Tech stack: google_analytics
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No blog or content section (missing organic SEO leverage)
+  - Weak or missing call-to-action

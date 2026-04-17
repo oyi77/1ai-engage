@@ -1,0 +1,5 @@
+# Prospect Research: Idenya Flux Main Office | Digital & Advertising Agency
+Services detected: social media, AI
+Tech stack: google_analytics
+Observed gaps/pain points:
+  - Weak or missing call-to-action

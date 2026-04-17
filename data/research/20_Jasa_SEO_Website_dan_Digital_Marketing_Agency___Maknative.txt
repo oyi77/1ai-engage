@@ -1,0 +1,3 @@
+# Prospect Research: Jasa SEO Website dan Digital Marketing Agency | Maknative
+Services detected: SEO, SEM, Google Ads, social media, branding, KOL, AI
+Tech stack: wordpress, google_analytics

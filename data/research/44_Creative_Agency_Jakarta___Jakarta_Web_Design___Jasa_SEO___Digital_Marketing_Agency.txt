@@ -1,0 +1,5 @@
+# Prospect Research: Creative Agency Jakarta | Jakarta Web Design | Jasa SEO | Digital Marketing Agency
+Services detected: SEO, SEM, social media, email marketing, AI
+Tech stack: wordpress, react, google_analytics
+Observed gaps/pain points:
+  - Weak or missing call-to-action

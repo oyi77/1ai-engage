@@ -1,0 +1,6 @@
+# Prospect Research: Lima Media Group - Digital Agency
+Services detected: SEO, social media, branding, influencer, KOL, AI
+Tech stack: wordpress, react, google_analytics
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No blog or content section (missing organic SEO leverage)

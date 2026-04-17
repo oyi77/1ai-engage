@@ -1,0 +1,6 @@
+# Prospect Research: Monelo Social Media Marketing
+Services detected: SEO, social media, branding, influencer, KOL, digital PR, e-commerce, AI
+Tech stack: wordpress, google_analytics
+Observed gaps/pain points:
+  - No blog or content section (missing organic SEO leverage)
+  - Weak or missing call-to-action

@@ -1,0 +1,8 @@
+# Prospect Research: New to Jakarta? A Contact List for Expats to help you hit the ground ...
+Services detected: AI
+Tech stack: google_analytics
+Observed gaps/pain points:
+  - No blog or content section (missing organic SEO leverage)
+  - No visible client testimonials or case studies
+  - Weak or missing call-to-action
+  - No portfolio / 'our work' section

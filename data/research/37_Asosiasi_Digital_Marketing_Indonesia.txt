@@ -1,0 +1,5 @@
+# Prospect Research: Asosiasi Digital Marketing Indonesia
+Services detected: SEM, e-commerce, AI
+Tech stack: wordpress
+Observed gaps/pain points:
+  - Weak or missing call-to-action

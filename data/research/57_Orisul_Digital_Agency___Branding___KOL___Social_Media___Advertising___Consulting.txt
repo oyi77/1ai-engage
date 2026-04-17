@@ -1,0 +1,7 @@
+# Prospect Research: Orisul Digital Agency | Branding | KOL | Social Media | Advertising | Consulting
+Services detected: SEM, social media, influencer, KOL, AI
+Tech stack: wordpress, meta_pixel, google_analytics
+Observed gaps/pain points:
+  - No blog or content section (missing organic SEO leverage)
+  - Weak or missing call-to-action
+  - No portfolio / 'our work' section

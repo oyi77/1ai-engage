@@ -1,0 +1,6 @@
+# Prospect Research: Langit Seduh Rooftop
+Services detected: AI
+Tech stack: wordpress
+Observed gaps/pain points:
+  - No visible client testimonials or case studies
+  - No portfolio / 'our work' section

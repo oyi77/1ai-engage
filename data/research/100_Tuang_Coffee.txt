@@ -1,0 +1,6 @@
+# Prospect Research: Tuang Coffee
+Services detected: AI
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No visible client testimonials or case studies
+  - No portfolio / 'our work' section

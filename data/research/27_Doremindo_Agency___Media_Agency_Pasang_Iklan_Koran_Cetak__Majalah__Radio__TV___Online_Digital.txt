@@ -1,0 +1,3 @@
+# Prospect Research: Doremindo Agency | Media Agency Pasang Iklan Koran Cetak, Majalah, Radio, TV & Online Digital
+Services detected: SEM, KOL, AI
+Tech stack: wordpress, google_analytics

@@ -1,0 +1,6 @@
+# Prospect Research: Longetiv Digital Hub - Digital Marketing Agency Jakarta
+Services detected: SEO, SEM, Google Ads, social media, branding, influencer, KOL, e-commerce, automation, AI, data analytics
+Tech stack: wordpress
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No visible client testimonials or case studies

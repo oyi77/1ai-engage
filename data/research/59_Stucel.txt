@@ -1,0 +1,5 @@
+# Prospect Research: Stucel
+Services detected: SEO, social media, web design, branding, UI/UX, AI
+Tech stack: wordpress
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site

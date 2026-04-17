@@ -1,0 +1,7 @@
+# Prospect Research: DiPStrategy - Digital Marketing and SEO Agency Jakarta
+Services detected: SEO, SEM, social media, content marketing, email marketing, digital PR, e-commerce, mobile app, AI
+Tech stack: wordpress, meta_pixel
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No blog or content section (missing organic SEO leverage)
+  - Weak or missing call-to-action

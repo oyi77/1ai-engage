@@ -1,0 +1,5 @@
+# Prospect Research: Doxadigital
+Services detected: SEO, SEM, Google Ads, social media, email marketing, KOL, AI
+Tech stack: wordpress
+Observed gaps/pain points:
+  - No blog or content section (missing organic SEO leverage)
