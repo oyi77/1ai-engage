@@ -33,12 +33,30 @@ Access at: http://localhost:8502
 - **Voice Settings**: Configure voice note responses per WA number
 - **Pipeline Control**: Manual pipeline execution
 
+## Documentation
+
+- **[Architecture Overview](docs/architecture.md)** - Clean Architecture design and layer separation
+- **[Data Models](docs/data_models.md)** - Domain model reference and validation rules
+- **[API Reference](docs/api_reference.md)** - FastAPI endpoint documentation
+- **[Migration Guide](docs/migration_guide.md)** - Guide for migrating from old structure
+
 ## Directory Structure
+
+**New Structure** (Clean Architecture):
+- `src/oneai_reach/` - Main package
+  - `domain/` - Business logic (models, services, repositories)
+  - `application/` - Use cases (outreach, CS, voice, agents)
+  - `infrastructure/` - External integrations (DB, APIs, messaging)
+  - `api/` - FastAPI application (webhooks, admin, agents, MCP)
+  - `cli/` - Click CLI commands
+  - `config/` - Pydantic Settings
+
+**Legacy Structure** (backward compatible):
 - `dashboard/`: Next.js frontend (TypeScript + React)
-- `scripts/`: Python modules for each step.
-- `data/`: Lead databases (`leads.csv`).
-- `proposals/`: Generated proposals.
-- `logs/`: Execution logs.
+- `scripts/`: Python modules (now shims to new CLI)
+- `data/`: Lead databases (`leads.csv`)
+- `proposals/`: Generated proposals
+- `logs/`: Execution logs
 
 ## Voice Features (WhatsApp Customer Service)
 
