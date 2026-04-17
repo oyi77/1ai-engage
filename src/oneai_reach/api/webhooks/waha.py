@@ -53,6 +53,33 @@ class WAHAWebhookResponse(BaseModel):
     reason: Optional[str] = None
 
 
+def _normalize_phone(phone: str) -> str:
+    """Normalize phone number to digits-only format (62xxx).
+
+    Handles various Indonesian phone formats:
+    - +62812345678 -> 62812345678
+    - 0812345678 -> 62812345678
+    - 62812345678 -> 62812345678
+    - 0062812345678 -> 62812345678
+
+    Returns consistent format for comparison.
+    """
+    # Remove all non-digit characters
+    clean = "".join(filter(str.isdigit, str(phone)))
+
+    # Handle leading 0 (Indonesia: 0812 -> 62812)
+    if clean.startswith("0"):
+        clean = "62" + clean[1:]
+    # Handle 0062 prefix (0062812 -> 62812)
+    elif clean.startswith("0062"):
+        clean = clean[2:]
+    # Ensure 62 prefix
+    elif not clean.startswith("62"):
+        clean = "62" + clean
+
+    return clean
+
+
 def _is_manual_mode_active(wa_number_id: str, contact_phone: str) -> bool:
     try:
         from state_manager import get_all_conversation_stages
@@ -159,6 +186,14 @@ async def handle_waha_webhook(request: Request) -> WAHAWebhookResponse:
                 raise HTTPException(status_code=404, detail="session_not_found")
 
             wa_number_id = wa_number.get("id", session)
+
+            # Detect self-message by comparing normalized phone numbers
+            wa_phone = wa_number.get("phone", "")
+            if wa_phone:
+                normalized_sender = _normalize_phone(sender)
+                normalized_wa_phone = _normalize_phone(wa_phone)
+                if normalized_sender == normalized_wa_phone:
+                    return WAHAWebhookResponse(status="ok", skipped="self_message")
 
             # Check conversation message limit to prevent infinite loops
             conv_key = f"{wa_number_id}:{sender}"
