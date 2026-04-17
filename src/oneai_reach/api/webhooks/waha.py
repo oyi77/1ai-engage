@@ -22,6 +22,8 @@ from state_manager import (
 router = APIRouter(prefix="/api/v1/webhooks/waha", tags=["webhooks"])
 
 _processed_messages = set()
+_CONVERSATION_MESSAGE_COUNTS = {}  # Track message count per conversation
+_CONVERSATION_MAX_MESSAGES = 50  # Max messages per conversation before auto-stop
 
 
 class WAHAPayload(BaseModel):
@@ -157,6 +159,23 @@ async def handle_waha_webhook(request: Request) -> WAHAWebhookResponse:
                 raise HTTPException(status_code=404, detail="session_not_found")
 
             wa_number_id = wa_number.get("id", session)
+
+            # Check conversation message limit to prevent infinite loops
+            conv_key = f"{wa_number_id}:{sender}"
+            if conv_key not in _CONVERSATION_MESSAGE_COUNTS:
+                _CONVERSATION_MESSAGE_COUNTS[conv_key] = 0
+
+            _CONVERSATION_MESSAGE_COUNTS[conv_key] += 1
+
+            if _CONVERSATION_MESSAGE_COUNTS[conv_key] > _CONVERSATION_MAX_MESSAGES:
+                print(
+                    f"[WEBHOOK] STOP: Conversation {conv_key} exceeded {_CONVERSATION_MAX_MESSAGES} messages - infinite loop detected"
+                )
+                return WAHAWebhookResponse(
+                    status="ok",
+                    skipped=f"infinite_loop_guard:{_CONVERSATION_MESSAGE_COUNTS[conv_key]}",
+                )
+
             if _is_manual_mode_active(wa_number_id, sender):
                 add_conversation_message(
                     conversation_id=_get_or_create_conv_id(wa_number_id, sender),
