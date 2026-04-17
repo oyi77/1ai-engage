@@ -67,12 +67,12 @@ def _normalize_phone(phone: str) -> str:
     # Remove all non-digit characters
     clean = "".join(filter(str.isdigit, str(phone)))
 
-    # Handle leading 0 (Indonesia: 0812 -> 62812)
-    if clean.startswith("0"):
-        clean = "62" + clean[1:]
-    # Handle 0062 prefix (0062812 -> 62812)
-    elif clean.startswith("0062"):
+    # Handle 0062 prefix FIRST (0062812 -> 62812)
+    if clean.startswith("0062"):
         clean = clean[2:]
+    # Handle leading 0 (Indonesia: 0812 -> 62812)
+    elif clean.startswith("0"):
+        clean = "62" + clean[1:]
     # Ensure 62 prefix
     elif not clean.startswith("62"):
         clean = "62" + clean
