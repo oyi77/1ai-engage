@@ -11,6 +11,10 @@ from oneai_reach.infrastructure.logging import get_logger
 
 logger = get_logger(__name__)
 
+# Response throttling to prevent rapid back-and-forth conversation loops
+_LAST_RESPONSE_TIME = {}  # Track last response time per conversation (key: "{wa_number_id}:{sender}")
+_THROTTLE_SECONDS = 2  # Minimum seconds between responses per conversation
+
 _FTS_UNSAFE = re.compile(r"[^\w\s]", re.UNICODE)
 
 _INDONESIAN_MARKERS = frozenset(
@@ -58,6 +62,27 @@ _INDONESIAN_MARKERS = frozenset(
         "aneh",
     }
 )
+
+
+def _should_throttle_response(conv_key: str) -> bool:
+    """Check if response should be throttled (less than 2 seconds since last response).
+
+    Args:
+        conv_key: Conversation key in format "{wa_number_id}:{sender}"
+
+    Returns:
+        True if response should be throttled, False otherwise
+    """
+    if conv_key not in _LAST_RESPONSE_TIME:
+        _LAST_RESPONSE_TIME[conv_key] = time.time()
+        return False
+
+    elapsed = time.time() - _LAST_RESPONSE_TIME[conv_key]
+    if elapsed < _THROTTLE_SECONDS:
+        return True
+
+    _LAST_RESPONSE_TIME[conv_key] = time.time()
+    return False
 
 
 class CSEngineService:
@@ -332,6 +357,16 @@ class CSEngineService:
                 "response": "",
                 "conversation_id": 0,
                 "reason": f"Rate limit exceeded ({self.config.cs.max_replies_per_minute}/min) for session {session_name}",
+            }
+
+        # Check response throttling to prevent rapid back-and-forth loops
+        conv_key = f"{wa_number_id}:{contact_phone}"
+        if _should_throttle_response(conv_key):
+            return {
+                "action": "throttled",
+                "response": "",
+                "conversation_id": 0,
+                "reason": f"Response throttled: minimum {_THROTTLE_SECONDS}s delay between responses",
             }
 
         conv = self.conversation_service.get_or_create_conversation(
