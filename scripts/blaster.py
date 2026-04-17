@@ -1,51 +1,28 @@
+#!/usr/bin/env python3
 """
-Blast proposals to enriched leads.
+DEPRECATED: This script is deprecated. Use `oneai-reach blast` instead.
 
-Thin wrapper around BlasterService from application layer.
+Backward compatibility shim for blaster.py
 """
-
 import sys
+import warnings
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+# Show deprecation warning
+warnings.warn(
+    "scripts/blaster.py is deprecated. Use 'oneai-reach blast' instead.",
+    DeprecationWarning,
+    stacklevel=2
+)
 
-from oneai_reach.application.outreach import BlasterService
-from oneai_reach.config.settings import get_settings
-from leads import load_leads, save_leads
-from senders import send_email, send_whatsapp
-from utils import draft_path, is_empty, parse_display_name
+# Add src to path for imports
+_root = Path(__file__).resolve().parent.parent
+_src = _root / "src"
+if str(_src) not in sys.path:
+    sys.path.insert(0, str(_src))
 
-
-def blast() -> None:
-    settings = get_settings()
-    service = BlasterService(settings)
-
-    df = load_leads()
-    if df is None:
-        return
-
-    for col in ("status", "contacted_at"):
-        if col not in df.columns:
-            df[col] = None
-        df[col] = df[col].astype(object)
-
-    print(f"Found {len(df)} leads.")
-
-    sent, skipped_cooldown, skipped_no_draft = service.blast_proposals(
-        df,
-        send_email_fn=send_email,
-        send_whatsapp_fn=send_whatsapp,
-        draft_path_fn=draft_path,
-        is_empty_fn=is_empty,
-        parse_display_name_fn=parse_display_name,
-    )
-
-    save_leads(df)
-    print(f"\n--- Blast complete ---")
-    print(f"  Sent:              {sent}")
-    print(f"  Skipped (cooldown): {skipped_cooldown}")
-    print(f"  Skipped (no draft): {skipped_no_draft}")
-
+# Import and call new CLI
+from oneai_reach.cli.main import cli
 
 if __name__ == "__main__":
-    blast()
+    sys.exit(cli())

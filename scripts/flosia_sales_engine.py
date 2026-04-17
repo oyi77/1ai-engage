@@ -1,27 +1,28 @@
+#!/usr/bin/env python3
+"""
+DEPRECATED: This script is deprecated. Use `oneai-reach flosia-sales` instead.
+
+Backward compatibility shim for flosia_sales_engine.py
+"""
 import sys
+import warnings
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+# Show deprecation warning
+warnings.warn(
+    "scripts/flosia_sales_engine.py is deprecated. Use 'oneai-reach flosia-sales' instead.",
+    DeprecationWarning,
+    stacklevel=2
+)
 
-from oneai_reach.application.agents.flosia_sales_service import FlosiaSalesService
-from oneai_reach.config.settings import get_settings
+# Add src to path for imports
+_root = Path(__file__).resolve().parent.parent
+_src = _root / "src"
+if str(_src) not in sys.path:
+    sys.path.insert(0, str(_src))
 
-
-def main():
-    settings = get_settings()
-    service = FlosiaSalesService(settings)
-    
-    context = {
-        "state": "ENTRY",
-        "user_type": "normal",
-        "ongkir": 15000,
-        "order_value": 110000,
-    }
-    
-    result = service.get_response("Halo", context)
-    print(f"Response: {result['response']}")
-    print(f"Next state: {result['next_state']}")
-
+# Import and call new CLI
+from oneai_reach.cli.main import cli
 
 if __name__ == "__main__":
-    main()
+    sys.exit(cli())

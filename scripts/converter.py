@@ -1,39 +1,28 @@
+#!/usr/bin/env python3
 """
-Conversion automator: replied → meeting_booked → (won/lost).
+DEPRECATED: This script is deprecated. Use `oneai-reach convert` instead.
 
-Thin wrapper around ConverterService from application layer.
+Backward compatibility shim for converter.py
 """
-
 import sys
+import warnings
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+# Show deprecation warning
+warnings.warn(
+    "scripts/converter.py is deprecated. Use 'oneai-reach convert' instead.",
+    DeprecationWarning,
+    stacklevel=2
+)
 
-from oneai_reach.application.outreach import ConverterService
-from oneai_reach.config.settings import get_settings
-from leads import load_leads, save_leads
-from senders import send_email
-from utils import parse_display_name, is_empty
+# Add src to path for imports
+_root = Path(__file__).resolve().parent.parent
+_src = _root / "src"
+if str(_src) not in sys.path:
+    sys.path.insert(0, str(_src))
 
-
-def process_replied_leads() -> None:
-    settings = get_settings()
-    service = ConverterService(settings)
-    
-    df = load_leads()
-    if df is None:
-        return
-
-    converted = service.process_replied_leads(
-        df,
-        send_email_fn=send_email,
-        parse_display_name_fn=parse_display_name,
-        is_empty_fn=is_empty,
-        save_leads_fn=save_leads,
-    )
-
-    print(f"\nConversion complete. {converted} leads sent meeting invites.")
-
+# Import and call new CLI
+from oneai_reach.cli.main import cli
 
 if __name__ == "__main__":
-    process_replied_leads()
+    sys.exit(cli())
