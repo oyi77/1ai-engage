@@ -10,8 +10,12 @@ sys.path.insert(0, str(_root / "src"))
 sys.path.insert(0, str(_root / "scripts"))
 
 
-@pytest.fixture(autouse=True, scope="function")
-def fresh_db():
+@pytest.fixture(scope="function")
+def fresh_db(request):
+    if "integration/application" in str(request.fspath):
+        yield None
+        return
+
     with tempfile.NamedTemporaryFile(suffix=".db", delete=False) as f:
         db_path = f.name
 
