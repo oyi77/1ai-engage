@@ -125,6 +125,7 @@ CREATE TABLE IF NOT EXISTS conversations (
     engine_mode TEXT NOT NULL,
     status TEXT DEFAULT 'active',
     manual_mode INTEGER DEFAULT 0,
+    test_mode INTEGER DEFAULT 0,
     last_message_at TEXT,
     message_count INTEGER DEFAULT 0,
     created_at TEXT DEFAULT (datetime('now')),
@@ -195,6 +196,12 @@ def init_db() -> None:
         try:
             conn.execute(
                 "ALTER TABLE conversations ADD COLUMN manual_mode INTEGER DEFAULT 0"
+            )
+        except Exception:
+            pass  # Column already exists
+        try:
+            conn.execute(
+                "ALTER TABLE conversations ADD COLUMN test_mode INTEGER DEFAULT 0"
             )
         except Exception:
             pass  # Column already exists
