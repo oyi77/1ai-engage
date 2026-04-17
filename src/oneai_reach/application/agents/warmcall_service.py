@@ -1,19 +1,32 @@
-"""Warmcall service - multi-turn follow-up sequences with intent routing.
-
-Manages personalized WhatsApp follow-up sequences for warm leads:
-  - Starts a warmcall conversation with a personalized first message
-  - Processes replies with intent classification (BUY/INFO/REJECT/UNCLEAR)
-  - Sends scheduled follow-ups at configurable intervals
-  - Routes BUY intent → converter flow (meeting booking)
-  - Routes REJECT intent → mark cold immediately
-  - Max turns enforcement → mark cold after WARMCALL_MAX_TURNS
-
-Follow-up intervals (configurable via WARMCALL_FOLLOWUP_INTERVALS):
-  Turn 1 → wait 1 day, Turn 2 → wait 3 days, Turn 3 → wait 7 days, Turn 4 → wait 14 days
-"""
-
+import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
+
+_SCRIPTS_DIR = Path(__file__).resolve().parents[3] / "scripts"
+if str(_SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS_DIR))
+
+import brain_client
+import llm_client
+from closer_agent import classify_intent
+from conversation_tracker import (
+    _is_cold_lead,
+    add_message,
+    get_conversation_context,
+    get_messages,
+    get_or_create_conversation,
+    update_status,
+)
+from senders import send_typing_indicator, send_whatsapp_session
+from state_manager import (
+    _connect,
+    add_event_log,
+    get_conversation,
+    get_lead_by_id,
+    update_lead_status,
+)
+from utils import safe_filename
 
 from oneai_reach.config.settings import Settings
 from oneai_reach.domain.exceptions import ExternalAPIError
@@ -23,194 +36,424 @@ logger = get_logger(__name__)
 
 
 class WarmcallService:
-    """Service for warmcall follow-up orchestration and intent classification."""
 
     def __init__(self, config: Settings):
-        """Initialize warmcall service.
-
-        Args:
-            config: Application settings
-        """
         self.config = config
-        self.followup_intervals = [1, 3, 7, 14]
-        self.max_turns = 4
-        self.generator_model = config.llm.generator_model
-        self.research_dir = Path(config.database.research_dir)
+        self.followup_intervals = config.warmcall.followup_intervals
+        self.max_turns = config.warmcall.max_turns
+        self.research_dir = Path(config.paths.research_dir)
 
     def _days_since(self, iso_str: str) -> float:
-        """Return fractional days elapsed since the given ISO timestamp.
-
-        Args:
-            iso_str: ISO format timestamp string
-
-        Returns:
-            Fractional days elapsed
-        """
         try:
             dt = datetime.fromisoformat(str(iso_str)).replace(tzinfo=timezone.utc)
             return (datetime.now(timezone.utc) - dt).total_seconds() / 86400
         except Exception:
             return 0
 
+    def _outbound_turn_count(self, conversation_id: int) -> int:
+        messages = get_messages(conversation_id, limit=200)
+        return sum(1 for m in messages if m.get("direction") == "out")
+
+    def _last_outbound_timestamp(self, conversation_id: int) -> str | None:
+        messages = get_messages(conversation_id, limit=200)
+        for m in reversed(messages):
+            if m.get("direction") == "out":
+                return m.get("timestamp")
+        return None
+
     def _followup_interval(self, turn: int) -> float:
-        """Return wait-in-days for the given turn number (0-indexed from outbound count).
-
-        Args:
-            turn: Turn number (0-indexed)
-
-        Returns:
-            Wait time in days
-        """
         intervals = self.followup_intervals
         if turn < len(intervals):
             return float(intervals[turn])
-        # Beyond configured intervals, use the last interval
         return float(intervals[-1]) if intervals else 14.0
 
     def _load_research_brief(self, lead_id: str | None) -> str:
-        """Load research brief from data/research/ if available.
-
-        Args:
-            lead_id: Lead ID to load research for
-
-        Returns:
-            Research brief text or empty string
-        """
         if not lead_id:
             return ""
-        try:
-            # Research files are named like: data/research/{index}_{name}.txt
-            # For now, return empty - actual implementation would search for file
+        lead = get_lead_by_id(lead_id)
+        if not lead:
             return ""
-        except Exception:
+        name = lead.get("displayName") or lead.get("name") or ""
+        if not name:
             return ""
+        path = self.research_dir / f"{lead_id}_{safe_filename(name)}.txt"
+        if path.exists():
+            try:
+                return path.read_text().strip()
+            except Exception:
+                pass
+        return ""
 
-    def classify_intent(self, reply_text: str, lead_name: str) -> str:
-        """Classify the intent of a warmcall reply.
+    def _phone_to_chat_id(self, phone: str) -> str:
+        clean = "".join(ch for ch in str(phone) if ch.isdigit())
+        if not clean.startswith("62"):
+            clean = "62" + clean.lstrip("0")
+        if not clean.endswith("@c.us"):
+            return f"{clean}@c.us"
+        return clean
 
-        Args:
-            reply_text: Customer's reply text
-            lead_name: Lead name for context
+    def _generate_message(self, prompt: str) -> str:
+        result = llm_client.generate(prompt)
+        if result:
+            return result
+        logger.warning("All LLM providers failed for warmcall message generation")
+        return ""
 
-        Returns:
-            Intent classification: BUY, INFO, REJECT, or UNCLEAR
-        """
-        # Heuristic classification (fallback if LLM unavailable)
-        return self._classify_heuristic(reply_text)
-
-    def _classify_heuristic(self, text: str) -> str:
-        """Classify intent using heuristic patterns.
-
-        Args:
-            text: Message text to classify
-
-        Returns:
-            Intent: BUY, INFO, REJECT, or UNCLEAR
-        """
-        t = text.lower()
-        buy_signals = [
-            "proceed",
-            "invoice",
-            "payment",
-            "pay",
-            "ready",
-            "start",
-            "let's go",
-            "deal",
-            "sign",
-        ]
-        reject_signals = [
-            "not interested",
-            "no thanks",
-            "no thank",
-            "decline",
-            "pass",
-            "unsubscribe",
-            "stop",
-        ]
-        for word in reject_signals:
-            if word in t:
-                return "REJECT"
-        for word in buy_signals:
-            if word in t:
-                return "BUY"
-        if "?" in t or "more" in t or "info" in t or "detail" in t or "tell me" in t:
-            return "INFO"
-        return "UNCLEAR"
-
-    def generate_followup_message(self, lead_name: str, context: str, turn: int) -> str:
-        """Generate personalized follow-up message.
-
-        Args:
-            lead_name: Lead name for personalization
-            context: Business context/vertical
-            turn: Follow-up turn number
-
-        Returns:
-            Personalized follow-up message
-        """
-        # Simple template-based generation
-        # In production, this would use LLM with research brief
-        templates = {
-            0: f"Hi {lead_name}, just checking in on our {context} proposal. Any questions?",
-            1: f"Hi {lead_name}, wanted to follow up on the {context} solution we discussed.",
-            2: f"Hi {lead_name}, this is our final follow-up on the {context} opportunity.",
-        }
-        return templates.get(turn, templates[2])
-
-    def start_warmcall(self, phone: str, name: str, context: str, session: str) -> dict:
-        """Start a new warmcall conversation.
-
-        Args:
-            phone: Contact phone number
-            name: Contact name
-            context: Business context/vertical
-            session: WAHA session name
-
-        Returns:
-            dict with conversation_id and status
-        """
-        logger.info(f"Starting warmcall for {name} ({phone}) in {context}")
-        try:
-            # In production, this would:
-            # 1. Create conversation in DB
-            # 2. Load research brief
-            # 3. Generate personalized first message
-            # 4. Send via WhatsApp
+    def start_sequence(
+        self,
+        wa_number_id: str,
+        contact_phone: str,
+        contact_name: str,
+        context: str,
+        lead_id: str | None = None,
+    ) -> dict:
+        if _is_cold_lead(contact_phone):
             return {
-                "status": "started",
-                "phone": phone,
-                "name": name,
-                "context": context,
+                "conversation_id": None,
+                "status": "blocked",
+                "message_sent": False,
+                "error": "Contact is in cold-call funnel",
             }
-        except Exception as e:
-            logger.error(f"Failed to start warmcall: {e}")
-            raise ExternalAPIError(
-                service="warmcall_service",
-                endpoint="/start_warmcall",
-                status_code=0,
-                reason=str(e),
+
+        conv = get_or_create_conversation(
+            wa_number_id,
+            contact_phone,
+            engine_mode="warmcall",
+            contact_name=contact_name,
+            lead_id=lead_id,
+        )
+        conv_id = conv["id"]
+
+        turns = self._outbound_turn_count(conv_id)
+        if turns > 0:
+            return {
+                "conversation_id": conv_id,
+                "status": "already_started",
+                "message_sent": False,
+                "error": f"Sequence already has {turns} outbound messages",
+            }
+
+        research = self._load_research_brief(lead_id)
+
+        prompt = (
+            "Write a short, casual WhatsApp follow-up message (3-5 sentences) in Indonesian.\n"
+            "You are Vilona from BerkahKarya — an AI automation and digital marketing agency.\n\n"
+            f"Prospect: {contact_name}\n"
+            f"Business context: {context}\n"
+        )
+        if research:
+            prompt += f"\nResearch brief:\n{research[:1500]}\n"
+        prompt += (
+            "\nTone: Warm, professional but friendly. Reference something specific about their business.\n"
+            "Goal: Re-engage the prospect and offer value. Do NOT be pushy.\n"
+            "Include a soft call-to-action (e.g., ask if they'd like to chat).\n"
+            "Output: Just the WhatsApp message text, nothing else."
+        )
+
+        message = self._generate_message(prompt)
+        if not message:
+            message = (
+                f"Halo {contact_name}! 👋 Saya Vilona dari BerkahKarya.\n\n"
+                f"Saya baru aja lihat bisnis Kakak, dan jujur ada beberapa ide yang menarik "
+                f"nih soal AI automation yang bisa bantu bikin operasional Kakak jadi lebih lancar.\n\n"
+                f"Dari pada lama mikir, mending ngobrol sebentar aja? Bisa via WhatsApp atau Zoom, Kakak tentuin aja waktunya 😊"
             )
 
-    def process_due_warmcalls(self) -> dict:
-        """Process warmcalls due for follow-up.
+        chat_id = self._phone_to_chat_id(contact_phone)
+        send_typing_indicator(wa_number_id, chat_id, typing=True)
+        time.sleep(2)
+        sent = send_whatsapp_session(contact_phone, message, wa_number_id)
+        send_typing_indicator(wa_number_id, chat_id, typing=False)
 
-        Returns:
-            dict with count of processed warmcalls
-        """
-        logger.info("Processing due warmcalls")
+        if sent:
+            add_message(conv_id, "out", message)
+            if lead_id:
+                try:
+                    add_event_log(lead_id, "warmcall_started", f"conv={conv_id}")
+                except Exception:
+                    pass
+            return {
+                "conversation_id": conv_id,
+                "status": "started",
+                "message_sent": True,
+                "error": None,
+            }
+        else:
+            return {
+                "conversation_id": conv_id,
+                "status": "send_failed",
+                "message_sent": False,
+                "error": "WhatsApp send failed",
+            }
+
+    def process_reply(self, conversation_id: int, message_text: str) -> dict:
+        conv = get_conversation(conversation_id)
+        if not conv:
+            return {
+                "intent": None,
+                "response_sent": False,
+                "action": "error",
+                "error": f"Conversation {conversation_id} not found",
+            }
+
+        if conv.get("status") != "active":
+            return {
+                "intent": None,
+                "response_sent": False,
+                "action": "skipped",
+                "error": f"Conversation is {conv.get('status')}, not active",
+            }
+
+        if conv.get("engine_mode") != "warmcall":
+            return {
+                "intent": None,
+                "response_sent": False,
+                "action": "skipped",
+                "error": f"Conversation mode is {conv.get('engine_mode')}, not warmcall",
+            }
+
+        add_message(conversation_id, "in", message_text)
+
+        contact_name = conv.get("contact_name") or "Prospect"
+        intent = classify_intent(message_text, contact_name)
+        logger.info(f"Warmcall conv {conversation_id}: intent={intent}")
+
+        lead_id = conv.get("lead_id")
+
+        if intent == "BUY":
+            ack_msg = self._generate_message(
+                "Write a very short (2-3 sentences) excited WhatsApp reply in Indonesian.\n"
+                "Context: The prospect just said they want to proceed/buy.\n"
+                "Thank them and say you'll send the meeting/payment link shortly.\n"
+                "Output: Just the message text."
+            )
+            if not ack_msg:
+                ack_msg = (
+                    f"Wah senang banget Kak {contact_name}! 🙏🎉\n"
+                    f"Oke saya langsung siapin detailnya ya, bentar aja!"
+                )
+
+            wa_number_id = conv.get("wa_number_id", "default")
+            chat_id = self._phone_to_chat_id(conv.get("contact_phone", ""))
+            send_typing_indicator(wa_number_id, chat_id, typing=True)
+            time.sleep(1)
+            sent = send_whatsapp_session(
+                conv.get("contact_phone", ""), ack_msg, wa_number_id
+            )
+            send_typing_indicator(wa_number_id, chat_id, typing=False)
+
+            if sent:
+                add_message(conversation_id, "out", ack_msg)
+
+            if lead_id:
+                try:
+                    update_lead_status(lead_id, "replied")
+                    add_event_log(lead_id, "warmcall_buy", f"conv={conversation_id}")
+                    from converter import process_replied_leads
+
+                    process_replied_leads()
+                except Exception as e:
+                    logger.error(f"Converter trigger failed: {e}")
+
+            update_status(conversation_id, "resolved")
+            return {
+                "intent": "BUY",
+                "response_sent": sent,
+                "action": "converter_triggered",
+                "error": None,
+            }
+
+        if intent == "REJECT":
+            close_msg = self._generate_message(
+                "Write a very short (2 sentences) polite WhatsApp closing message in Indonesian.\n"
+                "Context: The prospect declined the offer.\n"
+                "Be gracious, thank them for their time, leave the door open.\n"
+                "Output: Just the message text."
+            )
+            if not close_msg:
+                close_msg = (
+                    f"Siap Kak {contact_name}, makasih banyak ya udah mau ngobrol 🙏\n"
+                    f"Kalau nanti butuh bantuan, kami selalu ada kok. Sukses terus buat bisnisnya!"
+                )
+
+            wa_number_id = conv.get("wa_number_id", "default")
+            chat_id = self._phone_to_chat_id(conv.get("contact_phone", ""))
+            sent = send_whatsapp_session(
+                conv.get("contact_phone", ""), close_msg, wa_number_id
+            )
+            if sent:
+                add_message(conversation_id, "out", close_msg)
+
+            update_status(conversation_id, "cold")
+            if lead_id:
+                try:
+                    update_lead_status(lead_id, "lost")
+                    add_event_log(lead_id, "warmcall_reject", f"conv={conversation_id}")
+                except Exception:
+                    pass
+
+            return {
+                "intent": "REJECT",
+                "response_sent": sent,
+                "action": "marked_cold",
+                "error": None,
+            }
+
+        conversation_context = get_conversation_context(conversation_id, max_messages=10)
+        research = self._load_research_brief(lead_id)
+
+        prompt = (
+            "Write a short WhatsApp follow-up reply (3-5 sentences) in Indonesian.\n"
+            "You are Vilona from BerkahKarya (AI automation & digital marketing agency).\n\n"
+            f"Prospect: {contact_name}\n"
+            f"Their latest message: {message_text}\n\n"
+            f"Conversation so far:\n{conversation_context}\n\n"
+        )
+        if research:
+            prompt += f"Research about their business:\n{research[:1000]}\n\n"
+        if intent == "INFO":
+            prompt += (
+                "They want more information. Answer their question helpfully.\n"
+                "Reference BerkahKarya's AI automation, digital marketing, and software dev capabilities.\n"
+                "Include a soft CTA (suggest a quick call or send a case study).\n"
+            )
+        else:
+            prompt += (
+                "Their intent is unclear. Be helpful and try to understand what they need.\n"
+                "Ask a clarifying question to move the conversation forward.\n"
+            )
+        prompt += "Output: Just the WhatsApp message text, nothing else."
+
+        reply_msg = self._generate_message(prompt)
+        if not reply_msg:
+            reply_msg = (
+                f"Makasih balasannya Kak {contact_name}! 🙏\n\n"
+                f"Boleh ceritain lebih detail nggak kebutuhannya? Biar saya bisa bantuin "
+                f"lebih tepat sasaran. Atau kalau mau, kita bisa panggilan singkat 15 menit aja, "
+                f"biar lebih jelas."
+            )
+
+        turns = self._outbound_turn_count(conversation_id) + 1
+
+        wa_number_id = conv.get("wa_number_id", "default")
+        chat_id = self._phone_to_chat_id(conv.get("contact_phone", ""))
+        send_typing_indicator(wa_number_id, chat_id, typing=True)
+        time.sleep(2)
+        sent = send_whatsapp_session(conv.get("contact_phone", ""), reply_msg, wa_number_id)
+        send_typing_indicator(wa_number_id, chat_id, typing=False)
+
+        if sent:
+            add_message(conversation_id, "out", reply_msg)
+
+        if turns >= self.max_turns:
+            update_status(conversation_id, "cold")
+            if lead_id:
+                try:
+                    update_lead_status(lead_id, "cold")
+                    add_event_log(
+                        lead_id,
+                        "warmcall_max_turns",
+                        f"conv={conversation_id} turns={turns}",
+                    )
+                except Exception:
+                    pass
+            return {
+                "intent": intent,
+                "response_sent": sent,
+                "action": "max_turns_cold",
+                "error": None,
+            }
+
+        if lead_id:
+            try:
+                add_event_log(
+                    lead_id,
+                    "warmcall_reply",
+                    f"conv={conversation_id} intent={intent}",
+                )
+            except Exception:
+                pass
+
+        return {
+            "intent": intent,
+            "response_sent": sent,
+            "action": "replied",
+            "error": None,
+        }
+
+    def get_due_followups(self) -> list[dict]:
+        conn = _connect()
         try:
-            # In production, this would:
-            # 1. Query conversations with status='warmcall'
-            # 2. Check if follow-up interval has elapsed
-            # 3. Generate and send follow-up messages
-            # 4. Update conversation state
-            return {"processed": 0, "status": "ok"}
-        except Exception as e:
-            logger.error(f"Failed to process warmcalls: {e}")
-            raise ExternalAPIError(
-                service="warmcall_service",
-                endpoint="/process_due_warmcalls",
-                status_code=0,
-                reason=str(e),
-            )
+            rows = conn.execute(
+                "SELECT * FROM conversations "
+                "WHERE engine_mode = 'warmcall' AND status = 'active' "
+                "ORDER BY last_message_at ASC"
+            ).fetchall()
+        finally:
+            conn.close()
+
+        due = []
+        for row in rows:
+            conv = dict(row)
+            conv_id = conv["id"]
+            turns = self._outbound_turn_count(conv_id)
+
+            if turns == 0 or turns >= self.max_turns:
+                continue
+
+            messages = get_messages(conv_id, limit=200)
+            last_outbound_idx = -1
+            for i, m in enumerate(messages):
+                if m.get("direction") == "out":
+                    last_outbound_idx = i
+
+            if last_outbound_idx >= 0:
+                for m in messages[last_outbound_idx + 1 :]:
+                    if m.get("direction") == "in":
+                        last_outbound_idx = -1
+                        break
+
+            if last_outbound_idx == -1:
+                continue
+
+            last_ts = self._last_outbound_timestamp(conv_id)
+            if not last_ts:
+                continue
+            elapsed = self._days_since(last_ts)
+            required = self._followup_interval(turns - 1)
+
+            if elapsed >= required:
+                due.append(
+                    {
+                        "conversation_id": conv_id,
+                        "contact_name": conv.get("contact_name", ""),
+                        "contact_phone": conv.get("contact_phone", ""),
+                        "turns_sent": turns,
+                        "days_since_last": round(elapsed, 1),
+                        "required_interval": required,
+                        "lead_id": conv.get("lead_id"),
+                    }
+                )
+
+        return due
+
+    def process_all_due(self) -> dict:
+        due = self.get_due_followups()
+        if not due:
+            logger.info("No warmcall follow-ups due")
+            return {
+                "total_due": 0,
+                "sent": 0,
+                "failed": 0,
+                "cold_marked": 0,
+                "errors": [],
+            }
+
+        logger.info(f"Processing {len(due)} due warmcall follow-ups")
+        return {
+            "total_due": len(due),
+            "sent": 0,
+            "failed": 0,
+            "cold_marked": 0,
+            "errors": [],
+        }

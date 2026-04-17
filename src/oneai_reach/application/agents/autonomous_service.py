@@ -1,18 +1,12 @@
-"""Autonomous OODA loop - observe funnel state, orient, decide, act.
-
-Replaces the old sequential orchestrator.py with a continuous loop that
-evaluates the funnel on every iteration and dispatches only what's needed.
-
-The OODA loop (Observe-Orient-Decide-Act) continuously:
-1. Observes current funnel state (lead counts by status)
-2. Orients based on configured thresholds
-3. Decides which scripts to dispatch
-4. Acts by launching scripts non-blocking
-"""
-
 import subprocess
 import sys
 from pathlib import Path
+
+_SCRIPTS_DIR = Path(__file__).resolve().parents[3] / "scripts"
+if str(_SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS_DIR))
+
+from state_manager import count_by_status
 
 from oneai_reach.config.settings import Settings
 from oneai_reach.domain.exceptions import ExternalAPIError
@@ -22,29 +16,15 @@ logger = get_logger(__name__)
 
 
 class AutonomousService:
-    """Service for autonomous OODA loop orchestration."""
 
     def __init__(self, config: Settings):
-        """Initialize autonomous service.
-
-        Args:
-            config: Application settings
-        """
         self.config = config
-        self.loop_sleep_seconds = config.pipeline.loop_sleep_seconds
-        self.min_new_leads_threshold = config.pipeline.min_new_leads_threshold
-        self.scripts_dir = Path(config.database.data_dir).parent / "scripts"
-        self._running: dict[str, subprocess.Popen] = {}
+        self.loop_sleep_seconds = config.autonomous.loop_sleep_seconds
+        self.min_new_leads_threshold = config.autonomous.min_new_leads_threshold
+        self.scripts_dir = Path(config.paths.scripts_dir)
+        self._running = {}
 
     def _is_running(self, name: str) -> bool:
-        """Return True if *name* was dispatched and hasn't exited yet.
-
-        Args:
-            name: Script name
-
-        Returns:
-            True if script is still running
-        """
         proc = self._running.get(name)
         if proc is None:
             return False
@@ -53,17 +33,9 @@ class AutonomousService:
         del self._running[name]
         return False
 
-    def dispatch(self, script: str, *, dry_run: bool = False) -> None:
-        """Launch *script* non-blocking via Popen. Skip if already running.
-
-        Args:
-            script: Script filename to dispatch
-            dry_run: If True, only log what would be dispatched
-        """
+    def dispatch(self, script: str, dry_run: bool = False) -> None:
         if self._is_running(script):
-            logger.info(
-                f"SKIP {script} — already running (pid {self._running[script].pid})"
-            )
+            logger.info(f"SKIP {script} — already running (pid {self._running[script].pid})")
             return
 
         if dry_run:
@@ -76,50 +48,22 @@ class AutonomousService:
             return
 
         logger.info(f"DISPATCH {script}")
-        try:
-            proc = subprocess.Popen(
-                [sys.executable, str(script_path)],
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,
-            )
-            self._running[script] = proc
-        except Exception as e:
-            logger.error(f"Failed to dispatch {script}: {e}")
-            raise ExternalAPIError(
-                service="autonomous_service",
-                endpoint="/dispatch",
-                status_code=0,
-                reason=str(e),
-            )
+        proc = subprocess.Popen(
+            [sys.executable, str(script_path)],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+        )
+        self._running[script] = proc
 
     def observe(self) -> dict[str, int]:
-        """Query funnel state from SQLite.
-
-        Returns:
-            dict with lead counts by status
-        """
         try:
-            from state_manager import count_by_status
-
             counts = count_by_status()
-            logger.info(f"Observed funnel state: {counts}")
-            return counts
-        except Exception as e:
-            logger.error(f"count_by_status() failed: {e}")
-            return {}
+        except Exception as exc:
+            logger.error(f"count_by_status() failed: {exc}")
+            counts = {}
+        return counts
 
-    def decide_and_act(
-        self, counts: dict[str, int], iteration: int, *, dry_run: bool = False
-    ) -> None:
-        """Full funnel decision tree - dispatch scripts based on counts.
-
-        Args:
-            counts: Lead counts by status
-            iteration: Current iteration number
-            dry_run: If True, only log decisions
-        """
-        logger.info(f"[Iteration {iteration}] Deciding based on funnel state")
-
+    def decide_and_act(self, counts: dict[str, int], iteration: int, dry_run: bool) -> None:
         if counts.get("new", 0) < self.min_new_leads_threshold:
             self.dispatch("strategy_agent.py", dry_run=dry_run)
 
@@ -129,58 +73,31 @@ class AutonomousService:
         if counts.get("enriched", 0) > 0:
             self.dispatch("researcher.py", dry_run=dry_run)
 
+        if counts.get("enriched", 0) > 0 or counts.get("needs_revision", 0) > 0:
+            self.dispatch("generator.py", dry_run=dry_run)
+
         if counts.get("draft_ready", 0) > 0:
-            self.dispatch("generator.py", dry_run=dry_run)
-
-        if counts.get("needs_revision", 0) > 0:
-            self.dispatch("generator.py", dry_run=dry_run)
-
-        if counts.get("reviewed", 0) > 0:
             self.dispatch("blaster.py", dry_run=dry_run)
 
-        if counts.get("followed_up", 0) > 0:
-            self.dispatch("reply_tracker.py", dry_run=dry_run)
-
         if counts.get("replied", 0) > 0:
-            self.dispatch("converter.py", dry_run=dry_run)
+            self.dispatch("closer_agent.py", dry_run=dry_run)
 
-        if counts.get("meeting_booked", 0) > 0:
+        if iteration % 5 == 0:
+            self.dispatch("sheets_sync.py", dry_run=dry_run)
             self.dispatch("followup.py", dry_run=dry_run)
 
-        self.dispatch("sheets_sync.py", dry_run=dry_run)
+    def run_iteration(self, iteration: int, dry_run: bool = False) -> dict:
+        counts = self.observe()
+        total = sum(counts.values())
+        logger.info(
+            f"=== Iteration {iteration} | {total} total leads | Funnel: {counts or '(empty)'} ==="
+        )
 
-    def run(self, *, dry_run: bool = False, run_once: bool = False) -> None:
-        """Main OODA loop - continuous observation and action.
+        self.decide_and_act(counts, iteration, dry_run=dry_run)
 
-        Args:
-            dry_run: If True, only log decisions without dispatching
-            run_once: If True, run single iteration then exit
-        """
-        iteration = 0
-        try:
-            while True:
-                iteration += 1
-                logger.info(f"=== OODA Loop Iteration {iteration} ===")
-
-                counts = self.observe()
-                self.decide_and_act(counts, iteration, dry_run=dry_run)
-
-                if run_once:
-                    logger.info("Run-once mode: exiting after single iteration")
-                    break
-
-                logger.info(f"Sleeping for {self.loop_sleep_seconds} seconds...")
-                import time
-
-                time.sleep(self.loop_sleep_seconds)
-
-        except KeyboardInterrupt:
-            logger.info("Autonomous loop interrupted by user")
-        except Exception as e:
-            logger.error(f"Autonomous loop failed: {e}")
-            raise ExternalAPIError(
-                service="autonomous_service",
-                endpoint="/run",
-                status_code=0,
-                reason=str(e),
-            )
+        return {
+            "iteration": iteration,
+            "total_leads": total,
+            "funnel_state": counts,
+            "dispatched": list(self._running.keys()),
+        }

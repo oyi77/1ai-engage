@@ -1,9 +1,3 @@
-"""Flosia sales agent service - conversational sales engine for Flosia products.
-
-State-machine driven sales conversation engine for Flosia Jombang (parfum laundry).
-Implements pattern-based responses with exploration and context-aware state transitions.
-"""
-
 import random
 
 from oneai_reach.config.settings import Settings
@@ -13,6 +7,7 @@ logger = get_logger(__name__)
 
 
 class FlosiaSalesService:
+
     STATES = ["ENTRY", "QUALIFY", "OFFER", "ONGKIR", "MICRO_CLOSE", "CLOSE"]
 
     BEST_PATTERNS = {
@@ -54,9 +49,7 @@ class FlosiaSalesService:
 
         if random.random() < self.exploration_rate:
             alternatives = [
-                p
-                for p in self.PATTERN_POOL
-                if p.startswith(state.lower()) and p != best
+                p for p in self.PATTERN_POOL if p.startswith(state.lower()) and p != best
             ]
             if alternatives:
                 return random.choice(alternatives)
