@@ -36,6 +36,7 @@ from conversation_tracker import (
     get_conversation_context,
     get_or_create_conversation,
 )
+from conversation_guard import run_all_checks
 import re as _re
 
 from kb_manager import search as _kb_search_raw, search_with_outcome_weighting
@@ -437,6 +438,24 @@ def handle_inbound_message(
 
     conv = get_or_create_conversation(wa_number_id, contact_phone, engine_mode="cs")
     conv_id = conv["id"]
+
+    # Conversation guard - prevent infinite loops and agent-to-agent chatting
+    should_skip, guard_reason = run_all_checks(
+        conversation_id=conv_id,
+        contact_phone=contact_phone,
+        wa_number_id=wa_number_id,
+        session_name=session_name,
+        message_direction="in",
+        message_text=message_text,
+    )
+
+    if should_skip:
+        return {
+            "action": "skipped",
+            "response": "",
+            "conversation_id": conv_id,
+            "reason": f"Guard: {guard_reason}",
+        }
 
     if conv.get("message_count", 0) <= 1:
         notify_conversation_started(contact_phone, session_name, wa_number_id)
