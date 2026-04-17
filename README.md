@@ -35,21 +35,71 @@ Access at: http://localhost:8502
 
 ## Documentation
 
-- **[Architecture Overview](docs/architecture.md)** - Clean Architecture design and layer separation
-- **[Data Models](docs/data_models.md)** - Domain model reference and validation rules
+- **[Architecture Overview](docs/architecture.md)** - Clean Architecture design, layer separation, request flow, and dependency injection
+- **[Data Models](docs/data_models.md)** - Complete domain model reference with validation rules and relationships
 - **[API Reference](docs/api_reference.md)** - FastAPI endpoint documentation
 - **[Migration Guide](docs/migration_guide.md)** - Guide for migrating from old structure
+
+## Architecture
+
+`1ai-reach` follows **Clean Architecture** principles with clear separation of concerns:
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                     API / CLI Layer                      │
+│              (FastAPI routes, Click commands)            │
+├─────────────────────────────────────────────────────────┤
+│                   Application Layer                      │
+│         (Use cases, service orchestration)               │
+├─────────────────────────────────────────────────────────┤
+│                     Domain Layer                         │
+│        (Business logic, models, interfaces)              │
+├─────────────────────────────────────────────────────────┤
+│                 Infrastructure Layer                     │
+│     (External APIs, database, messaging, logging)        │
+└─────────────────────────────────────────────────────────┘
+```
+
+**Key principles:**
+- Dependencies flow inward (outer layers depend on inner layers)
+- Domain layer has zero external dependencies
+- Repository pattern abstracts data access
+- Dependency injection for loose coupling
+- Pydantic models for type safety and validation
+
+See [Architecture Overview](docs/architecture.md) for detailed design documentation.
 
 ## Directory Structure
 
 **New Structure** (Clean Architecture):
-- `src/oneai_reach/` - Main package
-  - `domain/` - Business logic (models, services, repositories)
-  - `application/` - Use cases (outreach, CS, voice, agents)
-  - `infrastructure/` - External integrations (DB, APIs, messaging)
-  - `api/` - FastAPI application (webhooks, admin, agents, MCP)
-  - `cli/` - Click CLI commands
-  - `config/` - Pydantic Settings
+```
+src/oneai_reach/
+├── domain/              # Business logic (pure)
+│   ├── models/          # Pydantic models (Lead, Conversation, Message, Proposal, KB)
+│   ├── services/        # Business rules and domain logic
+│   ├── repositories/    # Abstract data access interfaces
+│   └── exceptions.py    # Custom exceptions with error codes
+├── application/         # Use cases & orchestration
+│   ├── outreach/        # Pipeline services (scraper, enricher, generator, blaster)
+│   ├── customer_service/# CS engine, conversation tracking, analytics
+│   ├── voice/           # Voice pipeline (STT, TTS, audio processing)
+│   └── agents/          # Agent orchestration (strategy, closer, autonomous loop)
+├── infrastructure/      # External integrations
+│   ├── database/        # SQLite repository implementations
+│   ├── external/        # API clients (BrainClient, WAHAClient, AgentCash)
+│   ├── llm/             # LLM integration (Claude, Gemini, Oracle)
+│   ├── messaging/       # Email/WhatsApp senders with fallback chains
+│   └── logging/         # Structured JSON logging with correlation IDs
+├── api/                 # HTTP interface
+│   ├── v1/              # API endpoints (pipeline, conversations, KB)
+│   ├── webhooks/        # Webhook handlers (WAHA, CAPI)
+│   ├── middleware.py    # Auth, rate limiting, CORS, logging
+│   └── main.py          # FastAPI application
+├── cli/                 # CLI interface
+│   └── main.py          # Click commands (7 command groups)
+└── config/              # Configuration
+    └── settings.py      # Pydantic Settings (14 config groups)
+```
 
 **Legacy Structure** (backward compatible):
 - `dashboard/`: Next.js frontend (TypeScript + React)
