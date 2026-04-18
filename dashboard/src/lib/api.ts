@@ -102,6 +102,140 @@ export interface PipelineScript {
   script: string;
 }
 
+// Product Management Types
+export type ProductStatus = "active" | "inactive" | "discontinued" | "draft";
+export type VisibilityStatus = "public" | "private" | "hidden";
+export type InventoryReason = "purchase" | "sale" | "return" | "adjustment" | "damage" | "restock";
+
+export interface Product {
+  id?: string;
+  wa_number_id: string;
+  name: string;
+  description?: string;
+  category: string;
+  base_price_cents: number;
+  currency: string;
+  sku: string;
+  status: ProductStatus;
+  visibility: VisibilityStatus;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface ProductVariant {
+  id?: string;
+  product_id: string;
+  sku: string;
+  variant_name: string;
+  price_cents: number;
+  weight_grams?: number;
+  dimensions_json?: string;
+  status: ProductStatus;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface Inventory {
+  id?: string;
+  variant_id: string;
+  on_hand: number;
+  reserved: number;
+  sold: number;
+  reorder_level: number;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface ProductOverride {
+  id?: string;
+  wa_number_id: string;
+  product_id: string;
+  override_price_cents?: number;
+  override_stock_quantity?: number;
+  is_hidden: boolean;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface ProductImage {
+  id?: string;
+  product_id: string;
+  image_url: string;
+  alt_text?: string;
+  display_order: number;
+  is_primary: boolean;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface VariantOption {
+  id?: string;
+  variant_id: string;
+  option_name: string;
+  option_value: string;
+  created_at?: string;
+  updated_at?: string;
+}
+
+// Product API Functions
+export async function fetchProducts(wa_number_id: string): Promise<Product[]> {
+  return fetcher<Product[]>(`/api/products?wa_number_id=${wa_number_id}`);
+}
+
+export async function createProduct(product: Omit<Product, "id" | "created_at" | "updated_at">): Promise<Product> {
+  return postJSON<Product>("/api/products", product);
+}
+
+export async function updateProduct(id: string, updates: Partial<Product>): Promise<Product> {
+  return patchJSON<Product>(`/api/products/${id}`, updates);
+}
+
+export async function deleteProduct(id: string): Promise<void> {
+  await deleteJSON(`/api/products/${id}`);
+}
+
+export async function fetchProductVariants(product_id: string): Promise<ProductVariant[]> {
+  return fetcher<ProductVariant[]>(`/api/products/${product_id}/variants`);
+}
+
+export async function createProductVariant(variant: Omit<ProductVariant, "id" | "created_at" | "updated_at">): Promise<ProductVariant> {
+  return postJSON<ProductVariant>("/api/variants", variant);
+}
+
+export async function fetchInventory(variant_id: string): Promise<Inventory> {
+  return fetcher<Inventory>(`/api/inventory/${variant_id}`);
+}
+
+export async function updateInventory(variant_id: string, updates: Partial<Inventory>): Promise<Inventory> {
+  return patchJSON<Inventory>(`/api/inventory/${variant_id}`, updates);
+}
+
+export async function uploadImage(product_id: string, file: File, alt_text?: string): Promise<ProductImage> {
+  const formData = new FormData();
+  formData.append("file", file);
+  if (alt_text) formData.append("alt_text", alt_text);
+
+  const res = await fetch(`${API_BASE}/api/products/${product_id}/images`, {
+    method: "POST",
+    body: formData,
+  });
+  if (!res.ok) throw new Error(`API ${res.status}: ${res.statusText}`);
+  return res.json();
+}
+
+export async function importCSV(wa_number_id: string, file: File): Promise<{ imported: number; errors: string[] }> {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("wa_number_id", wa_number_id);
+
+  const res = await fetch(`${API_BASE}/api/products/import`, {
+    method: "POST",
+    body: formData,
+  });
+  if (!res.ok) throw new Error(`API ${res.status}: ${res.statusText}`);
+  return res.json();
+}
+
 export async function fetcher<T>(url: string): Promise<T> {
   const res = await fetch(`${API_BASE}${url}`);
   if (!res.ok) throw new Error(`API ${res.status}: ${res.statusText}`);
