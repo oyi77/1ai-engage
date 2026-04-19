@@ -1,327 +1,123 @@
-# 1ai-reach API Deployment Guide
+# Deployment Guide
 
-**Date**: 2026-04-17T23:01:19.583Z  
-**Status**: Ready for deployment
+## Production Deployment Status
 
----
+**Last Updated**: 2026-04-19
 
-## Deployment Options
+### Current Production Issue
 
-You can deploy the 1ai-reach API using either **systemd** or **PM2**.
+The production API at `https://reach.aitradepulse.com` is returning 500 errors for `/api/v1/admin/status` and `/api/v1/agents/funnel` endpoints.
 
----
+**Root Cause**: Production server is running old code and needs to be updated with latest changes.
 
-## Option 1: Deploy with systemd (Recommended)
+**Resolution Required**: Manual deployment to production server.
 
-### 1. Install the systemd service
+### Local Environment Status ✅
 
-```bash
-cd /home/openclaw/.openclaw/workspace/1ai-reach
+- **API Service**: Running on `localhost:8000` (systemd service: `1ai-reach-api`)
+- **Dashboard**: Running on `localhost:8502`
+- **Database**: SQLite at `data/1ai_reach.db` with all migrations applied
+- **Product Tables**: Created and functional
+- **Tests**: All 23 integration tests passing (13 product API + 10 CS product lookup)
 
-# Copy service file to systemd
-sudo cp 1ai-reach-api.service /etc/systemd/system/
+### Latest Changes Pushed to GitHub
 
-# Reload systemd
-sudo systemctl daemon-reload
+**Commit**: `0da978e` - "chore: remove large node_modules from e2e reports"
 
-# Enable service (start on boot)
-sudo systemctl enable 1ai-reach-api
+**Previous Commit**: `5ae045c` - "feat: complete product management feature implementation"
 
-# Start service
-sudo systemctl start 1ai-reach-api
+**Total Commits Ahead**: 67 commits pushed to `origin/master`
 
-# Check status
-sudo systemctl status 1ai-reach-api
+### Production Deployment Steps
 
-# View logs
-sudo journalctl -u 1ai-reach-api -f
-```
+To deploy the latest code to production:
 
-### 2. Add to Cloudflare Router
-
-```bash
-cd ~/.cloudflare-router
-
-# Add the API to apps.yaml
-# Edit apps.yaml and add:
-```
-
-```yaml
-  1ai-reach-api:
-    mode: port
-    enabled: true
-    hostname: 1ai-reach.aitradepulse.com
-    port: 8000
-    health_check: /health
-```
-
-```bash
-# Restart cloudflare router
-pm2 restart cf-router
-
-# Or if using systemd
-sudo systemctl restart cloudflare-router
-```
-
-### 3. Configure WAHA Webhook
-
-```bash
-# Get active WAHA sessions
-curl http://waha.aitradepulse.com/api/sessions
-
-# Configure webhook for your session (replace {session} with actual session name)
-curl -X POST http://waha.aitradepulse.com/api/sessions/{session}/webhook \
-  -H "Content-Type: application/json" \
-  -d '{
-    "url": "https://1ai-reach.aitradepulse.com/api/v1/webhooks/waha/message",
-    "events": ["message", "message.any"]
-  }'
-```
-
-### 4. Verify Deployment
-
-```bash
-# Check API health
-curl https://1ai-reach.aitradepulse.com/health
-
-# Test webhook (should return session_not_found if session doesn't exist)
-curl -X POST https://1ai-reach.aitradepulse.com/api/v1/webhooks/waha/message \
-  -H "Content-Type: application/json" \
-  -d '{
-    "event": "message",
-    "session": "test",
-    "payload": {
-      "from": "+6281234567890",
-      "body": "test"
-    }
-  }'
-```
-
----
-
-## Option 2: Deploy with PM2
-
-### 1. Start with PM2
-
-```bash
-cd /home/openclaw/.openclaw/workspace/1ai-reach
-
-# Start the API
-pm2 start ecosystem.config.js
-
-# Save PM2 process list
-pm2 save
-
-# Setup PM2 startup script
-pm2 startup
-
-# Check status
-pm2 status
-
-# View logs
-pm2 logs 1ai-reach-api
-```
-
-### 2. Add to Cloudflare Router
-
-Same as systemd option above (step 2).
-
-### 3. Configure WAHA Webhook
-
-Same as systemd option above (step 3).
-
----
-
-## Environment Variables
-
-Ensure `.env` file has the correct configuration:
-
-```bash
-# WAHA Configuration
-WAHA_BASE_URL=https://waha.aitradepulse.com
-WAHA_API_KEY=199c96bcb87e45a39f6cde9e5677ed09
-
-# API Configuration
-API_PORT=8000
-API_HOST=0.0.0.0
-
-# LLM Configuration (for CS responses)
-# Add your LLM API keys here
-```
-
----
-
-## Service Management
-
-### systemd Commands
-
-```bash
-# Start
-sudo systemctl start 1ai-reach-api
-
-# Stop
-sudo systemctl stop 1ai-reach-api
-
-# Restart
-sudo systemctl restart 1ai-reach-api
-
-# Status
-sudo systemctl status 1ai-reach-api
-
-# Logs
-sudo journalctl -u 1ai-reach-api -f
-
-# Enable (start on boot)
-sudo systemctl enable 1ai-reach-api
-
-# Disable (don't start on boot)
-sudo systemctl disable 1ai-reach-api
-```
-
-### PM2 Commands
-
-```bash
-# Start
-pm2 start 1ai-reach-api
-
-# Stop
-pm2 stop 1ai-reach-api
-
-# Restart
-pm2 restart 1ai-reach-api
-
-# Status
-pm2 status
-
-# Logs
-pm2 logs 1ai-reach-api
-
-# Monitor
-pm2 monit
-```
-
----
-
-## Testing CS & Engagement
-
-Once deployed, test the CS engine with a real WhatsApp message:
-
-1. **Send WhatsApp message** to the connected number
-2. **Check logs** for processing:
+1. **SSH to Production Server**:
    ```bash
-   # systemd
-   sudo journalctl -u 1ai-reach-api -f
-   
-   # PM2
-   pm2 logs 1ai-reach-api
-   ```
-3. **Verify response** in WhatsApp
-4. **Check database** for conversation record:
-   ```bash
-   sqlite3 data/cs_conversations.db "SELECT * FROM conversations ORDER BY created_at DESC LIMIT 5;"
+   ssh <production-server>
    ```
 
----
+2. **Navigate to Project Directory**:
+   ```bash
+   cd /path/to/1ai-reach
+   ```
 
-## Troubleshooting
+3. **Pull Latest Code**:
+   ```bash
+   git pull origin master
+   ```
 
-### API won't start
+4. **Run Database Migrations**:
+   ```bash
+   sqlite3 data/1ai_reach.db < src/oneai_reach/infrastructure/database/migrations/001_create_products_tables.sql
+   ```
 
-```bash
-# Check if port 8000 is already in use
-sudo lsof -i :8000
+5. **Restart API Service**:
+   ```bash
+   sudo systemctl restart 1ai-reach-api
+   ```
 
-# Check Python path
-which python3
+6. **Verify Deployment**:
+   ```bash
+   curl https://reach.aitradepulse.com/api/v1/admin/status
+   curl https://reach.aitradepulse.com/api/v1/agents/funnel
+   ```
 
-# Test import manually
-cd /home/openclaw/.openclaw/workspace/1ai-reach
-PYTHONPATH=src python3 -c "from oneai_reach.api.main import app; print('OK')"
-```
+### Production Environment Details
 
-### Webhook not receiving messages
+- **Domain**: `reach.aitradepulse.com`
+- **DNS**: Cloudflare proxy (104.21.19.125, 172.67.186.43)
+- **API Port**: 8000 (behind Cloudflare)
+- **Dashboard Port**: 8502
+- **WAHA Service**: `waha.aitradepulse.com` (requires API key)
 
-```bash
-# Check WAHA webhook configuration
-curl http://waha.aitradepulse.com/api/sessions/{session}/webhook
+### Database Schema Status
 
-# Check if API is accessible from WAHA
-curl https://1ai-reach.aitradepulse.com/health
+**Local Database** (`data/1ai_reach.db`):
+- ✅ Products tables created
+- ✅ Product variants table
+- ✅ Inventory table
+- ✅ Product overrides table
+- ✅ Product images table
+- ✅ Variant options table
+- ✅ All indexes created
 
-# Check cloudflare router
-curl http://localhost:7070/api/status
-```
+**Production Database**: Needs migration (see step 4 above)
 
-### CS engine not responding
+### Test Data Created
 
-```bash
-# Check if LLM API keys are configured
-grep -E "(OPENAI|ANTHROPIC|GEMINI)" .env
+3 sample products created for testing:
+1. **Kopi Arabica Premium** - IDR 85,000 (Beverages)
+2. **Teh Hijau Organik** - IDR 55,000 (Beverages)
+3. **Cokelat Batangan Premium** - IDR 120,000 (Snacks)
 
-# Check CS engine logs
-sudo journalctl -u 1ai-reach-api -f | grep "cs_engine"
-```
+### WAHA Configuration
 
----
+**Local**: `http://127.0.0.1:3010` (API Key: `199c96bcb87e45a39f6cde9e5677ed09`)
+**Production**: `https://waha.aitradepulse.com` (API Key: `0673158ede14970b922f7e62075bd0f211490ca335111a9e`)
 
-## Monitoring
+**Current Sessions**: 0 (no WhatsApp sessions active)
 
-### Health Check
+### Known Issues
 
-```bash
-# API health
-curl https://1ai-reach.aitradepulse.com/health
+1. **Production API 500 Errors**: Requires manual deployment (see steps above)
+2. **Funnel Stats All Zero**: Expected - no leads in database yet
+3. **WAHA Sessions**: No active WhatsApp sessions (user mentioned "there should be 4 connected whatsapp")
 
-# Expected response:
-# {"status":"healthy","timestamp":"...","version":"1.0.0"}
-```
+### Next Steps
 
-### Metrics
+1. Deploy latest code to production server
+2. Restart production API service
+3. Verify production endpoints return 200
+4. Set up WhatsApp sessions in WAHA (4 sessions as per user requirement)
+5. Run outreach pipeline to generate leads for funnel stats
 
-```bash
-# Check conversation outcomes
-sqlite3 data/cs_outcomes.db "SELECT status, COUNT(*) FROM outcomes GROUP BY status;"
+### Verification Checklist
 
-# Check engagement rate
-sqlite3 data/cs_outcomes.db "
-  SELECT 
-    COUNT(*) as total,
-    SUM(CASE WHEN status != 'abandoned' THEN 1 ELSE 0 END) as engaged,
-    ROUND(100.0 * SUM(CASE WHEN status != 'abandoned' THEN 1 ELSE 0 END) / COUNT(*), 2) as engagement_rate
-  FROM outcomes;
-"
-```
-
----
-
-## Rollback
-
-If you need to rollback to the old scripts:
-
-```bash
-# Stop new API
-sudo systemctl stop 1ai-reach-api
-# or
-pm2 stop 1ai-reach-api
-
-# The old scripts still work via backward compatibility shims
-python3 scripts/webhook_server.py
-```
-
----
-
-## Next Steps
-
-1. ✅ Deploy API (systemd or PM2)
-2. ✅ Add to cloudflare router
-3. ✅ Configure WAHA webhook
-4. ✅ Test with real WhatsApp message
-5. ✅ Monitor engagement metrics
-6. ✅ Enable voice features (optional)
-
----
-
-**Deployment Status**: Ready  
-**API Port**: 8000  
-**Public URL**: https://1ai-reach.aitradepulse.com  
-**WAHA URL**: https://waha.aitradepulse.com
+After deployment, verify:
+- [ ] `https://reach.aitradepulse.com/api/v1/admin/status` returns 200
+- [ ] `https://reach.aitradepulse.com/api/v1/agents/funnel` returns 200
+- [ ] `https://reach.aitradepulse.com/api/v1/products?wa_number_id=default` returns products
+- [ ] Dashboard loads at `https://reach.aitradepulse.com`
+- [ ] Product management UI works correctly
+- [ ] WAHA has 4 active WhatsApp sessions
