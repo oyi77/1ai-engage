@@ -1,48 +1,96 @@
 # 1ai-reach
 
-Cold Calling & Lead Automation System for BerkahKarya.
+**Cold Outreach Automation System for BerkahKarya**
 
-## Features
-1. **Scraping**: Google Maps & Web via AgentCash (stableenrich).
-2. **Enrichment**: Email & Phone number extraction via Minerva/Apollo.
-3. **Drafting**: AI-generated proposals and WhatsApp messages.
-4. **Blasting**: Automated sending via `wacli` and `himalaya`.
-5. **Voice Support**: Voice note replies with ChatterBox TTS for WhatsApp CS mode.
-6. **Auto-Learn**: Self-improvement system that learns from conversation outcomes.
+Automated lead generation, enrichment, proposal drafting, and multi-channel outreach (Email + WhatsApp) with real-time email tracking.
 
-## Dashboard (Next.js)
+---
 
-The primary UI is a Next.js dashboard running on port 8502.
+## 🚀 Quick Start
 
-### Start Dashboard
 ```bash
-cd dashboard
-npm install
-npm run dev
+# Install dependencies
+pip install -e .
+
+# Start all services
+systemctl --user start 1ai-reach-mcp
+systemctl --user start 1ai-reach-api
+
+# Start dashboard
+cd dashboard && npm install && npm run dev
 ```
 
-Access at: http://localhost:8502
+**Dashboard**: http://localhost:8502  
+**API**: http://localhost:8000  
+**Live URL**: https://reach.aitradepulse.com
 
-### Dashboard Pages
-- **Home**: System overview and service status
-- **Funnel**: Lead pipeline visualization
-- **Conversations**: WhatsApp conversation management
-- **KB**: Knowledge base editor
-- **Services**: Service control (webhook, autonomous loop)
-- **Auto-Learn**: Self-improvement analytics and controls
-- **Voice Settings**: Configure voice note responses per WA number
-- **Pipeline Control**: Manual pipeline execution
+---
 
-## Documentation
+## ✨ Features
 
-- **[Architecture Overview](docs/architecture.md)** - Clean Architecture design, layer separation, request flow, and dependency injection
-- **[Data Models](docs/data_models.md)** - Complete domain model reference with validation rules and relationships
-- **[API Reference](docs/api_reference.md)** - FastAPI endpoint documentation
-- **[Migration Guide](docs/migration_guide.md)** - Guide for migrating from old structure
+### Core Pipeline
+1. **Scraping** - Google Maps & Web via AgentCash (stableenrich)
+2. **Enrichment** - Email & phone extraction via Minerva/Apollo
+3. **Drafting** - AI-generated proposals and WhatsApp messages
+4. **Blasting** - Multi-channel sending (Email + WhatsApp)
+5. **Tracking** - Real-time email delivery, opens, clicks, bounces
+6. **Follow-up** - Automated follow-up sequences
+7. **CS Engine** - WhatsApp customer service with voice notes
 
-## Architecture
+### Email Tracking System ✅ NEW
+- ✅ **Delivery Confirmation** - Know when emails reach inboxes
+- ✅ **Open Tracking** - Track when recipients open emails (pixel + webhook)
+- ✅ **Click Tracking** - Monitor link clicks with redirect tracking
+- ✅ **Bounce Detection** - Identify invalid/bounced addresses
+- ✅ **Event Audit Trail** - Complete history of all email events
 
-`1ai-reach` follows **Clean Architecture** principles with clear separation of concerns:
+**[📧 Email Tracking Documentation](EMAIL_TRACKING_COMPLETE.md)**
+
+### Auto-Learn System
+Self-improvement system that learns from conversation outcomes and optimizes responses.
+
+---
+
+## 📊 Dashboard (Next.js)
+
+Primary UI running on port 8502 with real-time monitoring.
+
+### Pages
+- **Home** - System overview and service status
+- **Funnel** - Lead pipeline visualization with email tracking stats
+- **Conversations** - WhatsApp conversation management
+- **KB** - Knowledge base editor
+- **Services** - Service control (webhook, autonomous loop)
+- **Auto-Learn** - Self-improvement analytics
+- **Voice Settings** - Configure voice note responses
+- **Pipeline Control** - Manual pipeline execution
+
+---
+
+## 📚 Documentation
+
+### Getting Started
+- **[Email Tracking Complete](EMAIL_TRACKING_COMPLETE.md)** - Latest feature implementation
+- **[Deployment Guide](DEPLOYMENT.md)** - Production deployment
+- **[Complete Documentation](docs/README.md)** - Full documentation index
+
+### Architecture
+- **[Architecture Overview](docs/architecture.md)** - Clean Architecture design
+- **[Data Models](docs/data_models.md)** - Domain models reference
+- **[API Reference](docs/api_reference.md)** - FastAPI endpoints
+- **[Migration Guide](docs/migration_guide.md)** - Migration from old structure
+
+### Email Tracking
+- **[Brevo Webhook Setup](docs/BREVO_WEBHOOK_SETUP.md)** - Webhook configuration
+- **[Implementation Details](docs/EMAIL_TRACKING_IMPLEMENTATION.md)** - Technical docs
+- **[Feature Index](docs/EMAIL_TRACKING_INDEX.md)** - Quick reference
+- **[Architecture Map](docs/EMAIL_TRACKING_MAP.md)** - System architecture
+
+---
+
+## 🏗️ Architecture
+
+`1ai-reach` follows **Clean Architecture** principles:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
