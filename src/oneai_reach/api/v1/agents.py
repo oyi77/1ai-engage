@@ -376,6 +376,76 @@ async def create_wa_session(request: CreateWASessionRequest) -> AgentResponse:
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@router.get("/wa/sessions/status", response_model=AgentResponse)
+async def get_wa_sessions_status() -> AgentResponse:
+    """Get live WAHA session status from API.
+    
+    Fetches current session status from WAHA API and returns array of sessions
+    with name, status, and phone number.
+    """
+    try:
+        import requests
+        
+        sys.path.insert(0, str(_scripts_dir))
+        from config import WAHA_URL, WAHA_API_KEY, WAHA_DIRECT_URL, WAHA_DIRECT_API_KEY
+        
+        sessions = []
+        
+        targets = [
+            ("WAHA", WAHA_URL, WAHA_API_KEY),
+            ("WAHA_DIRECT", WAHA_DIRECT_URL, WAHA_DIRECT_API_KEY),
+        ]
+        
+        for target_name, base_url, api_key in targets:
+            url = str(base_url or "").rstrip("/")
+            key = str(api_key or "")
+            
+            if not url or not key:
+                continue
+            
+            try:
+                headers = {"X-Api-Key": key}
+                response = requests.get(
+                    f"{url}/api/sessions",
+                    params={"all": "true"},
+                    headers=headers,
+                    timeout=10,
+                )
+                
+                if response.status_code == 200:
+                    data = response.json()
+                    if isinstance(data, list):
+                        for item in data:
+                            session_name = str(item.get("name") or "").strip()
+                            status = str(item.get("status") or "").upper()
+                            phone = str(item.get("phone") or "").strip()
+                            
+                            if status not in ["WORKING", "SCAN_QR_CODE", "FAILED", "STOPPED"]:
+                                status = "UNKNOWN"
+                            
+                            if session_name:
+                                sessions.append({
+                                    "name": session_name,
+                                    "status": status,
+                                    "phone": phone,
+                                })
+            except Exception as e:
+                print(f"Error fetching from {target_name}: {e}", file=sys.stderr)
+                continue
+        
+        return AgentResponse(
+            status="success",
+            message="WAHA session status retrieved",
+            data={"sessions": sessions},
+        )
+    except Exception as e:
+        return AgentResponse(
+            status="success",
+            message="WAHA session status retrieved (with errors)",
+            data={"sessions": []},
+        )
+
+
 @router.get("/wa/sessions/{session_name}", response_model=AgentResponse)
 async def get_wa_session_status(session_name: str) -> AgentResponse:
     """Get WhatsApp session status."""
