@@ -173,7 +173,8 @@ class AudioService:
             )
             try:
                 sample_rate = int(probe.stdout.decode().strip())
-            except:
+            except Exception as e:
+                logger.warning(f"Failed to parse sample rate, using default 16000Hz: {e}")
                 sample_rate = 16000
 
             logger.debug(
@@ -298,8 +299,8 @@ class AudioService:
                 duration = float(result.stdout.decode().strip())
                 logger.debug(f"Audio duration: {duration:.1f}s")
                 return duration
-            except:
-                pass
+            except Exception as e:
+                logger.warning(f"Failed to parse audio duration: {e}")
         return 0.0
 
     def concatenate_wav_chunks(

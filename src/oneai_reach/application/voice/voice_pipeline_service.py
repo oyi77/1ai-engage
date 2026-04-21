@@ -212,8 +212,8 @@ class VoicePipelineService:
                 from senders import send_typing_indicator
 
                 send_typing_indicator(session_name, contact_phone, typing=False)
-            except:
-                pass
+            except Exception as e:
+                logger.error(f"Failed to send typing indicator: {e}")
             return {
                 "action": "error",
                 "reason": str(e),

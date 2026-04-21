@@ -167,7 +167,8 @@ class TTSService:
             import nltk
 
             sentences = nltk.sent_tokenize(text)
-        except:
+        except Exception as e:
+            logger.warning(f"NLTK tokenization failed, using fallback: {e}")
             sentences = [s.strip() for s in text.split(".") if s.strip()]
 
         if not sentences:
