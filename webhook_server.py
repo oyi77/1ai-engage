@@ -15,6 +15,7 @@ Webhook endpoints have been migrated to:
 This wrapper redirects /webhook/waha to the new FastAPI endpoints.
 """
 
+import logging
 import os
 import subprocess
 import sys
@@ -25,6 +26,8 @@ from pathlib import Path
 import requests
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+
+logger = logging.getLogger(__name__)
 
 SCRIPT_DIR = Path(__file__).parent / "scripts"
 if str(SCRIPT_DIR) not in sys.path:
@@ -81,7 +84,7 @@ def webhook_waha():
         event = data.get("event", "")
         session = data.get("session", "")
         payload = data.get("payload") or data.get("data", {})
-        print(f"[WEBHOOK] Event: {event}, Session: {session}")
+        logger.info(f"[WEBHOOK] Event: {event}, Session: {session}")
 
         if event in ("message", "message.any"):
             sender = payload.get("from") or payload.get("chatId", "")
@@ -139,7 +142,7 @@ def webhook_waha():
                 except ImportError:
                     pass
                 except Exception as e:
-                    print(f"[webhook] Voice processing error: {e}")
+                    logger.error(f"[webhook] Voice processing error: {e}")
 
             if msg_type in ("image", "video", "document", "audio", "ptt"):
                 media_labels = {
@@ -188,7 +191,7 @@ def webhook_waha():
 
         return jsonify({"status": "ok", "event": event})
     except Exception as e:
-        print(f"[WEBHOOK ERROR] {e}")
+        logger.error(f"[WEBHOOK ERROR] {e}")
         return jsonify({"status": "error", "message": str(e)}), 500
 
 
@@ -772,5 +775,5 @@ def api_product_variants(product_id):
 
 
 if __name__ == "__main__":
-    print("Starting 1ai-reach API Server on port 8766...")
+    logger.info("Starting 1ai-reach API Server on port 8766...")
     app.run(host="0.0.0.0", port=8766, debug=False, threaded=True)

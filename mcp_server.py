@@ -20,9 +20,12 @@ import asyncio
 import hashlib
 import hmac
 import json as _json
+import logging
 import sys as _sys
 from collections import defaultdict
 from typing import Any
+
+logger = logging.getLogger(__name__)
 
 from mcp.server.fastmcp import FastMCP
 from mcp.types import ToolAnnotations
@@ -685,7 +688,7 @@ async def _process_webhook_event(session: str, event: str, payload: dict) -> Non
                         details=_json.dumps(result),
                     )
                 except Exception as e:
-                    print(f"[webhook] CS engine error: {e}", file=_sys.stderr)
+                    logger.error(f"[webhook] CS engine error: {e}")
                     add_event_log(
                         lead_id="webhook",
                         event_type="cs_error",
@@ -724,14 +727,14 @@ async def _process_webhook_event(session: str, event: str, payload: dict) -> Non
                         details=_json.dumps(result),
                     )
                 except Exception as e:
-                    print(f"[webhook] Warmcall engine error: {e}", file=_sys.stderr)
+                    logger.error(f"[webhook] Warmcall engine error: {e}")
                     add_event_log(
                         lead_id="webhook",
                         event_type="warmcall_error",
                         details=str(e)[:500],
                     )
     except Exception as e:
-        print(f"[webhook] background error: {e}", file=_sys.stderr)
+        logger.error(f"[webhook] background error: {e}")
 
 
 @mcp.custom_route("/webhook/waha", methods=["POST"])
@@ -767,7 +770,7 @@ async def webhook_waha(request: Request) -> JSONResponse:
         return JSONResponse({"status": "ok", "event": event})
 
     except Exception as e:
-        print(f"[webhook] error: {e}", file=_sys.stderr)
+        logger.error(f"[webhook] error: {e}")
         return JSONResponse({"error": "internal error"}, status_code=500)
 
 
