@@ -13,6 +13,8 @@ import {
   Play,
   Menu,
   Mic,
+  Phone,
+  Search,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -24,6 +26,8 @@ const NAV_ITEMS = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
   { href: "/funnel", label: "Funnel", icon: Filter },
   { href: "/conversations", label: "Conversations", icon: MessageSquare },
+  { href: "/wa-numbers", label: "WA Numbers", icon: Phone },
+  { href: "/outreach-tracker", label: "Outreach Tracker", icon: Search },
   { href: "/kb", label: "Knowledge Base", icon: BookOpen },
   { href: "/products", label: "Products", icon: Package },
   { href: "/pipeline", label: "Sales Pipeline", icon: Kanban },
