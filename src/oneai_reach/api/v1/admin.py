@@ -236,7 +236,7 @@ async def get_status() -> Dict[str, Any]:
         webhook_pid = None
         try:
             result = subprocess.run(
-                ["systemctl", "is-active", "1ai-reach-mcp"],
+                ["systemctl", "--user", "is-active", "1ai-reach-mcp"],
                 capture_output=True,
                 text=True,
                 timeout=5,
@@ -245,7 +245,7 @@ async def get_status() -> Dict[str, Any]:
             
             if webhook_running:
                 pid_result = subprocess.run(
-                    ["systemctl", "show", "1ai-reach-mcp", "--property=MainPID"],
+                    ["systemctl", "--user", "show", "1ai-reach-mcp", "--property=MainPID"],
                     capture_output=True,
                     text=True,
                     timeout=5,
@@ -261,7 +261,7 @@ async def get_status() -> Dict[str, Any]:
             label="Webhook/MCP Server",
             running=webhook_running,
             pid=webhook_pid,
-            port=8501,
+            port=8766,
         ))
         
         autonomous_job = None

@@ -49,13 +49,14 @@ class EmailSender:
             settings.database.logs_dir + "/email_queue.log"
         )
 
-    def send(self, email: str, subject: str, body: str) -> bool:
+    def send(self, email: str, subject: str, body: str, lead_id: Optional[str] = None) -> bool:
         """Send email with fallback chain.
 
         Args:
             email: Recipient email address
             subject: Email subject
             body: Email body (plain text)
+            lead_id: Optional lead ID for tracking
 
         Returns:
             True if sent successfully via any method
@@ -64,9 +65,8 @@ class EmailSender:
             print("Skip Email: No email address.")
             return False
 
-        # Try each method in fallback order
         for name, method in [
-            ("brevo", lambda: self._send_via_brevo(email, subject, body)),
+            ("brevo", lambda: self._send_via_brevo(email, subject, body, lead_id)),
             ("stalwart", lambda: self._send_via_stalwart(email, subject, body)),
             ("gog", lambda: self._send_via_gog(email, subject, body)),
             ("himalaya", lambda: self._send_via_himalaya(email, subject, body)),
@@ -81,11 +81,16 @@ class EmailSender:
         print(f"❌ All email methods failed for {email}")
         return False
 
-    def _make_html_body(self, body: str) -> str:
-        """Wrap plain text body in branded HTML email template."""
+    def _make_html_body(self, body: str, lead_id: Optional[str] = None, message_id: Optional[str] = None) -> str:
+        """Wrap plain text body in branded HTML email template with tracking."""
         paragraphs = "".join(
             f"<p>{line if line.strip() else '&nbsp;'}</p>" for line in body.split("\n")
         )
+        
+        tracking_pixel = ""
+        if lead_id and message_id:
+            tracking_pixel = f'<img src="https://reach.aitradepulse.com/api/v1/webhooks/track/open/{lead_id}/{message_id}" width="1" height="1" style="display:none;" alt="" />'
+        
         return f"""<!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
 <body style="margin:0;padding:0;background:#f4f6f8;font-family:Arial,Helvetica,sans-serif;">
@@ -103,15 +108,15 @@ class EmailSender:
         </td></tr>
         <!-- Footer -->
         <tr><td style="background:#f4f6f8;padding:20px;text-align:center;font-size:12px;color:#888888;">
-          &copy; 2026 BerkahKarya &bull; marketing@berkahkarya.org<br>
-          <span style="font-size:11px;">Jika Anda tidak ingin menerima email ini, balas dengan kata "berhenti".</span>
+          © 2026 BerkahKarya. All rights reserved.
         </td></tr>
       </table>
     </td></tr>
   </table>
+  {tracking_pixel}
 </body></html>"""
 
-    def _send_via_brevo(self, email: str, subject: str, body: str) -> bool:
+    def _send_via_brevo(self, email: str, subject: str, body: str, lead_id: Optional[str] = None) -> bool:
         """Send via Brevo HTTP API (primary method)."""
         print(f"Attempting email via Brevo to {email}...")
         if not _HTTP_OK:
@@ -283,3 +288,22 @@ class EmailSender:
         except Exception as e:
             print(f"❌ Queue failed: {e}")
             return False
+
+    def _store_message_id(self, lead_id: str, message_id: str) -> None:
+        """Store message ID in database for tracking."""
+        try:
+            import sqlite3
+            from pathlib import Path
+            
+            db_path = Path(self.settings.database.db_file)
+            conn = sqlite3.connect(str(db_path))
+            cursor = conn.cursor()
+            
+            cursor.execute(
+                "UPDATE leads SET email_message_id = ? WHERE id = ?",
+                (message_id, lead_id)
+            )
+            conn.commit()
+            conn.close()
+        except Exception as e:
+            print(f"Failed to store message ID: {e}")

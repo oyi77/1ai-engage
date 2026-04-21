@@ -89,6 +89,18 @@ class SQLiteLeadRepository(LeadRepository):
         finally:
             conn.close()
 
+    def get_by_email(self, email: str) -> Optional[Lead]:
+        """Get lead by email address."""
+        conn = self._connect()
+        try:
+            cursor = conn.execute("SELECT * FROM leads WHERE email = ? LIMIT 1", (email,))
+            row = cursor.fetchone()
+            return self._row_to_lead(row) if row else None
+        except sqlite3.Error as e:
+            raise RepositoryError(f"Failed to get lead by email: {e}")
+        finally:
+            conn.close()
+
     def get_all(self) -> List[Lead]:
         """Get all leads."""
         conn = self._connect()

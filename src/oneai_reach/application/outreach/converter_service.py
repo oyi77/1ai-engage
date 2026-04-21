@@ -47,8 +47,8 @@ class ConverterService:
         for index, row in replied.iterrows():
             name = parse_display_name_fn(row.get("displayName"))
             email = str(row.get("email") or "").strip()
-            phone = str(row.get("internationalPhoneNumber") or row.get("phone") or "").strip()
-            vertical = str(row.get("type") or row.get("primaryType") or "Business")
+            phone = str(row.get("internationalPhoneNumber") if pd.notna(row.get("internationalPhoneNumber")) else row.get("phone") if pd.notna(row.get("phone")) else "").strip()
+            vertical = str(row.get("type") if pd.notna(row.get("type")) else row.get("primaryType") if pd.notna(row.get("primaryType")) else "Business")
 
             if is_empty_fn(email):
                 logger.info(f"[skip] {name} — no email for conversion")

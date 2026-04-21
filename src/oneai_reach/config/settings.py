@@ -82,6 +82,9 @@ class EmailSettings(BaseSettings):
     brevo_api_key: str = Field(
         default="", description="Brevo API key for email sending"
     )
+    brevo_webhook_secret: str = Field(
+        default="", description="Brevo webhook signature secret"
+    )
     smtp_from: str = Field(
         default="BerkahKarya <marketing@berkahkarya.org>",
         description="From address for emails",

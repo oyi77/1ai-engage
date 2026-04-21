@@ -13,6 +13,7 @@ from oneai_reach.api.v1.agents import router as agents_router
 from oneai_reach.api.v1.legacy import router as legacy_router
 from oneai_reach.api.v1.mcp import router as mcp_router
 from oneai_reach.api.v1.products import router as products_router
+from oneai_reach.api.v1.webhooks import router as webhooks_router
 from oneai_reach.api.webhooks import capi_router, waha_router
 from oneai_reach.config.settings import get_settings
 
@@ -36,6 +37,7 @@ def create_app() -> FastAPI:
 
     app.include_router(waha_router)
     app.include_router(capi_router)
+    app.include_router(webhooks_router)
     app.include_router(mcp_router)
     app.include_router(admin_router)
     app.include_router(agents_router)

@@ -29,7 +29,7 @@ class FollowupService:
         for index, row in df.iterrows():
             status = str(row.get("status", ""))
             email = str(row.get("email", "")).strip()
-            contacted_at = str(row.get("followup_at", "") or row.get("contacted_at", ""))
+            contacted_at = str(row.get("followup_at") if pd.notna(row.get("followup_at")) else row.get("contacted_at") if pd.notna(row.get("contacted_at")) else "")
 
             if status not in ("contacted", "followed_up"):
                 continue
@@ -39,7 +39,7 @@ class FollowupService:
                 continue
 
             name = parse_display_name_fn(row.get("displayName"))
-            business_type = str(row.get("type", "") or row.get("primaryType", "") or "Business")
+            business_type = str(row.get("type") if pd.notna(row.get("type")) else row.get("primaryType") if pd.notna(row.get("primaryType")) else "Business")
             days_since_contact = self._days_since(contacted_at)
 
             original_contacted_at = str(row.get("contacted_at", ""))

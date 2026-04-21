@@ -110,7 +110,7 @@ class ReplyTrackerService:
             "GOG_KEYRING_PASSWORD": self.gmail_keyring_password,
             "GOG_ACCOUNT": self.gmail_account,
         }
-        cmd = ["gog", "gmail", "search", "-j"]
+        cmd = ["/home/linuxbrew/.linuxbrew/bin/gog", "gmail", "search", "-j"]
         if query:
             cmd.append(query)
         try:
@@ -265,7 +265,7 @@ class ReplyTrackerService:
 
     def _handle_cold_reply(self, digits, body, target_name, session_name, df, contacted, update_lead_fn, parse_display_name_fn, is_empty_fn):
         for index, row in contacted.iterrows():
-            phone = str(row.get("internationalPhoneNumber") or row.get("phone") or "").strip()
+            phone = str(row.get("internationalPhoneNumber") if pd.notna(row.get("internationalPhoneNumber")) else row.get("phone") if pd.notna(row.get("phone")) else "").strip()
             if not phone or is_empty_fn(phone):
                 continue
             lead_digits = self._phone_digits(phone, lambda p: p)
@@ -287,7 +287,7 @@ class ReplyTrackerService:
 
     def _check_replies_himalaya(self, df, contacted, update_lead_fn, parse_display_name_fn, is_empty_fn):
         try:
-            result = subprocess.run(["himalaya", "envelope", "list", "--output", "json"], capture_output=True, text=True, timeout=30)
+            result = subprocess.run(["/home/linuxbrew/.linuxbrew/bin/himalaya", "envelope", "list", "--output", "json"], capture_output=True, text=True, timeout=30)
             if result.returncode != 0 or not result.stdout.strip():
                 logger.error("Himalaya fallback also failed")
                 return
