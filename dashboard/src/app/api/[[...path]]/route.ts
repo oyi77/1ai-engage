@@ -1,6 +1,6 @@
 import { type NextRequest } from "next/server";
 
-const FASTAPI_BASE = "http://localhost:8000";
+const FASTAPI_BASE = "http://localhost:8001";
 
 async function proxyRequest(request: NextRequest) {
   const { pathname, search } = request.nextUrl;

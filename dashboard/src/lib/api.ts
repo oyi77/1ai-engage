@@ -7,13 +7,17 @@ export interface FunnelData {
 
 export interface Lead {
   id: string;
+  displayName?: string;
   company_name?: string;
   contact_name?: string;
   email?: string;
   phone?: string;
   website?: string;
+  websiteUri?: string;
   status: string;
   vertical?: string;
+  primaryType?: string;
+  formattedAddress?: string;
   created_at?: string;
   updated_at?: string;
   [key: string]: unknown;

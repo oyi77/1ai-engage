@@ -16,8 +16,8 @@ const STAGE_COLORS: Record<string, string> = {
 
 export default function FunnelPage() {
   const { data: funnel, isLoading: fLoad } = useSWR<FunnelData>("/api/v1/agents/funnel", fetcher, { refreshInterval: 5000 });
-  const { data: leadsData, isLoading: lLoad } = useSWR<{ leads: Lead[] }>("/api/v1/agents/leads", fetcher, { refreshInterval: 10000 });
-  const leads = leadsData?.leads ?? [];
+  const { data: leadsData, isLoading: lLoad } = useSWR<{ count: number; items: Lead[] }>("/api/v1/agents/leads", fetcher, { refreshInterval: 10000 });
+  const leads = leadsData?.items ?? [];
 
   if (fLoad && lLoad) {
     return <div className="p-6 flex items-center justify-center h-[50vh]"><Loader2 className="h-8 w-8 animate-spin text-orange-500" /></div>;
@@ -55,8 +55,8 @@ export default function FunnelPage() {
               <TableBody>
                 {leads.slice(0, 50).map((lead) => (
                   <TableRow key={lead.id}>
-                    <TableCell className="font-medium">{String(lead.company_name || '—')}</TableCell>
-                    <TableCell>{lead.contact_name || "—"}</TableCell>
+                    <TableCell className="font-medium">{String(lead.displayName || lead.company_name || '—')}</TableCell>
+                    <TableCell className="text-xs">{lead.email || lead.contact_name || "—"}</TableCell>
                     <TableCell><Badge className={`${STAGE_COLORS[lead.status] || "bg-neutral-600"} text-white`}>{lead.status}</Badge></TableCell>
                     <TableCell>{lead.vertical || "—"}</TableCell>
                     <TableCell className="text-neutral-500 text-xs">{lead.updated_at?.slice(0, 10) || "—"}</TableCell>

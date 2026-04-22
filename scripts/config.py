@@ -1,19 +1,22 @@
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+# Get the project root directory (parent of scripts/)
+_PROJECT_ROOT = Path(__file__).parent.parent.resolve()
+
+sys.path.insert(0, str(_PROJECT_ROOT / "src"))
 
 from oneai_reach.config.settings import get_settings
 
 _settings = get_settings()
 
-# Database and file storage
-LEADS_FILE = Path(_settings.database.leads_file)
-DB_FILE = Path(_settings.database.db_file)
-DATA_DIR = Path(_settings.database.data_dir)
-RESEARCH_DIR = Path(_settings.database.research_dir)
-PROPOSALS_DIR = Path(_settings.database.proposals_dir)
-LOGS_DIR = Path(_settings.database.logs_dir)
+# Database and file storage - convert to absolute paths relative to project root
+LEADS_FILE = (_PROJECT_ROOT / _settings.database.leads_file).resolve()
+DB_FILE = (_PROJECT_ROOT / _settings.database.db_file).resolve()
+DATA_DIR = (_PROJECT_ROOT / _settings.database.data_dir).resolve()
+RESEARCH_DIR = (_PROJECT_ROOT / _settings.database.research_dir).resolve()
+PROPOSALS_DIR = (_PROJECT_ROOT / _settings.database.proposals_dir).resolve()
+LOGS_DIR = (_PROJECT_ROOT / _settings.database.logs_dir).resolve()
 
 # Pipeline loop settings
 LOOP_SLEEP_SECONDS = _settings.pipeline.loop_sleep_seconds
