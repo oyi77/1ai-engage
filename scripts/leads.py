@@ -25,6 +25,9 @@ _STR_COLS = (
     "formattedAddress",
     "primaryType",
     "type",
+    "matched_services",
+    "tier",
+    "service_proposed",
 )
 
 FUNNEL_STAGES = (

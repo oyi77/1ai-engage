@@ -1,0 +1,72 @@
+# templates/website_development.yaml
+service: "website_development"
+service_name_display: "Website Development"
+price_display: "Mulai Rp 2.5jt"
+price_anchor: "97% lebih murah dari agency lain"
+
+target_signals:
+  - no_website
+  - website_broken
+  - slow_loading
+  - not_mobile_friendly
+  - no_seo
+
+pain_points:
+  - "Bisnis Anda tidak muncul di Google ketika calon customer cari"
+  - "Kompetitor Anda sudah punya website profesional"
+  - "Customer potensial pergi karena tidak bisa cari info online"
+  - "Tanpa website, bisnis terlihat tidak profesional"
+
+value_props:
+  - "SEO-ready + pixel tracking terintegrasi"
+  - "Mobile-first, load <2 detik"
+  - "Revisi tidak terbatas selama 30 hari"
+  - "Setup dalam 7 hari kerja"
+
+case_study:
+  metric: "3x lebih banyak leads setelah website baru"
+  customer_type: "restaurant di Jakarta"
+
+email:
+  subject_lines:
+    - "Saya lihat {company_name} belum punya website — ada ide cepat"
+    - "{company_name} bisa 3x lebih banyak customer dengan website baru"
+    - "Website untuk {company_name} — ready dalam 7 hari"
+    - "Ide untuk {company_name}: website yang bikin customer datang"
+
+  body_template: |
+    Hi {contact_name},
+
+    Saya menemukan {company_name} di Google Maps — {review_count} reviews
+    dengan rating {rating}. Impressive!
+
+    Tapi saya perhatikan {pain_point_observation}.
+
+    Kami baru saja bikin website untuk {similar_business} di {city},
+    dan mereka dapat 3x lebih banyak leads dalam 30 hari pertama.
+    Website-nya mobile-friendly, load dalam 2 detik, dan otomatis
+    muncul di halaman pertama Google.
+
+    Yang kami tawarkan:
+    {value_props_bulleted}
+
+    Harga mulai Rp 2.5jt — termasuk domain, hosting 1 tahun,
+    SEO setup, dan revisi tidak terbatas selama 30 hari.
+
+    Mau saya kirim contoh website yang kami buat untuk bisnis
+    serupa di {city}?
+
+    Best,
+    {sender_name}
+    BerkahKarya — berkahkarya.org
+
+whatsapp:
+  templates:
+    - "Halo! Saya lihat {company_name} belum punya website. Kami bisa bikin yang profesional, mobile-friendly, muncul di Google — mulai Rp 2.5jt, ready 7 hari. Mau lihat contohnya?"
+    - "Halo {contact_name}! {company_name} bagus banget tapi belum ada website ya? Kami dari BerkahKarya bikin website yang bikin customer datang — mulai Rp 2.5jt. Cek berkahkarya.org ya!"
+    - "Hai! Saya notice {company_name} di Google Maps rating {rating} tapi belum ada website. Sayang banget, banyak customer potensial yang nyari online. Kami bisa bantu — mulai Rp 2.5jt, ready seminggu. Mau lihat demo?"
+
+cta:
+  email: "Mau saya kirim contoh website?"
+  whatsapp: "Mau lihat contohnya?"
+  meeting: "Konsultasi gratis 15 menit"

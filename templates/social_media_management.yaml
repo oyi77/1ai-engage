@@ -1,0 +1,65 @@
+# templates/social_media_management.yaml
+service: "social_media_management"
+service_name_display: "Social Media Management"
+price_display: "Mulai Rp 1.5jt/bulan"
+price_anchor: "90 akun, satu dashboard"
+
+target_signals:
+  - no_social_media
+  - inactive_social
+  - low_followers
+  - inconsistent_posting
+
+pain_points:
+  - "Konten tidak konsisten, follower tidak naik"
+  - "Tidak ada waktu buat konten TiKTok, IG, YouTube sekaligus"
+  - "Tidak tahu konten apa yang viral"
+  - "Posting manual memakan jam kerja tim"
+
+value_props:
+  - "90 akun sosmed dikelola simultan"
+  - "Konten AI: TikTok, IG, YouTube, FB otomatis"
+  - "Analytics: reach, engagement, revenue per post"
+  - "Tim konten fokus strategi, bukan teknis"
+
+case_study:
+  metric: "5x engagement naik dalam 60 hari"
+  customer_type: "F&B chain di Jakarta"
+
+email:
+  subject_lines:
+    - "{company_name} social media konsisten? Kami bisa bantu"
+    - "90 akun sosmed {company_name} dalam 1 dashboard"
+    - "Konten otomatis untuk {company_name} — AI + tim kreatif"
+  body_template: |
+    Hi {contact_name},
+
+    Saya lihat akun social media {company_name}.
+    {personalized_observation_about_their_social}
+
+    Kami dari BerkahKarya bisa handle semua social media
+    {company_name} — dari konten creation sampai posting:
+
+    - AI generate konten untuk TikTok, IG, YouTube, FB
+    - 90 akun dalam 1 dashboard
+    - Analytics real-time: reach, engagement, revenue per post
+    - Tim kreatif kami handle bagian yang AI belum bisa
+
+    Mulai Rp 1.5jt/bulan untuk full management.
+
+    Mau saya kirim contoh konten yang kami buat untuk
+    bisnis {vertical}?
+
+    Best,
+    {sender_name}
+    BerkahKarya — berkahkarya.org
+
+whatsapp:
+  templates:
+    - "Halo! {company_name} butuh bantuan social media? Kami handle 90 akun — konten AI + tim kreatif, analytics real-time. Mulai Rp 1.5jt/bln. Mau lihat contoh kontennya?"
+    - "Hai {contact_name}! Kelola social media {company_name} makan banyak waktu? Kami bikin konten AI + auto-posting ke 90 akun. Rp 1.5jt/bln. Cek berkahkarya.org!"
+
+cta:
+  email: "Mau saya kirim contoh konten?"
+  whatsapp: "Mau lihat contoh kontennya?"
+  meeting: "Konsultasi social media gratis"

@@ -1,0 +1,66 @@
+# templates/ai_agent_pro.yaml
+service: "ai_agent_pro"
+service_name_display: "AI Agent Pro"
+price_display: "Mulai Rp 299K/bulan"
+price_anchor: "60% lebih hemat dari hire CS 1 shift"
+
+target_signals:
+  - no_chatbot
+  - high_review_count
+  - slow_response
+  - many_locations
+
+pain_points:
+  - "Customer chat jam 11 malam tidak dijawab — lead pergi ke kompetitor"
+  - "CS team overwhelmed, response time >2 jam"
+  - "Lost sales karena customer tidak sabar menunggu balasan"
+  - "Hire CS tambahan mahal, turnover tinggi"
+
+value_props:
+  - "Respon <2 detik, 24/7 tanpa libur"
+  - "Hemat 60% biaya customer service"
+  - "Integrasi WhatsApp, Telegram, Instagram DM"
+  - "Belajar dari data bisnis Anda otomatis"
+
+case_study:
+  metric: "80% customer service dihandle AI"
+  customer_type: "SaaS Startup"
+
+email:
+  subject_lines:
+    - "{company_name} kehilangan customer jam malam?"
+    - "AI CS untuk {company_name} — jawab <2 detik, 24/7"
+    - "Customer {company_name} menunggu lama? Solusi AI"
+  body_template: |
+    Hi {contact_name},
+
+    {company_name} punya {review_count} reviews di Google —
+    artinya banyak customer yang kontak. Tapi apakah semua
+    terjawab dalam 2 menit? Termasuk jam 11 malam?
+
+    Kami bikin AI Agent yang jawab customer 24/7:
+    - Respon <2 detik, bahkan jam 3 pagi
+    - Handle 80% pertanyaan rutin otomatis
+    - Integrasi langsung ke WhatsApp bisnis Anda
+    - Belajar dari FAQ dan data bisnis Anda
+
+    Klien kami: response time turun dari 2 jam ke 30 detik.
+    Tim CS bisa fokus ke case yang kompleks.
+
+    Mulai Rp 299K/bulan — hemat 60% vs hire CS 1 shift.
+
+    Mau saya setup trial gratis 3 hari untuk {company_name}?
+
+    Best,
+    {sender_name}
+    BerkahKarya — berkahkarya.org
+
+whatsapp:
+  templates:
+    - "Halo! {company_name} punya banyak customer ya? Kami punya AI yang jawab chat 24/7 — respon <2 detik, hemat 60% biaya CS. Mulai Rp 299K/bln. Mau trial gratis 3 hari?"
+    - "Hai {contact_name}! Customer {company_name} sering nunggu lama dibalas? AI Agent kami jawab otomatis 24/7 via WhatsApp. Rp 299K/bln. Cek berkahkarya.org!"
+
+cta:
+  email: "Mau saya setup trial gratis 3 hari?"
+  whatsapp: "Mau trial gratis 3 hari?"
+  meeting: "Setup trial gratis"

@@ -177,6 +177,10 @@ _LEAD_COLUMNS = [
     "reply_text",
     "created_at",
     "updated_at",
+    "matched_services",
+    "lead_score",
+    "tier",
+    "service_proposed",
 ]
 
 
@@ -204,7 +208,17 @@ def init_db() -> None:
                 "ALTER TABLE conversations ADD COLUMN test_mode INTEGER DEFAULT 0"
             )
         except Exception:
-            pass  # Column already exists
+            pass
+        for col_spec in [
+            "ALTER TABLE leads ADD COLUMN matched_services TEXT",
+            "ALTER TABLE leads ADD COLUMN lead_score REAL",
+            "ALTER TABLE leads ADD COLUMN tier TEXT",
+            "ALTER TABLE leads ADD COLUMN service_proposed TEXT",
+        ]:
+            try:
+                conn.execute(col_spec)
+            except Exception:
+                pass
         conn.commit()
     finally:
         conn.close()

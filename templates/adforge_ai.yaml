@@ -1,0 +1,62 @@
+# templates/adforge_ai.yaml
+service: "adforge_ai"
+service_name_display: "AdForge AI"
+price_display: "Mulai Rp 149K/bulan"
+price_anchor: "50x lebih murah dari hire ads specialist"
+
+target_signals:
+  - running_ads_badly
+  - competitor_ads
+  - low_engagement
+  - no_ads_but_competitor
+
+pain_points:
+  - "Budget iklan habis tapi ROAS di bawah 2x"
+  - "Tidak tahu creative mana yang benar-benar convert"
+  - "Kompetitor terus muncul di iklan, Anda tidak"
+  - "Manual setting iklan memakan waktu berjam-jam"
+
+value_props:
+  - "100 variasi creative dalam 10 menit"
+  - "Auto A/B test: AI pilih pemenang"
+  - "Support Meta Ads, TikTok Ads, Google Ads"
+  - "ROAS naik tanpa tambah budget"
+
+case_study:
+  metric: "ROAS naik dari 1.8x ke 4.2x"
+  customer_type: "e-commerce di Jakarta"
+
+email:
+  subject_lines:
+    - "{company_name} ads budget optimal? Quick analysis"
+    - "Saya lihat iklan {company_name} — bisa 2x ROAS"
+    - "ROAS {company_name} bisa naik tanpa tambah budget"
+  body_template: |
+    Hi {contact_name},
+
+    Saya lihat {company_name} beriklan di {ads_platform_detected}.
+    {personalized_observation_about_their_ads}
+
+    Kami bikin tool yang generate 100 variasi creative iklan
+    otomatis, lalu AI yang test dan pilih yang paling convert.
+
+    Salah satu klien kami (e-commerce serupa) naik ROAS dari
+    1.8x ke 4.2x dalam 30 hari — budget sama, revenue 2x lipat.
+
+    Mulai Rp 149K/bulan. Tanpa kontrak, bisa cancel kapan saja.
+
+    Mau saya tunjukkan bagaimana AI-nya bekerja?
+
+    Best,
+    {sender_name}
+    BerkahKarya — berkahkarya.org
+
+whatsapp:
+  templates:
+    - "Halo! Saya lihat {company_name} beriklan di {platform}. ROAS-nya bisa naik 2x tanpa tambah budget pakai AI kami. Mulai Rp 149K/bln. Mau lihat demo?"
+    - "Hai {contact_name}! Budget iklan {company_name} optimal? Kami punya AI yang bikin 100 creative iklan + auto A/B test — ROAS naik otomatis. Rp 149K/bln. Cek berkahkarya.org!"
+
+cta:
+  email: "Mau saya tunjukkan bagaimana AI-nya bekerja?"
+  whatsapp: "Mau lihat demo?"
+  meeting: "Lihat AI ads demo gratis"

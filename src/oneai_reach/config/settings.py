@@ -235,6 +235,10 @@ class PaperClipSettings(BaseSettings):
 class ScraperSettings(BaseSettings):
     """Scraper configuration."""
 
+    gmaps_scraper_url: str = Field(
+        default="http://localhost:8082",
+        description="gosom Google Maps scraper API URL",
+    )
     aggregator_domains: Set[str] = Field(
         default={
             "clutch.co",

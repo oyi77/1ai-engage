@@ -1,0 +1,65 @@
+# templates/ai_automation.yaml
+service: "ai_automation"
+service_name_display: "AI Automation"
+price_display: "Mulai Rp 500K/project"
+price_anchor: "Hemat 60% waktu operasional"
+
+target_signals:
+  - manual_booking
+  - paper_based
+  - legacy_tech
+  - many_employees
+
+pain_points:
+  - "Proses manual memakan waktu berjam-jam setiap hari"
+  - "Data tersebar di spreadsheet, WhatsApp, kertas"
+  - "Human error dalam proses repetitif"
+  - "Karyawan overtime karena tugas yang bisa diotomasi"
+
+value_props:
+  - "190+ scripts battle-tested langsung pakai"
+  - "Hemat 60% waktu operasional"
+  - "Integrasi: WhatsApp, CRM, ERP, spreadsheet"
+  - "Setup dalam 1 hari kerja"
+
+case_study:
+  metric: "Hemat 60% waktu operasional dalam 1 minggu"
+  customer_type: "klinik kecantikan di Bandung"
+
+email:
+  subject_lines:
+    - "Proses manual {company_name} bisa diotomasi — hemat 60%"
+    - "{company_name} operasional bisa 2x lebih cepat"
+    - "Automation untuk {company_name} — dari manual ke AI"
+  body_template: |
+    Hi {contact_name},
+
+    Saya research {company_name} dan melihat beberapa proses
+    yang bisa diotomasi:
+
+    {specific_observations_from_research}
+
+    Kami punya 190+ automation scripts siap pakai:
+    - Auto-respon WhatsApp berdasarkan keyword
+    - Sync data antara spreadsheet, CRM, dan WhatsApp
+    - Auto-generate invoice, laporan, follow-up
+    - Integrasi dengan tools yang sudah Anda pakai
+
+    Mulai Rp 500K/project — hemat 60% waktu operasional.
+
+    Mau saya audit gratis proses mana yang bisa diotomasi
+    di {company_name}?
+
+    Best,
+    {sender_name}
+    BerkahKarya — berkahkarya.org
+
+whatsapp:
+  templates:
+    - "Halo! Proses operasional {company_name} masih banyak manual? Kami punya 190+ automation scripts — hemat 60% waktu. Mulai Rp 500K. Mau audit gratis?"
+    - "Hai {contact_name}! {company_name} bisa 2x lebih efisien dengan automation. Kami integrasikan WhatsApp, CRM, spreadsheet — semua otomatis. Rp 500K/project. Cek berkahkarya.org!"
+
+cta:
+  email: "Mau saya audit gratis proses mana yang bisa diotomasi?"
+  whatsapp: "Mau audit gratis?"
+  meeting: "Audit gratis automation"

@@ -94,3 +94,6 @@ PAPERCLIP_AGENT_CMO = _settings.paperclip.agent_cmo
 
 # Aggregator domains to skip in scraper
 AGGREGATOR_DOMAINS = _settings.scraper.aggregator_domains
+
+# gosom Google Maps scraper (Docker, port 8082)
+GMAPS_SCRAPER_URL = _settings.scraper.gmaps_scraper_url
