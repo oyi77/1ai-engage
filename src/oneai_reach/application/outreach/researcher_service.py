@@ -130,13 +130,70 @@ class ResearcherService:
             for name, signal in _TECH_SIGNALS.items()
             if signal.lower() in combined_html.lower()
         ]
+        signals = self._detect_signals(combined_html, combined_text, base)
 
         return {
             "services": services,
             "pain_points": pain_points,
             "tech_stack": tech_stack,
+            "signals": signals,
             "text_sample": combined_text[:800],
         }
+
+    def _detect_signals(self, html: str, text: str, base_url: str) -> dict:
+        """Detect service-matching signals from scraped HTML and text."""
+        text_lower = text.lower()
+        html_lower = html.lower()
+
+        signals = {}
+        signals["has_website"] = bool(html.strip())
+        signals["website_status"] = "ok" if html.strip() else "unreachable"
+        signals["has_ssl"] = base_url.startswith("https://")
+        signals["page_speed_slow"] = len(html) > 500000
+        signals["mobile_friendly"] = "viewport" in html_lower
+        signals["has_seo"] = (
+            "meta name=\"description\"" in html_lower
+            or "meta property=\"og:" in html_lower
+            or "<h1" in html_lower
+        )
+        signals["has_contact_form"] = any(
+            x in html_lower for x in ["<form", "contact-form", "wpforms", "gravity-forms"]
+        )
+        signals["has_livechat"] = any(
+            x in html_lower
+            for x in [
+                "tawk.to", "crisp.chat", "intercom", "zendesk",
+                "livechat", "chatwoot", "whatsapp.com/widget",
+            ]
+        )
+        social_patterns = [
+            "facebook.com/", "instagram.com/", "twitter.com/",
+            "x.com/", "tiktok.com/", "linkedin.com/", "youtube.com/",
+        ]
+        found_socials = []
+        for pattern in social_patterns:
+            if pattern in html_lower:
+                found_socials.append(pattern.split(".")[0])
+        signals["social_links"] = list(set(found_socials))
+        signals["ads_detected"] = any(
+            x in html_lower
+            for x in ["googleads", "gtag(", "fbq(", "googleadservices", "doubleclick"]
+        )
+        signals["ecommerce_signals"] = any(
+            x in html_lower
+            for x in [
+                "woocommerce", "shopify", "add to cart", "checkout",
+                "shopping cart", "produk", "beli",
+            ]
+        )
+        signals["booking_system"] = any(
+            x in html_lower
+            for x in [
+                "booking.com", "calendly", "booknow", "reservasi",
+                "reserv", "appointlet", "acuity",
+            ]
+        )
+        return signals
 
     def format_research_brief(self, name: str, data: dict) -> str:
         """Format research data into a human-readable brief.

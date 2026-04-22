@@ -83,12 +83,16 @@ def add(content: str, category: str = "outreach", agent_id: str = "1ai-reach") -
     return None
 
 
-def get_strategy(vertical: str, location: str = "Jakarta") -> str:
+def get_strategy(vertical: str, location: str = "Jakarta", service: str = None) -> str:
     """
     Query brain for outreach strategies that worked in this vertical.
     Returns a formatted string to inject into proposal prompts, or "" if nothing found.
     """
-    query = f"successful outreach proposal {vertical} {location} reply conversion"
+    parts = [f"successful outreach proposal {vertical} {location}"]
+    if service:
+        parts.append(service)
+    parts.append("reply conversion")
+    query = " ".join(parts)
     results = search(query, limit=3)
     if not results:
         return ""
@@ -110,6 +114,7 @@ def learn_outcome(
     pain_points: str = "",
     review_score: str = "",
     decision_maker: str = "",
+    service_type: str = "",
 ) -> None:
     """
     Store an outreach outcome in the brain so future generations can learn.
@@ -135,6 +140,8 @@ def learn_outcome(
         parts.append(f"Pain points addressed: {pain_points}.")
     if review_score:
         parts.append(f"Proposal score: {review_score}/10.")
+    if service_type:
+        parts.append(f"Service proposed: {service_type}.")
 
     content = " ".join(parts)
     category = "outreach_win" if status in ("replied", "won") else "outreach_loss"
