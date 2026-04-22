@@ -11,18 +11,26 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Play, Square, RefreshCw, FileText, Loader2 } from "lucide-react";
 
 const LOG_FILES = [
-  { value: "webhook", label: "Webhook Server" },
-  { value: "autonomous", label: "Autonomous Loop" },
-  { value: "dashboard", label: "Dashboard (Next.js)" },
-  { value: "enricher_manual", label: "Enricher" },
-  { value: "cron_reply_tracker", label: "Reply Tracker" },
-  { value: "cron_followup", label: "Follow-up" },
-  { value: "cron_sheets_sync", label: "Sheets Sync" },
+  { value: "dashboard", label: "Dashboard" },
+  { value: "gmaps-scraper", label: "Google Maps Scraper" },
+  { value: "oneai_reach_api_v1_webhooks", label: "Webhook/API" },
+  { value: "oneai_reach_application_outreach_scraper_service", label: "Scraper" },
+  { value: "oneai_reach_application_outreach_enricher_service", label: "Enricher" },
+  { value: "oneai_reach_application_outreach_researcher_service", label: "Researcher" },
+  { value: "oneai_reach_application_outreach_generator_service", label: "Generator" },
+  { value: "oneai_reach_application_outreach_blaster_service", label: "Blaster" },
+  { value: "oneai_reach_application_outreach_reviewer_service", label: "Reviewer" },
+  { value: "oneai_reach_application_outreach_orchestrator_service", label: "Orchestrator" },
+  { value: "oneai_reach_application_outreach_followup_service", label: "Follow-up" },
+  { value: "oneai_reach_application_outreach_reply_tracker_service", label: "Reply Tracker" },
+  { value: "oneai_reach_application_customer_service_cs_engine_service", label: "CS Engine" },
+  { value: "oneai_reach_application_customer_service_conversation_service", label: "Conversation Service" },
+  { value: "oneai_reach_application_customer_service_analytics_service", label: "Analytics Service" },
 ];
 
 export default function ServicesPage() {
-  const { data: svcData, mutate: mutateSvc, isLoading } = useSWR<{ services: ServiceStatus[] }>("/api/v1/admin/status", fetcher, { refreshInterval: 3000 });
-  const [selectedLog, setSelectedLog] = useState("webhook");
+  const { data: svcData, mutate: mutateSvc, isLoading } = useSWR<{ services: ServiceStatus[] }>("/api/v1/admin/status", fetcher, { refreshInterval: 3000, dedupingInterval: 2000 });
+  const [selectedLog, setSelectedLog] = useState("dashboard");
   const [mode, setMode] = useState<"normal" | "dry_run" | "run_once">("dry_run");
   const [acting, setActing] = useState<string | null>(null);
 
@@ -61,10 +69,17 @@ export default function ServicesPage() {
     setTimeout(() => { mutateSvc(); setActing(null); }, 1500);
   }
 
+  async function startService(key: string) {
+    setActing(`${key}-start`);
+    await postJSON(`/api/v1/agents/services/${key}/start`, {});
+    setTimeout(() => { mutateSvc(); setActing(null); }, 2000);
+  }
+
   const serviceActions: Record<string, { canStart?: boolean; canStop?: boolean; canRestart?: boolean }> = {
-    webhook: { canRestart: true },
+    webhook: { canStart: true, canStop: true, canRestart: true },
     autonomous: { canStart: true, canStop: true },
-    dashboard: { canRestart: true },
+    dashboard: { canStart: true, canStop: true, canRestart: true },
+    "gmaps-scraper": { canRestart: true },
   };
 
   return (
@@ -94,6 +109,11 @@ export default function ServicesPage() {
                     {actions.canRestart && (
                       <Button size="sm" variant="outline" className="h-7 text-xs border-neutral-700" onClick={() => restartService(s.key)} disabled={acting === `${s.key}-restart`}>
                         {acting === `${s.key}-restart` ? <Loader2 className="h-3 w-3 animate-spin" /> : <RefreshCw className="h-3 w-3" />}
+                      </Button>
+                    )}
+                    {actions.canStart && !s.running && (
+                      <Button size="sm" variant="outline" className="h-7 text-xs border-green-700 text-green-400 hover:bg-green-950" onClick={() => startService(s.key)} disabled={acting === `${s.key}-start`}>
+                        {acting === `${s.key}-start` ? <Loader2 className="h-3 w-3 animate-spin" /> : <Play className="h-3 w-3" />}
                       </Button>
                     )}
                     {actions.canStop && s.running && (

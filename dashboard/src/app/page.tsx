@@ -15,7 +15,7 @@ const STAGE_COLORS: Record<string, string> = {
 
 export default function DashboardPage() {
   const { data: funnel, isLoading: funnelLoading } = useSWR<FunnelData>("/api/v1/agents/funnel", fetcher, { refreshInterval: 5000 });
-  const { data: svcData, isLoading: svcLoading } = useSWR<{ services: ServiceStatus[] }>("/api/v1/admin/status", fetcher, { refreshInterval: 3000 });
+  const { data: svcData, isLoading: svcLoading } = useSWR<{ services: ServiceStatus[] }>("/api/v1/admin/status", fetcher, { refreshInterval: 3000, dedupingInterval: 2000 });
   const apiOnline = funnel !== undefined;
 
   if (funnelLoading && svcLoading) {

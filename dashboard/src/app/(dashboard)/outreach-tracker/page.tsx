@@ -151,10 +151,10 @@ export default function OutreachTrackerPage() {
                     className="cursor-pointer hover:bg-neutral-800/50 transition-colors"
                   >
                     <TableCell className="font-medium">
-                      {String(lead.company_name || "—")}
+                      {String(lead.displayName || lead.company_name || "—")}
                     </TableCell>
                     <TableCell className="text-neutral-400 text-sm">
-                      {lead.website || "—"}
+                      {lead.websiteUri || lead.website || "—"}
                     </TableCell>
                     <TableCell>
                       <Badge className={`${STAGE_COLORS[lead.status] || "bg-neutral-600"} text-white`}>

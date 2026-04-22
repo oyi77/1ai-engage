@@ -49,7 +49,7 @@ function NavContent({ onNavigate }: { onNavigate?: () => void }) {
       <nav className="flex-1 px-2 py-4 space-y-1">
         {NAV_ITEMS.map((item) => {
           const Icon = item.icon;
-          const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+          const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href + "/"));
           return (
             <Link
               key={item.href}

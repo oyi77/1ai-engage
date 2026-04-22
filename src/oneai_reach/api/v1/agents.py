@@ -44,12 +44,32 @@ except ImportError:
 
 
 def load_leads_df():
-    """Load leads as pandas DataFrame."""
+    """Load leads as pandas DataFrame, ensuring required columns exist."""
     try:
+        import pandas as pd
         from leads import load_leads
-        return load_leads()
+        df = load_leads()
+        # The CSV may not have columns added later (matched_services, lead_score, tier, service_proposed).
+        # Add them as None so downstream code can rely on their presence.
+        for col in ["matched_services", "lead_score", "tier", "service_proposed"]:
+            if col not in df.columns:
+                df[col] = None
+        return df
     except Exception:
         return None
+
+
+def _is_empty_value(val) -> bool:
+    """Return True if val is None, NaN, or an empty/sentinel string."""
+    if val is None:
+        return True
+    try:
+        import pandas as pd
+        if pd.isna(val):
+            return True
+    except (TypeError, ValueError):
+        pass
+    return str(val).strip() in ("", "nan", "None", "<NA>", "NaN")
 
 
 class AgentResponse(BaseModel):
@@ -840,7 +860,7 @@ async def list_services():
         service_counts = {}
         for _, row in df.iterrows():
             ms = row.get("matched_services")
-            if not ms or str(ms).strip() in ("", "nan", "None"):
+            if _is_empty_value(ms):
                 continue
             try:
                 services = json.loads(str(ms))
@@ -868,7 +888,7 @@ async def funnel_by_service():
             ms = row.get("matched_services")
             status = str(row.get("status", "unknown"))
             service_key = "unmatched"
-            if ms and str(ms).strip() not in ("", "nan", "None"):
+            if not _is_empty_value(ms):
                 try:
                     services = json.loads(str(ms))
                     service_key = services[0] if services else "unmatched"
@@ -910,7 +930,7 @@ async def lead_services(lead_id: str):
         row = match.iloc[0]
         ms = row.get("matched_services")
         services = []
-        if ms and str(ms).strip() not in ("", "nan", "None"):
+        if not _is_empty_value(ms):
             try:
                 services = json.loads(str(ms))
             except (json.JSONDecodeError, TypeError):
@@ -938,8 +958,12 @@ async def scoring_stats():
         if df is None or df.empty:
             return AgentResponse(status="ok", message="No leads data", data={"distribution": {}, "total": 0})
         tier_counts = df["tier"].astype(str).str.lower().value_counts().to_dict()
-        scored = df[df["lead_score"].notna() & (df["lead_score"].astype(str) != "nan")]
-        avg_score = float(scored["lead_score"].mean()) if not scored.empty else 0
+        score_col = df["lead_score"].astype(str)
+        scored = df[~score_col.isin(["None", "nan", "NaN", "<NA>", ""])]
+        try:
+            avg_score = float(scored["lead_score"].astype(float).mean()) if not scored.empty else 0.0
+        except (ValueError, TypeError):
+            avg_score = 0.0
         return AgentResponse(
             status="ok",
             message="Scoring stats",

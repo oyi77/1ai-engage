@@ -19,7 +19,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import { Plus, Pencil, Trash2, Loader2, Upload, Download } from "lucide-react";
+import { Plus, Pencil, Trash2, Loader2, Upload, Download, Package } from "lucide-react";
 
 export default function ProductsPage() {
   const { data: waData, isLoading: waLoad } = useSWR<{ numbers: WANumber[] }>("/api/v1/agents/wa/sessions", fetcher);
@@ -341,9 +341,16 @@ export default function ProductsPage() {
                 </TableBody>
               </Table>
               {(!products || products.length === 0) && (
-                <p className="text-neutral-500 text-center py-8 text-sm">
-                  No products for this number
-                </p>
+                <div className="text-center py-12 space-y-3">
+                  <Package className="h-12 w-12 text-neutral-700 mx-auto" />
+                  <p className="text-neutral-400 text-sm">No products yet for this WA number</p>
+                  <p className="text-neutral-600 text-xs">Add products manually or import from CSV to get started</p>
+                  <div className="flex gap-2 justify-center pt-2">
+                    <Button onClick={openAdd} className="bg-orange-600 hover:bg-orange-700 text-sm">
+                      <Plus className="h-4 w-4 mr-1" /> Add First Product
+                    </Button>
+                  </div>
+                </div>
               )}
             </>
           )}
