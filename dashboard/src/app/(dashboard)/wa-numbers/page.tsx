@@ -46,7 +46,7 @@ export default function WANumbersPage() {
     fetcher,
     { refreshInterval: 10000 }
   );
-  const statusData = statusResponse?.sessions || [];
+  const statusData = Array.isArray(statusResponse?.sessions) ? statusResponse.sessions : [];
 
   const [updating, setUpdating] = useState<string | null>(null);
 
