@@ -3,6 +3,7 @@
 import os
 import subprocess
 import sys
+import yaml
 from pathlib import Path
 from typing import Optional, Tuple
 
@@ -73,6 +74,46 @@ class GeneratorService:
                 return ""
         return ""
 
+    def _load_service_template(self, service_name: str) -> dict:
+        """Load a service-specific YAML proposal template.
+
+        Args:
+            service_name: Name of the service (matches templates/{service_name}.yaml)
+
+        Returns:
+            Parsed template dict, or empty dict if not found / parse error
+        """
+        template_path = (
+            Path(__file__).parent.parent.parent.parent.parent
+            / "templates"
+            / f"{service_name}.yaml"
+        )
+        if not template_path.exists():
+            return {}
+        try:
+            with open(template_path) as f:
+                return yaml.safe_load(f) or {}
+        except Exception:
+            return {}
+
+    def _select_variant(self, service: str, variant_type: str) -> str:
+        """Select A/B test variant for a given service and variant type.
+
+        Args:
+            service: Service name (e.g. 'website_development')
+            variant_type: Variant dimension (e.g. 'subject_line', 'cta')
+
+        Returns:
+            Selected variant string, falls back to '{variant_type}_default'
+        """
+        try:
+            from ab_testing import ProposalABTest
+
+            ab = ProposalABTest()
+            return ab.select_variant(service, variant_type)
+        except Exception:
+            return f"{variant_type}_default"
+
     def get_capability_matrix(self, vertical: str) -> str:
         """Query Hub Brain for BerkahKarya capabilities.
 
@@ -113,6 +154,7 @@ class GeneratorService:
         research: str,
         capability_matrix: str,
         brain_context: str = "",
+        service_context: dict = None,
     ) -> Tuple[str, str]:
         """Build system and user prompts for proposal generation.
 
@@ -145,6 +187,27 @@ class GeneratorService:
             "Be creative — you may bundle or combine services from the capability matrix.\n"
             "Sign the email as Vilona from BerkahKarya."
         )
+
+        if service_context:
+            service_name = service_context.get(
+                "service_name_display", service_context.get("service", "our service")
+            )
+            case_study_raw = service_context.get("case_study", "N/A")
+            if isinstance(case_study_raw, dict):
+                case_study = (
+                    f"{case_study_raw.get('metric', '')} "
+                    f"({case_study_raw.get('customer_type', '')})"
+                ).strip()
+            else:
+                case_study = str(case_study_raw)
+            system_prompt += (
+                f"\n\nService-Specific Guidance (from our template for {service_name}):\n"
+                f"- Target pain points: {', '.join(service_context.get('pain_points', []))}\n"
+                f"- Value propositions: {', '.join(service_context.get('value_props', []))}\n"
+                f"- Case study to reference: {case_study}\n"
+                f"- Suggested pricing: {service_context.get('price_display', 'Contact for pricing')}\n"
+                f"- Call to action: {service_context.get('cta', {}).get('email', 'Book a free consultation')}\n"
+            )
 
         user_parts = [
             f"Prospect: {lead_name}",
@@ -229,11 +292,29 @@ class GeneratorService:
         # Load research and brain context
         research = self.load_research(lead_id, lead_name)
         capability_matrix = self.get_capability_matrix(business_type)
-        brain_context = _brain.get_strategy(business_type)
+
+        service_context = None
+        matched_services = lead.get("matched_services")
+        if matched_services and str(matched_services).strip() not in ("", "nan", "None"):
+            try:
+                import json
+                services_list = json.loads(str(matched_services))
+                if services_list:
+                    service_name = services_list[0]
+                    service_context = self._load_service_template(service_name)
+                    if service_context:
+                        logger.info(f"Using template for service: {service_name}")
+            except (json.JSONDecodeError, TypeError):
+                pass
+
+        service_name_for_brain = ""
+        if service_context:
+            service_name_for_brain = service_context.get("service", "")
+        brain_context = _brain.get_strategy(business_type, service=service_name_for_brain)
 
         # Build prompts
         system_prompt, user_prompt = self.build_prompt(
-            lead, research, capability_matrix, brain_context
+            lead, research, capability_matrix, brain_context, service_context=service_context
         )
 
         full_prompt = f"[SYSTEM]\n{system_prompt}\n\n[USER]\n{user_prompt}"

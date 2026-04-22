@@ -1,4 +1,6 @@
+import json
 import subprocess
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -14,7 +16,132 @@ class OrchestratorService:
         self.config = config
         self.scripts_dir = Path(__file__).parent.parent.parent.parent / "scripts"
 
-    def run_full_pipeline(self, query: str, dry_run: bool = False) -> dict:
+    def run_gmaps_scraper(self, query: str, max_results: int = 60) -> bool:
+        """Scrape leads using gosom Google Maps scraper."""
+        logger.info(f"Scraping leads via gosom: {query}")
+        try:
+            sys.path.insert(0, str(self.scripts_dir))
+            from gmaps_client import GmapsScraperClient
+            from leads import load_leads, save_leads
+
+            client = GmapsScraperClient()
+            results = client.scrape(query, max_results)
+
+            if not results:
+                logger.warning("gosom scraper returned no results")
+                return False
+
+            df = load_leads()
+            existing_websites = set()
+            existing_emails = set()
+            if df is not None and not df.empty:
+                existing_websites = {str(w).strip().lower() for w in df.get("websiteUri", []) if str(w).strip()}
+                existing_emails = {str(e).strip().lower() for e in df.get("email", []) if str(e).strip()}
+
+            new_leads = []
+            for lead in results:
+                website = str(lead.get("websiteUri", "")).strip().lower()
+                email = str(lead.get("email", "")).strip().lower()
+                if website and website in existing_websites:
+                    continue
+                if email and email in existing_emails:
+                    continue
+                lead["status"] = "new"
+                lead["source"] = "gmaps_scraper"
+                new_leads.append(lead)
+                existing_websites.add(website)
+                existing_emails.add(email)
+
+            if new_leads:
+                import pandas as pd
+                new_df = pd.DataFrame(new_leads)
+                if df is not None and not df.empty:
+                    df = pd.concat([df, new_df], ignore_index=True)
+                else:
+                    df = new_df
+                save_leads(df)
+                logger.info(f"Inserted {len(new_leads)} new leads (deduped from {len(results)} results)")
+            else:
+                logger.info("No new leads to insert (all duplicates)")
+
+            return True
+        except Exception as e:
+            logger.error(f"gosom scraper error: {e}")
+            return False
+
+    def run_service_detection(self) -> bool:
+        """Run service_detector on leads that don't have matched_services yet."""
+        logger.info("Running service detection on new leads")
+        try:
+            sys.path.insert(0, str(self.scripts_dir))
+            from leads import load_leads, save_leads
+            from service_detector import detect_services
+
+            df = load_leads()
+            if df is None or df.empty:
+                return True
+
+            updated = 0
+            for idx, row in df.iterrows():
+                if row.get("matched_services") and str(row.get("matched_services", "")).strip() not in ("", "nan", "None"):
+                    continue
+
+                lead = row.to_dict()
+                research_text = str(row.get("research", ""))
+                services = detect_services(lead, {"text_sample": research_text})
+
+                if services:
+                    service_names = [s["service"] for s in services[:2]]
+                    df.at[idx, "matched_services"] = json.dumps(service_names)
+                    df.at[idx, "service_proposed"] = service_names[0]
+                    updated += 1
+
+            if updated:
+                save_leads(df)
+                logger.info(f"Detected services for {updated} leads")
+            return True
+        except Exception as e:
+            logger.error(f"Service detection error: {e}")
+            return False
+
+    def run_lead_scoring(self) -> bool:
+        """Run lead_scorer on leads that don't have a score yet."""
+        logger.info("Running lead scoring on new leads")
+        try:
+            sys.path.insert(0, str(self.scripts_dir))
+            from leads import load_leads, save_leads
+            from lead_scorer import score_lead
+
+            df = load_leads()
+            if df is None or df.empty:
+                return True
+
+            updated = 0
+            for idx, row in df.iterrows():
+                try:
+                    score = float(row.get("lead_score", 0) or 0)
+                except (ValueError, TypeError):
+                    score = 0
+                if score > 0:
+                    continue
+
+                lead = row.to_dict()
+                research_text = str(row.get("research", ""))
+                result = score_lead(lead, {"text_sample": research_text})
+
+                df.at[idx, "lead_score"] = result["total_score"]
+                df.at[idx, "tier"] = result["tier"]
+                updated += 1
+
+            if updated:
+                save_leads(df)
+                logger.info(f"Scored {updated} leads")
+            return True
+        except Exception as e:
+            logger.error(f"Lead scoring error: {e}")
+            return False
+
+    def run_full_pipeline(self, query: str, dry_run: bool = False, scraper_source: str = "gmaps", max_leads: int = 60) -> dict:
         industry, _, location_part = query.partition(" in ")
         location = location_part.strip() or "Jakarta, Indonesia"
         industry = industry.strip() or query
@@ -24,8 +151,15 @@ class OrchestratorService:
 
         results = {}
 
-        results["vibe_scraper"] = self._run_step("vibe_scraper.py", "Discovering decision-maker leads via Vibe Prospecting", [industry, location, "20"])
+        if scraper_source == "gmaps":
+            results["gmaps_scraper"] = self.run_gmaps_scraper(query, max_leads)
+        elif scraper_source == "vibe":
+            results["vibe_scraper"] = self._run_step("vibe_scraper.py", "Discovering decision-maker leads via Vibe Prospecting", [industry, location, "20"])
         results["scraper"] = self._run_step("scraper.py", "Scraping additional leads via Google Places", [query])
+
+        results["service_detection"] = self.run_service_detection()
+        results["lead_scoring"] = self.run_lead_scoring()
+
         results["enricher"] = self._run_step("enricher.py", "Enriching contact info")
         results["researcher"] = self._run_step("researcher.py", "Researching prospect pain points")
         results["generator"] = self._run_step("generator.py", "Generating personalized proposals")

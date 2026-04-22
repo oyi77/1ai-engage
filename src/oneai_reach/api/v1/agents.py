@@ -43,6 +43,15 @@ except ImportError:
     pass
 
 
+def load_leads_df():
+    """Load leads as pandas DataFrame."""
+    try:
+        from leads import load_leads
+        return load_leads()
+    except Exception:
+        return None
+
+
 class AgentResponse(BaseModel):
     """Standard agent endpoint response."""
 
@@ -814,3 +823,156 @@ async def get_lead_timeline(lead_id: str) -> AgentResponse:
         raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+# ============================================================
+# SERVICE DETECTION & SCORING ENDPOINTS
+# ============================================================
+
+@router.get("/services/list")
+async def list_services():
+    """List all available services with match counts from DB."""
+    try:
+        import json
+        df = load_leads_df()
+        if df is None or df.empty:
+            return AgentResponse(status="ok", message="No leads data", data={"services": []})
+        service_counts = {}
+        for _, row in df.iterrows():
+            ms = row.get("matched_services")
+            if not ms or str(ms).strip() in ("", "nan", "None"):
+                continue
+            try:
+                services = json.loads(str(ms))
+                for s in services:
+                    service_counts[s] = service_counts.get(s, 0) + 1
+            except (json.JSONDecodeError, TypeError):
+                pass
+        service_list = [{"service": k, "leads_matched": v} for k, v in sorted(service_counts.items(), key=lambda x: -x[1])]
+        return AgentResponse(status="ok", message=f"Found {len(service_list)} services", data={"services": service_list})
+    except Exception as e:
+        return AgentResponse(status="error", message=str(e))
+
+
+@router.get("/funnel/by-service")
+async def funnel_by_service():
+    """Funnel breakdown grouped by matched_services."""
+    try:
+        import json
+        from collections import defaultdict
+        df = load_leads_df()
+        if df is None or df.empty:
+            return AgentResponse(status="ok", message="No leads data", data={"breakdown": {}})
+        breakdown = defaultdict(lambda: defaultdict(int))
+        for _, row in df.iterrows():
+            ms = row.get("matched_services")
+            status = str(row.get("status", "unknown"))
+            service_key = "unmatched"
+            if ms and str(ms).strip() not in ("", "nan", "None"):
+                try:
+                    services = json.loads(str(ms))
+                    service_key = services[0] if services else "unmatched"
+                except (json.JSONDecodeError, TypeError):
+                    pass
+            breakdown[service_key][status] += 1
+        return AgentResponse(status="ok", message="Funnel by service", data={"breakdown": {k: dict(v) for k, v in breakdown.items()}})
+    except Exception as e:
+        return AgentResponse(status="error", message=str(e))
+
+
+@router.get("/leads/by-tier/{tier}")
+async def leads_by_tier(tier: str):
+    """Get leads filtered by tier (hot/warm/cold/skip)."""
+    if tier not in ("hot", "warm", "cold", "skip"):
+        return AgentResponse(status="error", message=f"Invalid tier: {tier}. Must be hot/warm/cold/skip")
+    try:
+        df = load_leads_df()
+        if df is None or df.empty:
+            return AgentResponse(status="ok", message="No leads data", data={"leads": [], "count": 0})
+        filtered = df[df["tier"].astype(str).str.lower() == tier]
+        leads_list = filtered.to_dict(orient="records") if not filtered.empty else []
+        return AgentResponse(status="ok", message=f"Found {len(leads_list)} {tier} leads", data={"leads": leads_list, "count": len(leads_list)})
+    except Exception as e:
+        return AgentResponse(status="error", message=str(e))
+
+
+@router.get("/leads/{lead_id}/services")
+async def lead_services(lead_id: str):
+    """Get service detection results for a specific lead."""
+    try:
+        import json
+        df = load_leads_df()
+        if df is None or df.empty:
+            return AgentResponse(status="error", message="No leads data")
+        match = df[df["id"].astype(str) == str(lead_id)]
+        if match.empty:
+            return AgentResponse(status="error", message=f"Lead {lead_id} not found")
+        row = match.iloc[0]
+        ms = row.get("matched_services")
+        services = []
+        if ms and str(ms).strip() not in ("", "nan", "None"):
+            try:
+                services = json.loads(str(ms))
+            except (json.JSONDecodeError, TypeError):
+                pass
+        return AgentResponse(
+            status="ok",
+            message=f"Services for lead {lead_id}",
+            data={
+                "lead_id": lead_id,
+                "matched_services": services,
+                "service_proposed": str(row.get("service_proposed", "")),
+                "lead_score": row.get("lead_score"),
+                "tier": str(row.get("tier", "")),
+            }
+        )
+    except Exception as e:
+        return AgentResponse(status="error", message=str(e))
+
+
+@router.get("/scoring/stats")
+async def scoring_stats():
+    """Scoring distribution across tiers."""
+    try:
+        df = load_leads_df()
+        if df is None or df.empty:
+            return AgentResponse(status="ok", message="No leads data", data={"distribution": {}, "total": 0})
+        tier_counts = df["tier"].astype(str).str.lower().value_counts().to_dict()
+        scored = df[df["lead_score"].notna() & (df["lead_score"].astype(str) != "nan")]
+        avg_score = float(scored["lead_score"].mean()) if not scored.empty else 0
+        return AgentResponse(
+            status="ok",
+            message="Scoring stats",
+            data={"distribution": tier_counts, "total": len(df), "scored": len(scored), "avg_score": round(avg_score, 1)},
+        )
+    except Exception as e:
+        return AgentResponse(status="error", message=str(e))
+
+
+@router.get("/experiments/status")
+async def experiments_status():
+    """A/B test stats across all services."""
+    try:
+        import json as _json
+        from pathlib import Path as _Path
+        from config import DATA_DIR as _DATA_DIR
+        experiments_dir = _Path(_DATA_DIR) / "experiments"
+        if not experiments_dir.exists():
+            return AgentResponse(status="ok", message="No experiments yet", data={"experiments": {}})
+        experiments = {}
+        for service_dir in experiments_dir.iterdir():
+            if not service_dir.is_dir():
+                continue
+            service_name = service_dir.name
+            experiments[service_name] = {}
+            for stats_file in service_dir.glob("*.json"):
+                variant_type = stats_file.stem
+                with open(stats_file) as f:
+                    experiments[service_name][variant_type] = _json.load(f)
+        return AgentResponse(
+            status="ok",
+            message=f"Found {len(experiments)} services with experiments",
+            data={"experiments": experiments}
+        )
+    except Exception as e:
+        return AgentResponse(status="error", message=str(e))
