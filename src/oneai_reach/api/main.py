@@ -5,6 +5,7 @@ exception handlers, and routes.
 """
 
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
 from oneai_reach.api.middleware import setup_exception_handlers, setup_middleware
 from oneai_reach.api.models import HealthResponse
@@ -43,6 +44,11 @@ def create_app() -> FastAPI:
     app.include_router(agents_router)
     app.include_router(products_router)
     app.include_router(legacy_router, prefix="/api/v1/legacy")
+
+    import os
+    data_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))), "data")
+    if os.path.isdir(data_dir):
+        app.mount("/data", StaticFiles(directory=data_dir), name="static-data")
 
     @app.get("/health", response_model=HealthResponse, tags=["health"])
     async def health_check() -> HealthResponse:

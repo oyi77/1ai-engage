@@ -78,11 +78,12 @@ class ProductResponse(BaseModel):
     display_price: float
     is_active: bool
     is_visible: bool
+    image_url: Optional[str] = None
     created_at: Optional[str]
     updated_at: Optional[str]
 
     @classmethod
-    def from_product(cls, product: Product) -> "ProductResponse":
+    def from_product(cls, product: Product, image_url: Optional[str] = None) -> "ProductResponse":
         """Convert Product domain model to response schema."""
         return cls(
             id=product.id or "",
@@ -98,6 +99,7 @@ class ProductResponse(BaseModel):
             display_price=product.display_price,
             is_active=product.is_active,
             is_visible=product.is_visible,
+            image_url=image_url,
             created_at=product.created_at.isoformat() if product.created_at else None,
             updated_at=product.updated_at.isoformat() if product.updated_at else None,
         )
@@ -126,6 +128,58 @@ def get_image_service() -> ImageService:
     return ImageService(storage_base_path="data/products")
 
 
+def _get_primary_image_url(repo: SQLiteProductRepository, product_id: str) -> Optional[str]:
+    """Get primary image URL for a product."""
+    try:
+        conn = repo._connect()
+        row = conn.execute(
+            "SELECT image_url FROM product_images WHERE product_id = ? AND is_primary = 1 LIMIT 1",
+            (product_id,),
+        ).fetchone()
+        conn.close()
+        return row[0] if row else None
+    except Exception:
+        return None
+
+
+class ImageResponse(BaseModel):
+    """Response schema for product image."""
+    id: str
+    product_id: str
+    image_url: str
+    alt_text: Optional[str] = None
+    is_primary: bool
+    display_order: int
+
+
+@router.get("/{product_id}/images", response_model=List[ImageResponse])
+async def list_product_images(
+    product_id: str,
+    repo: SQLiteProductRepository = Depends(get_product_repository),
+) -> List[ImageResponse]:
+    """List all images for a product."""
+    try:
+        conn = repo._connect()
+        rows = conn.execute(
+            "SELECT id, product_id, image_url, alt_text, is_primary, display_order FROM product_images WHERE product_id = ? ORDER BY display_order",
+            (product_id,),
+        ).fetchall()
+        conn.close()
+        return [
+            ImageResponse(
+                id=r[0],
+                product_id=r[1],
+                image_url=r[2],
+                alt_text=r[3],
+                is_primary=bool(r[4]),
+                display_order=r[5],
+            )
+            for r in rows
+        ]
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to list images: {e}")
+
+
 @router.get("", response_model=List[ProductResponse])
 async def list_products(
     wa_number_id: str = Query(..., description="WhatsApp number ID to filter products"),
@@ -151,7 +205,11 @@ async def list_products(
             products = repo.get_all(wa_number_id=wa_number_id)
             products = products[:limit]  # Apply limit to get_all results
 
-        return [ProductResponse.from_product(p) for p in products]
+        responses = []
+        for p in products:
+            img_url = _get_primary_image_url(repo, p.id or "")
+            responses.append(ProductResponse.from_product(p, image_url=img_url))
+        return responses
 
     except RepositoryError as e:
         raise HTTPException(status_code=500, detail=f"Database error: {str(e)}")
@@ -369,7 +427,8 @@ async def get_product(
         if not product:
             raise HTTPException(status_code=404, detail=f"Product {product_id} not found")
 
-        return ProductResponse.from_product(product)
+        img_url = _get_primary_image_url(repo, product_id)
+        return ProductResponse.from_product(product, image_url=img_url)
 
     except HTTPException:
         raise
