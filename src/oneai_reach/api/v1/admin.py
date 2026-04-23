@@ -38,10 +38,19 @@ class AdminResponse(BaseModel):
     message: str
 
 import os
+import subprocess
 from pathlib import Path
 
 _ROOT_DIR = Path(__file__).resolve().parent.parent.parent.parent.parent
 _LOGS_DIR = _ROOT_DIR / "logs"
+
+_SYSTEMD_UNITS = {
+    "dashboard": "1ai-reach-dashboard",
+    "api": "1ai-reach-api",
+    "mcp": "1ai-reach-mcp",
+    "webhook": "1ai-reach-mcp",
+    "gmaps-scraper": "gmaps-scraper",
+}
 
 class LogResponse(BaseModel):
     lines: List[str]
@@ -51,21 +60,46 @@ class LogResponse(BaseModel):
 @router.get("/logs/{name}", response_model=LogResponse)
 async def get_logs(name: str, lines: int = 50) -> LogResponse:
     log_file = _LOGS_DIR / f"{name}.log"
-    if not log_file.exists():
-        log_file = _ROOT_DIR / ".agent-control" / "logs" / f"{name}.log"
-        if not log_file.exists():
-            raise HTTPException(status_code=404, detail=f"Log file not found: {name}")
-    
+    fallback = _ROOT_DIR / ".agent-control" / "logs" / f"{name}.log"
+
+    for candidate in [log_file, fallback]:
+        if candidate.exists() and candidate.stat().st_size > 0:
+            try:
+                text = candidate.read_text(errors="replace")
+                tail = text.strip().splitlines()[-lines:]
+                if tail:
+                    return LogResponse(lines=tail, count=len(tail), file=str(candidate))
+            except Exception:
+                pass
+
+    unit = _SYSTEMD_UNITS.get(name)
+    if not unit:
+        safe = name.replace("/", "").replace("..", "")
+        unit = f"{safe}" if "1ai-reach" in safe or "gmaps" in safe else f"1ai-reach-{safe}"
+
     try:
-        text = log_file.read_text(errors="replace")
-        tail = text.strip().splitlines()[-lines:]
-        return LogResponse(
-            lines=tail,
-            count=len(tail),
-            file=str(log_file)
+        result = subprocess.run(
+            ["journalctl", "--user", "-u", unit, "-n", str(lines), "--no-pager", "--output=short-iso"],
+            capture_output=True, text=True, timeout=5,
         )
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        if result.returncode == 0 and result.stdout.strip():
+            j_lines = result.stdout.strip().splitlines()
+            return LogResponse(lines=j_lines, count=len(j_lines), file=f"journal:{unit}")
+    except Exception:
+        pass
+
+    try:
+        result = subprocess.run(
+            ["journalctl", "-u", unit, "-n", str(lines), "--no-pager", "--output=short-iso"],
+            capture_output=True, text=True, timeout=5,
+        )
+        if result.returncode == 0 and result.stdout.strip():
+            j_lines = result.stdout.strip().splitlines()
+            return LogResponse(lines=j_lines, count=len(j_lines), file=f"system-journal:{unit}")
+    except Exception:
+        pass
+
+    return LogResponse(lines=["(no logs available)"], count=0, file=f"none:{name}")
     data: Optional[Dict[str, Any]] = None
 
 

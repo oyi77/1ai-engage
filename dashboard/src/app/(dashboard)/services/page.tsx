@@ -13,6 +13,8 @@ import { Play, Square, RefreshCw, FileText, Loader2 } from "lucide-react";
 const LOG_FILES = [
   { value: "dashboard", label: "Dashboard" },
   { value: "gmaps-scraper", label: "Google Maps Scraper" },
+  { value: "api", label: "API Server" },
+  { value: "mcp", label: "MCP / Webhook" },
   { value: "oneai_reach_api_v1_webhooks", label: "Webhook/API" },
   { value: "oneai_reach_application_outreach_scraper_service", label: "Scraper" },
   { value: "oneai_reach_application_outreach_enricher_service", label: "Enricher" },
