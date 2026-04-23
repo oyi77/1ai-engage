@@ -15,6 +15,7 @@ import {
   Mic,
   Phone,
   Search,
+  Brain,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -34,6 +35,7 @@ const NAV_ITEMS = [
   { href: "/services", label: "Services", icon: Server },
   { href: "/pipeline-control", label: "Run Pipeline", icon: Play },
   { href: "/voice-settings", label: "Voice Settings", icon: Mic },
+  { href: "/auto-learn", label: "Auto-Learn", icon: Brain },
 ];
 
 function NavContent({ onNavigate }: { onNavigate?: () => void }) {
