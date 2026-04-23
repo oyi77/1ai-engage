@@ -5,6 +5,7 @@ managing sessions, and configuring webhooks.
 """
 
 import time
+import base64
 from functools import wraps
 from typing import Any, Callable, Dict, List, Optional
 
@@ -319,6 +320,54 @@ class WAHAClient:
                 status_code=0,
                 reason=str(e),
             )
+
+    def send_image(
+        self,
+        session_name: str,
+        chat_id: str,
+        image_url: str,
+        caption: str = "",
+    ) -> bool:
+        """Send an image via WAHA using URL-based sending."""
+        try:
+            abs_url = image_url
+            if image_url.startswith("/data/"):
+                abs_url = f"http://localhost:8000{image_url}"
+
+            body: Dict[str, Any] = {
+                "session": session_name,
+                "chatId": chat_id,
+                "file": {"url": abs_url},
+            }
+            if caption:
+                body["caption"] = caption
+
+            response = self._post("/api/sendImage", json_body=body)
+            if response.status_code < 300:
+                return True
+
+            if response.status_code in (400, 422):
+                import os
+                local_path = image_url.lstrip("/")
+                if os.path.exists(local_path):
+                    with open(local_path, "rb") as f:
+                        b64 = base64.b64encode(f.read()).decode()
+                    body_fallback = {
+                        "session": session_name,
+                        "chatId": chat_id,
+                        "file": {
+                            "mimeType": "image/jpeg",
+                            "data": f"data:image/jpeg;base64,{b64}",
+                        },
+                    }
+                    if caption:
+                        body_fallback["caption"] = caption
+                    resp2 = self._post("/api/sendImage", json_body=body_fallback)
+                    return resp2.status_code < 300
+
+            return False
+        except Exception:
+            return False
 
     def configure_webhooks(
         self, session_name: str, webhook_url: str, webhook_secret: str

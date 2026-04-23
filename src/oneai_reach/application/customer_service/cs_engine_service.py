@@ -531,6 +531,11 @@ class CSEngineService:
             else:
                 send_whatsapp_session(contact_phone, response_text, session_name)
 
+            if is_product_inquiry and product_results:
+                self._send_product_image(
+                    session_name, contact_phone, product_results
+                )
+
             send_typing_indicator(session_name, contact_phone, typing=False)
 
         self.conversation_service.add_message(
@@ -545,3 +550,37 @@ class CSEngineService:
             "conversation_id": conv_id,
             "reason": "",
         }
+
+    def _send_product_image(
+        self, session_name: str, contact_phone: str, product_results: list
+    ) -> None:
+        from oneai_reach.config.settings import get_settings
+        from oneai_reach.infrastructure.database.sqlite_product_repository import SQLiteProductRepository
+        from oneai_reach.infrastructure.external.waha_client import WAHAClient
+
+        settings = get_settings()
+        repo = SQLiteProductRepository(db_path=settings.database.db_file)
+        waha = WAHAClient(settings)
+
+        chat_id = f"{''.join(filter(str.isdigit, str(contact_phone)))}@c.us"
+
+        for product in product_results[:1]:
+            if not product.id:
+                continue
+            try:
+                conn = repo._connect()
+                row = conn.execute(
+                    "SELECT image_url FROM product_images WHERE product_id = ? AND is_primary = 1 LIMIT 1",
+                    (product.id,),
+                ).fetchone()
+                conn.close()
+                if row and row[0]:
+                    waha.send_image(
+                        session_name=session_name,
+                        chat_id=chat_id,
+                        image_url=row[0],
+                        caption=product.name,
+                    )
+                    logger.info(f"Sent product image for {product.name} to {contact_phone}")
+            except Exception as e:
+                logger.error(f"Failed to send product image: {e}")
