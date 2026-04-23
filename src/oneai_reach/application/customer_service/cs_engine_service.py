@@ -350,6 +350,7 @@ class CSEngineService:
         session_name: str = "default",
         voice_reply: bool = False,
         skip_send: bool = False,
+        source_channel: str = "whatsapp",
     ) -> dict:
         from oneai_reach.api.v1.admin import get_pause_flag
 
@@ -463,12 +464,19 @@ class CSEngineService:
                     "Just a moment!"
                 )
 
-            from senders import send_typing_indicator, send_whatsapp_session
+            if source_channel == "whatsapp":
+                from senders import send_typing_indicator, send_whatsapp_session
 
-            send_typing_indicator(session_name, contact_phone, typing=True)
-            time.sleep(self.config.cs.reply_delay_seconds)
-            send_whatsapp_session(contact_phone, esc_msg, session_name)
-            send_typing_indicator(session_name, contact_phone, typing=False)
+                send_typing_indicator(session_name, contact_phone, typing=True)
+                time.sleep(self.config.cs.reply_delay_seconds)
+                send_whatsapp_session(contact_phone, esc_msg, session_name)
+                send_typing_indicator(session_name, contact_phone, typing=False)
+            elif source_channel == "instagram":
+                from oneai_reach.infrastructure.messaging.channels.instagram_sender import InstagramSender
+                InstagramSender(wa_number_id).send(contact_phone, esc_msg)
+            elif source_channel == "twitter":
+                from oneai_reach.infrastructure.messaging.channels.twitter_sender import TwitterSender
+                TwitterSender(wa_number_id).send(contact_phone, esc_msg)
 
             self.conversation_service.add_message(
                 conv_id, direction="out", message_text=esc_msg
@@ -509,34 +517,45 @@ class CSEngineService:
             response_text = "Oke Kak, ditunggu ya! Saya bantu sekarang."
 
         if not skip_send:
-            from senders import send_typing_indicator, send_whatsapp_session
+            if source_channel == "whatsapp":
+                from senders import send_typing_indicator, send_whatsapp_session
 
-            send_typing_indicator(session_name, contact_phone, typing=True)
-            time.sleep(self.config.cs.reply_delay_seconds)
+                send_typing_indicator(session_name, contact_phone, typing=True)
+                time.sleep(self.config.cs.reply_delay_seconds)
 
-            if voice_reply:
-                try:
-                    from voice_pipeline import generate_voice_reply
+                if voice_reply:
+                    try:
+                        from voice_pipeline import generate_voice_reply
 
-                    voice_sent = generate_voice_reply(
-                        response_text, session_name, contact_phone
-                    )
-                    if not voice_sent:
-                        send_whatsapp_session(
-                            contact_phone, response_text, session_name
+                        voice_sent = generate_voice_reply(
+                            response_text, session_name, contact_phone
                         )
-                except Exception as e:
-                    logger.error(f"Voice reply failed: {e}, falling back to text")
+                        if not voice_sent:
+                            send_whatsapp_session(
+                                contact_phone, response_text, session_name
+                            )
+                    except Exception as e:
+                        logger.error(f"Voice reply failed: {e}, falling back to text")
+                        send_whatsapp_session(contact_phone, response_text, session_name)
+                else:
                     send_whatsapp_session(contact_phone, response_text, session_name)
-            else:
-                send_whatsapp_session(contact_phone, response_text, session_name)
 
-            if is_product_inquiry and product_results:
-                self._send_product_image(
-                    session_name, contact_phone, product_results
-                )
+                if is_product_inquiry and product_results:
+                    self._send_product_image(
+                        session_name, contact_phone, product_results
+                    )
 
-            send_typing_indicator(session_name, contact_phone, typing=False)
+                send_typing_indicator(session_name, contact_phone, typing=False)
+
+            elif source_channel == "instagram":
+                from oneai_reach.infrastructure.messaging.channels.instagram_sender import InstagramSender
+                sender = InstagramSender(wa_number_id)
+                sender.send(contact_phone, response_text)
+
+            elif source_channel == "twitter":
+                from oneai_reach.infrastructure.messaging.channels.twitter_sender import TwitterSender
+                sender = TwitterSender(wa_number_id)
+                sender.send(contact_phone, response_text)
 
         self.conversation_service.add_message(
             conv_id, direction="out", message_text=response_text

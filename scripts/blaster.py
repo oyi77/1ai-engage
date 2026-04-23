@@ -13,7 +13,7 @@ from datetime import datetime, timedelta, timezone
 import pandas as pd
 
 from leads import load_leads, save_leads
-from senders import send_email, send_whatsapp
+from senders import send_email, send_whatsapp, send_instagram, send_twitter
 from utils import draft_path, is_empty, parse_display_name
 
 PROPOSAL_SUBJECT = "Collaboration Proposal from BerkahKarya"
@@ -66,6 +66,8 @@ def blast() -> None:
         phone = str(
             row.get("internationalPhoneNumber") or row.get("phone") or ""
         ).strip()
+        ig_handle = str(row.get("instagram") or "").strip().lstrip("@")
+        tw_handle = str(row.get("twitter") or "").strip().lstrip("@")
         if is_empty(email):
             email = ""
         if is_empty(phone):
@@ -87,6 +89,8 @@ def blast() -> None:
         print(f"\nProcessing: {name}")
         wa_sent = False
         email_sent = False
+        ig_sent = False
+        tw_sent = False
 
         if phone:
             wa_sent = send_whatsapp(phone, wa_draft)
@@ -94,7 +98,13 @@ def blast() -> None:
         if email:
             email_sent = send_email(email, PROPOSAL_SUBJECT, proposal)
 
-        if wa_sent or email_sent:
+        if ig_handle:
+            ig_sent = send_instagram(ig_handle, wa_draft)
+
+        if tw_handle:
+            tw_sent = send_twitter(tw_handle, wa_draft)
+
+        if wa_sent or email_sent or ig_sent or tw_sent:
             df.at[index, "status"] = "contacted"
             df.at[index, "contacted_at"] = datetime.now(timezone.utc).isoformat()
             sent += 1

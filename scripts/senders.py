@@ -31,6 +31,85 @@ from config import (
 )
 from utils import is_empty
 
+# ---------------------------------------------------------------------------
+# Multi-channel (Instagram / Twitter) integration
+# ---------------------------------------------------------------------------
+# The channel senders live in src/ but pipeline scripts import from scripts/.
+# We lazily bridge them here so scripts/senders.py can route to IG/Twitter too.
+
+_CHANNELS_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "channels")
+
+
+def _channel_enabled(channel: str, wa_number_id: str) -> bool:
+    """Check if a channel is enabled for a given WA number."""
+    import json as _json
+    cfg_path = os.path.join(_CHANNELS_ROOT, channel, wa_number_id, "config.json")
+    if not os.path.exists(cfg_path):
+        return False
+    try:
+        cfg = _json.loads(open(cfg_path).read())
+        return cfg.get("enabled", False) and bool(cfg.get("cookies"))
+    except Exception:
+        return False
+
+
+def send_instagram(username: str, message: str, wa_number_id: str = "default") -> bool:
+    """Send an Instagram DM via instagrapi (cookie-based auth).
+
+    Requires the Instagram channel to be enabled and cookies configured
+    through the dashboard /api/v1/channels endpoint.
+    """
+    if not _channel_enabled("instagram", wa_number_id):
+        print(f"Skip Instagram: channel not enabled/configured for {wa_number_id}")
+        return False
+    try:
+        src_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "src")
+        if src_dir not in sys.path:
+            sys.path.insert(0, src_dir)
+        from oneai_reach.infrastructure.messaging.channels.instagram_sender import InstagramSender
+        sender = InstagramSender(wa_number_id)
+        ok = sender.send(username, message)
+        if ok:
+            print(f"✅ Instagram DM sent to @{username}")
+        else:
+            print(f"❌ Instagram DM failed for @{username}")
+        return ok
+    except ImportError:
+        print("❌ instagrapi not installed. Run: pip install instagrapi")
+        return False
+    except Exception as e:
+        print(f"❌ Instagram send error: {e}")
+        return False
+
+
+def send_twitter(username: str, message: str, wa_number_id: str = "default") -> bool:
+    """Send a Twitter/X DM via tweety-ns (cookie-based auth).
+
+    Requires the Twitter channel to be enabled and cookies configured
+    through the dashboard /api/v1/channels endpoint.
+    """
+    if not _channel_enabled("twitter", wa_number_id):
+        print(f"Skip Twitter: channel not enabled/configured for {wa_number_id}")
+        return False
+    try:
+        src_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "src")
+        if src_dir not in sys.path:
+            sys.path.insert(0, src_dir)
+        from oneai_reach.infrastructure.messaging.channels.twitter_sender import TwitterSender
+        sender = TwitterSender(wa_number_id)
+        ok = sender.send(username, message)
+        if ok:
+            print(f"✅ Twitter DM sent to @{username}")
+        else:
+            print(f"❌ Twitter DM failed for @{username}")
+        return ok
+    except ImportError:
+        print("❌ tweety-ns not installed. Run: pip install tweety-ns")
+        return False
+    except Exception as e:
+        print(f"❌ Twitter send error: {e}")
+        return False
+
 EMAIL_QUEUE_LOG = str(LOGS_DIR / "email_queue.log")
 
 

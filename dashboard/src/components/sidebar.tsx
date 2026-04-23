@@ -17,6 +17,7 @@ import {
   Search,
   Brain,
   BarChart3,
+  Radio,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -30,6 +31,7 @@ const NAV_ITEMS = [
   { href: "/analytics", label: "Analytics", icon: BarChart3 },
   { href: "/conversations", label: "Conversations", icon: MessageSquare },
   { href: "/wa-numbers", label: "WA Numbers", icon: Phone },
+  { href: "/channels", label: "Channels", icon: Radio },
   { href: "/outreach-tracker", label: "Outreach Tracker", icon: Search },
   { href: "/kb", label: "Knowledge Base", icon: BookOpen },
   { href: "/products", label: "Products", icon: Package },
