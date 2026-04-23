@@ -1,0 +1,28 @@
+---PROPOSAL---
+
+Subject: Turning Anomali Coffee's Online Store Into a Real Revenue Channel
+
+Hi Anomali Coffee Team,
+
+I noticed that Anomali Coffee is running an online store at store.anomalicoffee.com — which already puts you ahead of most specialty coffee brands in Jakarta. But visiting the store, it's clear there's a significant gap between the quality of coffee you're serving on Senopati and the experience customers get when they land on your digital storefront. For a brand with your reputation in the Jakarta specialty coffee scene, that gap is costing you repeat orders and loyalty.
+
+Here are two concrete things we'd fix immediately:
+
+**1. E-Commerce Conversion Overhaul + Subscription Flow**
+Your online store likely has a high drop-off rate because most coffee e-commerce sites in Indonesia aren't built around the "replenishment" habit — people run out of beans and forget to reorder. We'd redesign your product pages and checkout flow specifically for conversion, and layer in a coffee subscription module (weekly/bi-weekly bean delivery) built on WooCommerce or a custom stack. Brands that add a subscription tier typically see a 25–40% increase in monthly recurring revenue within the first 90 days. Deliverables: redesigned storefront, subscription checkout, automated order confirmation + reminder emails.
+
+**2. WhatsApp Automation for Order Follow-Up & Loyalty**
+Right now, every customer who buys from your store is essentially a one-time transaction with no follow-up. We'd connect your store to a WhatsApp Business API workflow that automatically sends a brew guide after purchase, a reorder reminder at day 20, and a loyalty reward nudge at the third order. This alone typically cuts customer churn by 30% and brings customers back without any ad spend. Deliverables: WhatsApp Business API integration, 3-sequence automated flow, loyalty trigger logic.
+
+Both solutions can be scoped and launched within 6 weeks.
+
+I'd love to walk you through a quick audit of your current store — no commitment needed. Would you have 15 minutes this week for a call?
+
+Warm regards,
+**Vilona**
+Solution Architect — BerkahKarya
+vilona@berkahkarya.com
+
+---WHATSAPP---
+
+Halo Anomali Coffee! Saya Vilona dari BerkahKarya. Saya sempat cek online store kalian di store.anomalicoffee.com dan ada beberapa hal kecil yang kalau dibenahi bisa langsung naikin repeat order secara signifikan — terutama soal follow-up pelanggan setelah beli. Boleh ngobrol 15 menit santai minggu ini? 😊

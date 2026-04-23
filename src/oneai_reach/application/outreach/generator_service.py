@@ -326,14 +326,25 @@ class GeneratorService:
             print("=" * 72)
             return ""
 
-        # LLM chain: claude → gemini → oracle
-        tools = [
-            ("claude", ["claude", "-p", "--model", self.generator_model], True),
-            ("gemini", ["gemini", "ask", full_prompt], False),
-            ("oracle", ["oracle", full_prompt], False),
+        # LLM chain: Omniroute API → CLI fallback
+        models = [
+            ("omniroute/glm-5.1", "ollama-cloud/glm-5.1"),
+            ("omniroute/deepseek-v3.2", "ollama-cloud/deepseek-v3.2"),
         ]
 
-        for tool, cmd, use_stdin in tools:
+        for label, model_id in models:
+            try:
+                result = self._call_omniroute(full_prompt, model_id)
+                if result:
+                    logger.info(f"Successfully generated proposal using {label}")
+                    return result
+            except Exception as e:
+                logger.warning(f"{label} failed: {e}")
+
+        # CLI fallback
+        for tool, cmd, use_stdin in [
+            ("claude", ["claude", "-p", "--model", self.generator_model], True),
+        ]:
             try:
                 kwargs = dict(capture_output=True, text=True, timeout=90)
                 if use_stdin:
@@ -386,6 +397,28 @@ class GeneratorService:
         logger.info(f"Saved proposal to {path}")
 
         return path
+
+    @staticmethod
+    def _call_omniroute(prompt: str, model: str, max_tokens: int = 4096, timeout: int = 120) -> Optional[str]:
+        try:
+            import requests
+            resp = requests.post(
+                "http://localhost:20128/v1/chat/completions",
+                json={
+                    "model": model,
+                    "messages": [{"role": "user", "content": prompt}],
+                    "max_tokens": max_tokens,
+                    "temperature": 0.7,
+                },
+                timeout=timeout,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            content = data.get("choices", [{}])[0].get("message", {}).get("content", "")
+            return content.strip() if content else None
+        except Exception as e:
+            logger.warning(f"Omniroute call failed for {model}: {e}")
+            return None
 
     @staticmethod
     def _is_empty(value) -> bool:

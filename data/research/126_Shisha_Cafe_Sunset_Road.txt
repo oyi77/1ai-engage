@@ -1,0 +1,8 @@
+# Prospect Research: Shisha Cafe Sunset Road
+Services detected: AI
+Tech stack: wordpress, google_analytics
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No visible client testimonials or case studies
+  - Weak or missing call-to-action
+  - No portfolio / 'our work' section

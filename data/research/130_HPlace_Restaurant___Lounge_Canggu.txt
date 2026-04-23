@@ -1,0 +1,7 @@
+# Prospect Research: HPlace Restaurant & Lounge Canggu
+Services detected: AI
+Tech stack: shopify, react, next.js, google_ads
+Observed gaps/pain points:
+  - No visible client testimonials or case studies
+  - Weak or missing call-to-action
+  - No portfolio / 'our work' section

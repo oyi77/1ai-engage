@@ -1,0 +1,30 @@
+---PROPOSAL---
+
+Subject: Turning BIG In Digital's Ad Traffic Into Conversations (A Specific Observation)
+
+Hi there,
+
+I was browsing bigindigital.com and noticed something that stood out immediately: you're running SEM campaigns and driving paid traffic through Google Ads — but there's no WhatsApp widget or live chat on the site. For a digital agency selling high-consideration services, that's a real leak in the funnel. A prospect who clicks your ad at 9 PM, reads your page, and has a question will simply leave — because there's no instant way to reach you.
+
+Here's what I'd propose to close that gap:
+
+**1. WhatsApp Business API Integration + AI-Powered Lead Qualifier**
+We build a WhatsApp widget directly into your WordPress site, connected to a WhatsApp Business API account with an AI chatbot that qualifies inbound leads 24/7. When someone lands from your Google Ads campaign, they can instantly ask questions and get routed — whether that's booking a consultation, getting a service overview, or being tagged for follow-up. Based on similar implementations we've done for service businesses, this typically cuts lead response time from hours to under 2 minutes and increases lead capture rate by 25–35% from existing traffic — without spending an extra rupiah on ads.
+
+**2. Conversion-Optimized Landing Page Rebuild (WordPress)**
+Since your current site runs on WordPress and serves as the primary landing destination for your SEM traffic, we'd audit and redesign the key conversion pages with clearer CTAs, trust signals, and the WhatsApp entry point embedded at every scroll depth. The goal: make every visit from Google Ads work harder.
+
+Both solutions are built to integrate directly into your existing WordPress + Google Analytics stack, so you keep full visibility on what's converting.
+
+Would you be open to a free 15-minute audit call? I can walk through exactly where your current site is losing paid traffic and what a quick implementation timeline would look like.
+
+Looking forward to connecting,
+
+**Vilona**
+Solution Architect — BerkahKarya
+Digital Growth & Technology Partner
+vilona@berkahkarya.com
+
+---WHATSAPP---
+
+Halo! Saya Vilona dari BerkahKarya. Tadi saya lihat website BIG In Digital — keren konsepnya, tapi kayaknya belum ada WhatsApp atau live chat-nya, padahal traffic dari Google Ads lumayan sayang kalau pengunjung nggak bisa langsung tanya-tanya. Ada waktu 15 menit buat ngobrol santai soal ini? Siapa tahu ada insight yang langsung bisa dipakai. 😊

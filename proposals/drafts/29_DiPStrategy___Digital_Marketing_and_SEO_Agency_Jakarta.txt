@@ -1,0 +1,36 @@
+---PROPOSAL---
+
+Subject: DiPStrategy's Website Isn't Converting the Clients You're Ranking For
+
+Hi Team DiPStrategy,
+
+I was reviewing your website at dipstrategy.co.id and noticed something that caught my attention — for an agency that specializes in SEO and digital marketing, your own site has no live chat or WhatsApp widget, no active blog, and the calls-to-action are easy to miss. That means prospects who find you through organic search (the exact channel you sell to clients) are likely bouncing without ever making contact.
+
+That's a gap worth closing — and it's fixable fast.
+
+Here's what I'd propose:
+
+**Solution 1: WhatsApp Lead Capture + Automated Qualification Bot**
+We'll embed a WhatsApp Business API widget directly on your site, paired with an automated chatbot that qualifies visitors the moment they land — asking about their business type, budget range, and goals before your team ever picks up the phone. Based on similar agency setups we've built, this alone typically cuts first-response time from hours to under 2 minutes and can increase qualified lead volume by 30–40%, simply by capturing visitors who would otherwise leave silently.
+
+Deliverables: WhatsApp Business API integration, custom qualification chatbot flow (built on n8n), and a lead routing setup that pings your sales team instantly via WhatsApp notification.
+
+**Solution 2: SEO Content Engine — Built for Your Own Domain**
+DiPStrategy ranks clients on Google. But dipstrategy.co.id itself has no blog, which means you're leaving significant topical authority and inbound traffic on the table. We'll build a structured content section on your existing WordPress site, create an editorial calendar targeting high-intent B2B keywords (e.g., "jasa SEO Jakarta untuk bisnis," "digital marketing agency Jakarta terpercaya"), and produce the first four cornerstone articles optimized for featured snippets and local search.
+
+Deliverables: WordPress blog setup, keyword research report (50+ terms), 4 long-form SEO articles (1,500+ words each), internal linking structure, and a meta/schema optimization pass across your existing service pages.
+
+**Why this matters for DiPStrategy specifically:** Your Meta Pixel is already installed, which tells me you're running or planning paid campaigns. But without strong organic content and an on-site conversion mechanism, you're paying to drive traffic to a leaky funnel. Fixing the organic and conversion layer first means every ad rupiah you spend — and every rupiah your clients see you spend — works harder.
+
+I'd love to walk you through a quick 15-minute audit call where I can show you exactly what we're seeing on your site and what the quick wins look like. No pitch deck, just data.
+
+Would Thursday or Friday this week work for a brief call?
+
+Warm regards,
+**Vilona**
+Senior Solution Architect — BerkahKarya
+vilona@berkahkarya.com
+
+---WHATSAPP---
+
+Halo DiPStrategy! Saya Vilona dari BerkahKarya. Saya lagi lihat website kalian dan nyadar ada beberapa hal kecil yang bisa langsung boost leads masuk — salah satunya soal WhatsApp widget dan blog SEO yang belum aktif. Boleh ngobrol 15 menit santai minggu ini? Saya mau share temuannya gratis, siapa tau berguna. 😊

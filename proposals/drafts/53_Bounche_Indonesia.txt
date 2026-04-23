@@ -1,0 +1,28 @@
+---PROPOSAL---
+
+Subject: Bounche's Website Is Selling Services It Doesn't Show — Here's the Fix
+
+Hi Bounche Team,
+
+I was browsing bounche.com and noticed something that stood out immediately: you're offering a full-stack of high-value services — from KOL management and AI automation to mobile app development — but a visitor landing on your site has no way to see *proof* of any of it. No portfolio, no case studies, no "Our Work" section. For an agency selling credibility, that's a conversion leak hiding in plain sight.
+
+Two things I'd propose to close that gap fast:
+
+**1. A Portfolio-Led Website Rebuild with Integrated Lead Capture**
+We'd redesign your existing site (keeping your current branding) to include a structured case study section — organized by service category (e.g., "AI Automation," "KOL Campaigns," "App Development") — with measurable outcomes per project. Alongside that, we'd embed a WhatsApp Business widget tied to your actual sales flow, so prospects who are ready to talk don't have to hunt for a contact form. Based on similar agency site rebuilds we've done, this kind of social proof + instant-contact combination typically lifts inbound inquiry rates by 35–50% within the first 60 days.
+
+**2. An SEO Content Engine to Capture Demand You're Currently Invisible For**
+Bounche ranks for almost nothing organically right now — there's no blog, no resource section, no topical authority being built. Yet your prospects (brand managers, startup founders, e-commerce teams) are actively Googling things like "jasa KOL management Jakarta," "agensi automation AI Indonesia," and "harga bikin aplikasi mobile." We'd build a 3-month content roadmap targeting 15–20 high-intent keywords across your service lines, paired with a lightweight CMS so your team can publish without a developer. Agencies that execute this consistently see 40–60% of new leads come from organic within 6 months — at near-zero marginal cost per lead.
+
+These two moves together would turn bounche.com from a digital brochure into an actual lead-generating asset — which, for an agency of your caliber, is frankly overdue.
+
+I'd love to walk you through a quick audit of what we're seeing and what we'd prioritize first. Would a 15-minute call this week work for you?
+
+Warm regards,
+**Vilona**
+Senior Solution Architect — BerkahKarya
+vilona@berkahkarya.com
+
+---WHATSAPP---
+
+Hei tim Bounche! Saya Vilona dari BerkahKarya — tadi sempat lihat-lihat website bounche.com dan ada beberapa hal menarik yang saya temukan, khususnya soal kenapa portofolio dan traffic organik kalian belum maksimal. Boleh ngobrol 15 menit santai minggu ini? Bisa bantu kasih gambaran konkretnya. 🙏

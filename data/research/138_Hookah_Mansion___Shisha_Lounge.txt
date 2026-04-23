@@ -1,0 +1,8 @@
+# Prospect Research: Hookah Mansion - Shisha Lounge
+Services detected: AI
+Tech stack: shopify, react
+Observed gaps/pain points:
+  - No blog or content section (missing organic SEO leverage)
+  - No visible client testimonials or case studies
+  - Weak or missing call-to-action
+  - No portfolio / 'our work' section

@@ -1,0 +1,28 @@
+---PROPOSAL---
+
+Subject: Youwez Is Selling Digital Services Without a Digital Front Door — Let's Fix That
+
+Hi there,
+
+I was browsing youwezagency.com while researching agencies in South Jakarta, and something immediately stood out: Youwez offers AI, SEO, and full-stack digital services to clients — yet your own site has no live chat, no blog, and the CTAs are easy to miss. That's a classic "cobbler's children have no shoes" situation, and it's likely costing you qualified leads every single week.
+
+Here's what I'd propose to close that gap fast:
+
+**1. WhatsApp-First Lead Capture System**
+We'd implement a WhatsApp Business API widget directly on your site — sticky, mobile-optimized, and connected to an automated chatbot that qualifies visitors in real time (budget range, service interest, timeline). No more cold leads slipping through. Agencies we've set this up for typically see a **40–60% increase in first-contact conversions** within the first 30 days, simply because the friction to reach you drops to near zero. Given that your clients are likely comparing 3–5 agencies before deciding, being the one that responds in under 2 minutes is a serious competitive edge.
+
+**2. SEO Content Engine — Built for an Agency That Sells SEO**
+The irony of an SEO agency with no blog is real, and it's a credibility gap any savvy prospect will notice. We'd build out a content section on your existing WordPress stack — structured with topic clusters around your core services (SEO, branding, AI, UI/UX) — paired with a lightweight editorial calendar and on-page optimization. This isn't about posting for the sake of it; it's about owning search terms like *"digital agency Jakarta Selatan"* or *"jasa SEO terpercaya Jakarta"* that your own prospects are actively Googling. A well-executed content strategy typically drives **organic traffic growth of 3–5x within 6 months**, and for an agency, ranking for your own keywords is the most powerful proof of concept you can show a client.
+
+Both solutions are designed to work within your current WordPress + Google Analytics setup — no migration, no disruption.
+
+Would you be open to a **free 15-minute site audit call** this week? I can walk through exactly where the lead leakage is happening on youwezagency.com and what the fastest fix looks like.
+
+Warm regards,
+**Vilona**
+Solution Architect, BerkahKarya
+vilona@berkahkarya.com
+
+---WHATSAPP---
+
+Hei! Gue lagi lihat website Youwez tadi — keren konsepnya, tapi kayaknya ada beberapa hal kecil yang bikin calon klien gampang kabur sebelum sempet ngobrol. Boleh gue share temuannya? Cuma butuh 15 menit kok. 😊

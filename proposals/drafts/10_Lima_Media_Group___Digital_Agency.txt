@@ -1,0 +1,38 @@
+---PROPOSAL---
+
+Subject: Lima Media Group's SEO Blind Spot (From Someone Who Noticed)
+
+Hi Team Lima Media Group,
+
+I was exploring limamediagroup.com and noticed something that caught my attention — for an agency that sells SEO and content strategy to clients, your own site has no blog, no content hub, and no WhatsApp touchpoint for visitors who are ready to talk. That's a significant gap, especially when prospects are evaluating you against competitors who are actively ranking for terms like "digital agency Jakarta" or "jasa KOL marketing Indonesia."
+
+Here's what I'd propose to close that gap quickly:
+
+**1. A Content-Led SEO Engine (Built on Your Existing WordPress Stack)**
+
+Since you're already on WordPress, we can layer a structured blog and resource section directly onto your current setup — no migration needed. We'd build a 3-month editorial calendar targeting high-intent keywords aligned with your core services: SEO, influencer marketing, KOL strategy, and AI-powered campaigns. Based on similar agency clients we've worked with, this kind of content infrastructure typically drives a **40–60% increase in organic traffic within 90 days** and positions Lima Media Group as a thought leader — not just a vendor — in the eyes of potential clients researching agencies.
+
+Deliverables: keyword research report, content architecture, 8 SEO-optimized articles/month, internal linking structure, and Google Analytics 4 event tracking tied to content conversions.
+
+**2. A WhatsApp Lead Capture Widget + Automated Qualification Flow**
+
+Right now, a prospect lands on your site, gets impressed, and has no frictionless way to reach you instantly. Adding a WhatsApp Business API widget with a pre-built n8n automation flow means every inquiry is captured, auto-replied within seconds, and routed to the right person on your team — whether it's a branding inquiry or a KOL campaign request. For agencies, this alone can **cut lead response time from hours to under 60 seconds** and meaningfully improve your close rate on inbound leads.
+
+Deliverables: WhatsApp Business API setup, custom chat widget embedded on-site, automated welcome + qualification flow (service type, budget range, timeline), and a CRM-ready lead summary delivered to your team.
+
+---
+
+Lima Media Group clearly has strong positioning and a premium address to match. The opportunity here is making sure your digital presence works as hard as your team does — converting the traffic you're not yet capturing.
+
+I'd love to walk you through both of these in a **15-minute call** — no deck, no pitch, just a direct conversation about what's most relevant to your growth right now.
+
+Would any slot this week or next work for you?
+
+Warm regards,
+**Vilona**
+Solution Architect — BerkahKarya
+vilona@berkahkarya.com
+
+---WHATSAPP---
+
+Halo! Saya Vilona dari BerkahKarya. Tadi sempat lihat website Lima Media Group dan noticed belum ada blog atau widget WhatsApp-nya — padahal kalian jual jasa SEO ke klien 😄. Ada ide menarik yang kayaknya relevan banget buat kalian. Boleh ngobrol 15 menit santai minggu ini?

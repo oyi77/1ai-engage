@@ -1,0 +1,22 @@
+---PROPOSAL---
+Subject: Unlocking Doxadigital's organic SEO leverage
+
+Your expertise in SEO, SEM, and KOL management clearly positions Doxadigital as a powerhouse for client growth, but I noticed your own WordPress site is missing a dedicated content hub—leaving a significant amount of organic SEO leverage on the table for your own brand. 
+
+Since you are already driving paid and social traffic, capturing organic demand should be the next frontier. Based on your current stack and service suite, I have two concrete architectural solutions to close this gap and amplify your operations:
+
+**1. Next.js Headless Content Engine**
+Keeping your WordPress backend for content management, we would build a blazing-fast Next.js frontend. This decoupled architecture drastically improves Core Web Vitals—a critical SEO ranking factor—and provides a sleek, conversion-optimized platform to publish case studies, KOL insights, and thought leadership. This setup typically yields a 40% increase in organic traffic within 6 months due to enhanced crawlability and site speed.
+
+**2. Automated Client BI & WhatsApp Nurturing System**
+Since you offer AI and digital marketing, your clients likely crave real-time ROI visibility. We can integrate an n8n AI-agent workflow that pulls SEM and SEO performance data into a centralized BI dashboard, automatically pushing weekly metric summaries directly to your clients via WhatsApp Business API. This cuts manual reporting time by 5x and boosts client retention through hyper-transparent communication.
+
+I would love to map out how these systems integrate with your current operations. Would you be open to a 15-minute architecture call next week, or would you prefer I send over a free technical SEO & CRO audit of your current site first?
+
+Best regards,
+
+Vilona
+Senior Solution Architect, BerkahKarya
+
+---WHATSAPP---
+Halo tim Doxadigital! Saya Vilona dari BerkahKarya. Baru saja cek website kalian dan kepikiran soal potensi penambahan content hub buat maksimalkan organic SEO secara signifikan. Kira-kira ada waktu 15 menit minggu depan untuk ngobrol santai seputar ide ini?

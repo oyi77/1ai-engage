@@ -1,0 +1,22 @@
+---PROPOSAL---
+I noticed something interesting about SDBI — you're helping clients scale through Google Ads and social media, yet your own website doesn't have a WhatsApp widget or live chat. It's like a chef who cooks amazing food but serves it on paper plates.
+
+Here's what I'd propose to close that gap:
+
+**1. WhatsApp Business API Integration with AI Chatbot**
+- Deliverables: WhatsApp widget embedded on your site + conversational AI that handles initial qualification (budget, services needed, timeline) and books calls directly into your calendar
+- ROI: Agencies with chat capture 3x more leads during off-hours, and your AI can filter tire-kickers so your team only talks to qualified prospects
+
+**2. Content Marketing Hub with SEO Foundation**
+- Deliverables: WordPress blog section + 6-8 pillar posts on "Digital Marketing for Indonesian Businesses" with structured Schema markup + keyword strategy
+- ROI: A single well-optimized pillar post can generate 30-50+ organic leads/month at $0 CAC — plus it gives you case study fodder to showcase your SEO expertise to clients
+
+You're already using Meta Pixel and Google Analytics — we'd plug the blog directly into that tracking stack so you can prove ROI to clients with real data.
+
+Interested in a 15-minute chat? I can show you how other agencies have used this approach to double their qualified pipeline.
+
+Best,
+Vilona
+BerkahKarya
+---WHATSAPP---
+Halo! SDBI udah keren banget nih bantu client lewat Google Ads dan social media. Cuma ada satu gap: websitenya belum ada live chat atau WhatsApp widget. Aku dari BerkahKarya bisa bantu pasangin WhatsApp Business API plus AI chatbot biar lead datang terus, bahkan jam off-hours. Mau ngobrol 15 menit? Gue bisa jelasin detailnya!

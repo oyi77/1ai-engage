@@ -1,0 +1,42 @@
+---PROPOSAL---
+
+Subject: How Doremindo Can Convert More Media Buyers — Without Adding Headcount
+
+Hi Doremindo Marketing Team,
+
+I noticed something interesting while looking at your website: Doremindo sits at a unique intersection — you offer everything from print and radio placements to SEM and KOL campaigns, which means your prospects are often high-intent media buyers comparing multiple vendors at once. Yet your current site runs on WordPress without any visible lead qualification layer or automated follow-up system. That's a significant revenue leak for an agency that likely handles proposals worth tens of millions of rupiah per client.
+
+Here's the specific gap I see — and two ways we can close it:
+
+**1. AI-Powered Lead Qualification & WhatsApp Chatbot**
+
+Right now, a prospect landing on doremindo.co.id fills out a form (if they bother) and waits. In the media buying world, the agency that responds first usually wins the brief. We can build a WhatsApp Business API chatbot that:
+- Automatically qualifies inbound leads by budget range, media type (TV, digital, print), and campaign timeline
+- Routes high-value prospects directly to your account managers within 60 seconds
+- Sends a personalized media package PDF based on their answers — no human intervention needed
+
+Agencies using this kind of automated qualification typically cut their lead response time from 24 hours down to under 2 minutes, and see a **25–40% improvement in proposal conversion rate** simply because they're first to engage.
+
+**2. Conversion-Optimized Landing Pages per Media Channel**
+
+Your current site tries to serve every audience — print advertisers, radio clients, digital buyers — on a single homepage. This dilutes your message. We can build dedicated landing pages for your top 2–3 services (e.g., "Pasang Iklan TV Nasional" and "Paket SEM + KOL Terintegrasi") with:
+- Clear value propositions tailored to each buyer persona
+- Google Analytics 4 event tracking (building on your existing GA setup) to measure which traffic sources actually convert
+- A/B tested CTAs designed for media agency sales cycles
+
+A focused landing page typically outperforms a general homepage by **50–70% in lead capture rate** for service businesses with multiple offerings.
+
+**Why this makes sense for Doremindo specifically:** You already have the media inventory and the client relationships. The bottleneck isn't your service — it's the speed and quality of the first touchpoint. These two solutions directly address that without requiring you to hire additional sales staff.
+
+I'd love to walk you through a quick audit of your current lead flow and show you exactly where the drop-off is happening. Would you be open to a 15-minute call this week? I can also prepare a free conversion audit of your homepage before we talk, so you have something concrete to review.
+
+Looking forward to hearing from you.
+
+Warm regards,
+**Vilona**
+Senior Solution Architect — BerkahKarya
+vilona@berkahkarya.com
+
+---WHATSAPP---
+
+Halo kak, saya Vilona dari BerkahKarya. Lagi lihat website Doremindo dan nyadar ada peluang menarik — prospek yang masuk ke website-nya bisa direspons otomatis lewat WhatsApp dalam hitungan detik, tanpa nunggu tim sales aktif. Lumayan bisa ningkatin closing rate-nya. Boleh ngobrol 15 menit santai minggu ini kak? 😊

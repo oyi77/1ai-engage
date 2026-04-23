@@ -1,0 +1,30 @@
+---PROPOSAL---
+
+Subject: Mediate Indonesia's SEM & KOL Work Deserves a Faster Lead Capture System
+
+Hi Team Mediate,
+
+I noticed that Mediate Indonesia is running SEM campaigns and KOL activations — which means you're actively driving traffic to your site. But here's the gap: visitors who land on mediate.co.id have no immediate way to start a conversation. No live chat, no WhatsApp widget. In performance marketing, that friction alone can cost you 25–40% of warm leads who simply leave before filling out a form.
+
+For a service business operating at the MNC Group level, that's a significant leak in an otherwise strong top-of-funnel strategy.
+
+Here's what I'd propose:
+
+**Solution 1: WhatsApp Business API Integration + Intelligent Lead Capture Widget**
+We build a WhatsApp-powered chat widget directly into your WordPress site — no page rebuild needed. When a prospect clicks from your SEM ad or a KOL's link and lands on your site, they're greeted with a contextual prompt (e.g., "Looking for SEM or KOL services? Chat with us now"). The conversation is routed automatically based on service interest, and your team gets a qualified lead — name, company, and intent — before they even pick up the phone. Based on similar implementations, clients see response time cut by 5x and a 30%+ increase in inbound lead conversion from paid traffic.
+
+**Solution 2: AI-Powered Lead Qualification Chatbot (Layered on WhatsApp)**
+Since Mediate already positions AI as part of its service offering, it makes sense to demonstrate that capability internally. We can layer a lightweight AI agent onto the WhatsApp flow that pre-qualifies leads 24/7 — asking the right discovery questions, scoring intent, and passing hot leads directly to your sales team via CRM or even a Slack/WhatsApp group notification. This means your team wakes up to qualified conversations, not cold inquiries.
+
+Both solutions work within your existing WordPress + Google Analytics setup, and we can instrument the WhatsApp touchpoint directly into your GA4 funnel so you get full attribution from ad click to conversation.
+
+I'd love to show you a quick demo of how this would look on mediate.co.id specifically. Would a 15-minute call this week work for you?
+
+Warm regards,
+**Vilona**
+Solution Architect, BerkahKarya
+vilona@berkahkarya.com
+
+---WHATSAPP---
+
+Hei, saya Vilona dari BerkahKarya. Lagi lihat website Mediate Indonesia — kontennya bagus, tapi kayaknya belum ada tombol WhatsApp atau live chat buat pengunjung yang mau langsung tanya-tanya. Padahal sayang banget kalau traffic dari SEM-nya udah bagus tapi leadnya "bocor" di sini. Boleh ngobrol 15 menit soal ini? 😊

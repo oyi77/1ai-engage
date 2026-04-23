@@ -67,17 +67,22 @@ class ReviewerService:
         )
 
     def call_claude(self, prompt: str) -> Optional[str]:
-        """Call Claude CLI to review proposal.
+        """Call LLM to review proposal (Omniroute first, CLI fallback).
 
         Args:
             prompt: Review prompt
 
         Returns:
-            Claude's response or None if call fails
+            LLM response or None if all calls fail
 
         Raises:
-            ExternalAPIError: If Claude call fails
+            ExternalAPIError: If all LLM calls fail
         """
+        result = self._call_omniroute(prompt)
+        if result:
+            logger.debug("Successfully called Omniroute for review")
+            return result
+
         try:
             result = subprocess.run(
                 ["claude", "-p", "--model", self.reviewer_model],
@@ -87,7 +92,7 @@ class ReviewerService:
                 timeout=60,
             )
             if result.returncode == 0 and result.stdout.strip():
-                logger.debug("Successfully called Claude for review")
+                logger.debug("Successfully called Claude CLI for review")
                 return result.stdout.strip()
 
             logger.warning(
@@ -125,6 +130,28 @@ class ReviewerService:
                 status_code=0,
                 reason=str(e),
             )
+
+    @staticmethod
+    def _call_omniroute(prompt: str, model: str = "ollama-cloud/glm-5.1", max_tokens: int = 512, timeout: int = 120) -> Optional[str]:
+        try:
+            import requests
+            resp = requests.post(
+                "http://localhost:20128/v1/chat/completions",
+                json={
+                    "model": model,
+                    "messages": [{"role": "user", "content": prompt}],
+                    "max_tokens": max_tokens,
+                    "temperature": 0.7,
+                },
+                timeout=timeout,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            content = data.get("choices", [{}])[0].get("message", {}).get("content", "")
+            return content.strip() if content else None
+        except Exception as e:
+            logger.warning(f"Omniroute review call failed: {e}")
+            return None
 
     def parse_review_output(self, output: str) -> Dict[str, any]:
         """Parse Claude's review output into structured data.

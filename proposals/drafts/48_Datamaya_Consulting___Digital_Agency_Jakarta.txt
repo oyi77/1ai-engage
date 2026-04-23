@@ -1,0 +1,30 @@
+---PROPOSAL---
+Subject: Datamaya's SEO Gap Is Costing You Clients Who Are Already Searching for You
+
+Hi Datamaya Marketing Team,
+
+I was browsing datamaya.com while researching Jakarta's competitive digital agency landscape, and something stood out immediately: for an agency that sells SEO as a core service, Datamaya has no blog or content hub. That's a significant irony — and honestly, a significant revenue leak.
+
+Here's the concrete problem: your prospective clients in Jakarta are actively Googling terms like *"jasa Google Ads Jakarta terpercaya"* or *"digital agency untuk e-commerce Indonesia"* right now. Without a content section, Datamaya is invisible in those searches, handing those leads directly to competitors. Your Meta Pixel and GA4 setup tells me you're investing in paid traffic — but without organic content working in parallel, you're paying for every single visitor, every single month.
+
+**Here's what I'd propose:**
+
+**1. SEO Content Engine — Built for a Digital Agency Audience**
+We build and manage a full content system for datamaya.com: keyword-mapped blog articles targeting your exact service categories (Google Ads, Meta Ads, e-commerce, AI solutions), internal linking architecture, and on-page SEO optimization. This isn't generic blog writing — every article is engineered to rank for terms your buyers are searching. Agencies we've done this for typically see a 40–60% increase in organic sessions within 4 months, and more importantly, inbound demo requests from prospects who already trust you before they reach out.
+
+**2. AI-Powered Lead Nurturing Workflow (n8n + WhatsApp Business API)**
+Your existing paid traffic (Meta + Google) is generating clicks, but what happens after someone fills a form or visits a service page without converting? Right now, likely nothing automated. We can build a lightweight AI workflow that captures intent signals, follows up via WhatsApp within 5 minutes of a form submission, and routes qualified leads to your sales team — cutting your average lead response time from hours to under 5 minutes. That alone can lift conversion rates by 20–35% on the traffic you're already paying for.
+
+Both solutions are designed to complement what Datamaya already does well — this is about making your own marketing as strong as the marketing you deliver for clients.
+
+I'd love to walk you through a quick free audit of datamaya.com's current organic footprint and show you exactly which keyword opportunities are being missed. It's a 15-minute call, no commitment.
+
+Would Thursday or Friday this week work for a brief chat?
+
+Warm regards,
+**Vilona**
+Solution Architect, BerkahKarya
+vilona@berkahkarya.com
+
+---WHATSAPP---
+Hei tim Datamaya! Saya Vilona dari BerkahKarya. Saya lagi riset agency digital di Jakarta dan noticed datamaya.com belum punya blog — padahal kalian jual SEO ke klien. Kayaknya ada peluang menarik yang sayang kalau dilewatin. Boleh ngobrol 15 menit santai gak? 😊

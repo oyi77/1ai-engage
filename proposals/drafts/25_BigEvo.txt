@@ -1,0 +1,23 @@
+---PROPOSAL---
+Hi BigEvo team,
+
+I noticed you're a full-service digital agency offering everything from SEO to AI, but your current website doesn't showcase that expertise — there's no portfolio or 'our work' section, which makes it hard for prospects to validate your capabilities before reaching out.
+
+I'd like to propose two targeted solutions:
+
+1. **Portfolio & Case Study Website** — We'll build a dedicated section highlighting 3-5 of your best client success stories with metrics (e.g., "SEO campaign increased organic traffic by 40% in 3 months" or "e-commerce conversion rate improved by 25%"). This acts as social proof and typically increases inquiry conversion by 30-50%.
+
+2. **WhatsApp Business API Integration with Lead Capture Widget** — Add a live WhatsApp widget that automatically captures visitor details and routes them to your team. For agencies like yours, this alone can cut response time from hours to under 5 minutes, which is critical when prospects are comparing multiple agencies.
+
+The implementation would include:
+- Modern portfolio section with client logos, results metrics, and brief case write-ups
+- WhatsApp widget with auto-replies and lead qualification questions
+- Integration with your existing CRM or Google Sheets
+
+I'd love to walk you through some portfolio examples we've done for other agencies and show you the WhatsApp widget in action. Would you be open to a 15-minute call this week, or would you prefer we do a quick free audit of your current conversion funnel first?
+
+Best regards,
+Vilona
+BerkahKarya
+---WHATSAPP---
+Halo BigEvo! Saya Vilona dari BerkahKarya. Saya lihat kalian agensi digital komplit tapi belum ada portfolio di website. Kita bisa bikin portfolio section dengan hasil klien plus integrasi WhatsApp buat nangkap lead lebih cepet. Mau ngobrol santai 15 menit nih?

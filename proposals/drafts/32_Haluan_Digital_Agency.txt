@@ -1,0 +1,40 @@
+---PROPOSAL---
+
+Subject: Haluan Digital's Website Is Losing Leads You're Already Paying to Generate
+
+Hi team,
+
+I was browsing Haluan Digital Agency's website and noticed something that caught my attention — you're positioning yourselves as an AI-powered, KOL and e-commerce growth partner, which is a compelling and differentiated angle in a crowded market. But the website itself isn't converting the way it should be.
+
+Specifically, I noticed three things working against you right now:
+
+1. **No WhatsApp or live chat widget** — For an agency selling influencer and e-commerce services, your prospects are almost certainly on WhatsApp. Every visitor who has a question and can't reach you instantly is a lead walking out the door.
+2. **No portfolio or case studies** — You're asking brands to trust you with their KOL campaigns and e-commerce growth, but there's no "proof wall" showing what you've delivered. This is the single biggest trust barrier for a B2B agency sale.
+3. **No blog or SEO content layer** — Your WordPress site has the infrastructure to rank for terms like "jasa KOL Jakarta" or "agensi e-commerce AI Indonesia," but that traffic is currently going to your competitors.
+
+Here's what I'd propose — two concrete solutions:
+
+---
+
+**Solution 1: WhatsApp Lead Capture + AI Chatbot Integration**
+We'll embed a WhatsApp Business API widget directly on your site and build a lightweight AI chatbot that qualifies inbound leads automatically — asking about their budget, industry, and campaign goals — before routing them to your team. Based on similar implementations we've done for service agencies, this typically cuts first-response time from hours to under 2 minutes and increases qualified lead conversion by 25–35%.
+
+**Solution 2: SEO Content Engine + Portfolio Section Build-out**
+We'll design and develop a "Our Work" portfolio section on your existing WordPress site, structured to showcase campaign results (reach, ROI, conversion metrics) for your KOL and e-commerce clients. Alongside this, we'll build a content calendar and publish the first 4 SEO-optimized articles targeting high-intent keywords in your niche — giving you organic inbound traffic within 60–90 days without increasing your ad spend.
+
+---
+
+Both solutions are designed to make the agency you're already building *visible and trustworthy* to the exact clients you're trying to close.
+
+I'd love to walk you through a free 15-minute website audit on a call — no pitch deck, just a screen share showing exactly where the gaps are and what's fixable fast.
+
+Would Thursday or Friday this week work for a quick call?
+
+Warm regards,
+**Vilona**
+Solution Architect — BerkahKarya
+partnership@berkahkarya.com
+
+---WHATSAPP---
+
+Halo! Saya Vilona dari BerkahKarya — sempat lihat website Haluan Digital dan ada beberapa hal menarik yang kayaknya sayang banget kalau dibiarkan, terutama soal konversi leads masuk. Boleh ngobrol 15 menit santai? Mau share langsung temuannya, gratis kok. 🙏

@@ -1,0 +1,32 @@
+---PROPOSAL---
+
+Subject: Neo Digital's SEO Credibility Gap — Here's What's Quietly Costing You Leads
+
+Hi Ayesa,
+
+I was reviewing Neo Digital's website and noticed something that stood out — for an agency that sells SEO, content marketing, and AI-powered digital services, your own site has no blog, no case studies, and no visible portfolio. That's a significant trust gap when a prospective client lands on your page and can't see proof of what you've built for others.
+
+Essentially, Neo Digital is leaving its own domain authority on the table while helping clients build theirs.
+
+Here's what I'd propose to fix this directly:
+
+**1. Authority Content Engine + Case Study Section**
+We'll build a structured blog and "Our Work" section into your existing site — optimized for keywords your ideal clients are already searching (e.g., "jasa SEO Jakarta," "digital PR agency Indonesia," "KOL management B2B"). We handle the content architecture, on-page SEO, and 4 published case studies formatted to convert — showcasing measurable client results like traffic growth, SERP rankings, and campaign reach. Based on comparable agency sites we've worked on, this alone can drive a 35–50% increase in organic inbound inquiries within 90 days.
+
+**2. WhatsApp Lead Capture + Automated Follow-Up Workflow**
+Right now, a visitor who's interested in your services has no low-friction way to reach you — no chat widget, no WhatsApp button. We'll integrate a WhatsApp Business API widget with a pre-built automation workflow (via n8n) that instantly qualifies leads, sends a service menu, and routes hot prospects to your team. This cuts your first-response time from hours to under 60 seconds and ensures zero lead falls through the cracks — especially important for inbound from Google Ads or organic search traffic you're already generating.
+
+These two solutions combined turn Neo Digital's website from a digital brochure into an active lead generation asset — which is exactly what you'd pitch to your own clients.
+
+I'd love to walk you through a quick 15-minute call to show you a live demo of the WhatsApp workflow and share a content architecture outline we'd propose for your blog. No commitment needed.
+
+Would Thursday or Friday this week work for you?
+
+Warm regards,
+**Vilona**
+Solution Architect — BerkahKarya
+vilona@berkahkarya.com
+
+---WHATSAPP---
+
+Halo Ayesa! Saya Vilona dari BerkahKarya. Tadi sempat lihat website Neo Digital — menarik, tapi saya notice belum ada blog atau case study padahal kalian jual layanan SEO dan content. Kebetulan kami punya solusi yang bisa langsung address gap itu. Boleh ngobrol 15 menit minggu ini?

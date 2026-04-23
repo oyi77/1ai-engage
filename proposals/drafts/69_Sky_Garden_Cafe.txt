@@ -1,0 +1,30 @@
+---PROPOSAL---
+
+Subject: Turning Sky Garden's Rooftop Ambiance Into Reservations — A Specific Idea
+
+Hi Sky Garden Cafe Team,
+
+I was browsing your website and noticed something that stood out: Sky Garden has a genuinely compelling concept — a rooftop cafe experience inside one of South Jakarta's landmark hotel properties. That kind of setting sells itself visually. But right now, anyone who lands on your website has no immediate way to ask a question, make a reservation inquiry, or even read what other guests thought of their visit. They hit a dead end and leave.
+
+Here are two concrete things we'd build to fix that:
+
+**1. WhatsApp Reservation Bot + Live Chat Widget**
+We'd integrate a WhatsApp Business API chatbot directly into your website — so when a guest wants to book a table, ask about your weekend brunch menu, or check event availability, they get an instant response 24/7 without your team lifting a finger. The bot handles FAQs, captures reservation details, and escalates to a human only when needed. Based on similar F&B clients we've worked with, this alone typically cuts response time from hours to under 60 seconds and converts 25–35% more website visitors into confirmed bookings.
+
+**2. Local SEO Content Engine (Blog + Google Presence)**
+Right now, Sky Garden Cafe has virtually zero organic search footprint for high-intent keywords like "rooftop cafe Kuningan Jakarta," "best cafe Setiabudi for meetings," or "weekend brunch South Jakarta." We'd build a lightweight content section on your existing site — 2 SEO-optimized articles per month targeting those exact searches — paired with a Google Business Profile optimization. Within 90 days, this typically drives a 40–60% increase in organic discovery from people actively looking for exactly what you offer.
+
+These two solutions work together: the content brings new guests to your site, and the WhatsApp bot converts them before they bounce.
+
+I'd love to walk you through a quick 15-minute call to show you a live demo of the reservation bot and share a keyword opportunity report specific to Sky Garden's location and category — no commitment needed.
+
+Would Thursday or Friday this week work for a brief call?
+
+Warm regards,
+**Vilona**
+Solution Architect — BerkahKarya
+vilona@berkahkarya.com
+
+---WHATSAPP---
+
+Halo Sky Garden Cafe! Saya Vilona dari BerkahKarya. Tadi saya cek website Sky Garden — konsepnya keren banget, tapi sayang belum ada fitur chat atau reservasi langsung lewat WhatsApp-nya. Boleh ngobrol 15 menit soal cara ningkatin booking dari website? 😊

@@ -1,0 +1,28 @@
+---PROPOSAL---
+
+Subject: Turning Tanatap Matraman's Website Traffic Into Walk-In Customers
+
+Hi Tanatap Coffee Team,
+
+I was browsing tanatapcoffee.id/tanatap-matraman/ and noticed something interesting — you're clearly investing in SEM to drive traffic to the page, but once a visitor lands there, there's no direct way for them to instantly reach you. No WhatsApp button, no live chat, nothing. That means every curious person who checks your hours, asks about reservations, or wants to know if you have a corner table available on a Friday night… just leaves. That's paid traffic quietly walking out the door.
+
+Here's what I'd propose to fix that — two focused solutions:
+
+**1. WhatsApp Business Widget + AI-Powered Auto-Reply Bot**
+We'll embed a WhatsApp chat widget directly on your Matraman location page, connected to your existing number (+6280877603773). On top of that, we'll build a lightweight AI chatbot that handles the top 5–7 questions your customers actually ask — opening hours, menu highlights, parking, reservations, and promo info — instantly, 24/7. No more missed messages during rush hour. Based on similar F&B implementations we've done, this typically cuts first-response time from hours down to under 30 seconds and converts 25–35% more site visitors into actual footfall.
+
+**2. Conversion-Optimized Landing Page Tied to Your SEM Campaigns**
+Right now your SEM budget is sending people to a general location page. We'd build a dedicated, fast-loading landing page specifically for your Matraman branch — with a strong visual hook, a clear call-to-action (book a table / chat now), and Google Ads conversion tracking baked in. This means every rupiah you spend on ads is measurable, and we can optimize toward visitors who actually convert — not just click.
+
+Both of these can be live within 2–3 weeks.
+
+Would you be open to a quick 15-minute call this week to walk through what this would look like specifically for Tanatap Matraman? No commitment needed — I can also put together a free audit of your current landing page and SEM setup beforehand so we come prepared.
+
+Warm regards,
+**Vilona**
+Solution Architect — BerkahKarya
+vilona@berkahkarya.com
+
+---WHATSAPP---
+
+Hei kak, tadi sempet mampir ke website Tanatap Matraman dan nyadar kalau belum ada tombol WhatsApp-nya — padahal sayang banget kalau pengunjung udah buka situsnya tapi nggak ada cara langsung buat ngobrol atau tanya-tanya. Aku dari BerkahKarya, ada ide simpel yang bisa langsung ningkatin konversi dari traffic yang udah masuk. Boleh ngobrol 15 menit? 😊

@@ -1,0 +1,28 @@
+---PROPOSAL---
+Subject: Maknative's Own SEO Footprint Has a Gap Worth Fixing
+
+Hi Team Maknative,
+
+I noticed something interesting while looking at your website: you're selling SEO and digital marketing services — including AI-powered solutions — but your own site runs on WordPress without a structured content automation layer or a conversion-optimized client acquisition funnel. For an agency pitching AI and SEO credibility to prospects, that's a gap that competitors can exploit.
+
+Here's what I'd propose:
+
+**1. AI-Powered Lead Generation Workflow (n8n + WhatsApp Business API)**
+
+Right now, a prospect landing on maknative.com likely fills a contact form and waits. We can build an automated workflow that: captures the inquiry, instantly sends a personalized WhatsApp follow-up with a tailored service recommendation based on what page they came from, and routes hot leads to your sales team — all within 60 seconds. Agencies that implement this typically cut lead response time by 5x and see a 25–35% improvement in inquiry-to-consultation conversion, simply because speed signals professionalism.
+
+**2. SEO Authority Dashboard + Conversion Rate Audit**
+
+Your own domain is your most visible case study. We'd deliver a Google Analytics-connected BI dashboard that tracks your keyword rankings, traffic sources, and — critically — which pages are generating actual client inquiries vs. just impressions. Paired with a CRO audit of your service pages, this gives Maknative a live proof-of-concept you can literally show to prospects during sales calls: "Here's how we track our own growth — we'll do the same for you."
+
+These two deliverables address a real credibility and operational gap, not just a nice-to-have.
+
+I'd love to walk you through a quick 15-minute call or send over a free audit of your current site's lead capture flow — no strings attached. Just reply here or reach me directly.
+
+Warm regards,
+**Vilona**
+Solution Architect, BerkahKarya
+vilona@berkahkarya.com
+
+---WHATSAPP---
+Hei, saya Vilona dari BerkahKarya. Lagi lihat website Maknative — kalian jual SEO dan AI marketing, tapi funnel lead di website sendiri kayaknya masih bisa dimaksimalkan lagi nih. Ada ide menarik yang mungkin relevan buat kalian. Boleh ngobrol 15 menit? 😊

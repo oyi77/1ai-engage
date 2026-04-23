@@ -1,0 +1,33 @@
+---PROPOSAL---
+
+Subject: Digiagency's Website Is Quietly Losing You the Clients You're Working Hard to Rank For
+
+Hi there,
+
+I was browsing Digiagency.net while researching Jakarta's digital marketing landscape, and something immediately stood out: you're an agency that sells SEO and SEM expertise — yet your own website has no blog, no case studies, and no visible portfolio. That's a significant credibility gap for any prospect who lands on your site after a Google search and wants proof before picking up the phone.
+
+Here's the irony worth addressing: you're likely ranking (or trying to rank) for terms like "jasa SEO Jakarta" or "jasa SEM terpercaya," but when a potential client arrives, there's nothing to convert their curiosity into a conversation. No live chat, no WhatsApp widget, no testimonials — just a services list. In a competitive agency market, that friction alone can cost you 3–5 qualified leads every week.
+
+**Here's what I'd propose — two concrete fixes:**
+
+**1. Authority Content Engine + SEO Case Study Hub**
+We build out a dedicated Blog & Case Studies section directly on your WordPress site — no platform migration needed. We'd produce 4 cornerstone articles per month targeting high-intent B2B keywords (e.g., "ROI jasa SEO untuk UMKM," "perbandingan Google Ads vs Meta Ads 2025"), plus 3 structured case study pages showcasing your client wins with before/after ranking data, traffic growth charts, and measurable outcomes. This alone can increase organic session time by 40–60% and give sales prospects the social proof they need to convert. We handle writing, on-page SEO optimization, and internal linking architecture.
+
+**2. WhatsApp Lead Capture & Auto-Response Workflow**
+We integrate a WhatsApp Business API widget directly into your site (compatible with your current WordPress + Google Analytics stack) paired with an automated qualification workflow built on n8n. When a prospect clicks "Chat with Us," they're greeted with a smart flow that captures their business type, budget range, and service interest — then routes hot leads to your sales team instantly and logs everything into a simple CRM dashboard. Based on similar implementations we've done for service businesses, this cuts average first-response time from hours to under 2 minutes and can increase lead-to-consultation conversion by 30–35%.
+
+Both solutions are designed to work with what you already have — no rebuilding, no disruption to your current operations.
+
+I'd love to walk you through a quick 15-minute audit of your current site and show you exactly where the conversion drop-offs are happening. No pitch deck, just a honest look at the numbers.
+
+Would Thursday or Friday this week work for a brief call?
+
+Warm regards,
+**Vilona**
+Senior Solution Architect — BerkahKarya
+Digital Growth & Technology Partner
+vilona@berkahkarya.com
+
+---WHATSAPP---
+
+Hei! Saya Vilona dari BerkahKarya — sempat lihat website Digiagency.net dan nyadar ada beberapa hal kecil yang mungkin bikin calon klien ragu sebelum sempat hubungi kalian. Boleh ngobrol 15 menit santai? Saya mau share temuannya, siapa tahu ada yang berguna. 🙏

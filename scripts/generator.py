@@ -15,9 +15,12 @@ CLI flags:
 """
 
 import argparse
+import json
 import os
 import subprocess
 import sys
+
+import requests
 
 from leads import load_leads
 from utils import parse_display_name, draft_path, safe_filename, is_empty
@@ -31,6 +34,42 @@ import state_manager as _sm
 
 PROPOSALS_DIR = str(_PROPOSALS_DIR)
 RESEARCH_DIR = str(_RESEARCH_DIR)
+
+OMNIROUTE_URL = "http://localhost:20128/v1/chat/completions"
+
+
+def _call_omniroute(system_prompt: str, user_prompt: str) -> str:
+    """Call Omniroute AI proxy (OpenAI-compatible). No auth needed on localhost."""
+    models = [
+        ("high-availability", 30),
+        ("ollama-cloud/deepseek-v3.2", 45),
+    ]
+    for model, timeout in models:
+        payload = {
+            "model": model,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            "max_tokens": 4096,
+            "temperature": 0.7,
+            "stream": False,
+        }
+        try:
+            resp = requests.post(OMNIROUTE_URL, json=payload, timeout=timeout)
+            resp.raise_for_status()
+            text = resp.text.strip()
+            data = json.loads(text.split("\n")[0])
+            if isinstance(data, list):
+                data = data[0]
+            msg = data["choices"][0]["message"]
+            content = msg.get("content", "").strip()
+            if content:
+                return content
+        except Exception as e:
+            print(f"Omniroute error ({model}): {e}", file=sys.stderr)
+    return ""
+
 
 _CAPABILITY_FALLBACK = (
     "BerkahKarya capabilities:\n"
@@ -186,6 +225,10 @@ def generate_proposal(lead: dict, dry_run: bool = False) -> str:
         print(full_prompt)
         print("=" * 72)
         return ""
+
+    result = _call_omniroute(system_prompt, user_prompt)
+    if result:
+        return result
 
     tools = [
         ("claude", ["claude", "-p", "--model", GENERATOR_MODEL], True),

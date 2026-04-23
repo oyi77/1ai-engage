@@ -7,15 +7,47 @@ Marks lead status as 'reviewed' if passed, 'needs_revision' if failed.
 Optionally regenerates weak proposals in-place.
 """
 
+import json
 import os
 import subprocess
 import sys
+
+import requests
 
 from leads import load_leads, save_leads
 from utils import parse_display_name, draft_path
 from config import REVIEWER_MODEL
 
 PASS_THRESHOLD = 6  # out of 10 — below this, regenerate
+
+OMNIROUTE_URL = "http://localhost:20128/v1/chat/completions"
+
+
+def _call_omniroute(prompt: str) -> str:
+    """Call Omniroute AI proxy for review. No auth needed on localhost."""
+    models = ["high-availability", "ollama-cloud/deepseek-v3.2", "ollama-cloud/glm-5.1"]
+    for model in models:
+        payload = {
+            "model": model,
+            "messages": [{"role": "user", "content": prompt}],
+            "max_tokens": 1024,
+            "temperature": 0.3,
+            "stream": False,
+        }
+        try:
+            resp = requests.post(OMNIROUTE_URL, json=payload, timeout=60)
+            resp.raise_for_status()
+            text = resp.text.strip()
+            data = json.loads(text.split("\n")[0])
+            if isinstance(data, list):
+                data = data[0]
+            msg = data["choices"][0]["message"]
+            content = msg.get("content", "").strip()
+            if content:
+                return content
+        except Exception as e:
+            print(f"Omniroute review error ({model}): {e}", file=sys.stderr)
+    return ""
 
 
 def _review_prompt(name: str, proposal: str, research: str) -> str:
@@ -84,7 +116,7 @@ def _parse_review(output: str) -> dict:
 
 def review_proposal(index: int, name: str, proposal: str, research: str) -> dict:
     prompt = _review_prompt(name, proposal, research)
-    output = _call_claude(prompt)
+    output = _call_omniroute(prompt) or _call_claude(prompt)
     if not output:
         return {
             "score": 0,

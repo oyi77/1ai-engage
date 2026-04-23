@@ -1,0 +1,30 @@
+---PROPOSAL---
+
+Subject: Your SEO Expertise Deserves Proof — Here's How to Show It
+
+Hi SmartDigital Team,
+
+I noticed something interesting while reviewing your website: SmartDigital positions itself as Jakarta's #1 AI-Friendly SEO Agency, yet there are no client testimonials, case studies, or measurable results visible anywhere on the site. For an agency whose entire value proposition is *proving* search performance to clients, this is a significant credibility gap — especially when prospects are actively comparing you against competitors before picking up the phone.
+
+Here's the irony: you're likely getting potential clients to your site through strong SEO, but losing them at the conversion stage because there's no social proof to close the deal.
+
+We'd like to propose two targeted solutions:
+
+**1. Social Proof & Case Study Engine (WordPress-based)**
+We'll design and build a dedicated Case Study section directly on your existing WordPress site — structured with before/after keyword ranking data, traffic growth charts, and client ROI summaries. Each case study page will itself be SEO-optimized (schema markup, structured data) so they rank for high-intent queries like "SEO agency results Jakarta." Based on similar implementations, agencies see a 25–40% improvement in lead-to-inquiry conversion rate within 90 days of adding structured proof content.
+
+**2. Automated Client Review & Testimonial Collection Workflow**
+Using n8n automation, we'll build a lightweight post-project workflow that automatically prompts your clients (via WhatsApp or email) to submit a short testimonial or Google review at the right moment — right after a positive milestone, like hitting a ranking target. This removes the manual awkwardness of asking for reviews and can generate 3–5x more testimonials per month compared to ad-hoc requests.
+
+Both solutions are built to complement your existing WordPress stack with zero disruption to your current site architecture.
+
+Would you be open to a 15-minute call this week to walk through how this would look specifically for SmartDigital? I can also put together a free conversion audit of your current homepage if that's more useful as a starting point.
+
+Warm regards,
+**Vilona**
+Solution Architect — BerkahKarya
+vilona@berkahkarya.com
+
+---WHATSAPP---
+
+Halo kak, saya Vilona dari BerkahKarya. Lagi lihat website SmartDigital — keren positioningnya sebagai SEO agency #1 AI-Friendly, tapi kok belum ada testimoni atau case study dari klien ya? Sayang banget, padahal traffic-nya pasti udah bagus. Boleh ngobrol 15 menit soal ini? 😊

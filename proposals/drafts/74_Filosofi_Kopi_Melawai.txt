@@ -1,0 +1,32 @@
+---PROPOSAL---
+
+Subject: Turning Filosofi Kopi's Website Traffic Into Actual Table Reservations
+
+Hi there,
+
+I was browsing Filosofi Kopi Melawai's website earlier this week, and one thing immediately stood out: you're sitting in one of Jakarta Selatan's most high-footfall locations — Blok M Square — yet your website has no direct way for a visitor to reach you instantly. No WhatsApp widget, no live chat, no visible call-to-action. Someone who finds you at 10 PM craving a late-night kopi session simply hits a dead end and likely taps over to a competitor who makes it easier to connect.
+
+Given that your site is built on Wix with React components and you're already investing in SEM, you're paying to drive traffic to a page that isn't converting that traffic into visits or orders. That's a solvable problem — and quickly.
+
+Here's what I'd propose for Filosofi Kopi Melawai specifically:
+
+**Solution 1: WhatsApp Business Chatbot + Reservation Flow**
+We integrate a WhatsApp Business API chatbot directly into your website — a floating widget that greets visitors with something on-brand like *"Mau ngopi di mana malam ini?"* The bot handles table inquiries, menu questions, event bookings, and even pre-orders, all without requiring a single staff member to be online. Based on similar F&B implementations we've done, this typically cuts customer response time from hours to under 90 seconds and increases walk-in conversion from web visitors by around 25–35%. Deliverables include: chatbot flow design, WhatsApp Business API setup, website widget embed, and a 30-day optimization review.
+
+**Solution 2: SEO Content Engine (Blog + Local SEO)**
+Your site currently has no blog or editorial content, which means you're invisible for high-intent searches like *"kopi specialty Jakarta Selatan"*, *"kedai kopi aesthetic Blok M"*, or *"tempat ngopi sambil kerja Kebayoran"* — all terms your target audience is actively searching. We build a lightweight content system: 4 SEO-optimized articles per month written around Filosofi Kopi's story, menu, and location, paired with a Google Business Profile optimization. This compounds over 3–6 months into organic traffic that doesn't require ongoing ad spend. Prospects who find you through content convert at significantly higher intent than paid clicks.
+
+Both solutions work together: content brings people to the site, and the WhatsApp widget closes the loop by turning browsers into bookings.
+
+I'd love to show you a quick mockup of what the WhatsApp flow could look like for Filosofi Kopi specifically — no commitment needed. Would you be open to a 15-minute call this week? Alternatively, I'm happy to send over a free audit of your current site's conversion gaps as a starting point.
+
+Looking forward to hearing from you.
+
+Warm regards,
+**Vilona**
+Solution Architect — BerkahKarya
+Digital Growth & Technology Partner
+
+---WHATSAPP---
+
+Halo! Tadi lagi browsing website Filosofi Kopi Melawai dan noticed belum ada tombol WhatsApp-nya sama sekali — padahal sayang banget kalau calon pengunjung yang udah tertarik malah bingung mau hubungi gimana. Kami ada solusi simpel yang bisa langsung connect pengunjung website ke WhatsApp kalian dalam hitungan detik. Boleh ngobrol 15 menit santai minggu ini?

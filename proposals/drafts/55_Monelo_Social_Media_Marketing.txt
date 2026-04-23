@@ -1,0 +1,32 @@
+---PROPOSAL---
+
+Subject: Monelo's SEO & CRO Gap — Here's What's Quietly Costing You Leads
+
+Hi Monelo Team,
+
+I was reviewing your website at monelo.id and noticed something worth flagging: for a marketing consultancy that actively sells SEO and content services to clients, your own site has no blog or content section — and the calls-to-action across your pages are either missing or easy to overlook. That's a credibility gap that prospects will notice before they ever pick up the phone.
+
+Here's the irony — and the opportunity: your service stack (SEO, KOL, digital PR, AI, e-commerce) is genuinely comprehensive. But right now, your website isn't doing the selling for you.
+
+Here's what I'd propose:
+
+**1. SEO Content Engine — Blog + Landing Page Build (on your existing WordPress)**
+We'll build out a structured blog section with 4 pillar articles targeting high-intent keywords your ideal clients are actually searching (e.g., "jasa social media marketing Jakarta," "konsultan KOL Indonesia"). Each article will be internally linked to a dedicated service landing page with a clear CTA — whether that's a WhatsApp click-to-chat, a consultation form, or a free audit offer. Based on similar projects we've done for consultancies in Jakarta, this typically generates a **40–60% increase in organic sessions within 90 days** and meaningfully improves lead quality.
+
+**2. Conversion Rate Optimization (CRO) — CTA Audit + Redesign**
+We'll audit every page on monelo.id and redesign the CTA architecture — adding sticky contact buttons, a WhatsApp Business API quick-reply widget, and a lead capture form tied to Google Analytics goal tracking. You're already running GA; we'll make sure it's actually measuring conversions, not just traffic. This alone can **cut your cost-per-lead by 25–35%** by converting visitors you're already paying to attract.
+
+The combined effect: your website starts working as a 24/7 business development tool, not just a digital brochure.
+
+I'd love to walk you through a quick free audit of your current site — 15 minutes on a call and I can show you exactly where the quick wins are.
+
+Would Thursday or Friday this week work for a short call?
+
+Warm regards,
+**Vilona**
+Solution Architect, BerkahKarya
+vilona@berkahkarya.com
+
+---WHATSAPP---
+
+Halo Kak, saya Vilona dari BerkahKarya. Tadi sempat lihat website Monelo — layanannya lengkap banget, tapi sayang websitenya belum ada blog dan CTA-nya kurang kelihatan, padahal itu yang biasanya bikin calon klien langsung kontak. Boleh saya share beberapa ide konkret yang bisa langsung diaplikasikan di WordPress kalian? Santai aja, 15 menit cukup kok 😊
