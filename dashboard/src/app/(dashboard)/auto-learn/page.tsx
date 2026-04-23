@@ -15,6 +15,7 @@ interface ReportData {
   winning_patterns?: Array<{ pattern: string; text?: string; score?: number; uses: number }>;
   low_performers?: Array<{ question?: string; suggestion: string; score?: number; uses: number }>;
   suggested_entries?: Array<{ question: string; frequency: number }>;
+  feedback_stats?: { good: number; bad: number };
 }
 
 interface ImproveData {
@@ -44,8 +45,8 @@ export default function AutoLearnPage() {
     setLoading(true);
     try {
       const res = await fetch(`/api/v1/legacy/auto-learn/report?session=${selectedSession}`);
-      const data = await res.json();
-      setReportData(data);
+      const json = await res.json();
+      setReportData(json.data || json);
     } catch (error) {
       console.error("Report generation failed:", error);
     } finally {
@@ -62,8 +63,8 @@ export default function AutoLearnPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ session: selectedSession, apply: applyChanges }),
       });
-      const data = await res.json();
-      setImproveData(data);
+      const json = await res.json();
+      setImproveData(json.data || json);
     } catch (error) {
       console.error("Auto-improvement failed:", error);
     } finally {
@@ -135,7 +136,7 @@ export default function AutoLearnPage() {
         <Card>
           <CardHeader>
             <CardTitle>Learning Report</CardTitle>
-            <CardDescription>Last 7 days analysis</CardDescription>
+            <CardDescription>Analysis from {Object.values(reportData.funnel_summary || {}).reduce((a: number, b) => a + (b as number), 0)} conversations</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
@@ -147,6 +148,18 @@ export default function AutoLearnPage() {
                     <div className="text-2xl font-bold">{count as number}</div>
                   </div>
                 ))}
+                {((reportData.feedback_stats?.good ?? 0) > 0 || (reportData.feedback_stats?.bad ?? 0) > 0) && (
+                  <>
+                    <div className="p-3 bg-green-900/30 rounded-lg">
+                      <div className="text-sm text-green-400">Good Feedback</div>
+                      <div className="text-2xl font-bold text-green-300">{reportData.feedback_stats?.good ?? 0}</div>
+                    </div>
+                    <div className="p-3 bg-red-900/30 rounded-lg">
+                      <div className="text-sm text-red-400">Bad Feedback</div>
+                      <div className="text-2xl font-bold text-red-300">{reportData.feedback_stats?.bad || 0}</div>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 
