@@ -251,18 +251,22 @@ async def handle_waha_webhook(request: Request) -> WAHAWebhookResponse:
             )
 
             def _run_cs_engine():
-                return cs_engine.handle_inbound_message(
-                    wa_number_id=wa_number_id,
-                    contact_phone=sender,
-                    message_text=body_text,
-                    session_name=session,
-                )
+                try:
+                    return cs_engine.handle_inbound_message(
+                        wa_number_id=wa_number_id,
+                        contact_phone=sender,
+                        message_text=body_text,
+                        session_name=session,
+                    )
+                except Exception as e:
+                    print(f"[CS ENGINE ERROR] {e}")
+                    return {"response": None, "error": str(e)}
 
-            future = _executor.submit(_run_cs_engine)
             try:
-                result = future.result(timeout=10)
-            except Exception:
-                result = {"response": None, "skip": "processing_error"}
+                result = _run_cs_engine()
+            except Exception as e:
+                print(f"[SYNC ERROR] {e}")
+                result = {"response": None, "skip": "error"}
 
             response_preview = ""
             if result.get("response"):
