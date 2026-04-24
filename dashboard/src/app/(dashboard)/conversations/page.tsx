@@ -25,6 +25,10 @@ export default function ConversationsPage() {
   const [feedbackNote, setFeedbackNote] = useState("");
   const [feedbackCorrected, setFeedbackCorrected] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [newChatOpen, setNewChatOpen] = useState(false);
+  const [newChatPhone, setNewChatPhone] = useState("");
+  const [newChatMsg, setNewChatMsg] = useState("");
+  const [sendingNew, setSendingNew] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -34,7 +38,7 @@ export default function ConversationsPage() {
   }, [waData, selectedWA]);
 
   const waId = selectedWA || "";
-  const { data: convData } = useSWR<{ conversations: Conversation[] }>(
+  const { data: convData, mutate: mutateConv } = useSWR<{ conversations: Conversation[] }>(
     waId ? `/api/v1/legacy/conversations?wa_number_id=${waId}` : null, fetcher, { refreshInterval: 5000 }
   );
   const { data: msgData, mutate: mutateMsgs } = useSWR<{ messages: Message[] }>(
@@ -101,6 +105,26 @@ export default function ConversationsPage() {
     mutateMsgs();
   }
 
+  async function sendNewChat() {
+    if (!waId || !newChatPhone || !newChatMsg) return;
+    setSendingNew(true);
+    try {
+      const res = await postJSON("/api/v1/legacy/conversations/new", {
+        wa_number_id: waId,
+        phone: newChatPhone.replace(/[^0-9]/g, ""),
+        message: newChatMsg,
+      });
+      setNewChatOpen(false);
+      setNewChatPhone("");
+      setNewChatMsg("");
+      mutateConv();
+    } catch (e) {
+      alert("Failed to send: " + e);
+    } finally {
+      setSendingNew(false);
+    }
+  }
+
   return (
     <div className="p-6 space-y-4">
       <div className="flex items-center justify-between">
@@ -119,6 +143,9 @@ export default function ConversationsPage() {
               ))}
             </SelectContent>
           </Select>
+          <Button onClick={() => setNewChatOpen(true)} className="bg-green-700 hover:bg-green-600">
+            <Send className="h-4 w-4 mr-1" /> New Chat
+          </Button>
           {selectedConv && (
             <>
               <Button onClick={stopConversation} variant="outline" className="border-red-800 text-red-400">
