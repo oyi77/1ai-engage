@@ -162,9 +162,11 @@ export default function ChannelsPage() {
   );
   const assignments = assignmentsData?.assignments ?? [];
 
+  const [wsLoaded, setWsLoaded] = useState(false);
+
   useEffect(() => {
-    if (!selectedWs && workspaces.length > 0) setSelectedWs(workspaces[0].id);
-  }, [workspaces, selectedWs]);
+    if (!wsLoaded && workspaces.length > 0) setWsLoaded(true);
+  }, [workspaces, wsLoaded]);
 
   useEffect(() => {
     const inputs: Record<string, Record<string, string>> = {};
@@ -270,11 +272,12 @@ export default function ChannelsPage() {
           <Radio className="h-6 w-6 text-orange-500" /> Channels
         </h1>
         <div className="flex items-center gap-2">
-          <Select value={selectedWs} onValueChange={(v) => v && setSelectedWs(v)}>
+          <Select value={selectedWs || "all"} onValueChange={(v) => v && setSelectedWs(v === "all" ? "" : v)}>
             <SelectTrigger className="w-56 bg-neutral-900 border-neutral-800">
-              <SelectValue placeholder="Select workspace" />
+              <SelectValue placeholder="All Workspaces" />
             </SelectTrigger>
             <SelectContent>
+              <SelectItem value="all">All Workspaces</SelectItem>
               {workspaces.map((ws) => (
                 <SelectItem key={ws.id} value={ws.id}>
                   {ws.name}
