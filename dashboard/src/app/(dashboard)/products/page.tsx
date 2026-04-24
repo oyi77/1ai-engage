@@ -11,6 +11,7 @@ import {
   uploadImage,
   type WANumber,
   type Product,
+  type ProductImage,
 } from "@/lib/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -53,7 +54,7 @@ export default function ProductsPage() {
   const [uploadingImg, setUploadingImg] = useState(false);
   const [imageMode, setImageMode] = useState<"url" | "upload">("url");
 
-  const waId = selectedWA || waData?.numbers[0]?.id || "";
+  const waId = selectedWA || waData?.numbers[0]?.session_name || "";
   const { data: products, mutate, isLoading: productsLoading } = useSWR<Product[]>(
     waId ? `/api/v1/products?wa_number_id=${waId}` : null,
     fetcher
@@ -381,7 +382,8 @@ export default function ProductsPage() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {products?.map((product) => (
+                  {products?.map((product) => {
+                    return (
                     <TableRow key={product.id}>
                       <TableCell>
                         {product.image_url ? (
@@ -432,7 +434,7 @@ export default function ProductsPage() {
                         </div>
                       </TableCell>
                     </TableRow>
-                  ))}
+                    )})}
                 </TableBody>
               </Table>
               {(!products || products.length === 0) && (
