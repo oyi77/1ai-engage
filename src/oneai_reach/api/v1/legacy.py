@@ -100,6 +100,43 @@ async def api_conversations(wa_number_id: Optional[str] = None):
     convs = state_manager.get_all_conversation_stages(wa_number_id=wa_number_id)
     return {"status": "success", "data": {"conversations": convs, "count": len(convs)}}
 
+@router.post("/conversations/new")
+async def api_new_conversation(request: Request):
+    """Start a new conversation with a phone number."""
+    data = await request.json()
+    wa_number_id = data.get("wa_number_id", "").strip()
+    phone = data.get("phone", "").strip()
+    message = data.get("message", "").strip()
+    
+    if not wa_number_id or not phone or not message:
+        raise HTTPException(status_code=400, detail="wa_number_id, phone, and message required")
+    
+    import sqlite3
+    conn = sqlite3.connect(state_manager.db_path)
+    conn.row_factory = sqlite3.Row
+    
+    wa_num = conn.execute("SELECT session_name, phone FROM wa_numbers WHERE id = ?", (wa_number_id,)).fetchone()
+    if not wa_num:
+        raise HTTPException(status_code=404, detail="WA number not found")
+    
+    conv_id = conn.execute("""
+        INSERT INTO conversations (wa_number_id, contact_phone, status, engine_mode, message_count)
+        VALUES (?, ?, 'active', 'manual', 1)
+    """, (wa_number_id, f"{phone}@c.us")).lastrowid
+    conn.commit()
+    
+    conn.execute("""
+        INSERT INTO conversation_messages (conversation_id, direction, message_text, message_type)
+        VALUES (?, 'out', ?, 'text')
+    """, (conv_id, message))
+    conn.commit()
+    conn.close()
+    
+    from scripts.senders import send_whatsapp
+    send_whatsapp(phone, message, wa_num["session_name"])
+    
+    return JSONResponse(status_code=201, content={"status": "success", "data": {"ok": True, "conversation_id": conv_id}})
+
 @router.get("/conversations/{conv_id}/messages")
 async def api_conversation_messages(conv_id: int, limit: int = 50):
     msgs = state_manager.get_conversation_messages(conv_id, limit=limit)
@@ -111,12 +148,28 @@ async def api_conversation_send(conv_id: int, request: Request):
     text = data.get("message", "").strip()
     if not text:
         raise HTTPException(status_code=400, detail="message required")
+    
+    conn = state_manager._connect()
+    conv = conn.execute("SELECT wa_number_id, contact_phone FROM conversations WHERE id = ?", (conv_id,)).fetchone()
+    conn.close()
+    
+    if not conv:
+        raise HTTPException(status_code=404, detail="Conversation not found")
+    
+    wa_number_id, contact_phone = conv[0], conv[1]
     msg_id = state_manager.add_conversation_message(
         conversation_id=conv_id,
         message_text=text,
         direction="out",
         message_type="text",
     )
+    
+    wa_num = conn.execute("SELECT session_name, phone FROM wa_numbers WHERE id = ?", (wa_number_id,)).fetchone()
+    if wa_num:
+        session_name = wa_num[0]
+        from scripts.senders import send_whatsapp
+        send_whatsapp(contact_phone.replace("@c.us", ""), text, session_name)
+    
     return JSONResponse(status_code=201, content={"status": "success", "data": {"ok": True, "message_id": msg_id}})
 
 @router.patch("/conversations/{conv_id}/stage")
