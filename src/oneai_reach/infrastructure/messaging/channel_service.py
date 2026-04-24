@@ -150,6 +150,7 @@ class ChannelService:
 
         conn = self._connect()
         try:
+            conn.execute("BEGIN IMMEDIATE")
             conn.execute(
                 """INSERT INTO channels
                    (id, workspace_id, platform, label, mode, enabled, connected, username, phone, config, session_data, created_at, updated_at)
@@ -159,6 +160,9 @@ class ChannelService:
             conn.commit()
             row = conn.execute("SELECT * FROM channels WHERE id = ?", (ch_id,)).fetchone()
             return self._row_to_dict(row)
+        except sqlite3.Error:
+            conn.rollback()
+            raise
         finally:
             conn.close()
 
@@ -183,10 +187,14 @@ class ChannelService:
 
         conn = self._connect()
         try:
+            conn.execute("BEGIN IMMEDIATE")
             conn.execute(f"UPDATE channels SET {set_clause} WHERE id = ?", values)
             conn.commit()
             row = conn.execute("SELECT * FROM channels WHERE id = ?", (channel_id,)).fetchone()
             return self._row_to_dict(row) if row else None
+        except sqlite3.Error:
+            conn.rollback()
+            raise
         finally:
             conn.close()
 

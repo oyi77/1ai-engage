@@ -353,8 +353,6 @@ class CSEngineService:
         source_channel: str = "whatsapp",
         channel_id: str = None,
     ) -> dict:
-        if channel_id:
-            self._inbound_channel_id = channel_id
         from oneai_reach.api.v1.admin import get_pause_flag
 
         if get_pause_flag():
@@ -484,7 +482,7 @@ class CSEngineService:
                 from oneai_reach.infrastructure.messaging.channel_service import ChannelService
                 from oneai_reach.config.settings import get_settings
                 svc = ChannelService(get_settings().database.db_file)
-                ch_id = getattr(self, "_inbound_channel_id", None)
+                ch_id = channel_id
                 if ch_id:
                     svc.send_message(ch_id, contact_phone, esc_msg)
 
@@ -571,7 +569,7 @@ class CSEngineService:
                 from oneai_reach.infrastructure.messaging.channel_service import ChannelService
                 from oneai_reach.config.settings import get_settings
                 svc = ChannelService(get_settings().database.db_file)
-                ch_id = getattr(self, "_inbound_channel_id", None)
+                ch_id = channel_id
                 if ch_id:
                     svc.send_message(ch_id, contact_phone, response_text)
 

@@ -131,8 +131,7 @@ export default function ChannelsPage() {
   const [selectedWs, setSelectedWs] = useState<string>("");
   const [testing, setTesting] = useState<string | null>(null);
   const [sending, setSending] = useState<string | null>(null);
-  const [dmTarget, setDmTarget] = useState("");
-  const [dmMessage, setDmMessage] = useState("");
+  const [dmInputs, setDmInputs] = useState<Record<string, { target: string; message: string }>>({});
   const [cfgInputs, setCfgInputs] = useState<Record<string, Record<string, string>>>({});
   const [addOpen, setAddOpen] = useState(false);
   const [newCh, setNewCh] = useState({ platform: "telegram", label: "", mode: "cs" });
@@ -193,16 +192,17 @@ export default function ChannelsPage() {
     }
   }
   async function sendDM(id: string) {
-    if (!dmTarget || !dmMessage) return;
+    const dm = dmInputs[id];
+    if (!dm?.target || !dm?.message) return;
     setSending(id);
     try {
       const res = await fetch(`/api/v1/channels/channels/${id}/send`, {
         method: "POST",
         headers: { "Content-Type": "application/json", "X-API-Key": "dev" },
-        body: JSON.stringify({ recipient: dmTarget, message: dmMessage }),
+        body: JSON.stringify({ recipient: dm.target, message: dm.message }),
       });
       const d = await res.json();
-      alert(d.sent ? `Sent to ${dmTarget}` : `Failed: ${JSON.stringify(d)}`);
+      alert(d.sent ? `Sent to ${dm.target}` : `Failed: ${JSON.stringify(d)}`);
     } catch (e) {
       alert(`Error: ${e}`);
     } finally {
@@ -436,14 +436,14 @@ export default function ChannelsPage() {
                   <div className="flex gap-2">
                     <Input
                       placeholder={ch.platform === "email" ? "recipient@example.com" : "@username"}
-                      value={dmTarget}
-                      onChange={(e) => setDmTarget(e.target.value)}
+                      value={dmInputs[ch.id]?.target || ""}
+                      onChange={(e) => setDmInputs({ ...dmInputs, [ch.id]: { ...dmInputs[ch.id], target: e.target.value } })}
                       className={ch.platform === "email" ? "w-52 bg-neutral-800 border-neutral-700 text-sm" : "w-40 bg-neutral-800 border-neutral-700 text-sm"}
                     />
                     <Input
                       placeholder="Message"
-                      value={dmMessage}
-                      onChange={(e) => setDmMessage(e.target.value)}
+                      value={dmInputs[ch.id]?.message || ""}
+                      onChange={(e) => setDmInputs({ ...dmInputs, [ch.id]: { ...dmInputs[ch.id], message: e.target.value } })}
                       className="bg-neutral-800 border-neutral-700 text-sm"
                     />
                     <Button
