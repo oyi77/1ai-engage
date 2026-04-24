@@ -49,10 +49,8 @@ def blast() -> None:
     for index, row in df.iterrows():
         name = parse_display_name(row.get("displayName"))
 
-        # Only send leads that passed the quality review gate
         status = str(row.get("status") or "")
         if status not in ("reviewed", "new", ""):
-            # Skip leads in other pipeline stages (needs_revision, contacted, replied, etc.)
             if status not in ("nan", "none"):
                 skipped_cooldown += 1
                 continue
@@ -87,24 +85,9 @@ def blast() -> None:
         wa_draft = parts[1].strip() if len(parts) > 1 else proposal
 
         print(f"\nProcessing: {name}")
-        wa_sent = False
-        email_sent = False
-        ig_sent = False
-        tw_sent = False
+        any_sent = blast_lead(phone, email, ig_handle, tw_handle, proposal, wa_draft)
 
-        if phone:
-            wa_sent = send_whatsapp(phone, wa_draft)
-
-        if email:
-            email_sent = send_email(email, PROPOSAL_SUBJECT, proposal)
-
-        if ig_handle:
-            ig_sent = send_instagram(ig_handle, wa_draft)
-
-        if tw_handle:
-            tw_sent = send_twitter(tw_handle, wa_draft)
-
-        if wa_sent or email_sent or ig_sent or tw_sent:
+        if any_sent:
             df.at[index, "status"] = "contacted"
             df.at[index, "contacted_at"] = datetime.now(timezone.utc).isoformat()
             sent += 1
@@ -114,6 +97,69 @@ def blast() -> None:
     print(f"  Sent:              {sent}")
     print(f"  Skipped (cooldown): {skipped_cooldown}")
     print(f"  Skipped (no draft): {skipped_no_draft}")
+
+
+def blast_lead(phone: str, email: str, ig_handle: str, tw_handle: str,
+               proposal: str, wa_draft: str) -> bool:
+    """Send proposal to a lead via all available channels."""
+    wa_sent = email_sent = ig_sent = tw_sent = False
+
+    if phone:
+        wa_sent = send_whatsapp(phone, wa_draft)
+
+    if email:
+        email_sent = send_email(email, PROPOSAL_SUBJECT, proposal)
+
+    if ig_handle:
+        ig_sent = send_instagram(ig_handle, wa_draft)
+
+    if tw_handle:
+        tw_sent = send_twitter(tw_handle, wa_draft)
+
+    return wa_sent or email_sent or ig_sent or tw_sent
+
+
+def blast_via_channels(phone: str, email: str, ig_handle: str, tw_handle: str,
+                       proposal: str, wa_draft: str, mode: str = "coldcall") -> bool:
+    """Send proposal using ChannelService mode-based channel lookup.
+
+    Finds all enabled channels matching the given mode and sends through them.
+    Falls back to direct sender calls for channels without a DB entry.
+    """
+    try:
+        _project = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        sys.path.insert(0, os.path.join(_project, "src"))
+        from oneai_reach.infrastructure.messaging.channel_service import ChannelService
+        db_path = os.path.join(_project, "data", "leads.db")
+        svc = ChannelService(db_path)
+        channels = svc.list_channels(mode=mode)
+    except Exception:
+        return blast_lead(phone, email, ig_handle, tw_handle, proposal, wa_draft)
+
+    any_sent = False
+    for ch in channels:
+        if not ch.get("enabled"):
+            continue
+        platform = ch["platform"]
+        ch_id = ch["id"]
+        try:
+            if platform == "whatsapp" and phone:
+                any_sent |= svc.send_message(ch_id, phone, wa_draft)
+            elif platform == "email" and email:
+                any_sent |= svc.send_message(ch_id, email, proposal, subject=PROPOSAL_SUBJECT)
+            elif platform == "instagram" and ig_handle:
+                any_sent |= svc.send_message(ch_id, ig_handle, wa_draft)
+            elif platform == "twitter" and tw_handle:
+                any_sent |= svc.send_message(ch_id, tw_handle, wa_draft)
+            elif platform == "telegram" and (ig_handle or phone):
+                any_sent |= svc.send_message(ch_id, ig_handle or phone, wa_draft)
+        except Exception as e:
+            print(f"  [error] {platform}/{ch_id}: {e}")
+
+    if not any_sent:
+        any_sent = blast_lead(phone, email, ig_handle, tw_handle, proposal, wa_draft)
+
+    return any_sent
 
 
 if __name__ == "__main__":

@@ -1,11 +1,22 @@
-"""Channel management API — configure Instagram/Twitter auth, test connections."""
+"""Channels V2 API — workspace and channel management endpoints.
 
+CRUD for workspaces and channels, connection testing, messaging, and polling.
+Maintains backward compatibility with old /{wa_number_id} routes.
+"""
+
+import sqlite3
 from typing import Any, Dict, List, Optional
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel, Field
 
 from oneai_reach.api.dependencies import verify_api_key
+from oneai_reach.config.settings import get_settings
+from oneai_reach.infrastructure.messaging.channel_service import (
+    SUPPORTED_PLATFORMS,
+    VALID_MODES,
+    ChannelService,
+)
 from oneai_reach.infrastructure.messaging.channels.channel_config import ChannelConfig
 
 router = APIRouter(
@@ -18,6 +29,11 @@ SUPPORTED_CHANNELS = {
     "instagram": "Instagram (covers Threads DMs)",
     "twitter": "Twitter / X",
 }
+
+
+def _get_service() -> ChannelService:
+    settings = get_settings()
+    return ChannelService(settings.database.db_file)
 
 
 class ChannelStatusResponse(BaseModel):
@@ -37,6 +53,183 @@ class ChannelTestResponse(BaseModel):
     username: str = ""
     error: str = ""
 
+
+class CreateWorkspaceRequest(BaseModel):
+    name: str = Field(..., min_length=1, max_length=100)
+    description: str = Field(default="", max_length=500)
+
+
+class CreateChannelRequest(BaseModel):
+    workspace_id: str
+    platform: str
+    label: str = Field(..., min_length=1, max_length=100)
+    mode: str = Field(default="cs")
+    config: Optional[Dict[str, Any]] = None
+    username: str = Field(default="")
+    phone: str = Field(default="")
+
+
+class UpdateChannelRequest(BaseModel):
+    label: Optional[str] = None
+    mode: Optional[str] = None
+    enabled: Optional[bool] = None
+    connected: Optional[bool] = None
+    username: Optional[str] = None
+    phone: Optional[str] = None
+    config: Optional[Dict[str, Any]] = None
+    session_data: Optional[Dict[str, Any]] = None
+
+
+class SendMessageRequest(BaseModel):
+    recipient: str
+    message: str
+    subject: Optional[str] = None
+
+
+# ── Workspace Endpoints ─────────────────────────────────────────────
+
+@router.get("/workspaces")
+async def list_workspaces():
+    svc = _get_service()
+    return {"workspaces": svc.list_workspaces()}
+
+
+@router.post("/workspaces")
+async def create_workspace(body: CreateWorkspaceRequest):
+    svc = _get_service()
+    ws = svc.create_workspace(body.name, body.description)
+    return {"status": "success", "data": ws}
+
+
+@router.get("/workspaces/{workspace_id}")
+async def get_workspace(workspace_id: str):
+    svc = _get_service()
+    ws = svc.get_workspace(workspace_id)
+    if not ws:
+        raise HTTPException(404, f"Workspace not found: {workspace_id}")
+    channels = svc.list_channels(workspace_id=workspace_id)
+    return {"status": "success", "data": {**ws, "channels": channels}}
+
+
+@router.delete("/workspaces/{workspace_id}")
+async def delete_workspace(workspace_id: str):
+    svc = _get_service()
+    deleted = svc.delete_workspace(workspace_id)
+    if not deleted:
+        raise HTTPException(404, f"Workspace not found: {workspace_id}")
+    return {"status": "success", "deleted": True}
+
+
+# ── Channel Endpoints ───────────────────────────────────────────────
+
+@router.get("/channels")
+async def list_channels(
+    workspace_id: Optional[str] = Query(None),
+    mode: Optional[str] = Query(None),
+    platform: Optional[str] = Query(None),
+):
+    svc = _get_service()
+    channels = svc.list_channels(workspace_id=workspace_id, mode=mode, platform=platform)
+    return {"channels": channels}
+
+
+@router.post("/channels")
+async def create_channel(body: CreateChannelRequest):
+    if body.platform not in SUPPORTED_PLATFORMS:
+        raise HTTPException(400, f"Unsupported platform: {body.platform}. Supported: {SUPPORTED_PLATFORMS}")
+    if body.mode not in VALID_MODES:
+        raise HTTPException(400, f"Invalid mode: {body.mode}. Valid: {VALID_MODES}")
+
+    svc = _get_service()
+    try:
+        ch = svc.create_channel(
+            workspace_id=body.workspace_id,
+            platform=body.platform,
+            label=body.label,
+            mode=body.mode,
+            config=body.config,
+            username=body.username,
+            phone=body.phone,
+        )
+        return {"status": "success", "data": ch}
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+
+
+@router.get("/channels/{channel_id}")
+async def get_channel(channel_id: str):
+    svc = _get_service()
+    ch = svc.get_channel(channel_id)
+    if not ch:
+        raise HTTPException(404, f"Channel not found: {channel_id}")
+    return {"status": "success", "data": ch}
+
+
+@router.patch("/channels/{channel_id}")
+async def update_channel(channel_id: str, body: UpdateChannelRequest):
+    if body.mode is not None and body.mode not in VALID_MODES:
+        raise HTTPException(400, f"Invalid mode: {body.mode}. Valid: {VALID_MODES}")
+
+    updates = body.model_dump(exclude_none=True)
+    if not updates:
+        raise HTTPException(400, "No fields to update")
+
+    svc = _get_service()
+    ch = svc.update_channel(channel_id, **updates)
+    if not ch:
+        raise HTTPException(404, f"Channel not found: {channel_id}")
+    return {"status": "success", "data": ch}
+
+
+@router.delete("/channels/{channel_id}")
+async def delete_channel(channel_id: str):
+    svc = _get_service()
+    deleted = svc.delete_channel(channel_id)
+    if not deleted:
+        raise HTTPException(404, f"Channel not found: {channel_id}")
+    return {"status": "success", "deleted": True}
+
+
+# ── Channel Operations ──────────────────────────────────────────────
+
+@router.post("/channels/{channel_id}/test")
+async def test_connection(channel_id: str):
+    svc = _get_service()
+    result = svc.test_connection(channel_id)
+    return {"status": "success", "data": result}
+
+
+@router.post("/channels/{channel_id}/send")
+async def send_message(channel_id: str, body: SendMessageRequest):
+    svc = _get_service()
+    ok = svc.send_message(channel_id, body.recipient, body.message, body.subject)
+    if ok:
+        return {"status": "success", "sent": True, "channel_id": channel_id, "recipient": body.recipient}
+    raise HTTPException(500, f"Failed to send message via channel {channel_id}")
+
+
+@router.get("/channels/{channel_id}/threads")
+async def get_threads(channel_id: str, limit: int = Query(20, ge=1, le=100)):
+    svc = _get_service()
+    threads = svc.get_threads(channel_id, limit)
+    return {"threads": threads}
+
+
+@router.get("/poll-cs")
+async def poll_cs_channels():
+    svc = _get_service()
+    messages = svc.poll_all_cs()
+    return {"new_count": len(messages), "messages": messages[:50]}
+
+
+@router.get("/poll-coldcall")
+async def poll_coldcall_channels():
+    svc = _get_service()
+    messages = svc.poll_all_coldcall()
+    return {"new_count": len(messages), "messages": messages[:50]}
+
+
+# ── Legacy Routes (backward compat) ────────────────────────────────
 
 @router.get("/{wa_number_id}", response_model=ChannelStatusResponse)
 async def get_channel_status(wa_number_id: str) -> ChannelStatusResponse:

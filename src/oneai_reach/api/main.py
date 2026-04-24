@@ -1,8 +1,6 @@
-"""FastAPI application factory and main entry point.
+"""FastAPI application factory and main entry point."""
 
-Creates and configures the FastAPI application with all middleware,
-exception handlers, and routes.
-"""
+import os
 
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
@@ -19,13 +17,10 @@ from oneai_reach.api.v1.webhooks import router as webhooks_router
 from oneai_reach.api.webhooks import capi_router, waha_router
 from oneai_reach.config.settings import get_settings
 
+_project = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+
 
 def create_app() -> FastAPI:
-    """Create and configure FastAPI application.
-
-    Returns:
-        Configured FastAPI application instance
-    """
     app = FastAPI(
         title="1ai-reach API",
         description="Cold outreach automation pipeline for BerkahKarya",
@@ -33,6 +28,15 @@ def create_app() -> FastAPI:
     )
 
     settings = get_settings()
+
+    # Run V2 migration (workspaces + channels) on startup
+    try:
+        from oneai_reach.infrastructure.database.migration_v2 import run_migration
+        db_path = os.path.join(_project, "data", "leads.db")
+        if os.path.exists(db_path):
+            run_migration(db_path)
+    except Exception:
+        pass
 
     setup_middleware(app)
     setup_exception_handlers(app)

@@ -67,6 +67,20 @@ class TwitterSender:
     def __init__(self, wa_number_id: str):
         self.wa_number_id = wa_number_id
         self.cfg = ChannelConfig("twitter", wa_number_id)
+        self._channel_id = wa_number_id
+        self._channel_config = None
+
+    @classmethod
+    def from_channel_id(cls, channel_id: str, config: dict) -> "TwitterSender":
+        """Create sender from channel ID + config dict (V2 mode)."""
+        instance = cls.__new__(cls)
+        instance.wa_number_id = config.get("wa_number_id", channel_id)
+        instance._channel_id = channel_id
+        instance._channel_config = config
+        instance.cfg = ChannelConfig("twitter", instance.wa_number_id)
+        if config.get("cookies"):
+            instance.cfg.set_cookies(config["cookies"])
+        return instance
 
     def send(self, username: str, message: str) -> bool:
         client = _get_client(self.wa_number_id)
