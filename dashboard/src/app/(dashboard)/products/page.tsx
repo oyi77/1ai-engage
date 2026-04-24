@@ -8,6 +8,7 @@ import {
   updateProduct,
   deleteProduct,
   importCSV,
+  uploadImage,
   type WANumber,
   type Product,
 } from "@/lib/api";
@@ -46,6 +47,7 @@ export default function ProductsPage() {
     image_url: "",
   });
   const [importing, setImporting] = useState(false);
+  const [uploadingImg, setUploadingImg] = useState(false);
 
   const waId = selectedWA || waData?.numbers[0]?.id || "";
   const { data: products, mutate, isLoading: productsLoading } = useSWR<Product[]>(
@@ -130,6 +132,23 @@ export default function ProductsPage() {
       mutate();
     } catch (error) {
       alert(`✗ Save error: ${error}`);
+    }
+  }
+
+  async function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file || !editId) return;
+
+    setUploadingImg(true);
+    try {
+      const result = await uploadImage(editId, file);
+      setForm({ ...form, image_url: result.image_url });
+      mutate();
+    } catch (error) {
+      alert(`✗ Upload error: ${error}`);
+    } finally {
+      setUploadingImg(false);
+      e.target.value = "";
     }
   }
 
@@ -218,6 +237,35 @@ export default function ProductsPage() {
                     onChange={(e) => setForm({ ...form, image_url: e.target.value })}
                     className="bg-neutral-800 border-neutral-700"
                   />
+                  {editId && (
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="file"
+                        id="product-image-upload"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        className="hidden"
+                      />
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        onClick={() => document.getElementById("product-image-upload")?.click()}
+                        disabled={uploadingImg}
+                        className="border-neutral-700"
+                      >
+                        {uploadingImg ? (
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                        ) : (
+                          <Upload className="h-4 w-4 mr-1" />
+                        )}
+                        {uploadingImg ? "Uploading..." : "Upload Image"}
+                      </Button>
+                      {form.image_url && (
+                        <img src={form.image_url} alt="Preview" className="h-10 w-10 rounded object-cover border border-neutral-700" />
+                      )}
+                    </div>
+                  )}
                 </div>
                 <Textarea
                   placeholder="Product Name"
