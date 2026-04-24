@@ -84,6 +84,20 @@ export interface Lead {
   [key: string]: unknown;
 }
 
+export interface Contact {
+  id: number;
+  wa_number_id?: string;
+  name: string;
+  phone: string;
+  email?: string;
+  company?: string;
+  notes?: string;
+  tags?: string;
+  source?: string;
+  created_at?: string;
+  updated_at?: string;
+}
+
 export interface WANumber {
   id: string;
   session_name: string;
@@ -335,6 +349,35 @@ export async function patchJSON<T>(url: string, body: unknown): Promise<T> {
 
 export async function deleteJSON<T>(url: string): Promise<T> {
   const res = await fetch(`${API_BASE}${url}`, { method: "DELETE" });
+  if (!res.ok) throw new Error(`API ${res.status}: ${res.statusText}`);
+  return res.json();
+}
+
+export async function fetchContacts(search?: string, limit = 50, offset = 0): Promise<{ contacts: Contact[]; total: number }> {
+  const params = new URLSearchParams({ limit: String(limit), offset: String(offset) });
+  if (search) params.set("search", search);
+  return fetcher<{ contacts: Contact[]; total: number }>(`/api/v1/contacts?${params}`);
+}
+
+export async function createContact(contact: Omit<Contact, "id">): Promise<{ contact: Contact }> {
+  return postJSON<{ contact: Contact }>("/api/v1/contacts", contact);
+}
+
+export async function updateContact(id: number, updates: Partial<Contact>): Promise<{ contact: Contact }> {
+  return patchJSON<{ contact: Contact }>(`/api/v1/contacts/${id}`, updates);
+}
+
+export async function deleteContact(id: number): Promise<void> {
+  await deleteJSON(`/api/v1/contacts/${id}`);
+}
+
+export async function importContacts(file: File): Promise<{ imported: number; duplicates: number; errors: string[] }> {
+  const formData = new FormData();
+  formData.append("file", file);
+  const res = await fetch(`${API_BASE}/api/v1/contacts/import-csv`, {
+    method: "POST",
+    body: formData,
+  });
   if (!res.ok) throw new Error(`API ${res.status}: ${res.statusText}`);
   return res.json();
 }
