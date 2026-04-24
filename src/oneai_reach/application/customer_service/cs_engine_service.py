@@ -497,10 +497,18 @@ class CSEngineService:
                 "reason": reason,
             }
 
-        wa_num = get_wa_number_by_session(session_name)
-        persona = wa_num.get("persona") if wa_num else None
-        if not persona:
-            persona = self.config.cs.default_persona
+        # Resolve persona: V2 channel assignment > old wa_numbers > config default
+        if channel_id:
+            from oneai_reach.infrastructure.messaging.persona_service import PersonaService
+            from oneai_reach.config.settings import get_settings as _get_settings
+            _settings = _get_settings()
+            _persona_svc = PersonaService(_settings.database.db_file)
+            persona = _persona_svc.resolve_persona(channel_id, "cs")
+        else:
+            wa_num = get_wa_number_by_session(session_name)
+            persona = wa_num.get("persona") if wa_num else None
+            if not persona:
+                persona = self.config.cs.default_persona
 
         self.conversation_service.advance_stage(conv_id, message_text, kb_results)
         stage_context = self.conversation_service.get_stage_context(conv_id)

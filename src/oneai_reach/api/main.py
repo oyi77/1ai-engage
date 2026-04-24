@@ -1,5 +1,6 @@
 """FastAPI application factory and main entry point."""
 
+import logging
 import os
 
 from fastapi import FastAPI
@@ -12,12 +13,15 @@ from oneai_reach.api.v1.agents import router as agents_router
 from oneai_reach.api.v1.channels import router as channels_router
 from oneai_reach.api.v1.legacy import router as legacy_router
 from oneai_reach.api.v1.mcp import router as mcp_router
+from oneai_reach.api.v1.personas import router as personas_router
 from oneai_reach.api.v1.products import router as products_router
 from oneai_reach.api.v1.webhooks import router as webhooks_router
 from oneai_reach.api.webhooks import capi_router, waha_router
 from oneai_reach.config.settings import get_settings
 
-_project = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+logger = logging.getLogger(__name__)
+
+_project = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
 
 def create_app() -> FastAPI:
@@ -35,8 +39,19 @@ def create_app() -> FastAPI:
         db_path = os.path.join(_project, "data", "leads.db")
         if os.path.exists(db_path):
             run_migration(db_path)
-    except Exception:
-        pass
+    except Exception as e:
+        logger.error(f"V2 migration failed: {e}")
+
+    # Run persona migration (personas + assignments)
+    try:
+        from oneai_reach.infrastructure.database.migration_personas import run_persona_migration
+        if os.path.exists(db_path):
+            run_persona_migration(db_path)
+        else:
+            logger.warning(f"DB not found at {db_path}, skipping persona migration")
+    except Exception as e:
+        logger.error(f"Persona migration failed: {e}")
+        raise
 
     setup_middleware(app)
     setup_exception_handlers(app)
@@ -48,10 +63,10 @@ def create_app() -> FastAPI:
     app.include_router(admin_router)
     app.include_router(agents_router)
     app.include_router(channels_router)
+    app.include_router(personas_router)
     app.include_router(products_router)
     app.include_router(legacy_router, prefix="/api/v1/legacy")
 
-    import os
     data_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))), "data")
     if os.path.isdir(data_dir):
         app.mount("/data", StaticFiles(directory=data_dir), name="static-data")

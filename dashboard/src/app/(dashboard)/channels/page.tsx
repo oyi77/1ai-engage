@@ -150,6 +150,18 @@ export default function ChannelsPage() {
   const workspaces = wsData?.workspaces ?? [];
   const channels = chData?.channels ?? [];
 
+  const { data: personasData } = useSWR<{ personas: { id: string; name: string; scope: string }[] }>(
+    "/api/v1/personas",
+    fetcher
+  );
+  const personas = personasData?.personas ?? [];
+
+  const { data: assignmentsData } = useSWR<{ assignments: { channel_id: string; mode: string; persona_id: string; persona_name: string }[] }>(
+    channels.length > 0 ? "/api/v1/personas/assignments" : null,
+    fetcher
+  );
+  const assignments = assignmentsData?.assignments ?? [];
+
   useEffect(() => {
     if (!selectedWs && workspaces.length > 0) setSelectedWs(workspaces[0].id);
   }, [workspaces, selectedWs]);
@@ -233,6 +245,22 @@ export default function ChannelsPage() {
     await postJSON("/api/v1/channels/workspaces", { id: slugify(name), name });
     mutWs();
     setSelectedWs(slugify(name));
+  }
+
+  async function assignPersona(channelId: string, mode: string, personaId: string) {
+    if (!personaId) {
+      await deleteJSON(`/api/v1/personas/assignments/${encodeURIComponent(channelId)}/${mode}`);
+    } else {
+      await postJSON("/api/v1/personas/assignments", { channel_id: channelId, mode, persona_id: personaId });
+    }
+  }
+
+  function getPersonaForChannel(chId: string, mode: string) {
+    return assignments.find((a) => a.channel_id === chId && a.mode === mode);
+  }
+
+  function filteredPersonas(scope: string) {
+    return personas.filter((p) => p.scope === scope || p.scope === "universal");
   }
 
   return (
@@ -392,6 +420,22 @@ export default function ChannelsPage() {
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
+              <div className="flex items-center gap-3">
+                <span className="text-xs text-neutral-500 w-14">Persona:</span>
+                <select
+                  value={getPersonaForChannel(ch.id, ch.mode)?.persona_id || ""}
+                  onChange={(e) => assignPersona(ch.id, ch.mode, e.target.value)}
+                  className="h-7 rounded-md bg-neutral-800 border border-neutral-700 text-xs px-2 flex-1 max-w-xs"
+                >
+                  <option value="">Default</option>
+                  {filteredPersonas(ch.mode === "cs" || ch.mode === "support" ? "cs" : ch.mode === "coldcall" || ch.mode === "nurture" ? "outreach" : "universal").map((p) => (
+                    <option key={p.id} value={p.id}>{p.name}</option>
+                  ))}
+                </select>
+                <span className="text-xs text-neutral-600">
+                  {getPersonaForChannel(ch.id, ch.mode)?.persona_name || "Inherited"}
+                </span>
+              </div>
               {pcfg.fields.length > 0 && (
                 <div className="space-y-2">
                   <p className="text-xs text-neutral-500">
