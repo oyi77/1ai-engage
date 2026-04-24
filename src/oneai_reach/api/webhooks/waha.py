@@ -1,6 +1,8 @@
 """WAHA webhook endpoints for WhatsApp message and status events."""
 
+import asyncio
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Any, Dict, Optional
 
@@ -24,6 +26,7 @@ router = APIRouter(prefix="/api/v1/webhooks/waha", tags=["webhooks"])
 _processed_messages = set()
 _CONVERSATION_MESSAGE_COUNTS = {}  # Track message count per conversation
 _CONVERSATION_MAX_MESSAGES = 50  # Max messages per conversation before auto-stop
+_executor = ThreadPoolExecutor(max_workers=2, thread_name_prefix="cs_engine_bg")
 
 
 class WAHAPayload(BaseModel):
@@ -247,12 +250,19 @@ async def handle_waha_webhook(request: Request) -> WAHAWebhookResponse:
                 settings, conversation_service, outcomes_service, playbook_service
             )
 
-            result = cs_engine.handle_inbound_message(
-                wa_number_id=wa_number_id,
-                contact_phone=sender,
-                message_text=body_text,
-                session_name=session,
-            )
+            def _run_cs_engine():
+                return cs_engine.handle_inbound_message(
+                    wa_number_id=wa_number_id,
+                    contact_phone=sender,
+                    message_text=body_text,
+                    session_name=session,
+                )
+
+            future = _executor.submit(_run_cs_engine)
+            try:
+                result = future.result(timeout=10)
+            except Exception:
+                result = {"response": None, "skip": "processing_error"}
 
             response_preview = ""
             if result.get("response"):
