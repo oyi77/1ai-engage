@@ -35,6 +35,9 @@ from oneai_reach.api.v1.templates import router as templates_router
 from oneai_reach.api.v1.proposals import router as proposals_router
 from oneai_reach.api.v1.email_tracking import router as email_tracking_router
 from oneai_reach.api.v1.labels import router as labels_router
+from oneai_reach.api.v1.email_templates import router as email_templates_router
+from oneai_reach.api.v1.scheduled_messages import router as scheduled_messages_router
+from oneai_reach.api.v1.broadcasts import router as broadcasts_router
 from oneai_reach.api.webhooks import capi_router, waha_router
 from oneai_reach.config.settings import get_settings
 
@@ -88,6 +91,14 @@ def create_app() -> FastAPI:
     except Exception as e:
         logger.error(f"CRM Phase B migration failed: {e}")
 
+    # Run CRM Phase C migration (email_templates, scheduled_messages, broadcasts)
+    try:
+        from oneai_reach.infrastructure.database.migration_crm_phase_c import run_crm_migration as run_phase_c_migration
+        if os.path.exists(db_path):
+            run_phase_c_migration(db_path)
+    except Exception as e:
+        logger.error(f"CRM Phase C migration failed: {e}")
+
     setup_middleware(app)
     setup_exception_handlers(app)
 
@@ -114,6 +125,9 @@ def create_app() -> FastAPI:
     app.include_router(proposals_router)
     app.include_router(email_tracking_router)
     app.include_router(labels_router)
+    app.include_router(email_templates_router)
+    app.include_router(scheduled_messages_router)
+    app.include_router(broadcasts_router)
 
     data_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))), "data")
     if os.path.isdir(data_dir):

@@ -19,6 +19,10 @@ import {
   Radio,
   Users,
   Settings,
+  Mail,
+  CalendarClock,
+  Megaphone,
+  FileText,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -35,6 +39,9 @@ const NAV_ITEMS = [
   { href: "/channels", label: "Channels", icon: Radio },
   { href: "/personas", label: "Personas", icon: Users },
   { href: "/outreach-tracker", label: "Outreach Tracker", icon: Search },
+  { href: "/email-templates", label: "Email Templates", icon: Mail },
+  { href: "/scheduled-messages", label: "Scheduled", icon: CalendarClock },
+  { href: "/broadcasts", label: "Broadcasts", icon: Megaphone },
   { href: "/kb", label: "Knowledge Base", icon: BookOpen },
   { href: "/products", label: "Products", icon: Package },
   { href: "/pipeline", label: "Sales Pipeline", icon: Kanban },

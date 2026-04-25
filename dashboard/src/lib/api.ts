@@ -685,3 +685,112 @@ async function putJSON(url: string, body: object) {
   if (!res.ok) throw new Error(`API ${res.status}: ${res.statusText}`);
   return res.json();
 }
+
+// Phase C: Email Templates, Scheduled Messages, Broadcasts
+
+export interface EmailTemplate {
+  id: number;
+  wa_number_id: string | null;
+  name: string;
+  subject: string;
+  body: string;
+  category: string;
+  variables: string | null;
+  is_predefined: boolean;
+  is_active: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
+export async function fetchEmailTemplates(params?: { category?: string; search?: string }): Promise<{ templates: EmailTemplate[] }> {
+  const query = new URLSearchParams();
+  if (params?.category) query.set("category", params.category);
+  if (params?.search) query.set("search", params.search);
+  return fetcher(`/api/v1/email-templates?${query.toString()}`);
+}
+
+export async function createEmailTemplate(data: { name: string; subject: string; body: string; category?: string }): Promise<{ template: EmailTemplate }> {
+  return postJSON("/api/v1/email-templates", data);
+}
+
+export async function updateEmailTemplate(id: number, data: Partial<EmailTemplate>): Promise<{ template: EmailTemplate }> {
+  return patchJSON(`/api/v1/email-templates/${id}`, data);
+}
+
+export async function renderEmailTemplate(id: number, variables: Record<string, string>): Promise<{ subject: string; body: string }> {
+  return postJSON(`/api/v1/email-templates/${id}/render`, variables);
+}
+
+export interface ScheduledMessage {
+  id: number;
+  contact_id: number | null;
+  conversation_id: number | null;
+  channel: string;
+  message_type: string;
+  content: string;
+  subject: string | null;
+  scheduled_at: string;
+  timezone: string;
+  status: string;
+  sent_at: string | null;
+  created_at: string;
+}
+
+export async function fetchScheduledMessages(params?: { status?: string }): Promise<{ messages: ScheduledMessage[]; total: number }> {
+  const query = new URLSearchParams();
+  if (params?.status) query.set("status", params.status);
+  return fetcher(`/api/v1/scheduled-messages?${query.toString()}`);
+}
+
+export async function createScheduledMessage(data: { contact_id?: number; conversation_id?: number; channel?: string; content: string; subject?: string; scheduled_at: string }): Promise<{ message: ScheduledMessage }> {
+  return postJSON("/api/v1/scheduled-messages", data);
+}
+
+export async function getScheduledStats(): Promise<{ pending: number; sent: number; failed: number; processing: number; total: number }> {
+  return fetcher("/api/v1/scheduled-messages/stats/overview");
+}
+
+export interface BroadcastList {
+  id: number;
+  name: string;
+  description: string | null;
+  total_recipients: number;
+  is_active: boolean;
+  created_at: string;
+}
+
+export interface BroadcastSend {
+  id: number;
+  broadcast_list_id: number;
+  name: string;
+  subject: string | null;
+  content: string;
+  channel: string;
+  total_recipients: number;
+  sent_count: number;
+  delivered_count: number;
+  opened_count: number;
+  clicked_count: number;
+  failed_count: number;
+  status: string;
+  scheduled_at: string | null;
+  created_at: string;
+}
+
+export async function fetchBroadcastLists(): Promise<{ lists: BroadcastList[]; total: number }> {
+  return fetcher("/api/v1/broadcast-lists");
+}
+
+export async function createBroadcastList(data: { name: string; description?: string }): Promise<{ status: string; list_id: number }> {
+  return postJSON("/api/v1/broadcast-lists", data);
+}
+
+export async function fetchBroadcastSends(params?: { status?: string }): Promise<{ sends: BroadcastSend[]; total: number }> {
+  const query = new URLSearchParams();
+  if (params?.status) query.set("status", params.status);
+  return fetcher(`/api/v1/broadcast-sends?${query.toString()}`);
+}
+
+export async function getBroadcastStats(): Promise<{ total_lists: number; total_sends: number; total_recipients: number; sends_by_status: Record<string, number> }> {
+  return fetcher("/api/v1/broadcasts/stats/overview");
+}
