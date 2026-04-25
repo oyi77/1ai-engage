@@ -4,9 +4,12 @@ Provides emergency controls for stopping/pausing conversations and monitoring
 active conversation state. Part of the infinite loop prevention system.
 """
 
+import logging
 from typing import Any, Dict, List, Optional
 
 from fastapi import APIRouter, Depends, HTTPException
+
+logger = logging.getLogger(__name__)
 from pydantic import BaseModel, Field
 
 from oneai_reach.api.dependencies import verify_api_key
@@ -90,7 +93,8 @@ def _check_journal(unit: str) -> bool:
             capture_output=True, text=True, timeout=3,
         )
         return bool(result.stdout.strip())
-    except Exception:
+    except Exception as e:
+        logger.warning(f"journalctl check failed for {unit}: {e}")
         return False
 
 
@@ -130,8 +134,8 @@ async def get_logs(name: str, lines: int = 50) -> LogResponse:
                 tail = text.strip().splitlines()[-lines:]
                 if tail:
                     return LogResponse(lines=tail, count=len(tail), file=str(candidate))
-            except Exception:
-                pass
+            except Exception as e:
+                logger.warning(f"log read failed for {candidate}: {e}")
 
     unit = _SYSTEMD_UNITS.get(name)
     if not unit:
@@ -146,8 +150,8 @@ async def get_logs(name: str, lines: int = 50) -> LogResponse:
         if result.returncode == 0 and result.stdout.strip():
             j_lines = result.stdout.strip().splitlines()
             return LogResponse(lines=j_lines, count=len(j_lines), file=f"journal:{unit}")
-    except Exception:
-        pass
+    except Exception as e:
+        logger.warning(f"journalctl read failed for {unit}: {e}")
 
     try:
         result = subprocess.run(
@@ -157,8 +161,8 @@ async def get_logs(name: str, lines: int = 50) -> LogResponse:
         if result.returncode == 0 and result.stdout.strip():
             j_lines = result.stdout.strip().splitlines()
             return LogResponse(lines=j_lines, count=len(j_lines), file=f"system-journal:{unit}")
-    except Exception:
-        pass
+    except Exception as e:
+        logger.warning(f"system journalctl read failed for {unit}: {e}")
 
     return LogResponse(lines=["(no logs available)"], count=0, file=f"none:{name}")
     data: Optional[Dict[str, Any]] = None
@@ -350,8 +354,8 @@ async def get_status() -> Dict[str, Any]:
                 if pid_result.returncode == 0:
                     pid_str = pid_result.stdout.strip().split("=")[-1]
                     webhook_pid = int(pid_str) if pid_str.isdigit() else None
-        except Exception:
-            pass
+        except Exception as e:
+            logger.warning(f"webhook pid lookup failed: {e}")
         
         services.append(ServiceStatus(
             key="webhook",
@@ -369,8 +373,8 @@ async def get_status() -> Dict[str, Any]:
                     if job.get("stage") == "autonomous_loop" and job.get("running"):
                         autonomous_job = job
                         break
-            except Exception:
-                pass
+            except Exception as e:
+                logger.warning(f"autonomous job lookup failed: {e}")
         
         services.append(ServiceStatus(
             key="autonomous",
@@ -400,8 +404,8 @@ async def get_status() -> Dict[str, Any]:
                 if pid_result.returncode == 0:
                     pid_str = pid_result.stdout.strip().split("=")[-1]
                     dashboard_pid = int(pid_str) if pid_str.isdigit() else None
-        except Exception:
-            pass
+        except Exception as e:
+            logger.warning(f"dashboard pid lookup failed: {e}")
         
         services.append(ServiceStatus(
             key="dashboard",
@@ -432,8 +436,8 @@ async def get_status() -> Dict[str, Any]:
                 if pid_result.returncode == 0:
                     pid_str = pid_result.stdout.strip().split("=")[-1]
                     scraper_pid = int(pid_str) if pid_str.isdigit() else None
-        except Exception:
-            pass
+        except Exception as e:
+            logger.warning(f"scraper pid lookup failed: {e}")
         
         services.append(ServiceStatus(
             key="gmaps_scraper",

@@ -8,12 +8,15 @@ Provides FastAPI endpoints that wrap agent_control.py functions for:
 - Inspecting system integrations
 """
 
+import logging
 import sys
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
+
+logger = logging.getLogger(__name__)
 
 from oneai_reach.api.dependencies import verify_api_key
 
@@ -61,7 +64,8 @@ def load_leads_df():
             if col not in df.columns:
                 df[col] = None
         return df
-    except Exception:
+    except Exception as e:
+        logger.warning(f"lead stats load failed: {e}")
         return None
 
 
@@ -830,8 +834,8 @@ async def get_lead_timeline(lead_id: str) -> AgentResponse:
         if research_file.exists():
             try:
                 research_text = research_file.read_text(encoding="utf-8")
-            except Exception:
-                pass
+            except Exception as e:
+                logger.warning(f"research file read failed for lead {lead_index}: {e}")
         
         proposal_data = {"email": None, "whatsapp": None}
         proposal_file = P(PROPOSALS_DIR) / f"{lead_index}_{sanitized_name}.txt"
@@ -843,8 +847,8 @@ async def get_lead_timeline(lead_id: str) -> AgentResponse:
                     email_and_wa = parts[1].split("---WHATSAPP---")
                     proposal_data["email"] = email_and_wa[0].strip() if email_and_wa else None
                     proposal_data["whatsapp"] = email_and_wa[1].strip() if len(email_and_wa) > 1 else None
-            except Exception:
-                pass
+            except Exception as e:
+                logger.warning(f"proposal file parse failed for lead {lead_index}: {e}")
         
         messages = []
         conn = state_manager._connect()
@@ -1126,7 +1130,8 @@ async def get_analytics() -> AgentResponse:
         now = datetime.now(timezone.utc)
         try:
             df["_created"] = pd.to_datetime(df["created_at"], utc=True, errors="coerce")
-        except Exception:
+        except Exception as e:
+            logger.warning(f"date parse failed for _created: {e}")
             df["_created"] = pd.NaT
 
         week_ago = now - timedelta(days=7)
@@ -1143,8 +1148,8 @@ async def get_analytics() -> AgentResponse:
                 if not valid.empty:
                     delta = (valid["_contacted"] - valid["_created"]).dt.total_seconds() / 86400
                     avg_days_to_contact = round(float(delta.mean()), 1)
-            except Exception:
-                pass
+            except Exception as e:
+                logger.warning(f"velocity calculation failed: {e}")
 
         velocity = {
             "leads_this_week": leads_this_week,

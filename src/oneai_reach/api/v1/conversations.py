@@ -193,13 +193,13 @@ async def api_conversation_waha_history(conv_id: int, limit: int = 100):
         wa_num = c2.execute(
             "SELECT session_name, phone FROM wa_numbers WHERE id = ?", (wa_number_id,)
         ).fetchone()
-    except Exception:
-        pass
+    except Exception as e:
+        logger.warning(f"wa_number lookup failed for {wa_number_id}: {e}")
     finally:
         try:
             c2.close()
-        except Exception:
-            pass
+        except Exception as e:
+            logger.warning(f"connection close failed: {e}")
 
     if not wa_num:
         return {"status": "success", "data": {"messages": [], "count": 0}}

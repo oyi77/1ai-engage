@@ -1,6 +1,7 @@
 """Product CRUD API endpoints for multi-tenant product management."""
 
 import csv
+import logging
 from io import StringIO
 from typing import List, Optional
 import uuid
@@ -8,6 +9,8 @@ import uuid
 from fastapi import APIRouter, Depends, HTTPException, Query, UploadFile, File, Form
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
+
+logger = logging.getLogger(__name__)
 
 from oneai_reach.api.dependencies import verify_api_key
 from oneai_reach.application.product.csv_validator import validate_product_csv, CSVValidationResult
@@ -138,7 +141,8 @@ def _get_primary_image_url(repo: SQLiteProductRepository, product_id: str) -> Op
         ).fetchone()
         conn.close()
         return row[0] if row else None
-    except Exception:
+    except Exception as e:
+        logger.warning(f"product image lookup failed for {product_id}: {e}")
         return None
 
 
