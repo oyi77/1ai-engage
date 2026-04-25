@@ -139,6 +139,60 @@ def _normalize_jid(jid: str) -> str:
     return f"{base}@c.us"
 
 
+def _resolve_lid_to_cus(wa_number_id: str, lid: str) -> str | None:
+    """Check if an @lid has been mapped to a @c.us phone number.
+
+    Queries the contact_jid_map table for an existing mapping.
+    Returns the @c.us phone if found, None otherwise.
+    """
+    try:
+        conn = state_manager._connect()
+        try:
+            row = conn.execute(
+                "SELECT c_us_phone FROM contact_jid_map WHERE wa_number_id = ? AND lid = ?",
+                (wa_number_id, lid),
+            ).fetchone()
+            if row:
+                logger.info(f"LID RESOLVE lid={lid} → {row['c_us_phone']} wa={wa_number_id}")
+                return row["c_us_phone"]
+        finally:
+            conn.close()
+    except Exception as e:
+        logger.warning(f"LID resolve failed lid={lid} wa={wa_number_id} err={e}")
+    return None
+
+
+def _try_merge_lid(wa_number_id: str, lid: str, push_name: str) -> str | None:
+    """Try to auto-merge an @lid into an existing @c.us conversation by push_name.
+
+    If an existing @c.us conversation in this session has the same push_name,
+    create a mapping entry and return the @c.us phone. Otherwise return None.
+    """
+    if not push_name:
+        return None
+    try:
+        conn = state_manager._connect()
+        try:
+            row = conn.execute(
+                "SELECT contact_phone FROM conversations WHERE wa_number_id = ? AND contact_name = ? AND contact_phone LIKE '%@c.us' LIMIT 1",
+                (wa_number_id, push_name),
+            ).fetchone()
+            if row:
+                c_us_phone = row["contact_phone"]
+                conn.execute(
+                    "INSERT OR IGNORE INTO contact_jid_map (wa_number_id, lid, c_us_phone, push_name, confidence) VALUES (?, ?, ?, ?, 'auto')",
+                    (wa_number_id, lid, c_us_phone, push_name),
+                )
+                conn.commit()
+                logger.info(f"LID AUTO-MERGE lid={lid} push_name={push_name} → {c_us_phone} wa={wa_number_id}")
+                return c_us_phone
+        finally:
+            conn.close()
+    except Exception as e:
+        logger.warning(f"LID auto-merge failed lid={lid} push_name={push_name} wa={wa_number_id} err={e}")
+    return None
+
+
 def _is_manual_mode_active(wa_number_id: str, contact_phone: str) -> bool:
     contact_phone = _normalize_jid(contact_phone)
     try:
@@ -297,6 +351,20 @@ async def handle_waha_webhook(request: Request) -> WAHAWebhookResponse:
         # --- Message processing ---
         sender = payload.get("from") or payload.get("chatId", "")
         sender = _normalize_jid(sender)
+        push_name = payload.get("pushName") or payload.get("push_name") or ""
+
+        # @lid resolution: try to map encrypted @lid to known @c.us phone
+        if "@lid" in sender:
+            wa_number = get_wa_number_by_session(session)
+            wa_number_id = wa_number.get("id", session) if wa_number else session
+            resolved = _resolve_lid_to_cus(wa_number_id, sender)
+            if resolved:
+                sender = resolved
+            elif push_name:
+                merged = _try_merge_lid(wa_number_id, sender, push_name)
+                if merged:
+                    sender = merged
+
         body_text = _extract_body(payload)
         msg_type = payload.get("type", "chat")
         from_me = _extract_from_me(payload)

@@ -444,3 +444,58 @@ async def api_message_logs(
     except Exception as e:
         logger.error(f"message log query failed: {e}")
         return {"status": "error", "data": {"logs": [], "count": 0, "error": str(e)}}
+
+
+@router.post("/{conversation_id}/merge")
+async def api_merge_conversations(conversation_id: int, request: Request):
+    """Merge source conversation into target conversation.
+
+    Moves all messages from source to target, then deletes source.
+    Also creates a contact_jid_map entry if source has @lid.
+    """
+    data = await request.json()
+    source_id = data.get("source_id")
+    if not source_id:
+        raise HTTPException(status_code=400, detail="source_id required")
+
+    conn = state_manager._connect()
+    try:
+        source = conn.execute("SELECT * FROM conversations WHERE id = ?", (source_id,)).fetchone()
+        target = conn.execute("SELECT * FROM conversations WHERE id = ?", (conversation_id,)).fetchone()
+
+        if not source or not target:
+            raise HTTPException(status_code=404, detail="Source or target conversation not found")
+
+        # Move messages from source to target
+        conn.execute(
+            "UPDATE conversation_messages SET conversation_id = ? WHERE conversation_id = ?",
+            (conversation_id, source_id),
+        )
+
+        # If source has @lid, create a mapping entry
+        source_phone = dict(source).get("contact_phone", "")
+        if "@lid" in source_phone:
+            conn.execute(
+                "INSERT OR IGNORE INTO contact_jid_map (wa_number_id, lid, c_us_phone, push_name, confidence) VALUES (?, ?, ?, ?, 'manual')",
+                (
+                    dict(source).get("wa_number_id", ""),
+                    source_phone,
+                    dict(target).get("contact_phone", ""),
+                    dict(source).get("contact_name", ""),
+                ),
+            )
+
+        # Delete source conversation
+        conn.execute("DELETE FROM conversations WHERE id = ?", (source_id,))
+        conn.commit()
+
+        logger.info(f"MERGE source={source_id} → target={conversation_id}")
+        return {"status": "success", "data": {"merged_into": conversation_id, "source_deleted": source_id}}
+    except HTTPException:
+        raise
+    except Exception as e:
+        conn.rollback()
+        logger.error(f"merge failed: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        conn.close()
