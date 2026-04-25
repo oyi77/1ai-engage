@@ -12,8 +12,9 @@ from oneai_reach.infrastructure.logging import get_logger
 logger = get_logger(__name__)
 
 # Response throttling to prevent rapid back-and-forth conversation loops
-_LAST_RESPONSE_TIME = {}  # Track last response time per conversation (key: "{wa_number_id}:{sender}")
-_THROTTLE_SECONDS = 2  # Minimum seconds between responses per conversation
+_LAST_RESPONSE_TIME: dict[str, float] = {}
+_THROTTLE_SECONDS = 2
+_THROTTLE_MAX_ENTRIES = 500
 
 _FTS_UNSAFE = re.compile(r"[^\w\s]", re.UNICODE)
 
@@ -65,14 +66,10 @@ _INDONESIAN_MARKERS = frozenset(
 
 
 def _should_throttle_response(conv_key: str) -> bool:
-    """Check if response should be throttled (less than 2 seconds since last response).
+    """Check if response should be throttled (less than 2 seconds since last response)."""
+    if len(_LAST_RESPONSE_TIME) > _THROTTLE_MAX_ENTRIES:
+        _LAST_RESPONSE_TIME.clear()
 
-    Args:
-        conv_key: Conversation key in format "{wa_number_id}:{sender}"
-
-    Returns:
-        True if response should be throttled, False otherwise
-    """
     if conv_key not in _LAST_RESPONSE_TIME:
         _LAST_RESPONSE_TIME[conv_key] = time.time()
         return False
