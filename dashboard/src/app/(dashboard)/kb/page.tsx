@@ -23,7 +23,7 @@ export default function KBPage() {
 
   const waId = selectedWA || waData?.numbers[0]?.id || "";
   const { data: kbData, mutate } = useSWR<{ entries: KBEntry[]; count: number }>(
-    waId ? `/api/v1/legacy/kb/${waId}` : null, fetcher
+    waId ? `/api/v1/kb/${waId}` : null, fetcher
   );
   const entries = kbData?.entries ?? [];
 
@@ -37,7 +37,7 @@ export default function KBPage() {
     formData.append("wa_number_id", waId);
     
     try {
-      const res = await fetch("/api/v1/legacy/kb/import", { method: "POST", body: formData });
+      const res = await fetch("/api/v1/kb/import", { method: "POST", body: formData });
       const data = await res.json();
       if (data.success) {
         alert(`✓ Imported ${data.count} entries`);
@@ -55,7 +55,7 @@ export default function KBPage() {
 
   function handleExport(format: string | null) {
     if (!waId || !format) return;
-    window.open(`/api/v1/legacy/kb/export?wa_number_id=${waId}&format=${format}`, "_blank");
+    window.open(`/api/v1/kb/${waId}/export?format=${format}`, "_blank");
   }
 
   if (waLoad) {
@@ -77,16 +77,16 @@ export default function KBPage() {
   async function saveEntry() {
     if (!waId || !form.question || !form.answer) return;
     if (editId) {
-      await patchJSON(`/api/v1/legacy/kb/entry/${editId}`, form);
+      await patchJSON(`/api/v1/kb/entry/${editId}`, form);
     } else {
-      await postJSON(`/api/v1/legacy/kb/${waId}`, form);
+      await postJSON(`/api/v1/kb/${waId}`, form);
     }
     setDialogOpen(false);
     mutate();
   }
 
   async function deleteEntry(id: number) {
-    await deleteJSON(`/api/v1/legacy/kb/entry/${id}`);
+    await deleteJSON(`/api/v1/kb/entry/${id}`);
     mutate();
   }
 

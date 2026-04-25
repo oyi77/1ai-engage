@@ -21,7 +21,7 @@ export default function PipelinePage() {
   const waId = selectedWA || waData?.numbers[0]?.id || "";
 
   const { data: convData, mutate } = useSWR<{ conversations: Conversation[] }>(
-    waId ? `/api/v1/legacy/conversations?wa_number_id=${waId}` : null, fetcher, { refreshInterval: 5000 }
+    waId ? `/api/v1/conversations?wa_number_id=${waId}` : null, fetcher, { refreshInterval: 5000 }
   );
   const conversations = convData?.conversations ?? [];
 
@@ -32,7 +32,7 @@ export default function PipelinePage() {
   const byStage = Object.fromEntries(STAGES.map((s) => [s, conversations.filter((c) => (c.stage || "discovery") === s)]));
 
   async function changeStage(convId: number, stage: string) {
-    await patchJSON(`/api/v1/legacy/conversations/${convId}/stage`, { stage });
+    await patchJSON(`/api/v1/conversations/${convId}/stage`, { stage });
     mutate();
   }
 

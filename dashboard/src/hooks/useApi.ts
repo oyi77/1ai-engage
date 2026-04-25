@@ -14,7 +14,7 @@ export function useServices(refreshInterval = 3000) {
 }
 
 export function usePipelineScripts() {
-  return useSWR<{ scripts: PipelineScript[] }>("/api/v1/legacy/pipeline/scripts", fetcher);
+  return useSWR<{ scripts: PipelineScript[] }>("/api/v1/pipeline/scripts", fetcher);
 }
 
 export function useLogs(name: string, lines = 50, refreshInterval = 5000) {

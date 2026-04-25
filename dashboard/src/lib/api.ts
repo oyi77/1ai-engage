@@ -381,3 +381,43 @@ export async function importContacts(file: File): Promise<{ imported: number; du
   if (!res.ok) throw new Error(`API ${res.status}: ${res.statusText}`);
   return res.json();
 }
+
+export interface WAHAServer {
+  id: number;
+  label: string;
+  url: string;
+  api_key: string;
+  is_default: number;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface TestResult {
+  success: boolean;
+  message: string;
+  sessions_count: number;
+}
+
+export async function fetchWAHAServers(): Promise<WAHAServer[]> {
+  const data = await fetcher<{ servers: WAHAServer[] }>("/api/v1/settings/waha-servers");
+  return data.servers;
+}
+
+export async function createWAHAServer(server: Omit<WAHAServer, "id" | "created_at" | "updated_at">): Promise<WAHAServer> {
+  const data = await postJSON<{ server: WAHAServer }>("/api/v1/settings/waha-servers", server);
+  return data.server;
+}
+
+export async function updateWAHAServer(id: number, updates: Partial<WAHAServer>): Promise<WAHAServer> {
+  const data = await patchJSON<{ server: WAHAServer }>(`/api/v1/settings/waha-servers/${id}`, updates);
+  return data.server;
+}
+
+export async function deleteWAHAServer(id: number): Promise<void> {
+  await deleteJSON(`/api/v1/settings/waha-servers/${id}`);
+}
+
+export async function testWAHAServer(id: number): Promise<TestResult> {
+  const data = await postJSON<TestResult>(`/api/v1/settings/waha-servers/${id}/test`, {});
+  return data;
+}

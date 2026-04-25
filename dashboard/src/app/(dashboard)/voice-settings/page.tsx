@@ -30,7 +30,7 @@ export default function VoiceSettingsPage() {
   const [saved, setSaved] = useState(false);
 
   const { data: voiceData, mutate: mutateVoice } = useSWR<VoiceConfig>(
-    selectedSession ? `/api/v1/legacy/voice-config/${selectedSession}` : null,
+    selectedSession ? `/api/v1/voice-config/${selectedSession}` : null,
     fetcher,
     { refreshInterval: 0 }
   );
@@ -46,7 +46,7 @@ export default function VoiceSettingsPage() {
     if (!selectedSession) return;
     setSaving(true);
     try {
-      await postJSON(`/api/v1/legacy/voice-config/${selectedSession}`, {
+      await postJSON(`/api/v1/voice-config/${selectedSession}`, {
         voice_enabled: currentConfig.voice_enabled,
         voice_reply_mode: currentConfig.voice_reply_mode,
         voice_language: currentConfig.voice_language,

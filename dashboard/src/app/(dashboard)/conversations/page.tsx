@@ -9,15 +9,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Send, User, Loader2, ThumbsUp, ThumbsDown, MessageSquare, Bot, Hand, Play, Square, AlertCircle } from "lucide-react";
+import { Send, User, Loader2, ThumbsUp, ThumbsDown, MessageSquare, Bot, Hand, Play, Square, Phone, Search, ChevronDown, ChevronRight } from "lucide-react";
 
 type Feedback = { id: number; message_id: number; rating: string; note: string; corrected_response: string };
 
 export default function ConversationsPage() {
   const { data: waData, isLoading: waLoad } = useSWR<{ numbers: WANumber[] }>("/api/v1/agents/wa/sessions", fetcher);
-  const [selectedWA, setSelectedWA] = useState<string>("");
   const [selectedConv, setSelectedConv] = useState<number | null>(null);
   const [replyText, setReplyText] = useState("");
   const [feedbackMsgId, setFeedbackMsgId] = useState<number | null>(null);
@@ -25,35 +23,76 @@ export default function ConversationsPage() {
   const [feedbackNote, setFeedbackNote] = useState("");
   const [feedbackCorrected, setFeedbackCorrected] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [collapsedGroups, setCollapsedGroups] = useState<Set<string>>(new Set());
   const [newChatOpen, setNewChatOpen] = useState(false);
   const [newChatPhone, setNewChatPhone] = useState("");
   const [newChatMsg, setNewChatMsg] = useState("");
+  const [newChatWA, setNewChatWA] = useState("");
   const [sendingNew, setSendingNew] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (waData?.numbers && waData.numbers.length > 0 && !selectedWA) {
-      setSelectedWA(waData.numbers[0].id);
-    }
-  }, [waData, selectedWA]);
-
-  const waId = selectedWA || "";
-  const { data: convData, mutate: mutateConv } = useSWR<{ conversations: Conversation[] }>(
-    waId ? `/api/v1/legacy/conversations?wa_number_id=${waId}` : null, fetcher, { refreshInterval: 5000 }
+  // Fetch ALL conversations across all WA numbers
+  const { data: allConvData, mutate: mutateAllConv } = useSWR<{ conversations: Conversation[] }>(
+    "/api/v1/conversations", fetcher, { refreshInterval: 5000 }
   );
   const { data: msgData, mutate: mutateMsgs } = useSWR<{ messages: Message[] }>(
-    selectedConv ? `/api/v1/legacy/conversations/${selectedConv}/messages?limit=200` : null, fetcher, { refreshInterval: 3000 }
+    selectedConv ? `/api/v1/conversations/${selectedConv}/messages?limit=200` : null, fetcher, { refreshInterval: 3000 }
   );
   const { data: fbData } = useSWR<{ feedback: Feedback[] }>(
-    selectedConv ? `/api/v1/legacy/conversations/${selectedConv}/feedback` : null, fetcher
+    selectedConv ? `/api/v1/conversations/${selectedConv}/feedback` : null, fetcher
   );
 
-  const conversations = convData?.conversations ?? [];
+  const numbers = waData?.numbers ?? [];
+  const allConversations = allConvData?.conversations ?? [];
   const messages = useMemo(() => msgData?.messages ?? [], [msgData?.messages]);
   const feedbackMap = new Map((fbData?.feedback ?? []).map((f) => [f.message_id, f]));
 
-  const currentConv = conversations.find((c) => c.id === selectedConv);
+  const currentConv = allConversations.find((c) => c.id === selectedConv);
   const isManualMode = currentConv?.manual_mode === 1;
+
+  // Build a map of wa_number_id -> number info for labels
+  const numberMap = useMemo(() => {
+    const m = new Map<string, WANumber>();
+    numbers.forEach((n) => m.set(n.id, n));
+    return m;
+  }, [numbers]);
+
+  // Group conversations by wa_number_id
+  const groupedConversations = useMemo(() => {
+    const groups = new Map<string, Conversation[]>();
+    for (const conv of allConversations) {
+      const waId = conv.wa_number_id || "unknown";
+      if (!groups.has(waId)) groups.set(waId, []);
+      groups.get(waId)!.push(conv);
+    }
+    // Sort groups: active WAs first per sidebar order
+    const sorted = new Map<string, Conversation[]>();
+    const waOrder = numbers.map((n) => n.id);
+    for (const waId of waOrder) {
+      if (groups.has(waId)) sorted.set(waId, groups.get(waId)!);
+    }
+    for (const [waId, convs] of groups) {
+      if (!sorted.has(waId)) sorted.set(waId, convs);
+    }
+    return sorted;
+  }, [allConversations, numbers]);
+
+  // Filter conversations by search query
+  const filteredGroups = useMemo(() => {
+    if (!searchQuery.trim()) return groupedConversations;
+    const q = searchQuery.toLowerCase();
+    const filtered = new Map<string, Conversation[]>();
+    for (const [waId, convs] of groupedConversations) {
+      const matching = convs.filter((c) =>
+        (c.contact_name || "").toLowerCase().includes(q) ||
+        (c.contact_phone || "").toLowerCase().includes(q) ||
+        (c.last_message_text || "").toLowerCase().includes(q)
+      );
+      if (matching.length > 0) filtered.set(waId, matching);
+    }
+    return filtered;
+  }, [groupedConversations, searchQuery]);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -67,7 +106,7 @@ export default function ConversationsPage() {
 
   async function sendReply() {
     if (!selectedConv || !replyText.trim()) return;
-    await postJSON(`/api/v1/legacy/conversations/${selectedConv}/messages`, { message: replyText });
+    await postJSON(`/api/v1/conversations/${selectedConv}/messages`, { message: replyText });
     setReplyText("");
     mutateMsgs();
   }
@@ -76,7 +115,7 @@ export default function ConversationsPage() {
     if (!selectedConv || !feedbackMsgId) return;
     setSubmitting(true);
     try {
-      await postJSON(`/api/v1/legacy/conversations/${selectedConv}/feedback`, {
+      await postJSON(`/api/v1/conversations/${selectedConv}/feedback`, {
         message_id: feedbackMsgId,
         rating: feedbackRating,
         note: feedbackNote,
@@ -94,36 +133,53 @@ export default function ConversationsPage() {
   async function toggleTakeover(takeover: boolean) {
     if (!selectedConv) return;
     const endpoint = takeover ? "takeover" : "release";
-    await postJSON(`/api/v1/legacy/conversations/${selectedConv}/${endpoint}`, {});
+    await postJSON(`/api/v1/conversations/${selectedConv}/${endpoint}`, {});
     mutateMsgs();
   }
 
   async function stopConversation() {
     if (!selectedConv) return;
     if (!confirm("Stop this conversation? AI will stop responding to this customer.")) return;
-    await postJSON(`/api/v1/legacy/conversations/${selectedConv}/stop`, {});
-    mutateMsgs();
+    await postJSON(`/api/v1/conversations/${selectedConv}/stop`, {});
+    mutateAllConv();
   }
 
   async function sendNewChat() {
-    if (!waId || !newChatPhone || !newChatMsg) return;
+    if (!newChatWA || !newChatPhone || !newChatMsg) return;
     setSendingNew(true);
     try {
-      const res = await postJSON("/api/v1/legacy/conversations/new", {
-        wa_number_id: waId,
+      await postJSON("/api/v1/conversations/new", {
+        wa_number_id: newChatWA,
         phone: newChatPhone.replace(/[^0-9]/g, ""),
         message: newChatMsg,
       });
       setNewChatOpen(false);
       setNewChatPhone("");
       setNewChatMsg("");
-      mutateConv();
+      mutateAllConv();
     } catch (e) {
       alert("Failed to send: " + e);
     } finally {
       setSendingNew(false);
     }
   }
+
+  function toggleGroup(waId: string) {
+    setCollapsedGroups((prev) => {
+      const next = new Set(prev);
+      if (next.has(waId)) next.delete(waId);
+      else next.add(waId);
+      return next;
+    });
+  }
+
+  const statusColors: Record<string, string> = {
+    active: "bg-green-700",
+    stopped: "bg-red-700",
+    escalated: "bg-yellow-700",
+    completed: "bg-blue-700",
+    new: "bg-neutral-600",
+  };
 
   return (
     <div className="p-6 space-y-4">
@@ -133,16 +189,6 @@ export default function ConversationsPage() {
           Chat Review
         </h1>
         <div className="flex gap-2 items-center">
-          <Select value={selectedWA} onValueChange={(v) => { setSelectedWA(v || ""); setSelectedConv(null); }}>
-            <SelectTrigger className="w-64 bg-neutral-900 border-neutral-800">
-              <SelectValue placeholder="Select WA Number" />
-            </SelectTrigger>
-            <SelectContent>
-              {waData?.numbers.map((n) => (
-                <SelectItem key={n.id} value={n.id}>{n.label} ({n.phone})</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
           <Button onClick={() => setNewChatOpen(true)} className="bg-green-700 hover:bg-green-600">
             <Send className="h-4 w-4 mr-1" /> New Chat
           </Button>
@@ -173,45 +219,93 @@ export default function ConversationsPage() {
       )}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 h-[calc(100vh-220px)]">
+        {/* Left panel: Grouped conversation list */}
         <Card className="bg-neutral-900 border-neutral-800 overflow-hidden">
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm">Chats ({conversations.length})</CardTitle>
+            <div className="flex items-center justify-between">
+              <CardTitle className="text-sm">Chats ({allConversations.length})</CardTitle>
+            </div>
+            <div className="relative mt-2">
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-neutral-500" />
+              <Input
+                placeholder="Search conversations..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-9 h-8 bg-neutral-800 border-neutral-700 text-sm"
+              />
+            </div>
           </CardHeader>
           <CardContent className="p-0">
-            <ScrollArea className="h-[calc(100vh-300px)]">
-              {conversations.map((conv) => {
-                const lastMsg = conv.last_message_text || conv.contact_phone;
-                const hasManual = conv.manual_mode === 1;
+            <ScrollArea className="h-[calc(100vh-330px)]">
+              {Array.from(filteredGroups.entries()).map(([waId, convs]) => {
+                const numberInfo = numberMap.get(waId);
+                const isCollapsed = collapsedGroups.has(waId);
+                const label = numberInfo?.label || waId;
+                const phone = numberInfo?.phone || "";
+
                 return (
-                  <button
-                    key={conv.id}
-                    onClick={() => setSelectedConv(conv.id)}
-                    className={`w-full text-left px-4 py-3 border-b border-neutral-800 hover:bg-neutral-800/50 transition-colors ${selectedConv === conv.id ? "bg-orange-500/10 border-l-2 border-l-orange-500" : ""}`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="font-medium text-sm truncate max-w-[160px]">{conv.contact_name || conv.contact_phone}</span>
-                      <div className="flex gap-1">
-                        {hasManual && <Badge className="text-xs bg-orange-700">Admin</Badge>}
-                        <Badge variant="secondary" className="text-xs bg-neutral-800">{conv.stage}</Badge>
-                      </div>
-                    </div>
-                    <p className="text-xs text-neutral-500 mt-1 truncate">{lastMsg}</p>
-                  </button>
+                  <div key={waId}>
+                    {/* Group header */}
+                    <button
+                      onClick={() => toggleGroup(waId)}
+                      className="w-full flex items-center gap-2 px-4 py-2 bg-neutral-800/80 border-b border-neutral-700 hover:bg-neutral-800 transition-colors sticky top-0 z-10"
+                    >
+                      {isCollapsed ? (
+                        <ChevronRight className="h-3.5 w-3.5 text-neutral-400 shrink-0" />
+                      ) : (
+                        <ChevronDown className="h-3.5 w-3.5 text-neutral-400 shrink-0" />
+                      )}
+                      <Phone className="h-3.5 w-3.5 text-orange-400 shrink-0" />
+                      <span className="font-semibold text-sm text-neutral-200 truncate">{label}</span>
+                      {phone && <span className="text-xs text-neutral-500 truncate">{phone}</span>}
+                      <Badge variant="secondary" className="text-xs bg-neutral-700 ml-auto shrink-0">{convs.length}</Badge>
+                    </button>
+
+                    {/* Conversation items */}
+                    {!isCollapsed && convs.map((conv) => {
+                      const lastMsg = conv.last_message_text || conv.contact_phone;
+                      const hasManual = conv.manual_mode === 1;
+                      return (
+                        <button
+                          key={conv.id}
+                          onClick={() => setSelectedConv(conv.id)}
+                          className={`w-full text-left px-4 py-2.5 border-b border-neutral-800/50 hover:bg-neutral-800/50 transition-colors pl-6 ${selectedConv === conv.id ? "bg-orange-500/10 border-l-2 border-l-orange-500" : ""}`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="font-medium text-sm truncate max-w-[140px]">{conv.contact_name || conv.contact_phone?.replace("@c.us", "")}</span>
+                            <div className="flex gap-1">
+                              {hasManual && <Badge className="text-xs bg-orange-700">Admin</Badge>}
+                              <Badge variant="secondary" className={`text-xs ${statusColors[conv.status ?? ""] || "bg-neutral-700"}`}>{conv.status || "unknown"}</Badge>
+                            </div>
+                          </div>
+                          <p className="text-xs text-neutral-500 mt-0.5 truncate">{lastMsg}</p>
+                        </button>
+                      );
+                    })}
+                  </div>
                 );
               })}
-              {conversations.length === 0 && <p className="text-neutral-500 text-center py-8 text-sm">No conversations</p>}
+              {allConversations.length === 0 && <p className="text-neutral-500 text-center py-8 text-sm">No conversations</p>}
             </ScrollArea>
           </CardContent>
         </Card>
 
+        {/* Right panel: Message view */}
         <Card className="lg:col-span-2 bg-neutral-900 border-neutral-800 flex flex-col">
           {selectedConv ? (
             <>
               <CardHeader className="pb-2 border-b border-neutral-800">
                 <CardTitle className="text-sm flex items-center gap-3">
                   <User className="h-4 w-4" />
-                  <span>{currentConv?.contact_name || currentConv?.contact_phone}</span>
-                  <span className="text-neutral-500 text-xs">{currentConv?.contact_phone}</span>
+                  <span>{currentConv?.contact_name || currentConv?.contact_phone?.replace("@c.us", "")}</span>
+                  {currentConv?.contact_phone && (
+                    <span className="text-neutral-500 text-xs">{currentConv.contact_phone.replace("@c.us", "")}</span>
+                  )}
+                  {currentConv?.wa_number_id && (
+                    <Badge variant="secondary" className="text-xs bg-orange-700/30 text-orange-300 ml-1">
+                      {numberMap.get(currentConv.wa_number_id)?.label || currentConv.wa_number_id}
+                    </Badge>
+                  )}
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex-1 p-0 overflow-hidden">
@@ -289,6 +383,54 @@ export default function ConversationsPage() {
         </Card>
       </div>
 
+      {/* New Chat Dialog */}
+      <Dialog open={newChatOpen} onOpenChange={setNewChatOpen}>
+        <DialogContent className="bg-neutral-900 border-neutral-800">
+          <DialogHeader>
+            <DialogTitle>Start New Conversation</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-3">
+            <div>
+              <label className="text-sm font-medium text-neutral-300">WA Number</label>
+              <select
+                value={newChatWA}
+                onChange={(e) => setNewChatWA(e.target.value)}
+                className="w-full mt-1 bg-neutral-800 border border-neutral-700 rounded-md px-3 py-2 text-sm text-neutral-200"
+              >
+                <option value="">Select WA number...</option>
+                {numbers.map((n) => (
+                  <option key={n.id} value={n.id}>{n.label} ({n.phone})</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="text-sm font-medium text-neutral-300">Phone Number</label>
+              <Input
+                value={newChatPhone}
+                onChange={(e) => setNewChatPhone(e.target.value)}
+                placeholder="6281234567890"
+                className="bg-neutral-800 border-neutral-700 mt-1"
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium text-neutral-300">Message</label>
+              <Textarea
+                value={newChatMsg}
+                onChange={(e) => setNewChatMsg(e.target.value)}
+                placeholder="Type your message..."
+                rows={3}
+                className="bg-neutral-800 border-neutral-700 mt-1"
+              />
+            </div>
+            <Button onClick={sendNewChat} disabled={sendingNew || !newChatWA || !newChatPhone || !newChatMsg} className="w-full bg-orange-600 hover:bg-orange-700">
+              {sendingNew ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : <Send className="h-4 w-4 mr-2" />}
+              Send Message
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Feedback Dialog */}
       <Dialog open={feedbackMsgId !== null} onOpenChange={() => setFeedbackMsgId(null)}>
         <DialogContent className="bg-neutral-900 border-neutral-800">
           <DialogHeader>

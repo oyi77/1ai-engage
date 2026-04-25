@@ -37,7 +37,7 @@ export default function AutoLearnPage() {
     if (!selectedSession) return;
     setLoading(true);
     try {
-      const res = await fetch(`/api/v1/legacy/auto-learn/report?session=${selectedSession}`);
+      const res = await fetch(`/api/v1/auto-learn/report?session=${selectedSession}`);
       const json = await res.json();
       setReportData(json.data || json);
     } catch (error) {
@@ -51,7 +51,7 @@ export default function AutoLearnPage() {
     if (!selectedSession) return;
     setLoading(true);
     try {
-      const res = await fetch(`/api/v1/legacy/auto-learn/improve`, {
+      const res = await fetch(`/api/v1/auto-learn/improve`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ session: selectedSession, apply: applyChanges }),
