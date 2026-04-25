@@ -32,6 +32,7 @@ from state_manager import (
     get_wa_number_by_session,
     is_manual_mode,
 )
+import state_manager
 
 router = APIRouter(prefix="/api/v1/webhooks/waha", tags=["webhooks"])
 logger = logging.getLogger(__name__)
@@ -121,12 +122,15 @@ def _normalize_phone(phone: str) -> str:
 
 def _is_manual_mode_active(wa_number_id: str, contact_phone: str) -> bool:
     try:
-        from state_manager import get_all_conversation_stages
-
-        convs = get_all_conversation_stages(wa_number_id=wa_number_id)
-        for c in convs:
-            if c.get("contact_phone") == contact_phone and c.get("manual_mode"):
-                return True
+        conn = state_manager._connect()
+        try:
+            row = conn.execute(
+                "SELECT manual_mode FROM conversations WHERE wa_number_id = ? AND contact_phone = ? AND manual_mode = 1 LIMIT 1",
+                (wa_number_id, contact_phone),
+            ).fetchone()
+            return bool(row)
+        finally:
+            conn.close()
     except Exception as e:
         logger.warning(f"manual_mode check failed wa={wa_number_id} phone={contact_phone} err={e}")
     return False
@@ -294,10 +298,9 @@ async def handle_waha_webhook(request: Request) -> WAHAWebhookResponse:
         if from_me:
             return WAHAWebhookResponse(status="ok", skipped="from_me")
 
-        # Skip messages from other known bot numbers (prevents infinite chat loops)
+        # Log if sender is a known bot number (useful for detecting loops)
         if _is_sender_a_bot(sender, session):
-            logger.warning(f"BOT LOOP BLOCKED session={session} sender={sender}")
-            return WAHAWebhookResponse(status="ok", skipped="bot_sender")
+            logger.warning(f"BOT SENDER session={session} sender={sender} — relying on manual_mode/stop to prevent loops")
 
         # Skip group messages
         if "@g.us" in sender:

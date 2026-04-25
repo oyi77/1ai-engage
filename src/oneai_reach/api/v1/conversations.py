@@ -104,10 +104,13 @@ async def api_new_conversation(request: Request):
 
 @router.post("/{conv_id}/stop")
 async def api_stop_conversation(conv_id: int):
-    """Stop AI responses for a conversation."""
+    """Stop AI responses for a conversation. Sets both status=stopped and manual_mode=1."""
     conn = state_manager._connect()
     try:
-        conn.execute("UPDATE conversations SET status = 'stopped' WHERE id = ?", (conv_id,))
+        conn.execute(
+            "UPDATE conversations SET status = 'stopped', manual_mode = 1, updated_at = datetime('now') WHERE id = ?",
+            (conv_id,),
+        )
         conn.commit()
     finally:
         conn.close()

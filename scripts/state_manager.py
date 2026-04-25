@@ -774,9 +774,18 @@ def get_or_create_conversation(
         ).fetchone()
         if row:
             return row["id"]
+        # Check if a stopped/manual-mode conversation exists — carry forward manual_mode
+        stopped = conn.execute(
+            "SELECT manual_mode FROM conversations WHERE wa_number_id = ? AND contact_phone = ? AND status = 'stopped' ORDER BY updated_at DESC LIMIT 1",
+            (wa_number_id, contact_phone),
+        ).fetchone()
+        inherit_manual = bool(stopped and stopped["manual_mode"])
     finally:
         conn.close()
-    return create_conversation(wa_number_id, contact_phone, engine_mode)
+    conv_id = create_conversation(wa_number_id, contact_phone, engine_mode)
+    if inherit_manual:
+        set_manual_mode(conv_id, True)
+    return conv_id
 
 
 def add_conversation_message(
