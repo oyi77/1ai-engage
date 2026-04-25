@@ -127,8 +127,8 @@ def _is_manual_mode_active(wa_number_id: str, contact_phone: str) -> bool:
         for c in convs:
             if c.get("contact_phone") == contact_phone and c.get("manual_mode"):
                 return True
-    except Exception:
-        pass
+    except Exception as e:
+        logger.warning(f"manual_mode check failed wa={wa_number_id} phone={contact_phone} err={e}")
     return False
 
 
