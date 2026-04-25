@@ -175,9 +175,8 @@ def _phone_to_chat_id(phone: str) -> str:
 def _send_wa_waha(phone: str, message: str, session_name: str = None) -> bool:
     """Primary: send WhatsApp via WAHA HTTP API.
 
-    If *session_name* is given, sends only through that session on the
-    WAHA_DIRECT target.  Otherwise falls back to the original behaviour
-    of iterating all targets and their working sessions.
+    If *session_name* is given, tries that session first. If the preferred
+    session fails on all targets, falls back to iterating all working sessions.
     """
     if not _HTTP_OK:
         return False
@@ -185,6 +184,7 @@ def _send_wa_waha(phone: str, message: str, session_name: str = None) -> bool:
     chat_id = _phone_to_chat_id(phone)
 
     if session_name is not None:
+        # Try preferred session first on all targets
         # Prefer WAHA_URL (PLUS tier supports multiple sessions) over WAHA_DIRECT (CORE tier)
         targets_to_try = [
             ("WAHA", WAHA_URL, WAHA_API_KEY),
@@ -207,14 +207,15 @@ def _send_wa_waha(phone: str, message: str, session_name: str = None) -> bool:
                 if r.status_code < 300:
                     print(f"✅ WA sent via {target_name} ({session_name}) to {clean}")
                     return True
+                # Session FAILED or other error — try next target
                 print(
-                    f"❌ {target_name} ({session_name}) error {r.status_code}: "
-                    f"{r.text[:200]}",
+                    f"⚠️ {target_name} ({session_name}) error {r.status_code}: "
+                    f"{r.text[:200]}, falling back to other sessions",
                     file=sys.stderr,
                 )
             except Exception as e:
                 print(f"❌ {target_name} ({session_name}) failed: {e}", file=sys.stderr)
-        return False
+        # Preferred session failed on all targets — fall through to try working sessions
 
     for target_name, base_url, headers in _waha_targets():
         for sess in _waha_sessions(base_url, headers):
@@ -305,7 +306,6 @@ def send_whatsapp_session(phone: str, message: str, session_name: str) -> bool:
 def _send_wa_waha_raw(
     chat_id: str, message: str, session_name: str, clean_phone: str
 ) -> bool:
-    """Send WA using raw chat_id (preserves @lid or @c.us format)."""
     if not _HTTP_OK:
         return False
 
@@ -332,14 +332,13 @@ def _send_wa_waha_raw(
                     print(f"✅ WA sent via {target_name} to {clean_phone or chat_id}")
                     return True
                 print(
-                    f"❌ {target_name} error {r.status_code}: {r.text[:200]}",
+                    f"⚠️ {target_name} ({session_name}) error {r.status_code}: "
+                    f"{r.text[:200]}, falling back to other sessions",
                     file=sys.stderr,
                 )
             except Exception as e:
                 print(f"❌ {target_name} failed: {e}", file=sys.stderr)
-        return False
 
-    # Fallback to original behavior
     for target_name, base_url, headers in _waha_targets():
         for sess in _waha_sessions(base_url, headers):
             try:

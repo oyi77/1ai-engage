@@ -42,7 +42,7 @@ def add_entry(
         tags=tags,
         priority=priority,
     )
-    saved = _repo.add(entry)
+    saved = _repo.save(entry)
     return saved.id
 
 

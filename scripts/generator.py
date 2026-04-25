@@ -105,7 +105,9 @@ def _get_capability_matrix(vertical: str) -> str:
     if results:
         lines = []
         for r in results:
-            content = r.get("content", "").strip()
+            content = _brain._extract_content(r.get("content", ""))
+            if not content and r.get("title"):
+                content = r.get("title", "").strip()
             if content:
                 lines.append(f"- {content[:200]}")
         if lines:
