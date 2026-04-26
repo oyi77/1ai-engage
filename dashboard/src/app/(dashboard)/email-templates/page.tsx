@@ -25,10 +25,14 @@ export default function EmailTemplatesPage() {
 
   const handleCreate = async () => {
     if (!newTemplate.name || !newTemplate.subject || !newTemplate.body) return;
-    await createEmailTemplate(newTemplate);
-    setNewTemplate({ name: "", subject: "", body: "", category: "general" });
-    setCreateOpen(false);
-    mutate();
+    try {
+      await createEmailTemplate(newTemplate);
+      setNewTemplate({ name: "", subject: "", body: "", category: "general" });
+      setCreateOpen(false);
+      mutate();
+    } catch (err) {
+      console.error("Failed to create template:", err);
+    }
   };
 
   const handlePreview = async (template: EmailTemplate) => {

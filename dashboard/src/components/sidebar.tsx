@@ -35,6 +35,7 @@ const NAV_ITEMS = [
   { href: "/funnel", label: "Funnel", icon: Filter },
   { href: "/analytics", label: "Analytics", icon: BarChart3 },
   { href: "/contacts", label: "Contacts", icon: Users },
+  { href: "/proposals", label: "Proposals", icon: FileText },
   { href: "/conversations", label: "Conversations", icon: MessageSquare },
   { href: "/channels", label: "Channels", icon: Radio },
   { href: "/personas", label: "Personas", icon: Users },

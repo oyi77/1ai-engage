@@ -5,7 +5,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 import sqlite3
 
-from oneai_reach.api.dependencies import verify_api_key
+from oneai_reach.api.dependencies import verify_api_key, get_db_connection, get_db_path
 
 router = APIRouter(tags=["scheduled-messages"], dependencies=[Depends(verify_api_key)])
 
@@ -59,10 +59,6 @@ class MessagesResponse(BaseModel):
 class MessageResponse(BaseModel):
     message: ScheduledMessage
 
-def _get_db():
-    from oneai_reach.config.settings import get_settings
-    return get_settings().database.db_file
-
 @router.get("/api/v1/scheduled-messages", response_model=MessagesResponse)
 async def list_scheduled_messages(
     contact_id: Optional[int] = None,
@@ -72,10 +68,8 @@ async def list_scheduled_messages(
     limit: int = 50,
     offset: int = 0
 ) -> MessagesResponse:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
     
     conditions = ["1=1"]
     params = []
@@ -109,16 +103,14 @@ async def list_scheduled_messages(
     
     cursor.execute(f"SELECT COUNT(*) FROM scheduled_messages WHERE {where_clause}", params)
     total = cursor.fetchone()[0]
-    conn.close()
     
     messages = [ScheduledMessage(**dict(row)) for row in rows]
     return MessagesResponse(messages=messages, total=total)
 
 @router.post("/api/v1/scheduled-messages", response_model=MessageResponse)
 async def create_scheduled_message(msg: ScheduledMessageCreate) -> MessageResponse:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+    with get_db_connection(row_factory=False) as conn:
+        cursor = conn.cursor()
     
     # Get wa_number_id from conversation if provided
     wa_number_id = None
@@ -144,7 +136,6 @@ async def create_scheduled_message(msg: ScheduledMessageCreate) -> MessageRespon
     
     msg_id = cursor.lastrowid
     conn.commit()
-    conn.close()
     
     return MessageResponse(message=ScheduledMessage(
         id=msg_id,
@@ -163,10 +154,8 @@ async def create_scheduled_message(msg: ScheduledMessageCreate) -> MessageRespon
 
 @router.get("/api/v1/scheduled-messages/{message_id}", response_model=MessageResponse)
 async def get_scheduled_message(message_id: int) -> MessageResponse:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
     
     cursor.execute("""
         SELECT id, contact_id, conversation_id, wa_number_id, lead_id, channel, message_type,
@@ -176,7 +165,6 @@ async def get_scheduled_message(message_id: int) -> MessageResponse:
     """, (message_id,))
     
     row = cursor.fetchone()
-    conn.close()
     
     if not row:
         raise HTTPException(status_code=404, detail="Message not found")
@@ -185,15 +173,12 @@ async def get_scheduled_message(message_id: int) -> MessageResponse:
 
 @router.patch("/api/v1/scheduled-messages/{message_id}", response_model=MessageResponse)
 async def update_scheduled_message(message_id: int, update: ScheduledMessageUpdate) -> MessageResponse:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
     
     cursor.execute("SELECT id FROM scheduled_messages WHERE id = ?", (message_id,))
     if not cursor.fetchone():
-        conn.close()
-        raise HTTPException(status_code=404, detail="Message not found")
+            raise HTTPException(status_code=404, detail="Message not found")
     
     fields = []
     params = []
@@ -212,8 +197,7 @@ async def update_scheduled_message(message_id: int, update: ScheduledMessageUpda
         params.append(update.status)
     
     if not fields:
-        conn.close()
-        raise HTTPException(status_code=400, detail="No fields to update")
+            raise HTTPException(status_code=400, detail="No fields to update")
     
     fields.append("updated_at = datetime('now')")
     params.append(message_id)
@@ -229,33 +213,27 @@ async def update_scheduled_message(message_id: int, update: ScheduledMessageUpda
     """, (message_id,))
     
     row = cursor.fetchone()
-    conn.close()
     
     return MessageResponse(message=ScheduledMessage(**dict(row)))
 
 @router.delete("/api/v1/scheduled-messages/{message_id}")
 async def delete_scheduled_message(message_id: int):
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+    with get_db_connection(row_factory=False) as conn:
+        cursor = conn.cursor()
     
     cursor.execute("DELETE FROM scheduled_messages WHERE id = ? AND status IN ('pending', 'cancelled')", (message_id,))
     
     if cursor.rowcount == 0:
-        conn.close()
-        raise HTTPException(status_code=404, detail="Message not found or cannot delete sent/processing message")
+            raise HTTPException(status_code=404, detail="Message not found or cannot delete sent/processing message")
     
     conn.commit()
-    conn.close()
     
     return {"status": "deleted", "message_id": message_id}
 
 @router.post("/api/v1/scheduled-messages/process")
 async def process_due_messages() -> dict:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
     
     now = datetime.now(timezone.utc).isoformat()
     
@@ -292,14 +270,12 @@ async def process_due_messages() -> dict:
             conn.commit()
             failed += 1
     
-    conn.close()
     return {"processed": processed, "failed": failed, "total": len(messages)}
 
 @router.get("/api/v1/scheduled-messages/stats/overview")
 async def get_scheduled_stats() -> dict:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+    with get_db_connection(row_factory=False) as conn:
+        cursor = conn.cursor()
     
     cursor.execute("""
         SELECT 
@@ -312,7 +288,6 @@ async def get_scheduled_stats() -> dict:
     """)
     
     row = cursor.fetchone()
-    conn.close()
     
     return {
         "pending": row[0],

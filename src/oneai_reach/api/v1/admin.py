@@ -498,19 +498,20 @@ async def list_wa_numbers() -> List[WANumberResponse]:
     
     settings = get_settings()
     db_path = settings.database.db_file
-    
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
     
-    cursor.execute("""
-        SELECT id, session_name, phone, label, mode, kb_enabled, auto_reply, persona, status, webhook_url
-        FROM wa_numbers
-        ORDER BY created_at DESC
-    """)
-    
-    rows = cursor.fetchall()
-    conn.close()
+    try:
+        cursor.execute("""
+            SELECT id, session_name, phone, label, mode, kb_enabled, auto_reply, persona, status, webhook_url
+            FROM wa_numbers
+            ORDER BY created_at DESC
+        """)
+        
+        rows = cursor.fetchall()
+    finally:
+        conn.close()
     
     return [
         WANumberResponse(
@@ -538,7 +539,11 @@ async def update_wa_number(wa_number_id: str, update: WANumberUpdate) -> WANumbe
     settings = get_settings()
     db_path = settings.database.db_file
     
-    conn = sqlite3.connect(db_path)
+    try:
+        conn = sqlite3.connect(db_path)
+
+    finally:
+        conn.close()
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
     
@@ -588,7 +593,24 @@ async def update_wa_number(wa_number_id: str, update: WANumberUpdate) -> WANumbe
         
         row = cursor.fetchone()
         conn.close()
-        
+
+        if update.auto_reply is not None:
+            try:
+                ch_conn = sqlite3.connect(db_path)
+                try:
+                    phone = (row["phone"] if row and row["phone"] else "") or ""
+                    session_name = (row["session_name"] if row and row["session_name"] else "") or ""
+                    ch_conn.execute(
+                        "UPDATE channels SET enabled = ?, updated_at = datetime('now') WHERE platform = 'whatsapp' AND (phone = ? OR label = ?)",
+                        (1 if update.auto_reply else 0, phone, session_name),
+                    )
+                    ch_conn.commit()
+                finally:
+                    ch_conn.close()
+            except Exception as e:
+                import logging
+                logging.getLogger(__name__).warning(f"Failed to sync channels.enabled for WA number {wa_number_id}: {e}")
+
         return WANumberResponse(
             id=row["id"],
             session_name=row["session_name"],

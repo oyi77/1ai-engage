@@ -18,7 +18,7 @@ from pydantic import BaseModel, Field
 
 logger = logging.getLogger(__name__)
 
-from oneai_reach.api.dependencies import verify_api_key
+from oneai_reach.api.dependencies import verify_api_key, get_db_connection, get_db_path
 
 router = APIRouter(
     prefix="/api/v1/agents",
@@ -52,12 +52,14 @@ def load_leads_df():
         import pandas as pd
         import sqlite3
         from pathlib import Path
-        db_path = Path(__file__).resolve().parent.parent.parent.parent.parent / "data" / "leads.db"
+        db_path = Path(__file__).resolve().parent.parent.parent.parent / "data" / "leads.db"
         if db_path.exists():
             conn = sqlite3.connect(str(db_path))
-            df = pd.read_sql_query("SELECT * FROM leads", conn)
-            conn.close()
-            return df
+            try:
+                df = pd.read_sql_query("SELECT * FROM leads", conn)
+                return df
+            finally:
+                conn.close()
         from leads import load_leads
         df = load_leads()
         for col in ["matched_services", "lead_score", "tier", "service_proposed"]:
@@ -865,8 +867,8 @@ async def get_lead_timeline(lead_id: str) -> AgentResponse:
             ).fetchall()
             messages = [dict(row) for row in rows]
         finally:
-            conn.close()
-        
+            pass
+
         return AgentResponse(
             status="success",
             message="Lead timeline retrieved",
@@ -1029,10 +1031,12 @@ async def get_analytics() -> AgentResponse:
             return AgentResponse(status="ok", message="No leads database", data={})
 
         conn = sqlite3.connect(str(db_path))
-        conn.row_factory = sqlite3.Row
-        df = pd.read_sql_query("SELECT * FROM leads", conn)
-        conn.close()
-
+        try:
+            conn.row_factory = sqlite3.Row
+            df = pd.read_sql_query("SELECT * FROM leads", conn)
+        finally:
+            conn.close()
+    
         if df.empty:
             return AgentResponse(status="ok", message="No leads", data={})
 

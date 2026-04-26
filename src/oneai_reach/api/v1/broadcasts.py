@@ -5,7 +5,7 @@ from pydantic import BaseModel
 import sqlite3
 import json
 
-from oneai_reach.api.dependencies import verify_api_key
+from oneai_reach.api.dependencies import verify_api_key, get_db_connection, get_db_path
 
 router = APIRouter(tags=["broadcasts"], dependencies=[Depends(verify_api_key)])
 
@@ -91,10 +91,6 @@ class BroadcastStats(BaseModel):
     total_recipients: int
     sends_by_status: dict
 
-def _get_db():
-    from oneai_reach.config.settings import get_settings
-    return get_settings().database.db_file
-
 @router.get("/api/v1/broadcast-lists", response_model=BroadcastListsResponse)
 async def list_broadcast_lists(
     wa_number_id: Optional[str] = None,
@@ -102,10 +98,8 @@ async def list_broadcast_lists(
     limit: int = 50,
     offset: int = 0
 ) -> BroadcastListsResponse:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
     
     conditions = ["1=1"]
     params = []
@@ -132,16 +126,14 @@ async def list_broadcast_lists(
     
     cursor.execute(f"SELECT COUNT(*) FROM broadcast_lists WHERE {where_clause}", params)
     total = cursor.fetchone()[0]
-    conn.close()
     
     lists = [BroadcastList(**dict(row)) for row in rows]
     return BroadcastListsResponse(lists=lists, total=total)
 
 @router.post("/api/v1/broadcast-lists", response_model=dict)
 async def create_broadcast_list(list_data: BroadcastListCreate) -> dict:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+    with get_db_connection(row_factory=False) as conn:
+        cursor = conn.cursor()
     
     filter_criteria_json = json.dumps(list_data.filter_criteria) if list_data.filter_criteria else None
     
@@ -152,16 +144,13 @@ async def create_broadcast_list(list_data: BroadcastListCreate) -> dict:
     
     list_id = cursor.lastrowid
     conn.commit()
-    conn.close()
     
     return {"status": "created", "list_id": list_id}
 
 @router.get("/api/v1/broadcast-lists/{list_id}/recipients", response_model=BroadcastRecipientsResponse)
 async def get_broadcast_recipients(list_id: int) -> BroadcastRecipientsResponse:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
     
     cursor.execute("""
         SELECT id, broadcast_list_id, contact_id, lead_id, phone, email
@@ -170,16 +159,14 @@ async def get_broadcast_recipients(list_id: int) -> BroadcastRecipientsResponse:
     """, (list_id,))
     
     rows = cursor.fetchall()
-    conn.close()
     
     recipients = [BroadcastRecipient(**dict(row)) for row in rows]
     return BroadcastRecipientsResponse(recipients=recipients, total=len(recipients))
 
 @router.post("/api/v1/broadcast-lists/{list_id}/recipients")
 async def add_recipients_to_list(list_id: int, recipients: List[dict]) -> dict:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+    with get_db_connection(row_factory=False) as conn:
+        cursor = conn.cursor()
     
     added = 0
     for r in recipients:
@@ -198,7 +185,6 @@ async def add_recipients_to_list(list_id: int, recipients: List[dict]) -> dict:
     """, (list_id, list_id))
     
     conn.commit()
-    conn.close()
     
     return {"status": "added", "count": added}
 
@@ -209,10 +195,8 @@ async def list_broadcast_sends(
     limit: int = 50,
     offset: int = 0
 ) -> BroadcastSendsResponse:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
     
     conditions = ["1=1"]
     params = []
@@ -240,23 +224,20 @@ async def list_broadcast_sends(
     
     cursor.execute(f"SELECT COUNT(*) FROM broadcast_sends WHERE {where_clause}", params)
     total = cursor.fetchone()[0]
-    conn.close()
     
     sends = [BroadcastSend(**dict(row)) for row in rows]
     return BroadcastSendsResponse(sends=sends, total=total)
 
 @router.post("/api/v1/broadcast-sends", response_model=dict)
 async def create_broadcast_send(send: BroadcastSendCreate) -> dict:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+    with get_db_connection(row_factory=False) as conn:
+        cursor = conn.cursor()
     
     # Get wa_number_id from broadcast list
     cursor.execute("SELECT wa_number_id FROM broadcast_lists WHERE id = ?", (send.broadcast_list_id,))
     row = cursor.fetchone()
     if not row:
-        conn.close()
-        raise HTTPException(status_code=404, detail="Broadcast list not found")
+            raise HTTPException(status_code=404, detail="Broadcast list not found")
     
     wa_number_id = row[0]
     
@@ -273,15 +254,13 @@ async def create_broadcast_send(send: BroadcastSendCreate) -> dict:
     
     send_id = cursor.lastrowid
     conn.commit()
-    conn.close()
     
     return {"status": "created", "send_id": send_id, "total_recipients": total_recipients}
 
 @router.post("/api/v1/broadcast-sends/{send_id}/start")
 async def start_broadcast(send_id: int) -> dict:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+    with get_db_connection(row_factory=False) as conn:
+        cursor = conn.cursor()
     
     from datetime import datetime, timezone
     now = datetime.now(timezone.utc).isoformat()
@@ -293,19 +272,16 @@ async def start_broadcast(send_id: int) -> dict:
     """, (now, send_id))
     
     if cursor.rowcount == 0:
-        conn.close()
-        raise HTTPException(status_code=400, detail="Broadcast not found or not in scheduled state")
+            raise HTTPException(status_code=400, detail="Broadcast not found or not in scheduled state")
     
     conn.commit()
-    conn.close()
     
     return {"status": "started", "send_id": send_id}
 
 @router.get("/api/v1/broadcasts/stats/overview", response_model=BroadcastStats)
 async def get_broadcast_stats() -> BroadcastStats:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+    with get_db_connection(row_factory=False) as conn:
+        cursor = conn.cursor()
     
     cursor.execute("SELECT COUNT(*) FROM broadcast_lists")
     total_lists = cursor.fetchone()[0]
@@ -319,7 +295,6 @@ async def get_broadcast_stats() -> BroadcastStats:
     cursor.execute("SELECT status, COUNT(*) FROM broadcast_sends GROUP BY status")
     sends_by_status = {row[0]: row[1] for row in cursor.fetchall()}
     
-    conn.close()
     
     return BroadcastStats(
         total_lists=total_lists,

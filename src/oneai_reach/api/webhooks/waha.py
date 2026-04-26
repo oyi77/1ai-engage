@@ -451,6 +451,17 @@ async def handle_waha_webhook(request: Request) -> WAHAWebhookResponse:
 
         wa_number_id = wa_number.get("id", session)
 
+        auto_reply = wa_number.get("auto_reply")
+        if auto_reply is not None and not bool(auto_reply):
+            logger.info(f"SKIP auto_reply disabled session={session} wa={wa_number_id}")
+            add_conversation_message(
+                conversation_id=get_or_create_conversation(wa_number_id, sender, engine_mode="cs"),
+                message_text=body_text,
+                direction="in",
+                message_type=msg_type,
+            )
+            return WAHAWebhookResponse(status="ok", skipped="auto_reply_disabled")
+
         # Self-message detection
         wa_phone = wa_number.get("phone", "")
         if wa_phone:

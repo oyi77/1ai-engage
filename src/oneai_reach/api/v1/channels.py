@@ -178,6 +178,29 @@ async def update_channel(channel_id: str, body: UpdateChannelRequest):
     ch = svc.update_channel(channel_id, **updates)
     if not ch:
         raise HTTPException(404, f"Channel not found: {channel_id}")
+
+    if body.enabled is not None and ch.get("platform") == "whatsapp":
+        settings = get_settings()
+        conn = sqlite3.connect(settings.database.db_file)
+        try:
+            phone = ch.get("phone") or ""
+            label = ch.get("label") or ""
+            wa_row = conn.execute(
+                "SELECT id FROM wa_numbers WHERE phone = ? OR session_name = ? OR label = ? LIMIT 1",
+                (phone, phone, label),
+            ).fetchone()
+            if wa_row:
+                conn.execute(
+                    "UPDATE wa_numbers SET auto_reply = ? WHERE id = ?",
+                    (1 if body.enabled else 0, wa_row[0]),
+                )
+                conn.commit()
+        except Exception as e:
+            import logging
+            logging.getLogger(__name__).warning(f"Failed to sync auto_reply for channel {channel_id}: {e}")
+        finally:
+            conn.close()
+
     return {"status": "success", "data": ch}
 
 

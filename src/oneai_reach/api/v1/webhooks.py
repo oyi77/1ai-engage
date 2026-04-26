@@ -114,7 +114,11 @@ async def handle_brevo_webhook(request: Request):
         )
         
         import sqlite3
-        conn = sqlite3.connect(str(db_path))
+        try:
+            conn = sqlite3.connect(str(db_path))
+
+        finally:
+            conn.close()
         cursor = conn.cursor()
         
         timestamp = datetime.now(timezone.utc).isoformat()
@@ -192,7 +196,11 @@ async def track_email_open(lead_id: str, message_id: str):
         db_path = Path(_settings.database.db_path)
         
         import sqlite3
-        conn = sqlite3.connect(str(db_path))
+        try:
+            conn = sqlite3.connect(str(db_path))
+
+        finally:
+            conn.close()
         cursor = conn.cursor()
         
         timestamp = datetime.now(timezone.utc).isoformat()
@@ -235,7 +243,11 @@ async def track_email_click(
         db_path = Path(_settings.database.db_file)
         
         import sqlite3
-        conn = sqlite3.connect(str(db_path))
+        try:
+            conn = sqlite3.connect(str(db_path))
+
+        finally:
+            conn.close()
         cursor = conn.cursor()
         
         timestamp = datetime.now(timezone.utc).isoformat()
@@ -262,7 +274,11 @@ def _log_email_event(lead_id: str, event_type: str, details: Dict[str, Any]):
         import sqlite3
         
         db_path = Path(_settings.database.db_file)
-        conn = sqlite3.connect(str(db_path))
+        try:
+            conn = sqlite3.connect(str(db_path))
+
+        finally:
+            conn.close()
         cursor = conn.cursor()
         
         cursor.execute(

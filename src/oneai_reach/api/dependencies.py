@@ -4,12 +4,39 @@ Provides factory functions for creating and injecting dependencies into route ha
 Uses FastAPI's Depends() pattern for clean, testable dependency management.
 """
 
+from contextlib import contextmanager
 from functools import lru_cache
 
 from fastapi import Depends, Header, HTTPException, status
 
 from oneai_reach.config.settings import Settings, get_settings
 from oneai_reach.infrastructure.external.brain_client import BrainClient
+
+import sqlite3
+
+
+def get_db_path() -> str:
+    """Return the SQLite database file path from settings."""
+    return get_settings().database.db_file
+
+
+@contextmanager
+def get_db_connection(row_factory=True):
+    """Context manager for SQLite connections with guaranteed cleanup.
+
+    Usage:
+        with get_db_connection() as conn:
+            conn.execute("SELECT ...")
+
+    Yields: sqlite3.Connection (with row_factory=sqlite3.Row by default)
+    """
+    conn = sqlite3.connect(get_db_path())
+    if row_factory:
+        conn.row_factory = sqlite3.Row
+    try:
+        yield conn
+    finally:
+        conn.close()
 
 
 @lru_cache(maxsize=1)

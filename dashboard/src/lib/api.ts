@@ -570,6 +570,43 @@ export interface Proposal {
   updated_at: string;
 }
 
+export interface ProposalStats {
+  total: number;
+  by_status: Record<string, number>;
+  conversion_rates: Record<string, number>;
+  avg_score: number | null;
+  total_value_cents: number;
+  total_sent: number;
+  total_opened: number;
+  total_clicked: number;
+  total_accepted: number;
+  total_rejected: number;
+  open_rate: number;
+  click_rate: number;
+  acceptance_rate: number;
+  rejection_rate: number;
+  avg_days_to_accept: number | null;
+  recent_7d_created: number;
+  recent_7d_sent: number;
+  recent_7d_accepted: number;
+}
+
+export async function fetchAllProposals(params?: { status?: string; reviewed?: boolean; min_score?: number; contact_id?: number; limit?: number; offset?: number }): Promise<{ proposals: Proposal[]; total: number }> {
+  const qs = new URLSearchParams();
+  if (params?.status) qs.set("status", params.status);
+  if (params?.reviewed !== undefined) qs.set("reviewed", String(params.reviewed));
+  if (params?.min_score !== undefined) qs.set("min_score", String(params.min_score));
+  if (params?.contact_id !== undefined) qs.set("contact_id", String(params.contact_id));
+  if (params?.limit) qs.set("limit", String(params.limit));
+  if (params?.offset) qs.set("offset", String(params.offset));
+  const query = qs.toString();
+  return fetcher(`/api/v1/proposals${query ? `?${query}` : ""}`);
+}
+
+export async function fetchProposalStats(): Promise<ProposalStats> {
+  return fetcher("/api/v1/proposals/stats/overview");
+}
+
 export async function fetchContactProposals(contactId: number, status?: string): Promise<{ proposals: Proposal[]; total: number }> {
   const params = status ? `?status=${encodeURIComponent(status)}` : "";
   return fetcher(`/api/v1/contacts/${contactId}/proposals${params}`);

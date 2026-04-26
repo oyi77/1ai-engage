@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 import sqlite3
 
-from oneai_reach.api.dependencies import verify_api_key
+from oneai_reach.api.dependencies import verify_api_key, get_db_connection, get_db_path
 
 router = APIRouter(tags=["email-templates"], dependencies=[Depends(verify_api_key)])
 
@@ -42,10 +42,6 @@ class TemplatesResponse(BaseModel):
 class TemplateResponse(BaseModel):
     template: EmailTemplate
 
-def _get_db():
-    from oneai_reach.config.settings import get_settings
-    return get_settings().database.db_file
-
 @router.get("/api/v1/email-templates", response_model=TemplatesResponse)
 async def list_templates(
     wa_number_id: Optional[str] = None,
@@ -54,10 +50,8 @@ async def list_templates(
     limit: int = 100,
     offset: int = 0
 ) -> TemplatesResponse:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
     
     conditions = ["is_active = 1"]
     params = []
@@ -85,16 +79,14 @@ async def list_templates(
     """, [*params, limit, offset])
     
     rows = cursor.fetchall()
-    conn.close()
     
     templates = [EmailTemplate(**dict(row)) for row in rows]
     return TemplatesResponse(templates=templates)
 
 @router.post("/api/v1/email-templates", response_model=TemplateResponse)
 async def create_template(template: EmailTemplateCreate) -> TemplateResponse:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+    with get_db_connection(row_factory=False) as conn:
+        cursor = conn.cursor()
     
     cursor.execute("""
         INSERT INTO email_templates (name, subject, body, category, variables)
@@ -103,7 +95,6 @@ async def create_template(template: EmailTemplateCreate) -> TemplateResponse:
     
     template_id = cursor.lastrowid
     conn.commit()
-    conn.close()
     
     return TemplateResponse(template=EmailTemplate(
         id=template_id,
@@ -116,10 +107,8 @@ async def create_template(template: EmailTemplateCreate) -> TemplateResponse:
 
 @router.get("/api/v1/email-templates/{template_id}", response_model=TemplateResponse)
 async def get_template(template_id: int) -> TemplateResponse:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
     
     cursor.execute("""
         SELECT id, wa_number_id, name, subject, body, category, variables,
@@ -128,7 +117,6 @@ async def get_template(template_id: int) -> TemplateResponse:
     """, (template_id,))
     
     row = cursor.fetchone()
-    conn.close()
     
     if not row:
         raise HTTPException(status_code=404, detail="Template not found")
@@ -137,15 +125,12 @@ async def get_template(template_id: int) -> TemplateResponse:
 
 @router.patch("/api/v1/email-templates/{template_id}", response_model=TemplateResponse)
 async def update_template(template_id: int, update: EmailTemplateUpdate) -> TemplateResponse:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
     
     cursor.execute("SELECT id FROM email_templates WHERE id = ?", (template_id,))
     if not cursor.fetchone():
-        conn.close()
-        raise HTTPException(status_code=404, detail="Template not found")
+            raise HTTPException(status_code=404, detail="Template not found")
     
     fields = []
     params = []
@@ -170,8 +155,7 @@ async def update_template(template_id: int, update: EmailTemplateUpdate) -> Temp
         params.append(1 if update.is_active else 0)
     
     if not fields:
-        conn.close()
-        raise HTTPException(status_code=400, detail="No fields to update")
+            raise HTTPException(status_code=400, detail="No fields to update")
     
     fields.append("updated_at = datetime('now')")
     params.append(template_id)
@@ -186,37 +170,30 @@ async def update_template(template_id: int, update: EmailTemplateUpdate) -> Temp
     """, (template_id,))
     
     row = cursor.fetchone()
-    conn.close()
     
     return TemplateResponse(template=EmailTemplate(**dict(row)))
 
 @router.delete("/api/v1/email-templates/{template_id}")
 async def delete_template(template_id: int):
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+    with get_db_connection(row_factory=False) as conn:
+        cursor = conn.cursor()
     
     cursor.execute("DELETE FROM email_templates WHERE id = ? AND is_predefined = 0", (template_id,))
     
     if cursor.rowcount == 0:
-        conn.close()
-        raise HTTPException(status_code=404, detail="Template not found or cannot delete predefined template")
+            raise HTTPException(status_code=404, detail="Template not found or cannot delete predefined template")
     
     conn.commit()
-    conn.close()
     
     return {"status": "deleted", "template_id": template_id}
 
 @router.post("/api/v1/email-templates/{template_id}/render")
 async def render_template(template_id: int, variables: dict) -> dict:
-    db_path = _get_db()
-    conn = sqlite3.connect(db_path)
-    conn.row_factory = sqlite3.Row
-    cursor = conn.cursor()
+    with get_db_connection() as conn:
+        cursor = conn.cursor()
     
     cursor.execute("SELECT subject, body FROM email_templates WHERE id = ?", (template_id,))
     row = cursor.fetchone()
-    conn.close()
     
     if not row:
         raise HTTPException(status_code=404, detail="Template not found")
