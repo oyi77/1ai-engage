@@ -1,23 +1,14 @@
 """Conversation tracking service - message threading, state machine, cross-contamination guard."""
 
-import sqlite3
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Optional
 
 import requests
 
 from oneai_reach.config.settings import Settings
 from oneai_reach.domain.exceptions import (
-    ConversationNotFoundError,
     InvalidConversationStateError,
     DatabaseError,
-)
-from oneai_reach.domain.models import (
-    Conversation,
-    ConversationStatus,
-    EngineMode,
-    Message,
-    MessageDirection,
 )
 from oneai_reach.infrastructure.logging import get_logger
 
@@ -125,19 +116,27 @@ class ConversationService:
         if row:
             conv_id = row["id"]
         else:
-            from state_manager import create_conversation
+            conn = self._connect()
+            try:
+                cursor = conn.execute(
+                    """INSERT INTO conversations
+                        (wa_number_id, contact_phone, engine_mode, stage, status, message_count)
+                        VALUES (?, ?, ?, 'awareness', 'active', 0)""",
+                    (wa_number_id, contact_phone, engine_mode),
+                )
+                conn.commit()
+                conv_id = cursor.lastrowid
+            finally:
+                conn.close()
 
-            conv_id = create_conversation(
-                wa_number_id,
-                contact_phone,
-                engine_mode,
-                contact_name=contact_name or "",
-                lead_id=lead_id,
-            )
-
-        from state_manager import get_conversation
-
-        return get_conversation(conv_id)
+        conn = self._connect()
+        try:
+            conv = conn.execute(
+                "SELECT * FROM conversations WHERE id = ?", (conv_id,)
+            ).fetchone()
+            return dict(conv) if conv else {}
+        finally:
+            conn.close()
 
     def add_message(
         self,
@@ -159,15 +158,25 @@ class ConversationService:
         Returns:
             Message ID
         """
-        from state_manager import add_conversation_message
-
-        return add_conversation_message(
-            conversation_id,
-            direction,
-            message_text,
-            message_type=message_type,
-            waha_message_id=waha_message_id or "",
-        )
+        conn = self._connect()
+        try:
+            cursor = conn.execute(
+                """INSERT INTO conversation_messages
+                    (conversation_id, direction, message_text, created_at)
+                    VALUES (?, ?, ?, datetime('now'))""",
+                (conversation_id, direction, message_text),
+            )
+            conn.execute(
+                """UPDATE conversations
+                    SET message_count = COALESCE(message_count, 0) + 1,
+                        updated_at = datetime('now')
+                    WHERE id = ?""",
+                (conversation_id,),
+            )
+            conn.commit()
+            return cursor.lastrowid
+        finally:
+            conn.close()
 
     def get_messages(self, conversation_id: int, limit: int = 50) -> list[dict]:
         """Get conversation messages.
@@ -179,9 +188,18 @@ class ConversationService:
         Returns:
             List of message dictionaries
         """
-        from state_manager import get_conversation_messages
-
-        return get_conversation_messages(conversation_id, limit=limit)
+        conn = self._connect()
+        try:
+            rows = conn.execute(
+                """SELECT * FROM conversation_messages
+                    WHERE conversation_id = ?
+                    ORDER BY created_at, id
+                    LIMIT ?""",
+                (conversation_id, limit),
+            ).fetchall()
+            return [dict(row) for row in rows]
+        finally:
+            conn.close()
 
     def get_active_conversations(
         self, wa_number_id: Optional[str] = None
@@ -314,9 +332,7 @@ class ConversationService:
         Returns:
             Formatted conversation context string
         """
-        from state_manager import get_conversation_messages
-
-        messages = get_conversation_messages(conversation_id, limit=max_messages)
+        messages = self.get_messages(conversation_id, limit=max_messages)
         lines = []
         for msg in messages:
             role = "Customer" if msg["direction"] == "in" else "Agent"
@@ -365,7 +381,7 @@ class ConversationService:
         Returns:
             Number of conversations resolved
         """
-        cutoff = (datetime.utcnow() - timedelta(hours=hours)).strftime(
+        cutoff = (datetime.now(timezone.utc) - timedelta(hours=hours)).strftime(
             "%Y-%m-%d %H:%M:%S"
         )
         conn = self._connect()

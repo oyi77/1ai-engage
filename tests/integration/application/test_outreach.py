@@ -1,14 +1,13 @@
 """Integration tests for outreach application services."""
 
-import json
-import subprocess
 from unittest.mock import Mock, patch
 
+import pandas as pd
 import pytest
 import requests
 
+from oneai_reach.application.outreach.blaster_service import BlasterService
 from oneai_reach.application.outreach.scraper_service import ScraperService
-from oneai_reach.config.settings import Settings
 from oneai_reach.domain.exceptions import ExternalAPIError, MissingConfigurationError
 
 
@@ -143,3 +142,95 @@ class TestScraperService:
         assert service._is_real_business("https://google.com") is False
         assert service._is_real_business("https://bing.com") is False
         assert service._is_real_business("") is False
+
+
+class TestBlasterService:
+    def test_blast_proposals_generates_sends_and_persists_pdf(self, settings, tmp_path):
+        draft_dir = tmp_path / "proposals" / "drafts"
+        draft_dir.mkdir(parents=True)
+        settings.database.proposals_dir = str(draft_dir)
+        draft_path = draft_dir / "0_ACME.txt"
+        draft_path.write_text(
+            "---PROPOSAL---\nHello <b>ACME</b>\n---WHATSAPP---\nHalo ACME",
+            encoding="utf-8",
+        )
+        sent_payload = {}
+
+        def send_email(email, subject, body, pdf_bytes=None, filename=None):
+            sent_payload["email"] = email
+            sent_payload["subject"] = subject
+            sent_payload["body"] = body
+            sent_payload["pdf_bytes"] = pdf_bytes
+            sent_payload["filename"] = filename
+            return True
+
+        df = pd.DataFrame(
+            [
+                {
+                    "displayName": "ACME",
+                    "status": "reviewed",
+                    "email": "lead@example.com",
+                    "phone": "",
+                    "contacted_at": "",
+                }
+            ]
+        )
+
+        sent, skipped_cooldown, skipped_no_draft = BlasterService(settings).blast_proposals(
+            df,
+            send_email,
+            lambda phone, message: False,
+            lambda index, name: str(draft_path),
+            lambda value: value is None or str(value).strip().lower() in {"", "nan", "none"},
+            str,
+        )
+
+        assert (sent, skipped_cooldown, skipped_no_draft) == (1, 0, 0)
+        assert df.at[0, "status"] == "contacted"
+        assert sent_payload["pdf_bytes"].startswith(b"%PDF")
+        assert sent_payload["filename"] == "Proposal_ACME.pdf"
+        assert (tmp_path / "proposals" / "sent_pdfs" / "0_Proposal_ACME.pdf").exists()
+
+    def test_blast_proposals_does_not_mark_contacted_when_pdf_fails(self, settings, tmp_path, monkeypatch):
+        draft_dir = tmp_path / "proposals" / "drafts"
+        draft_dir.mkdir(parents=True)
+        settings.database.proposals_dir = str(draft_dir)
+        draft_path = draft_dir / "0_ACME.txt"
+        draft_path.write_text(
+            "---PROPOSAL---\nHello ACME\n---WHATSAPP---\n",
+            encoding="utf-8",
+        )
+
+        def fail_pdf(proposal, lead_name):
+            from oneai_reach.application.outreach.proposal_pdf import ProposalPdfError
+
+            raise ProposalPdfError("missing cairo")
+
+        monkeypatch.setattr(
+            "oneai_reach.application.outreach.blaster_service.generate_proposal_pdf",
+            fail_pdf,
+        )
+
+        df = pd.DataFrame(
+            [
+                {
+                    "displayName": "ACME",
+                    "status": "reviewed",
+                    "email": "lead@example.com",
+                    "phone": "",
+                    "contacted_at": "",
+                }
+            ]
+        )
+
+        sent, skipped_cooldown, skipped_no_draft = BlasterService(settings).blast_proposals(
+            df,
+            lambda *args, **kwargs: True,
+            lambda phone, message: False,
+            lambda index, name: str(draft_path),
+            lambda value: value is None or str(value).strip().lower() in {"", "nan", "none"},
+            str,
+        )
+
+        assert (sent, skipped_cooldown, skipped_no_draft) == (0, 0, 0)
+        assert df.at[0, "status"] == "reviewed"

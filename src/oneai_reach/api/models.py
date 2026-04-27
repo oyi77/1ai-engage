@@ -3,7 +3,7 @@
 Common models used across API endpoints for validation and serialization.
 """
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Dict, Optional
 
 from pydantic import BaseModel, Field
@@ -14,7 +14,7 @@ class HealthResponse(BaseModel):
 
     status: str = Field(..., description="Health status (healthy/degraded/unhealthy)")
     timestamp: datetime = Field(
-        default_factory=datetime.utcnow, description="Response timestamp"
+        default_factory=lambda: datetime.now(timezone.utc), description="Response timestamp"
     )
     version: str = Field(default="1.0.0", description="API version")
 
@@ -29,7 +29,7 @@ class ErrorResponse(BaseModel):
         default=None, description="Additional error context"
     )
     timestamp: datetime = Field(
-        default_factory=datetime.utcnow, description="Error timestamp"
+        default_factory=lambda: datetime.now(timezone.utc), description="Error timestamp"
     )
 
 
