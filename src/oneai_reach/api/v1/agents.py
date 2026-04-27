@@ -462,7 +462,7 @@ async def get_wa_sessions_status() -> AgentResponse:
                     f"{url}/api/sessions",
                     params={"all": "true"},
                     headers=headers,
-                    timeout=10,
+                    timeout=30,
                 )
                 
                 if response.status_code == 200:
@@ -722,10 +722,11 @@ async def restart_service(key: str) -> AgentResponse:
     """Restart a service (webhook, dashboard, etc)."""
     try:
         import subprocess
+        import os
         
         service_commands = {
             "webhook": ["systemctl", "--user", "restart", "1ai-reach-mcp.service"],
-            "dashboard": ["systemctl", "--user", "restart", "1ai-reach-dashboard.service"],
+            "dashboard": ["sudo", "systemctl", "restart", "1ai-reach-dashboard.service"],
         }
         
         if key not in service_commands:
@@ -735,7 +736,12 @@ async def restart_service(key: str) -> AgentResponse:
             )
         
         cmd = service_commands[key]
-        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=10)
+        
+        env = os.environ.copy()
+        if "--user" in cmd:
+            env["XDG_RUNTIME_DIR"] = f"/run/user/{os.getuid()}"
+            
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=30, env=env)
         
         if proc.returncode != 0:
             raise HTTPException(
@@ -745,13 +751,20 @@ async def restart_service(key: str) -> AgentResponse:
         
         return AgentResponse(
             status="success",
-            message=f"Service '{key}' restarted",
-            data={"service": key, "command": " ".join(cmd)},
+            message=f"Successfully restarted {key} service."
         )
     except subprocess.TimeoutExpired:
-        raise HTTPException(status_code=500, detail=f"Restart command timed out for {key}")
+        raise HTTPException(
+            status_code=504,
+            detail=f"Restarting {key} timed out after 30s.",
+        )
+    except HTTPException:
+        raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to restart {key}: {str(e)}",
+        )
 
 
 @router.post("/services/{key}/stop", response_model=AgentResponse)
@@ -759,10 +772,11 @@ async def stop_service(key: str) -> AgentResponse:
     """Stop a service."""
     try:
         import subprocess
+        import os
         
         service_commands = {
             "webhook": ["systemctl", "--user", "stop", "1ai-reach-mcp.service"],
-            "dashboard": ["systemctl", "--user", "stop", "1ai-reach-dashboard.service"],
+            "dashboard": ["sudo", "systemctl", "stop", "1ai-reach-dashboard.service"],
         }
         
         if key not in service_commands:
@@ -770,25 +784,37 @@ async def stop_service(key: str) -> AgentResponse:
                 status_code=400,
                 detail=f"Unknown service: {key}. Valid services: {list(service_commands.keys())}",
             )
-        
+            
         cmd = service_commands[key]
-        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=10)
+        
+        env = os.environ.copy()
+        if "--user" in cmd:
+            env["XDG_RUNTIME_DIR"] = f"/run/user/{os.getuid()}"
+            
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=30, env=env)
         
         if proc.returncode != 0:
             raise HTTPException(
                 status_code=500,
                 detail=f"Failed to stop {key}: {proc.stderr}",
             )
-        
+            
         return AgentResponse(
             status="success",
-            message=f"Service '{key}' stopped",
-            data={"service": key, "command": " ".join(cmd)},
+            message=f"Successfully stopped {key} service."
         )
     except subprocess.TimeoutExpired:
-        raise HTTPException(status_code=500, detail=f"Stop command timed out for {key}")
+        raise HTTPException(
+            status_code=504,
+            detail=f"Stopping {key} timed out after 30s.",
+        )
+    except HTTPException:
+        raise
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to stop {key}: {str(e)}",
+        )
 
 
 @router.get("/leads/{lead_id}/timeline", response_model=AgentResponse)
