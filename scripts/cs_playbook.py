@@ -6,6 +6,7 @@ Backward compatibility shim for cs_playbook.py
 """
 import sys
 import warnings
+from importlib import import_module
 from pathlib import Path
 
 # Show deprecation warning
@@ -21,8 +22,10 @@ _src = _root / "src"
 if str(_src) not in sys.path:
     sys.path.insert(0, str(_src))
 
-# Import and call new CLI
-from oneai_reach.cli.main import cli
+CSPlaybook = import_module(
+    "oneai_reach.application.customer_service.playbook_service"
+).PlaybookService
 
 if __name__ == "__main__":
+    cli = import_module("oneai_reach.cli.main").cli
     sys.exit(cli())
