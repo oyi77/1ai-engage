@@ -636,10 +636,14 @@ def escalate_conversation(conversation_id: int, reason: str) -> dict[str, Any]:
 # Warm call (warmcall_engine — may not exist yet)
 # ---------------------------------------------------------------------------
 
-try:
-    import warmcall_engine as _warmcall_engine
-except ImportError:
-    _warmcall_engine = None  # type: ignore[assignment]
+import warnings
+
+with warnings.catch_warnings():
+    warnings.filterwarnings("ignore", message="scripts/warmcall_engine.py is deprecated", category=DeprecationWarning)
+    try:
+        import warmcall_engine as _warmcall_engine
+    except ImportError:
+        _warmcall_engine = None  # type: ignore[assignment]
 
 
 def start_warmcall(
