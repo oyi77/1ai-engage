@@ -35,6 +35,30 @@ class ConverterService:
         self.waha_session = config.waha.session
         self.waha_own_number = config.waha.own_number
 
+    def _auto_create_contact(self, name: str, email: str, phone: str, vertical: str) -> None:
+        try:
+            import sqlite3
+            from oneai_reach.config.settings import get_settings
+            db_path = get_settings().database.db_file
+            with sqlite3.connect(db_path) as conn:
+                cursor = conn.cursor()
+                cursor.execute("SELECT id, tags FROM contacts WHERE email = ?", (email,))
+                row = cursor.fetchone()
+                tag = "meeting_booked"
+                if row:
+                    existing_tags = row[1] or ""
+                    if tag not in existing_tags:
+                        new_tags = f"{existing_tags},{tag}".strip(",")
+                        cursor.execute("UPDATE contacts SET tags = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?", (new_tags, row[0]))
+                else:
+                    cursor.execute(
+                        "INSERT INTO contacts (name, phone, email, company, tags, source) VALUES (?, ?, ?, ?, ?, ?)",
+                        (name, phone or "N/A", email, vertical, tag, "converter_service")
+                    )
+                conn.commit()
+        except Exception as e:
+            logger.error(f"Failed to auto-create contact for {email}: {e}")
+
     def process_replied_leads(self, df, send_email_fn, parse_display_name_fn, is_empty_fn, save_leads_fn) -> int:
         replied = df[df["status"] == "replied"]
         if replied.empty:
@@ -65,6 +89,7 @@ class ConverterService:
                 df.at[index, "status"] = "meeting_booked"
                 converted += 1
                 logger.info(f"✅ Meeting invite sent to {name}")
+                self._auto_create_contact(name, email, phone, vertical)
 
         save_leads_fn(df)
         logger.info(f"Conversion complete. {converted} leads sent meeting invites")

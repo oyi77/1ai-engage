@@ -343,6 +343,29 @@ class CSEngineService:
             "Hey, good question! Let me check on that and get back to you real quick."
         )
 
+    def _auto_create_contact(self, phone: str, wa_number_id: str, tag: str) -> None:
+        try:
+            import sqlite3
+            from oneai_reach.config.settings import get_settings
+            db_path = get_settings().database.db_file
+            with sqlite3.connect(db_path) as conn:
+                cursor = conn.cursor()
+                cursor.execute("SELECT id, tags FROM contacts WHERE phone = ?", (phone,))
+                row = cursor.fetchone()
+                if row:
+                    existing_tags = row[1] or ""
+                    if tag not in existing_tags:
+                        new_tags = f"{existing_tags},{tag}".strip(",")
+                        cursor.execute("UPDATE contacts SET tags = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?", (new_tags, row[0]))
+                else:
+                    cursor.execute(
+                        "INSERT INTO contacts (wa_number_id, name, phone, tags, source) VALUES (?, ?, ?, ?, ?)",
+                        (wa_number_id, f"Unknown ({phone})", phone, tag, "cs_engine")
+                    )
+                conn.commit()
+        except Exception as e:
+            logger.error(f"Failed to auto-create contact for {phone}: {e}")
+
     def handle_inbound_message(
         self,
         wa_number_id: str,
@@ -423,6 +446,7 @@ class CSEngineService:
             from oneai_reach.infrastructure.legacy.n8n_client import notify_hot_lead
 
             notify_hot_lead(contact_phone, current_msg_count, conv_id)
+            self._auto_create_contact(contact_phone, wa_number_id, "hot_lead")
 
         from oneai_reach.infrastructure.legacy import capi_tracker
 
@@ -433,6 +457,7 @@ class CSEngineService:
             from oneai_reach.infrastructure.legacy.n8n_client import notify_purchase_signal
 
             notify_purchase_signal(contact_phone, message_text, conv_id)
+            self._auto_create_contact(contact_phone, wa_number_id, "purchase_signal")
 
         if self._is_shipping_complaint(message_text):
             capi_tracker.track_atc(contact_phone)

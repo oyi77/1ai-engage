@@ -71,228 +71,228 @@ async def list_scheduled_messages(
     with get_db_connection() as conn:
         cursor = conn.cursor()
     
-    conditions = ["1=1"]
-    params = []
+        conditions = ["1=1"]
+        params = []
     
-    if contact_id:
-        conditions.append("contact_id = ?")
-        params.append(contact_id)
-    if status:
-        conditions.append("status = ?")
-        params.append(status)
-    if scheduled_before:
-        conditions.append("scheduled_at <= ?")
-        params.append(scheduled_before)
-    if scheduled_after:
-        conditions.append("scheduled_at >= ?")
-        params.append(scheduled_after)
+        if contact_id:
+            conditions.append("contact_id = ?")
+            params.append(contact_id)
+        if status:
+            conditions.append("status = ?")
+            params.append(status)
+        if scheduled_before:
+            conditions.append("scheduled_at <= ?")
+            params.append(scheduled_before)
+        if scheduled_after:
+            conditions.append("scheduled_at >= ?")
+            params.append(scheduled_after)
     
-    where_clause = " AND ".join(conditions)
+        where_clause = " AND ".join(conditions)
     
-    cursor.execute(f"""
-        SELECT id, contact_id, conversation_id, wa_number_id, lead_id, channel, message_type,
-               content, subject, template_id, template_variables, scheduled_at, timezone, status,
-               sent_at, error_message, retry_count, max_retries, created_by, created_at, updated_at
-        FROM scheduled_messages
-        WHERE {where_clause}
-        ORDER BY scheduled_at DESC
-        LIMIT ? OFFSET ?
-    """, [*params, limit, offset])
+        cursor.execute(f"""
+            SELECT id, contact_id, conversation_id, wa_number_id, lead_id, channel, message_type,
+                   content, subject, template_id, template_variables, scheduled_at, timezone, status,
+                   sent_at, error_message, retry_count, max_retries, created_by, created_at, updated_at
+            FROM scheduled_messages
+            WHERE {where_clause}
+            ORDER BY scheduled_at DESC
+            LIMIT ? OFFSET ?
+        """, [*params, limit, offset])
     
-    rows = cursor.fetchall()
+        rows = cursor.fetchall()
     
-    cursor.execute(f"SELECT COUNT(*) FROM scheduled_messages WHERE {where_clause}", params)
-    total = cursor.fetchone()[0]
+        cursor.execute(f"SELECT COUNT(*) FROM scheduled_messages WHERE {where_clause}", params)
+        total = cursor.fetchone()[0]
     
-    messages = [ScheduledMessage(**dict(row)) for row in rows]
-    return MessagesResponse(messages=messages, total=total)
+        messages = [ScheduledMessage(**dict(row)) for row in rows]
+        return MessagesResponse(messages=messages, total=total)
 
 @router.post("/api/v1/scheduled-messages", response_model=MessageResponse)
 async def create_scheduled_message(msg: ScheduledMessageCreate) -> MessageResponse:
     with get_db_connection(row_factory=False) as conn:
         cursor = conn.cursor()
     
-    # Get wa_number_id from conversation if provided
-    wa_number_id = None
-    if msg.conversation_id:
-        cursor.execute("SELECT wa_number_id FROM conversations WHERE id = ?", (msg.conversation_id,))
-        row = cursor.fetchone()
-        if row:
-            wa_number_id = row[0]
+        # Get wa_number_id from conversation if provided
+        wa_number_id = None
+        if msg.conversation_id:
+            cursor.execute("SELECT wa_number_id FROM conversations WHERE id = ?", (msg.conversation_id,))
+            row = cursor.fetchone()
+            if row:
+                wa_number_id = row[0]
     
-    template_vars_json = None
-    if msg.template_variables:
-        import json
-        template_vars_json = json.dumps(msg.template_variables)
+        template_vars_json = None
+        if msg.template_variables:
+            import json
+            template_vars_json = json.dumps(msg.template_variables)
     
-    cursor.execute("""
-        INSERT INTO scheduled_messages (contact_id, conversation_id, wa_number_id, lead_id, channel,
-                                       message_type, content, subject, template_id, template_variables,
-                                       scheduled_at, timezone, created_by)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    """, (msg.contact_id, msg.conversation_id, wa_number_id, msg.lead_id, msg.channel,
-          msg.message_type, msg.content, msg.subject, msg.template_id, template_vars_json,
-          msg.scheduled_at, msg.timezone, msg.created_by))
+        cursor.execute("""
+            INSERT INTO scheduled_messages (contact_id, conversation_id, wa_number_id, lead_id, channel,
+                                           message_type, content, subject, template_id, template_variables,
+                                           scheduled_at, timezone, created_by)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (msg.contact_id, msg.conversation_id, wa_number_id, msg.lead_id, msg.channel,
+              msg.message_type, msg.content, msg.subject, msg.template_id, template_vars_json,
+              msg.scheduled_at, msg.timezone, msg.created_by))
     
-    msg_id = cursor.lastrowid
-    conn.commit()
+        msg_id = cursor.lastrowid
+        conn.commit()
     
-    return MessageResponse(message=ScheduledMessage(
-        id=msg_id,
-        contact_id=msg.contact_id,
-        conversation_id=msg.conversation_id,
-        wa_number_id=wa_number_id,
-        lead_id=msg.lead_id,
-        channel=msg.channel,
-        message_type=msg.message_type,
-        content=msg.content,
-        subject=msg.subject,
-        template_id=msg.template_id,
-        scheduled_at=msg.scheduled_at,
-        created_by=msg.created_by
-    ))
+        return MessageResponse(message=ScheduledMessage(
+            id=msg_id,
+            contact_id=msg.contact_id,
+            conversation_id=msg.conversation_id,
+            wa_number_id=wa_number_id,
+            lead_id=msg.lead_id,
+            channel=msg.channel,
+            message_type=msg.message_type,
+            content=msg.content,
+            subject=msg.subject,
+            template_id=msg.template_id,
+            scheduled_at=msg.scheduled_at,
+            created_by=msg.created_by
+        ))
 
 @router.get("/api/v1/scheduled-messages/{message_id}", response_model=MessageResponse)
 async def get_scheduled_message(message_id: int) -> MessageResponse:
     with get_db_connection() as conn:
         cursor = conn.cursor()
     
-    cursor.execute("""
-        SELECT id, contact_id, conversation_id, wa_number_id, lead_id, channel, message_type,
-               content, subject, template_id, template_variables, scheduled_at, timezone, status,
-               sent_at, error_message, retry_count, max_retries, created_by, created_at, updated_at
-        FROM scheduled_messages WHERE id = ?
-    """, (message_id,))
+        cursor.execute("""
+            SELECT id, contact_id, conversation_id, wa_number_id, lead_id, channel, message_type,
+                   content, subject, template_id, template_variables, scheduled_at, timezone, status,
+                   sent_at, error_message, retry_count, max_retries, created_by, created_at, updated_at
+            FROM scheduled_messages WHERE id = ?
+        """, (message_id,))
     
-    row = cursor.fetchone()
+        row = cursor.fetchone()
     
-    if not row:
-        raise HTTPException(status_code=404, detail="Message not found")
+        if not row:
+            raise HTTPException(status_code=404, detail="Message not found")
     
-    return MessageResponse(message=ScheduledMessage(**dict(row)))
+        return MessageResponse(message=ScheduledMessage(**dict(row)))
 
 @router.patch("/api/v1/scheduled-messages/{message_id}", response_model=MessageResponse)
 async def update_scheduled_message(message_id: int, update: ScheduledMessageUpdate) -> MessageResponse:
     with get_db_connection() as conn:
         cursor = conn.cursor()
     
-    cursor.execute("SELECT id FROM scheduled_messages WHERE id = ?", (message_id,))
-    if not cursor.fetchone():
-            raise HTTPException(status_code=404, detail="Message not found")
+        cursor.execute("SELECT id FROM scheduled_messages WHERE id = ?", (message_id,))
+        if not cursor.fetchone():
+                raise HTTPException(status_code=404, detail="Message not found")
     
-    fields = []
-    params = []
+        fields = []
+        params = []
     
-    if update.content is not None:
-        fields.append("content = ?")
-        params.append(update.content)
-    if update.subject is not None:
-        fields.append("subject = ?")
-        params.append(update.subject)
-    if update.scheduled_at is not None:
-        fields.append("scheduled_at = ?")
-        params.append(update.scheduled_at)
-    if update.status is not None:
-        fields.append("status = ?")
-        params.append(update.status)
+        if update.content is not None:
+            fields.append("content = ?")
+            params.append(update.content)
+        if update.subject is not None:
+            fields.append("subject = ?")
+            params.append(update.subject)
+        if update.scheduled_at is not None:
+            fields.append("scheduled_at = ?")
+            params.append(update.scheduled_at)
+        if update.status is not None:
+            fields.append("status = ?")
+            params.append(update.status)
     
-    if not fields:
-            raise HTTPException(status_code=400, detail="No fields to update")
+        if not fields:
+                raise HTTPException(status_code=400, detail="No fields to update")
     
-    fields.append("updated_at = datetime('now')")
-    params.append(message_id)
+        fields.append("updated_at = datetime('now')")
+        params.append(message_id)
     
-    cursor.execute(f"UPDATE scheduled_messages SET {', '.join(fields)} WHERE id = ?", params)
-    conn.commit()
+        cursor.execute(f"UPDATE scheduled_messages SET {', '.join(fields)} WHERE id = ?", params)
+        conn.commit()
     
-    cursor.execute("""
-        SELECT id, contact_id, conversation_id, wa_number_id, lead_id, channel, message_type,
-               content, subject, template_id, template_variables, scheduled_at, timezone, status,
-               sent_at, error_message, retry_count, max_retries, created_by, created_at, updated_at
-        FROM scheduled_messages WHERE id = ?
-    """, (message_id,))
+        cursor.execute("""
+            SELECT id, contact_id, conversation_id, wa_number_id, lead_id, channel, message_type,
+                   content, subject, template_id, template_variables, scheduled_at, timezone, status,
+                   sent_at, error_message, retry_count, max_retries, created_by, created_at, updated_at
+            FROM scheduled_messages WHERE id = ?
+        """, (message_id,))
     
-    row = cursor.fetchone()
+        row = cursor.fetchone()
     
-    return MessageResponse(message=ScheduledMessage(**dict(row)))
+        return MessageResponse(message=ScheduledMessage(**dict(row)))
 
 @router.delete("/api/v1/scheduled-messages/{message_id}")
 async def delete_scheduled_message(message_id: int):
     with get_db_connection(row_factory=False) as conn:
         cursor = conn.cursor()
     
-    cursor.execute("DELETE FROM scheduled_messages WHERE id = ? AND status IN ('pending', 'cancelled')", (message_id,))
+        cursor.execute("DELETE FROM scheduled_messages WHERE id = ? AND status IN ('pending', 'cancelled')", (message_id,))
     
-    if cursor.rowcount == 0:
-            raise HTTPException(status_code=404, detail="Message not found or cannot delete sent/processing message")
+        if cursor.rowcount == 0:
+                raise HTTPException(status_code=404, detail="Message not found or cannot delete sent/processing message")
     
-    conn.commit()
+        conn.commit()
     
-    return {"status": "deleted", "message_id": message_id}
+        return {"status": "deleted", "message_id": message_id}
 
 @router.post("/api/v1/scheduled-messages/process")
 async def process_due_messages() -> dict:
     with get_db_connection() as conn:
         cursor = conn.cursor()
     
-    now = datetime.now(timezone.utc).isoformat()
+        now = datetime.now(timezone.utc).isoformat()
     
-    cursor.execute("""
-        SELECT id, channel, content, subject, contact_id, conversation_id
-        FROM scheduled_messages
-        WHERE status = 'pending' AND scheduled_at <= ?
-    """, (now,))
+        cursor.execute("""
+            SELECT id, channel, content, subject, contact_id, conversation_id
+            FROM scheduled_messages
+            WHERE status = 'pending' AND scheduled_at <= ?
+        """, (now,))
     
-    messages = cursor.fetchall()
-    processed = 0
-    failed = 0
+        messages = cursor.fetchall()
+        processed = 0
+        failed = 0
     
-    for msg in messages:
-        try:
-            cursor.execute("UPDATE scheduled_messages SET status = 'processing' WHERE id = ?", (msg["id"],))
-            conn.commit()
+        for msg in messages:
+            try:
+                cursor.execute("UPDATE scheduled_messages SET status = 'processing' WHERE id = ?", (msg["id"],))
+                conn.commit()
             
-            # Here would be the actual sending logic
-            # For now, just mark as sent
-            cursor.execute("""
-                UPDATE scheduled_messages 
-                SET status = 'sent', sent_at = ?
-                WHERE id = ?
-            """, (now, msg["id"]))
-            conn.commit()
-            processed += 1
-        except Exception as e:
-            cursor.execute("""
-                UPDATE scheduled_messages 
-                SET status = 'failed', error_message = ?, retry_count = retry_count + 1
-                WHERE id = ?
-            """, (str(e), msg["id"]))
-            conn.commit()
-            failed += 1
+                # Here would be the actual sending logic
+                # For now, just mark as sent
+                cursor.execute("""
+                    UPDATE scheduled_messages 
+                    SET status = 'sent', sent_at = ?
+                    WHERE id = ?
+                """, (now, msg["id"]))
+                conn.commit()
+                processed += 1
+            except Exception as e:
+                cursor.execute("""
+                    UPDATE scheduled_messages 
+                    SET status = 'failed', error_message = ?, retry_count = retry_count + 1
+                    WHERE id = ?
+                """, (str(e), msg["id"]))
+                conn.commit()
+                failed += 1
     
-    return {"processed": processed, "failed": failed, "total": len(messages)}
+        return {"processed": processed, "failed": failed, "total": len(messages)}
 
 @router.get("/api/v1/scheduled-messages/stats/overview")
 async def get_scheduled_stats() -> dict:
     with get_db_connection(row_factory=False) as conn:
         cursor = conn.cursor()
     
-    cursor.execute("""
-        SELECT 
-            COUNT(CASE WHEN status = 'pending' THEN 1 END) as pending,
-            COUNT(CASE WHEN status = 'sent' THEN 1 END) as sent,
-            COUNT(CASE WHEN status = 'failed' THEN 1 END) as failed,
-            COUNT(CASE WHEN status = 'processing' THEN 1 END) as processing,
-            COUNT(*) as total
-        FROM scheduled_messages
-    """)
+        cursor.execute("""
+            SELECT 
+                COUNT(CASE WHEN status = 'pending' THEN 1 END) as pending,
+                COUNT(CASE WHEN status = 'sent' THEN 1 END) as sent,
+                COUNT(CASE WHEN status = 'failed' THEN 1 END) as failed,
+                COUNT(CASE WHEN status = 'processing' THEN 1 END) as processing,
+                COUNT(*) as total
+            FROM scheduled_messages
+        """)
     
-    row = cursor.fetchone()
+        row = cursor.fetchone()
     
-    return {
-        "pending": row[0],
-        "sent": row[1],
-        "failed": row[2],
-        "processing": row[3],
-        "total": row[4]
-    }
+        return {
+            "pending": row[0],
+            "sent": row[1],
+            "failed": row[2],
+            "processing": row[3],
+            "total": row[4]
+        }
