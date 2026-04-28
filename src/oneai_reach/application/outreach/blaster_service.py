@@ -1,4 +1,4 @@
-"""Blaster service - sends proposals via email and WhatsApp."""
+"""Blaster service - sends proposals via email and WhatsApp with GDPR compliance."""
 
 import os
 from datetime import datetime, timedelta, timezone
@@ -12,6 +12,7 @@ from oneai_reach.application.outreach.proposal_pdf import (
     persist_proposal_pdf,
     proposal_pdf_filename,
 )
+from oneai_reach.application.compliance.outreach_compliance import get_compliance_wrapper
 from oneai_reach.infrastructure.logging import get_logger
 
 logger = get_logger(__name__)
@@ -39,6 +40,7 @@ class BlasterService:
         self.config = config
         self.proposals_dir = config.database.proposals_dir
         self.cooldown_days = COOLDOWN_DAYS
+        self.compliance = get_compliance_wrapper(config)
 
     def blast_proposals(
         self,
@@ -116,27 +118,41 @@ class BlasterService:
             pdf_bytes = None
             pdf_filename = None
             if email:
-                try:
-                    pdf_bytes = generate_proposal_pdf(proposal, name)
-                except ProposalPdfError as exc:
-                    logger.error(f"[skip email] {name} — {exc}")
-                    email = ""
+                # GDPR compliance check before email
+                can_send, reason = self.compliance.can_contact_email(str(row.get("id") or f"lead_{index}"), email)
+                if not can_send:
+                    logger.warning(f"[skip email] {name} - {reason}")
                 else:
-                    logger.info(f"Generated proposal PDF: {len(pdf_bytes)} bytes")
-                pdf_filename = proposal_pdf_filename(name)
+                    try:
+                        pdf_bytes = generate_proposal_pdf(proposal, name)
+                    except ProposalPdfError as exc:
+                        logger.error(f"[skip email] {name} — {exc}")
+                        email = ""
+                    else:
+                        logger.info(f"Generated proposal PDF: {len(pdf_bytes)} bytes")
+                    pdf_filename = proposal_pdf_filename(name)
 
             if phone:
-                wa_sent = send_whatsapp_fn(phone, wa_draft)
+                # GDPR compliance check before WhatsApp
+                can_send, reason = self.compliance.can_contact_whatsapp(str(row.get("id") or f"lead_{index}"), phone)
+                if not can_send:
+                    logger.warning(f"[skip whatsapp] {name} - {reason}")
+                else:
+                    wa_sent = send_whatsapp_fn(phone, wa_draft)
+                    if wa_sent:
+                        self.compliance.record_outreach(str(row.get("id") or f"lead_{index}"), phone, "whatsapp", True)
 
-            if email:
+            if email and pdf_bytes:
                 email_sent = send_email_fn(
                     email,
                     PROPOSAL_SUBJECT,
                     proposal,
+                    lead_id=str(row.get("id") or f"lead_{index}"),
                     pdf_bytes=pdf_bytes,
                     filename=pdf_filename,
                 )
-                if email_sent and pdf_bytes:
+                if email_sent:
+                    self.compliance.record_outreach(str(row.get("id") or f"lead_{index}"), email, "email", True)
                     pdf_path = persist_proposal_pdf(
                         pdf_bytes, self.proposals_dir, index, name
                     )
