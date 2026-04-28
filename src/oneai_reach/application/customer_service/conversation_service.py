@@ -294,6 +294,22 @@ class ConversationService:
 
         return True
 
+
+    @staticmethod
+    def _escape_telegram_markdown(text: str) -> str:
+        """Escape special Markdown characters for Telegram.
+        
+        Telegram Markdown v1 special chars: _ * ` [
+        """
+        if not text:
+            return ""
+        # Escape special characters
+        text = text.replace("_", "\\_")
+        text = text.replace("*", "\\*")
+        text = text.replace("`", "\\`")
+        text = text.replace("[", "\\[")
+        return text
+
     def _send_telegram_alert(self, text: str) -> bool:
         """Send Telegram alert notification."""
         if not self.config.telegram.bot_token or not self.config.telegram.chat_id:
@@ -305,7 +321,7 @@ class ConversationService:
                 f"https://api.telegram.org/bot{self.config.telegram.bot_token}/sendMessage",
                 json={
                     "chat_id": self.config.telegram.chat_id,
-                    "text": text,
+                    "text": self._escape_telegram_markdown(text),
                     "parse_mode": "Markdown",
                 },
                 timeout=10,

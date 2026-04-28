@@ -687,6 +687,17 @@ def get_kb_entries(wa_number_id: str, category: str | None = None) -> list[dict]
 
 
 def search_kb(wa_number_id: str, query: str, limit: int = 5) -> list[dict]:
+
+    # Ensure KB table exists
+    try:
+        conn = _connect()
+        conn.execute("SELECT 1 FROM knowledge_base LIMIT 1")
+        conn.close()
+    except sqlite3.OperationalError:
+        # Table doesn't exist, initialize it
+        from oneai_reach.infrastructure.database import SQLiteKnowledgeRepository
+        from config import DB_FILE
+        SQLiteKnowledgeRepository(str(DB_FILE))
     # Build OR-based FTS5 query: users expect results if ANY word matches
     # e.g. "harga laundry" -> "(harga* OR laundry*)"
     # e.g. "paket mingguan" -> "(paket* OR mingguan*)"
