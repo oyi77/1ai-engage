@@ -11,7 +11,7 @@ from oneai_reach.infrastructure.logging import get_logger
 
 logger = get_logger(__name__)
 
-router = APIRouter(prefix="/compliance", tags=["compliance"])
+router = APIRouter(prefix="/api/v1/compliance", tags=["compliance"])
 config = get_settings()
 
 
