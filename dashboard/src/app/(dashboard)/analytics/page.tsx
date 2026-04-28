@@ -8,6 +8,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Loader2, TrendingUp, TrendingDown, Mail, MessageCircle, BarChart3, Zap } from "lucide-react";
 import { PipelineHealthCard } from "@/components/pipeline-health-card";
 import { DeliverabilityDashboard } from "@/components/deliverability-dashboard";
+import { ComplianceDashboard } from "@/components/compliance-dashboard";
 
 const FUNNEL_STAGES = [
   { key: "new", label: "New", color: "bg-blue-600" },
@@ -101,6 +102,7 @@ export default function AnalyticsPage() {
 
       {/* ── Pipeline Health Widget ── */}
       <DeliverabilityDashboard />
+      <ComplianceDashboard />
       <PipelineHealthCard />
 
       {/* ── Section 1: KPI Cards ── */}

@@ -40,6 +40,7 @@ from oneai_reach.api.v1.labels import router as labels_router
 from oneai_reach.api.v1.email_templates import router as email_templates_router
 from oneai_reach.api.v1.scheduled_messages import router as scheduled_messages_router
 from oneai_reach.api.v1.broadcasts import router as broadcasts_router
+from oneai_reach.api.v1.compliance import router as compliance_router
 from oneai_reach.api.webhooks import capi_router, waha_router
 from oneai_reach.config.settings import get_settings
 
@@ -132,6 +133,7 @@ def create_app() -> FastAPI:
     app.include_router(email_templates_router)
     app.include_router(scheduled_messages_router)
     app.include_router(broadcasts_router)
+    app.include_router(compliance_router, prefix="/api/v1/compliance")
 
     data_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))), "data")
     if os.path.isdir(data_dir):
