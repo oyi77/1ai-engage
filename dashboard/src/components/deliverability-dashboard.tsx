@@ -81,7 +81,7 @@ function DNSRecord({ name, configured, details }: { name: string; configured: bo
 }
 
 export function DeliverabilityDashboard() {
-  const { data, isLoading, error, mutate } = useSWR<{ data: DeliverabilityOverview }>(
+  const { data, isLoading, error, mutate } = useSWR<DeliverabilityOverview>(
     "/api/v1/deliverability/overview",
     fetcher,
     { refreshInterval: 60000 }
@@ -115,7 +115,7 @@ export function DeliverabilityDashboard() {
     );
   }
 
-  const { primary_domain, domain_score, domain_status, spf_configured, dkim_configured, dmarc_configured, dmarc_policy, issues_count, recommendations } = data.data;
+  const { primary_domain, domain_score, domain_status, spf_configured, dkim_configured, dmarc_configured, dmarc_policy, issues_count, recommendations } = data;
 
   return (
     <Card className="bg-neutral-900 border-neutral-800">
