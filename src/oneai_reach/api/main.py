@@ -55,6 +55,7 @@ def create_app() -> FastAPI:
         title="1ai-reach API",
         description="Cold outreach automation pipeline for BerkahKarya",
         version="1.0.0",
+        redirect_slashes=False,
     )
 
     settings = get_settings()

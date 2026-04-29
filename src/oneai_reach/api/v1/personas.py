@@ -48,13 +48,13 @@ class AssignPersonaRequest(BaseModel):
 
 # ── Persona CRUD ───────────────────────────────────────────────
 
-@router.get("/")
+@router.get("")
 async def list_personas(scope: Optional[str] = Query(None)):
     svc = _get_service()
     return {"personas": svc.list_personas(scope=scope)}
 
 
-@router.post("/")
+@router.post("")
 async def create_persona(body: CreatePersonaRequest):
     svc = _get_service()
     try:
