@@ -132,11 +132,11 @@ class WAHASettings(BaseSettings):
         default="https://waha.aitradepulse.com", description="Direct WAHA URL"
     )
     api_key: str = Field(
-        default="199c96bcb87e45a39f6cde9e5677ed09",
+        default="",
         description="WAHA API key",
     )
     direct_api_key: str = Field(
-        default="199c96bcb87e45a39f6cde9e5677ed09",
+        default="",
         description="Direct WAHA API key",
     )
     session: str = Field(
@@ -201,7 +201,7 @@ class ExternalAPISettings(BaseSettings):
 
     google_api_key: str = Field(default="", description="Google API key")
     aitradepulse_api_key: str = Field(
-        default="sk-f0c1ddf471008e76-501723-c663b4ac",
+        default="",
         description="AiTradePulse API key",
     )
     exa_api_key: str = Field(
