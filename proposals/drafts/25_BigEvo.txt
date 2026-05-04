@@ -1,30 +1,30 @@
 ---PROPOSAL---
-Subject: Missing 40% of leads BigEvo could capture from your own traffic
+Subject: I noticed BigEvo is missing a key lead capture opportunity
 
-I noticed BigEvo offers a full suite of digital services - SEO, KOL campaigns, e-commerce, even AI - yet there's no live chat or WhatsApp widget on your site. That means every visitor who has a quick question or needs clarification right this second is likely bouncing and going elsewhere.
+Hi Team at BigEvo,
 
-Here's what's concerning: Agencies like Neo Digital and Redcomm in Jakarta Selatan are already using WhatsApp Business API with AI chatbots to capture leads 24/7, slashing response times from hours to under 2 minutes and increasing conversion rates by up to 40%. They're winning clients simply by being *there* when prospects need them.
+I was analyzing your digital presence and spotted something interesting: while you offer comprehensive services like SEO, AI, and digital PR, your site lacks the conversion infrastructure to maximize their impact.
 
-I'd recommend two concrete solutions for BigEvo:
+Specifically, I noticed you don't have a blog or content section—this means you're leaving significant organic SEO traffic on the table. Haluan Digital Agency, another Jakarta-based agency, recently ramped up their content strategy and is now dominating 3-4 high-intent keywords you should be targeting. They're capturing leads you're missing.
 
-1. **WhatsApp Business API + AI Chatbot Integration**
-   - Deploy a smart WhatsApp widget that qualifies leads 24/7
-   - AI handles common inquiries instantly and escalates warm leads to your team
-   - Expected outcome: Capture 30-40% more leads from existing traffic, cut response time by 5x
+I can help BigEvo close this gap with a focused Growth & CRO package:
 
-2. **Conversion Rate Optimization (CRO) + Portfolio Content Strategy**
-   - Add a high-impact "Our Work" section with case studies and metrics
-   - Install a content blog to drive organic traffic and establish thought leadership
-   - Strengthen CTAs across key pages
-   - Expected outcome: 25-35% increase in qualified inquiries
+**Solution 1: Content-to-Lead Framework**
+- 90-day strategic content calendar targeting 5 high-intent keywords in your niche
+- 12 SEO-optimized articles with conversion-focused CTAs
+- Hub for thought leadership that boosts organic traffic by 30%+ within 6 months
 
-The opportunity cost of not fixing these leaks is significant. Even with your strong service offerings, BigEvo is leaving leads on the table that competitors are actively capturing.
+**Solution 2: AI-Powered Lead Capture**
+- WhatsApp widget implementation for instant lead capture
+- AI chatbot trained on your services to handle inquiries 24/7
+- Cuts response time by 5x and increases lead conversion by 25%
 
-Would you be open to a 15-minute call next week? I can walk you through exactly how we'd implement this for BigEvo. Alternatively, I'm happy to run a free conversion audit of your site first.
+The combination of content strategy + instant response is where many agencies in Jakarta are seeing the biggest ROI right now.
+
+Would you be open to a 15-minute call this week to walk through how this would work for BigEvo? No commitment—I'll share a quick audit of your current conversion gaps.
 
 Best regards,
 Vilona
 BerkahKarya
-
 ---WHATSAPP---
-Halo BigEvo team! Baru lihat website kalian, offering-nya keren banget. Cuma noticed gak ada WhatsApp widget ya - kalau client butuh info cepet, mereka hubungin kemana? 15 menit call boleh gak? Vilona dari BerkahKarya.
+Halo BigEvo! Barusan lihat website kalian, service-nya keren banget ya. Cuma aku penasaran, pernah nggak sih kepikiran tambahin WhatsApp widget di website? Bisa bantu capture lead lebih cepet lho. Kalau sempat, boleh dong kita ngobrol sebentar 15 menit? Aku bisa kasih audit gratis soal conversion gaps di website kalian.

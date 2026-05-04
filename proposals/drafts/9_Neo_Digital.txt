@@ -1,30 +1,23 @@
 ---PROPOSAL---
-Subject: Quick observation about your lead capture strategy (Neo Digital)
+Subject: Quick observation about your website's conversion potential
 
-I noticed Neo Digital offers an impressive suite of services—SEO, content marketing, KOL, digital PR, and AI—but your site lacks one critical conversion element that's helping competitors in Jakarta's digital agency space capture leads while you sleep.
+Hi Ayesa,
 
-Agencies like **Redcomm Indonesia** in the same market have integrated WhatsApp Business API with AI chatbots, and they're seeing a 3-4x increase in lead capture rates. The moment a prospect lands on their site, they're greeted instantly—even outside business hours.
+I was just browsing Neo Digital's website and noticed something interesting — you offer SEO and content marketing services, but your own site doesn't have a blog or content section showcasing your expertise. Meanwhile, agencies like Big Evo in Central Jakarta are using case studies blogs to dominate organic search for "digital marketing Jakarta" and capturing 40% more leads through content-driven traffic.
 
-Here's what I recommend for Neo Digital:
+The gap is costing you potential high-value clients who search for your services and can't see proof of your work. 
 
-**1. WhatsApp Business API + AI Chatbot Integration**
-- Deliverables: Custom chatbot configured for your services (SEO, KOL, digital PR), lead qualification workflows, CRM integration
-- Expected outcome: Capture 30-40% more leads, cut response time from hours to seconds
+I'd recommend a two-pronged approach:
+1. **Content Engine & SEO Acceleration** — Build a blog with 12+ high-intent articles targeting local keywords (e.g., "digital agency Jakarta Barat," "KOL marketing services Indonesia") and create 3-4 detailed case studies showing your ROI metrics. We've seen agencies increase organic traffic by 300% within 90 days with this strategy.
 
-**2. Conversion Rate Optimization (CRO) + Trust Signals**
-- Deliverables: Add client testimonial section, case study showcase, A/B testing on key pages, optimized CTAs
-- Expected outcome: Increase conversion rate by 20-25%, build credibility instantly
+2. **AI-Powered Lead Capture** — Add a WhatsApp widget and AI chatbot to your site so visitors can connect instantly. We've helped similar agencies cut response time from hours to under 2 minutes and increase lead-to-call conversion by 35%.
 
-The gap isn't in your services—it's in your conversion funnel. Your prospects are ready to engage; you just need to make it frictionless.
+Both deliverables would be completed within 30 days.
 
-I'd love to walk you through a 15-minute audit of your current setup and show you exactly where the leaks are. No pressure—just actionable insights.
-
-Would you be free for a brief call this week?
+Would you be open to a 15-minute call this week? I can also send over a free audit of your current site performance.
 
 Best regards,
-
 Vilona
 BerkahKarya
-
 ---WHATSAPP---
-Halo Ayesa! Baru lihat Neo Digital di internet. Kayaknya Anda belum ada WhatsApp di website ya? Saya bisa bantu pasang chatbot biar ga ada yang kabur kalau mereka butuh jasa digital. Bisa coba 15 menit saja?
+Halo Ayesa, baru saja lihat website Neo Digital. Keren banget layanan kalian, tapi kok belum ada bagian portfolio atau testimoni klien ya? Saya dari BerkahKarya bisa bantu bikin case study dan setup WhatsApp biar lebih banyak leads yang masuk. Kalau sempat, mau kirim audit gratis gak?

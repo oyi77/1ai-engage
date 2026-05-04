@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://engage.aitradepulse.com/cdn-cgi/ https://static.cloudflareinsights.com https://*.cloudflareinsights.com",
               "style-src 'self' 'unsafe-inline'",
-              "connect-src 'self' https://engage.aitradepulse.com https://cloudflareinsights.com https://*.cloudflareinsights.com http://localhost:8766",
+              "connect-src 'self' https://engage.aitradepulse.com https://reach-api.aitradepulse.com http://reach-api.aitradepulse.com https://cloudflareinsights.com https://*.cloudflareinsights.com http://localhost:8766",
               "img-src 'self' data: https://raw.githubusercontent.com",
               "font-src 'self'",
             ].join("; "),

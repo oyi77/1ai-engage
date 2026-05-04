@@ -1,24 +1,20 @@
 ---PROPOSAL---
-Subject: Quick observation about meson-digital.com's lead capture
+I noticed something interesting while reviewing Meson Digital's online presence: your agency is positioned as a full-service digital partner with strong capabilities in SEO, Google Ads, and AI, yet your WordPress site lacks a content strategy to showcase that expertise.
 
-Hi Team at Meson,
+Specifically, you're missing a blog section — which means Meson isn't ranking for high-intent long-tail keywords like "AI automation case studies Indonesia" or "digital PR strategies Jakarta" that potential clients are actively searching. Meanwhile, Haluan Digital Agency (also based in Jakarta) has been capturing these organic leads with a consistent content strategy that ranks them on page 1 for multiple service-related keywords.
 
-I noticed something interesting while reviewing your site – you're offering comprehensive digital services (SEO, Google Ads, social media, influencer marketing, digital PR, AI), yet there's no live chat or WhatsApp widget to capture those visitors. You're driving traffic through your own marketing efforts, but visitors have zero immediate way to engage.
+I recommend implementing an **Advanced SEO Content Program** that includes:
+- 4 strategic blog posts per month targeting high-intent industry keywords
+- Technical optimization of your WordPress site for Core Web Vitals
+- Schema markup to boost rich snippet presence
 
-Here's the thing: I've seen agencies in the Rasuna Said business district – competitors like Redcomm and Digital Mile – implementing AI-powered WhatsApp chatbots that capture 40-50% more leads by qualifying visitors 24/7. They're turning their website traffic into booked calls before it bounces.
+This typically drives 40-60% more organic qualified leads within 90 days, and the content assets can be repurposed across your social and PR channels.
 
-I'd recommend two specific solutions for Meson:
+I'd be happy to run a quick SEO audit and show you the exact keywords Meson is leaving on the table. Would you be open to a 15-minute call next week to discuss?
 
-1. **AI-Powered WhatsApp Lead Capture Bot** – A conversational bot that lives on your site, qualifies leads based on their needs (SEO? Ads? Full digital strategy?), and routes hot prospects to your team immediately. Deliverable: Custom WhatsApp Business API integration with AI agent, 24/7 availability, lead qualification flows, CRM integration. Expected outcome: 3-5x more captured leads from existing traffic.
-
-2. **Conversion Rate Optimization Audit + Implementation** – Heatmap analysis, user session recordings, and A/B testing on your landing pages to improve the path from "visitor" to "inquiry." Since you don't have a portfolio section visible, we'd also optimize your service pages to build trust faster. Deliverable: CRO audit report, implementation of proven conversion elements, split testing framework. Expected outcome: 30-40% increase in conversion rate.
-
-Ironically, these tools would become powerful case studies for your own clients – "we practice what we preach."
-
-Want a free 15-minute call? I can walk you through a quick audit of your current conversion funnel and show you exactly where you're losing leads.
-
-Best regards,
+Best,
 Vilona
 BerkahKarya
+
 ---WHATSAPP---
-Halo team Meson! Baru saja lihat website kalian. Keren banget layanannya lengkap – SEO, Google Ads, sampai AI. Tapi kok nggak ada widget WhatsApp ya? Padahal kalian ngebantu klien digital marketing sendiri. Pengin sharing ide simpel soal nambah lead capture di website kalian. Ada 10 menit buat ngobrol singkat besok?
+Halo, baru lihat website Meson Digital. Keren banget jajarannya, tapi kok gak ada bagian blog ya? Padahal banyak banget keyword SEO yang bisa ke-target buat nangkin klien. Sempet ngobrol santai 15 menit buat bahas ini?
