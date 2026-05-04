@@ -1,2 +1,0 @@
-[console_scripts]
-engage-mcp = mcp_server:main

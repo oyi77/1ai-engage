@@ -84,6 +84,7 @@ class GeneratorService:
         """
         template_path = (
             Path(__file__).parent.parent.parent.parent.parent
+            / "data"
             / "templates"
             / f"{service_name}.yaml"
         )

@@ -26,7 +26,7 @@ class DatabaseSettings(BaseSettings):
         default="data/research", description="Research output directory"
     )
     proposals_dir: str = Field(
-        default="proposals/drafts", description="Proposals directory"
+        default="data/proposals/drafts", description="Proposals directory"
     )
     logs_dir: str = Field(default="logs", description="Logs directory")
 

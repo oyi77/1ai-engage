@@ -1,2 +1,0 @@
-agent_control
-mcp_server
