@@ -19,9 +19,11 @@
 │       └── cli/          # Click command-line interface
 ├── dashboard/            # Next.js frontend application
 ├── scripts/              # Legacy Python scripts (now shims to the new CLI)
-├── data/                 # Lead data and research outputs
-├── proposals/            # Generated proposal files
+├── data/                 # Lead data, proposals, templates, research outputs
+│   ├── proposals/drafts/ # Generated proposal files
+│   └── templates/        # Service proposal templates
 ├── tests/                # Pytest tests (unit, integration, e2e)
+├── docs/                 # Documentation and guides
 ├── pyproject.toml        # Project configuration and dependencies
 └── CLAUDE.md             # Detailed instructions for AI agents
 ```
