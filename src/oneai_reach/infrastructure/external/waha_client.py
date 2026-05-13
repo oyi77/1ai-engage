@@ -1,7 +1,7 @@
 """WAHA (WhatsApp HTTP API) client.
 
-Manages WhatsApp sessions via the WAHA HTTP API for sending messages,
-managing sessions, and configuring webhooks.
+Wraps the shared oneai_waha_client config and sync transport.
+Provides sync interface for 1ai-reach while using shared config/constants.
 """
 
 import time
@@ -17,6 +17,14 @@ from oneai_reach.domain.exceptions import (
     APITimeoutError,
     ExternalAPIError,
 )
+
+try:
+    from oneai_waha_client.models import WAHAConfig
+    from oneai_waha_client.client import _normalize_phone
+
+    _SHARED_AVAILABLE = True
+except ImportError:
+    _SHARED_AVAILABLE = False
 
 
 def retry_with_backoff(max_retries: int = 3, backoff_factor: float = 1.0) -> Callable:
@@ -73,6 +81,14 @@ class WAHAClient:
         self.api_key = self._resolve_api_key(settings)
         self.timeout = 15
         self.rate_limiter = RateLimiter(max_requests=20, window_seconds=60)
+        if _SHARED_AVAILABLE:
+            self._shared_config = WAHAConfig(
+                base_url=self.base_url,
+                api_key=self.api_key,
+                default_session=settings.waha.session if hasattr(settings.waha, 'session') else "default",
+            )
+        else:
+            self._shared_config = None
 
     def _resolve_url(self, settings: Settings) -> str:
         if settings.waha.url:
