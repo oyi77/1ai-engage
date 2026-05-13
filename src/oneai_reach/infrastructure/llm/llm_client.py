@@ -8,6 +8,14 @@ from oneai_reach.config.settings import Settings
 from oneai_reach.infrastructure.llm.anthropic_client import AnthropicClient
 from oneai_reach.infrastructure.llm.gemini_client import GeminiClient
 
+try:
+    from oneai_ai_pipeline import AIPipeline, AIPipelineConfig
+    _SHARED_AI_AVAILABLE = True
+except ImportError:
+    AIPipeline = None
+    AIPipelineConfig = None
+    _SHARED_AI_AVAILABLE = False
+
 
 class LLMClient:
     def __init__(self, settings: Settings) -> None:
@@ -15,6 +23,7 @@ class LLMClient:
         self.anthropic = AnthropicClient(settings)
         self.gemini = GeminiClient(settings)
         self.aitradepulse_api_key = settings.external_api.aitradepulse_api_key
+        self._pipeline: Optional[object] = None
 
     def _call_claude_cli(
         self, prompt: str, model: str = "sonnet", timeout: int = 60
@@ -149,7 +158,42 @@ class LLMClient:
             pass
         return None
 
+    def _get_pipeline(self):
+        """ Lazily initialize shared AIPipeline if available."""
+        if self._pipeline is not None:
+            return self._pipeline
+        if not _SHARED_AI_AVAILABLE or AIPipeline is None:
+            return None
+        try:
+            config = AIPipelineConfig(
+                mode="direct",
+                direct_url=os.getenv("AI_PIPELINE_DIRECT_URL", "http://localhost:20128/v1"),
+                direct_api_key=os.getenv("AI_PIPELINE_DIRECT_API_KEY", ""),
+                default_model=os.getenv("AI_PIPELINE_DEFAULT_MODEL", "auto/pro-fast"),
+            )
+            self._pipeline = AIPipeline(config)
+            return self._pipeline
+        except Exception:
+            return None
+
+    def _call_pipeline(self, prompt: str) -> Optional[str]:
+        """ Try shared AIPipeline (sync wrapper)."""
+        pipeline = self._get_pipeline()
+        if pipeline is None:
+            return None
+        try:
+            result = pipeline.generate_sync(prompt)
+            if result and result.content:
+                return result.content
+        except Exception:
+            pass
+        return None
+
     def generate(self, prompt: str, fallback: Optional[str] = None) -> str:
+        # Try shared AIPipeline first (centralized model routing)
+        if result := self._call_pipeline(prompt):
+            return result
+        # Fallback to existing provider chain
         if result := self._call_aitradepulse(prompt, timeout=20):
             return result
         if result := self._call_opencode(prompt, timeout=15):
