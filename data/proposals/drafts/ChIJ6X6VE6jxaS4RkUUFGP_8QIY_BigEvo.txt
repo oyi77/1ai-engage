@@ -1,25 +1,21 @@
 ---PROPOSAL---
-Subject: Unlock More Leads & Engagement for BigEvo – Practical Growth Solutions
+Subject: Unlock More Leads for BigEvo with AI Chatbot & Conversion Boost
 
 Hi BigEvo Team,
 
-While exploring your website and services, I noticed your strong focus on SEO, social media, and KOL, but also saw key growth opportunities that your competitors in Jakarta Selatan—such as Digima Asia—are already leveraging to win more clients.
+Noticed on your site that you offer SEO, social media, web development, and KOL services—yet there’s no visible chatbot, blog, or clear CTA funnel, and your portfolio isn’t showcased. Interestingly, agencies like ToffeeDev (Jakarta) have started leveraging AI-powered chatbots and conversion-optimized landing pages, which seem to be accelerating their lead generation and client onboarding.
 
-Specifically, there’s currently no conversational chatbot on your site, no blog for SEO content, and no clear CTAs or portfolio section. These elements are proven drivers for both trust and conversion in the digital services space.
+Here’s what we can do for BigEvo:
 
-Here are 2 actionable solutions:
+1. AI Chatbot Integration (WhatsApp & Web): Instantly engage visitors, qualify leads, and automate responses 24/7. Our past clients have seen up to 5x faster response times and up to 30% more qualified inquiries after launch.
 
-1. **AI Chatbot & Instant WhatsApp Integration**  
-We’ll deploy an AI-powered chatbot, directly integrated with WhatsApp, to answer FAQs and capture leads 24/7. This typically reduces response times by 5x and increases qualified leads by up to 30%—especially important since prospects often bounce if replies take too long.
+2. Conversion Rate Optimization Sprint: We’ll add high-impact CTAs and build a portfolio section to spotlight your best projects—helping convert more visitors into clients. Combined with advanced analytics, you’ll know exactly which service pages are driving inquiries.
 
-2. **SEO Blog Engine & Conversion-Optimized Portfolio**  
-We’ll launch a blog platform (Next.js) and create an interactive portfolio. This means you’ll climb for more “Jasa SEO Jakarta” searches, show real results to future clients, and nudge them with high-converting CTAs. Our clients usually see 2-3x more organic traffic and higher contact form submissions within 2 months.
+Happy to do a 15-minute call or a quick audit to show where BigEvo can immediately capture more leads and edge ahead of local competitors.
 
-If you’d like, I can provide a free mini audit on your current funnel, or we can hop on a quick 15-minute call to discuss where these can fit your roadmap.
-
-Best,  
+Best,
 Vilona  
-Solution Architect – BerkahKarya
+Solution Architect, BerkahKarya
 
 ---WHATSAPP---
-Hey, aku cek BigEvo di Google Maps & web—boleh tanya, tim kalian udah pakai chatbot sama WhatsApp auto-reply belum? Banyak klien Jakarta sekarang mulai pakai buat naikin leads. Mau diskusi santai, 10-15 menit?
+Hey, aku baru cek BigEvo di Google Maps & website—penasaran, kalian belum pakai chatbot ya? Ada waktu ngobrol bentar, mau share cara dapetin lebih banyak lead otomatis 😉

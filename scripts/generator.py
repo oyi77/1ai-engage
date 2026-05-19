@@ -91,8 +91,8 @@ def process_proposals(lead_id: str = None, dry_run: bool = False) -> None:
         if not leads:
             print("No eligible leads found.")
             return
-        # Batch: process max 15 leads per cycle (speed > completeness)
-        batch_size = 15
+        # Batch: process max 30 leads per cycle (speed > completeness)
+        batch_size = 30
         batch = leads[:batch_size]
         generated = skipped = 0
         for lead in batch:

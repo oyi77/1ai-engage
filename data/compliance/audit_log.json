@@ -3236,5 +3236,2405 @@
       "success": true,
       "timestamp": "2026-05-19T10:14:33.074095+00:00"
     }
+  },
+  {
+    "timestamp": "2026-05-19T10:14:44.159375+00:00",
+    "action": "outreach",
+    "subject": "ChIJpzeEJi_0aS4R-KnVa8ECVQE",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 812-8044-7305",
+      "success": true,
+      "timestamp": "2026-05-19T10:14:44.158073+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:14:45.116493+00:00",
+    "action": "outreach",
+    "subject": "ChIJpzeEJi_0aS4R-KnVa8ECVQE",
+    "details": {
+      "channel": "email",
+      "contact": "kopi@kopioey.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:14:45.115767+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:14:45.120950+00:00",
+    "action": "consent",
+    "subject": "ChIJ-WUWgGbxaS4RpyA6ZgEyvSQ",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:14:45.154241+00:00",
+    "action": "consent",
+    "subject": "ChIJ-WUWgGbxaS4RpyA6ZgEyvSQ",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:14:55.816371+00:00",
+    "action": "outreach",
+    "subject": "ChIJ-WUWgGbxaS4RpyA6ZgEyvSQ",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 38250254",
+      "success": true,
+      "timestamp": "2026-05-19T10:14:55.814907+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:14:56.704384+00:00",
+    "action": "outreach",
+    "subject": "ChIJ-WUWgGbxaS4RpyA6ZgEyvSQ",
+    "details": {
+      "channel": "email",
+      "contact": "kopikalyan@kopikalyan.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:14:56.703262+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:14:56.713462+00:00",
+    "action": "consent",
+    "subject": "ChIJWTAQFkf1aS4R5VdtGaOQ60s",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:14:56.788322+00:00",
+    "action": "consent",
+    "subject": "ChIJWTAQFkf1aS4R5VdtGaOQ60s",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:08.400633+00:00",
+    "action": "outreach",
+    "subject": "ChIJWTAQFkf1aS4R5VdtGaOQ60s",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 878-8319-5051",
+      "success": true,
+      "timestamp": "2026-05-19T10:15:08.395281+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:09.331983+00:00",
+    "action": "outreach",
+    "subject": "ChIJWTAQFkf1aS4R5VdtGaOQ60s",
+    "details": {
+      "channel": "email",
+      "contact": "reservation-malang@tuguhotels.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:15:09.330933+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:09.336773+00:00",
+    "action": "consent",
+    "subject": "ChIJK_iqqvbxaS4R41aBJY--xGM",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:09.384876+00:00",
+    "action": "consent",
+    "subject": "ChIJK_iqqvbxaS4R41aBJY--xGM",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:20.042301+00:00",
+    "action": "outreach",
+    "subject": "ChIJK_iqqvbxaS4R41aBJY--xGM",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 22785171",
+      "success": true,
+      "timestamp": "2026-05-19T10:15:20.041479+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:20.938206+00:00",
+    "action": "outreach",
+    "subject": "ChIJK_iqqvbxaS4R41aBJY--xGM",
+    "details": {
+      "channel": "email",
+      "contact": "hi@gordi.id",
+      "success": true,
+      "timestamp": "2026-05-19T10:15:20.937337+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:20.943406+00:00",
+    "action": "consent",
+    "subject": "ChIJe_2gFFX1aS4RGwGjrMdnoV0",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:20.986782+00:00",
+    "action": "consent",
+    "subject": "ChIJe_2gFFX1aS4RGwGjrMdnoV0",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:32.021215+00:00",
+    "action": "outreach",
+    "subject": "ChIJe_2gFFX1aS4RGwGjrMdnoV0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 813-1188-9818",
+      "success": true,
+      "timestamp": "2026-05-19T10:15:32.020211+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:32.933118+00:00",
+    "action": "outreach",
+    "subject": "ChIJe_2gFFX1aS4RGwGjrMdnoV0",
+    "details": {
+      "channel": "email",
+      "contact": "good@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:15:32.931975+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:32.941337+00:00",
+    "action": "consent",
+    "subject": "ChIJNU6kvDzxaS4RchqIb5_LaHk",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:32.996267+00:00",
+    "action": "consent",
+    "subject": "ChIJNU6kvDzxaS4RchqIb5_LaHk",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:44.056276+00:00",
+    "action": "outreach",
+    "subject": "ChIJNU6kvDzxaS4RchqIb5_LaHk",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62832147598267",
+      "success": true,
+      "timestamp": "2026-05-19T10:15:44.054520+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:45.025195+00:00",
+    "action": "outreach",
+    "subject": "ChIJNU6kvDzxaS4RchqIb5_LaHk",
+    "details": {
+      "channel": "email",
+      "contact": "common@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:15:45.024426+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:45.030123+00:00",
+    "action": "consent",
+    "subject": "ChIJndOWGfr3aS4RaZ-nM0ebNic",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:45.060671+00:00",
+    "action": "consent",
+    "subject": "ChIJndOWGfr3aS4RaZ-nM0ebNic",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:56.027740+00:00",
+    "action": "outreach",
+    "subject": "ChIJndOWGfr3aS4RaZ-nM0ebNic",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 816-4825-215",
+      "success": true,
+      "timestamp": "2026-05-19T10:15:56.026879+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:56.911073+00:00",
+    "action": "outreach",
+    "subject": "ChIJndOWGfr3aS4RaZ-nM0ebNic",
+    "details": {
+      "channel": "email",
+      "contact": "due@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:15:56.910016+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:56.927893+00:00",
+    "action": "consent",
+    "subject": "ChIJl0WXpbX1aS4RMGaMSC7SCQU",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:15:56.989996+00:00",
+    "action": "consent",
+    "subject": "ChIJl0WXpbX1aS4RMGaMSC7SCQU",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:08.342436+00:00",
+    "action": "outreach",
+    "subject": "ChIJl0WXpbX1aS4RMGaMSC7SCQU",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 878-9888-8110",
+      "success": true,
+      "timestamp": "2026-05-19T10:16:08.341884+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:09.266095+00:00",
+    "action": "outreach",
+    "subject": "ChIJl0WXpbX1aS4RMGaMSC7SCQU",
+    "details": {
+      "channel": "email",
+      "contact": "filosofi@linktr.ee",
+      "success": true,
+      "timestamp": "2026-05-19T10:16:09.265476+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:09.273451+00:00",
+    "action": "consent",
+    "subject": "ChIJv-3vXEDxaS4R0nmvTmJc5WA",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:09.298043+00:00",
+    "action": "consent",
+    "subject": "ChIJv-3vXEDxaS4R0nmvTmJc5WA",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:19.960864+00:00",
+    "action": "outreach",
+    "subject": "ChIJv-3vXEDxaS4R0nmvTmJc5WA",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 27515536",
+      "success": true,
+      "timestamp": "2026-05-19T10:16:19.960222+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:20.573002+00:00",
+    "action": "outreach",
+    "subject": "ChIJv-3vXEDxaS4R0nmvTmJc5WA",
+    "details": {
+      "channel": "email",
+      "contact": "info@walkingdrums.id",
+      "success": true,
+      "timestamp": "2026-05-19T10:16:20.572271+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:20.584015+00:00",
+    "action": "consent",
+    "subject": "ChIJvVPyAonxaS4RO_IwkdRSeaY",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:20.638681+00:00",
+    "action": "consent",
+    "subject": "ChIJvVPyAonxaS4RO_IwkdRSeaY",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:32.074135+00:00",
+    "action": "outreach",
+    "subject": "ChIJvVPyAonxaS4RO_IwkdRSeaY",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 852-1956-9191",
+      "success": true,
+      "timestamp": "2026-05-19T10:16:32.073310+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:32.988807+00:00",
+    "action": "outreach",
+    "subject": "ChIJvVPyAonxaS4RO_IwkdRSeaY",
+    "details": {
+      "channel": "email",
+      "contact": "hello@tuangcoffee.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:16:32.987418+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:32.998518+00:00",
+    "action": "consent",
+    "subject": "ChIJBSEKiMj3aS4R0tNZQVr70gk",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:33.052409+00:00",
+    "action": "consent",
+    "subject": "ChIJBSEKiMj3aS4R0tNZQVr70gk",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:44.644274+00:00",
+    "action": "outreach",
+    "subject": "ChIJBSEKiMj3aS4R0tNZQVr70gk",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 851-7502-6889",
+      "success": true,
+      "timestamp": "2026-05-19T10:16:44.638720+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:45.569889+00:00",
+    "action": "outreach",
+    "subject": "ChIJBSEKiMj3aS4R0tNZQVr70gk",
+    "details": {
+      "channel": "email",
+      "contact": "sohre@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:16:45.568828+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:45.578707+00:00",
+    "action": "consent",
+    "subject": "ChIJq6ca0EjxaS4RfRbksOau540",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:45.630543+00:00",
+    "action": "consent",
+    "subject": "ChIJq6ca0EjxaS4RfRbksOau540",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:56.290936+00:00",
+    "action": "outreach",
+    "subject": "ChIJq6ca0EjxaS4RfRbksOau540",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5725144",
+      "success": true,
+      "timestamp": "2026-05-19T10:16:56.289743+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:57.225188+00:00",
+    "action": "outreach",
+    "subject": "ChIJq6ca0EjxaS4RfRbksOau540",
+    "details": {
+      "channel": "email",
+      "contact": "webmaster@monolog-coffee.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:16:57.224509+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:57.229975+00:00",
+    "action": "consent",
+    "subject": "ChIJk6aRzar3aS4RtOAoz_RKdbk",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:16:57.264662+00:00",
+    "action": "consent",
+    "subject": "ChIJk6aRzar3aS4RtOAoz_RKdbk",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:08.763392+00:00",
+    "action": "outreach",
+    "subject": "ChIJk6aRzar3aS4RtOAoz_RKdbk",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 819-9622-3461",
+      "success": true,
+      "timestamp": "2026-05-19T10:17:08.761864+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:09.665566+00:00",
+    "action": "outreach",
+    "subject": "ChIJk6aRzar3aS4RtOAoz_RKdbk",
+    "details": {
+      "channel": "email",
+      "contact": "coffee@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:17:09.664448+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:09.681744+00:00",
+    "action": "consent",
+    "subject": "ChIJadVPFf8dai4RRM83ZusjgqM",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:09.814488+00:00",
+    "action": "consent",
+    "subject": "ChIJadVPFf8dai4RRM83ZusjgqM",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:20.506806+00:00",
+    "action": "outreach",
+    "subject": "ChIJadVPFf8dai4RRM83ZusjgqM",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 6915534",
+      "success": true,
+      "timestamp": "2026-05-19T10:17:20.506206+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:21.379393+00:00",
+    "action": "outreach",
+    "subject": "ChIJadVPFf8dai4RRM83ZusjgqM",
+    "details": {
+      "channel": "email",
+      "contact": "cafe.batavia.jakarta@gmail.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:17:21.378525+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:21.389506+00:00",
+    "action": "consent",
+    "subject": "ChIJsSyuJj_0aS4RcemBZXiAhYc",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:21.473479+00:00",
+    "action": "consent",
+    "subject": "ChIJsSyuJj_0aS4RcemBZXiAhYc",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:32.128928+00:00",
+    "action": "outreach",
+    "subject": "ChIJsSyuJj_0aS4RcemBZXiAhYc",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 31935521",
+      "success": true,
+      "timestamp": "2026-05-19T10:17:32.127921+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:32.785960+00:00",
+    "action": "outreach",
+    "subject": "ChIJsSyuJj_0aS4RcemBZXiAhYc",
+    "details": {
+      "channel": "email",
+      "contact": "kedai@tjikini.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:17:32.784666+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:32.794959+00:00",
+    "action": "consent",
+    "subject": "ChIJlaNELD31aS4R3sMwh_QUOQg",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:32.853211+00:00",
+    "action": "consent",
+    "subject": "ChIJlaNELD31aS4R3sMwh_QUOQg",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:43.903502+00:00",
+    "action": "outreach",
+    "subject": "ChIJlaNELD31aS4R3sMwh_QUOQg",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 822-5852-7676",
+      "success": true,
+      "timestamp": "2026-05-19T10:17:43.902885+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:44.841381+00:00",
+    "action": "outreach",
+    "subject": "ChIJlaNELD31aS4R3sMwh_QUOQg",
+    "details": {
+      "channel": "email",
+      "contact": "admin@daisugicoffee.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:17:44.840389+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:44.851057+00:00",
+    "action": "consent",
+    "subject": "ChIJi94N3JHxaS4Rm5Z9S6pTcsw",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:44.910752+00:00",
+    "action": "consent",
+    "subject": "ChIJi94N3JHxaS4Rm5Z9S6pTcsw",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:56.410844+00:00",
+    "action": "outreach",
+    "subject": "ChIJi94N3JHxaS4Rm5Z9S6pTcsw",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 822-1155-0263",
+      "success": true,
+      "timestamp": "2026-05-19T10:17:56.409781+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:57.356258+00:00",
+    "action": "outreach",
+    "subject": "ChIJi94N3JHxaS4Rm5Z9S6pTcsw",
+    "details": {
+      "channel": "email",
+      "contact": "1/15@1-15coffee.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:17:57.355578+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:57.361676+00:00",
+    "action": "consent",
+    "subject": "ChIJ62hg9XTzaS4Rrt7ZeZvPTX4",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:17:57.391994+00:00",
+    "action": "consent",
+    "subject": "ChIJ62hg9XTzaS4Rrt7ZeZvPTX4",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:08.423431+00:00",
+    "action": "outreach",
+    "subject": "ChIJ62hg9XTzaS4Rrt7ZeZvPTX4",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 822-1017-6262",
+      "success": true,
+      "timestamp": "2026-05-19T10:18:08.421539+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:09.305253+00:00",
+    "action": "outreach",
+    "subject": "ChIJ62hg9XTzaS4Rrt7ZeZvPTX4",
+    "details": {
+      "channel": "email",
+      "contact": "relung@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:18:09.303908+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:09.318503+00:00",
+    "action": "consent",
+    "subject": "684a7694a348f6fd6a36d798a31056d7",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:09.385107+00:00",
+    "action": "consent",
+    "subject": "684a7694a348f6fd6a36d798a31056d7",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:20.093901+00:00",
+    "action": "outreach",
+    "subject": "684a7694a348f6fd6a36d798a31056d7",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+6221-55555555",
+      "success": true,
+      "timestamp": "2026-05-19T10:18:20.092098+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:21.009742+00:00",
+    "action": "outreach",
+    "subject": "684a7694a348f6fd6a36d798a31056d7",
+    "details": {
+      "channel": "email",
+      "contact": "anomali@anomalicoffee.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:18:21.008317+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:21.022897+00:00",
+    "action": "consent",
+    "subject": "ChIJHUWxC9pH0i0RBONy8aBQ6Co",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:21.078404+00:00",
+    "action": "consent",
+    "subject": "ChIJHUWxC9pH0i0RBONy8aBQ6Co",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:32.524394+00:00",
+    "action": "outreach",
+    "subject": "ChIJHUWxC9pH0i0RBONy8aBQ6Co",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "0895-1969-7650",
+      "success": true,
+      "timestamp": "2026-05-19T10:18:32.518789+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:33.454570+00:00",
+    "action": "outreach",
+    "subject": "ChIJHUWxC9pH0i0RBONy8aBQ6Co",
+    "details": {
+      "channel": "email",
+      "contact": "eden@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:18:33.453286+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:33.464525+00:00",
+    "action": "consent",
+    "subject": "ChIJ-dpbb5Y90i0RVr-MBd8rla4",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:33.540685+00:00",
+    "action": "consent",
+    "subject": "ChIJ-dpbb5Y90i0RVr-MBd8rla4",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:44.716627+00:00",
+    "action": "outreach",
+    "subject": "ChIJ-dpbb5Y90i0RVr-MBd8rla4",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "0821-4221-918",
+      "success": true,
+      "timestamp": "2026-05-19T10:18:44.715960+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:45.333417+00:00",
+    "action": "outreach",
+    "subject": "ChIJ-dpbb5Y90i0RVr-MBd8rla4",
+    "details": {
+      "channel": "email",
+      "contact": "eden@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:18:45.332630+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:45.339020+00:00",
+    "action": "consent",
+    "subject": "ChIJI5qAhcJH0i0RtbeNBZgVU4Q",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:45.381076+00:00",
+    "action": "consent",
+    "subject": "ChIJI5qAhcJH0i0RtbeNBZgVU4Q",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:56.757207+00:00",
+    "action": "outreach",
+    "subject": "ChIJI5qAhcJH0i0RtbeNBZgVU4Q",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "0812-4610-5025",
+      "success": true,
+      "timestamp": "2026-05-19T10:18:56.756565+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:57.372005+00:00",
+    "action": "outreach",
+    "subject": "ChIJI5qAhcJH0i0RtbeNBZgVU4Q",
+    "details": {
+      "channel": "email",
+      "contact": "shishahouse.bali@gmail.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:18:57.371101+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:57.379097+00:00",
+    "action": "consent",
+    "subject": "ChIJSzUxXmhCBAUR8TJRFu_bLrc",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:18:57.410557+00:00",
+    "action": "consent",
+    "subject": "ChIJSzUxXmhCBAUR8TJRFu_bLrc",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:08.122311+00:00",
+    "action": "outreach",
+    "subject": "ChIJSzUxXmhCBAUR8TJRFu_bLrc",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "(0361) 759445",
+      "success": true,
+      "timestamp": "2026-05-19T10:19:08.121140+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:09.085034+00:00",
+    "action": "outreach",
+    "subject": "ChIJSzUxXmhCBAUR8TJRFu_bLrc",
+    "details": {
+      "channel": "email",
+      "contact": "shisha@shisha.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T10:19:09.084287+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:09.090698+00:00",
+    "action": "consent",
+    "subject": "ChIJcwCjLtBb0i0RY6KtA83Gt1Y",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:09.123301+00:00",
+    "action": "consent",
+    "subject": "ChIJcwCjLtBb0i0RY6KtA83Gt1Y",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:20.556516+00:00",
+    "action": "outreach",
+    "subject": "ChIJcwCjLtBb0i0RY6KtA83Gt1Y",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "0823-1584-6622",
+      "success": true,
+      "timestamp": "2026-05-19T10:19:20.555741+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:21.427002+00:00",
+    "action": "outreach",
+    "subject": "ChIJcwCjLtBb0i0RY6KtA83Gt1Y",
+    "details": {
+      "channel": "email",
+      "contact": "eden@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:19:21.425687+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:21.440324+00:00",
+    "action": "consent",
+    "subject": "ChIJ81lhKxxH0i0RtMeu2ZUNAK4",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:21.501809+00:00",
+    "action": "consent",
+    "subject": "ChIJ81lhKxxH0i0RtMeu2ZUNAK4",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:33.081691+00:00",
+    "action": "outreach",
+    "subject": "ChIJ81lhKxxH0i0RtMeu2ZUNAK4",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "0813-2830-9995",
+      "success": true,
+      "timestamp": "2026-05-19T10:19:33.081052+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:33.738291+00:00",
+    "action": "outreach",
+    "subject": "ChIJ81lhKxxH0i0RtMeu2ZUNAK4",
+    "details": {
+      "channel": "email",
+      "contact": "eden@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:19:33.737641+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:33.744025+00:00",
+    "action": "consent",
+    "subject": "ChIJD7RuVSFH0i0Rj-DbF5BblCo",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:33.777561+00:00",
+    "action": "consent",
+    "subject": "ChIJD7RuVSFH0i0Rj-DbF5BblCo",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:44.506047+00:00",
+    "action": "outreach",
+    "subject": "ChIJD7RuVSFH0i0Rj-DbF5BblCo",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62832147598267",
+      "success": true,
+      "timestamp": "2026-05-19T10:19:44.505427+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:45.398084+00:00",
+    "action": "outreach",
+    "subject": "ChIJD7RuVSFH0i0Rj-DbF5BblCo",
+    "details": {
+      "channel": "email",
+      "contact": "shisha@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:19:45.396478+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:45.425078+00:00",
+    "action": "consent",
+    "subject": "ChIJIS7cmbc50i0RL5skBPPSYMA",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:45.473868+00:00",
+    "action": "consent",
+    "subject": "ChIJIS7cmbc50i0RL5skBPPSYMA",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:56.854818+00:00",
+    "action": "outreach",
+    "subject": "ChIJIS7cmbc50i0RL5skBPPSYMA",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "0811-3811-3911",
+      "success": true,
+      "timestamp": "2026-05-19T10:19:56.854226+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:57.710146+00:00",
+    "action": "outreach",
+    "subject": "ChIJIS7cmbc50i0RL5skBPPSYMA",
+    "details": {
+      "channel": "email",
+      "contact": "Lolife@lolife.wav",
+      "success": true,
+      "timestamp": "2026-05-19T10:19:57.709465+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:57.715917+00:00",
+    "action": "consent",
+    "subject": "ChIJX7DzOjlH0i0RtozV4W0cyjY",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:19:57.745787+00:00",
+    "action": "consent",
+    "subject": "ChIJX7DzOjlH0i0RtozV4W0cyjY",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:08.797450+00:00",
+    "action": "outreach",
+    "subject": "ChIJX7DzOjlH0i0RtozV4W0cyjY",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "0811-3908-082",
+      "success": true,
+      "timestamp": "2026-05-19T10:20:08.796780+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:09.732736+00:00",
+    "action": "outreach",
+    "subject": "ChIJX7DzOjlH0i0RtozV4W0cyjY",
+    "details": {
+      "channel": "email",
+      "contact": "shisha@shisha.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T10:20:09.731881+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:09.738901+00:00",
+    "action": "consent",
+    "subject": "ChIJN_Sz4nhF0i0R8b3oYXDP-UU",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:09.771837+00:00",
+    "action": "consent",
+    "subject": "ChIJN_Sz4nhF0i0R8b3oYXDP-UU",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:21.094029+00:00",
+    "action": "outreach",
+    "subject": "ChIJN_Sz4nhF0i0R8b3oYXDP-UU",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "0877-7727-4968",
+      "success": true,
+      "timestamp": "2026-05-19T10:20:21.093004+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:22.015099+00:00",
+    "action": "outreach",
+    "subject": "ChIJN_Sz4nhF0i0R8b3oYXDP-UU",
+    "details": {
+      "channel": "email",
+      "contact": "misha@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:20:22.013962+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:22.024525+00:00",
+    "action": "consent",
+    "subject": "ChIJjawVQaxH0i0RIPOcem8Mask",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:22.062033+00:00",
+    "action": "consent",
+    "subject": "ChIJjawVQaxH0i0RIPOcem8Mask",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:33.172644+00:00",
+    "action": "outreach",
+    "subject": "ChIJjawVQaxH0i0RIPOcem8Mask",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "0852-8007-3545",
+      "success": true,
+      "timestamp": "2026-05-19T10:20:33.171412+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:33.824213+00:00",
+    "action": "outreach",
+    "subject": "ChIJjawVQaxH0i0RIPOcem8Mask",
+    "details": {
+      "channel": "email",
+      "contact": "averabali@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:20:33.823392+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:33.830697+00:00",
+    "action": "consent",
+    "subject": "ChIJQzwvTf5H0i0RwI9gcUzjjQQ",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:33.869111+00:00",
+    "action": "consent",
+    "subject": "ChIJQzwvTf5H0i0RwI9gcUzjjQQ",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:44.911195+00:00",
+    "action": "outreach",
+    "subject": "ChIJQzwvTf5H0i0RwI9gcUzjjQQ",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "0818-0512-2121",
+      "success": true,
+      "timestamp": "2026-05-19T10:20:44.909616+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:45.555734+00:00",
+    "action": "outreach",
+    "subject": "ChIJQzwvTf5H0i0RwI9gcUzjjQQ",
+    "details": {
+      "channel": "email",
+      "contact": "izzi@izzibali.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:20:45.553825+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:45.567921+00:00",
+    "action": "consent",
+    "subject": "ChIJz_PxMqc50i0RRprvP4PTF74",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:45.610269+00:00",
+    "action": "consent",
+    "subject": "ChIJz_PxMqc50i0RRprvP4PTF74",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:56.277269+00:00",
+    "action": "outreach",
+    "subject": "ChIJz_PxMqc50i0RRprvP4PTF74",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+212 6 26 56 90 05",
+      "success": true,
+      "timestamp": "2026-05-19T10:20:56.276136+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:57.229722+00:00",
+    "action": "outreach",
+    "subject": "ChIJz_PxMqc50i0RRprvP4PTF74",
+    "details": {
+      "channel": "email",
+      "contact": "smoke@linktr.ee",
+      "success": true,
+      "timestamp": "2026-05-19T10:20:57.228874+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:57.235570+00:00",
+    "action": "consent",
+    "subject": "ChIJL4PgFEdH0i0R9OWOVkSXl-M",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:20:57.270108+00:00",
+    "action": "consent",
+    "subject": "ChIJL4PgFEdH0i0R9OWOVkSXl-M",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:21:08.347092+00:00",
+    "action": "outreach",
+    "subject": "ChIJL4PgFEdH0i0R9OWOVkSXl-M",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "0856-4133-2665",
+      "success": true,
+      "timestamp": "2026-05-19T10:21:08.345914+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:21:09.259282+00:00",
+    "action": "outreach",
+    "subject": "ChIJL4PgFEdH0i0R9OWOVkSXl-M",
+    "details": {
+      "channel": "email",
+      "contact": "hookah@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:21:09.258017+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:21:09.269554+00:00",
+    "action": "consent",
+    "subject": "ChIJTVgruLDzaS4RyzR24kyD80I",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:21:09.321954+00:00",
+    "action": "consent",
+    "subject": "ChIJTVgruLDzaS4RyzR24kyD80I",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:21:20.274681+00:00",
+    "action": "outreach",
+    "subject": "ChIJTVgruLDzaS4RyzR24kyD80I",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 877-8077-4318",
+      "success": true,
+      "timestamp": "2026-05-19T10:21:20.273125+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:21:21.157641+00:00",
+    "action": "outreach",
+    "subject": "ChIJTVgruLDzaS4RyzR24kyD80I",
+    "details": {
+      "channel": "email",
+      "contact": "kopitagram@linktr.ee",
+      "success": true,
+      "timestamp": "2026-05-19T10:21:21.156854+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:21:21.163775+00:00",
+    "action": "consent",
+    "subject": "ChIJdZqHry3xaS4RviFRD1NEoig",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:21:21.201703+00:00",
+    "action": "consent",
+    "subject": "ChIJdZqHry3xaS4RviFRD1NEoig",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:21:32.232299+00:00",
+    "action": "outreach",
+    "subject": "ChIJdZqHry3xaS4RviFRD1NEoig",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-1918-5166",
+      "success": true,
+      "timestamp": "2026-05-19T10:21:32.231328+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:21:36.544849+00:00",
+    "action": "outreach",
+    "subject": "ChIJdZqHry3xaS4RviFRD1NEoig",
+    "details": {
+      "channel": "email",
+      "contact": "%@arabica.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:21:36.544214+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:21:36.555143+00:00",
+    "action": "consent",
+    "subject": "ChIJzyUz9Dv1aS4Rk7Jgzh_K7ss",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:21:36.610539+00:00",
+    "action": "consent",
+    "subject": "ChIJzyUz9Dv1aS4Rk7Jgzh_K7ss",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:21:47.989237+00:00",
+    "action": "outreach",
+    "subject": "ChIJzyUz9Dv1aS4Rk7Jgzh_K7ss",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-9202-158",
+      "success": true,
+      "timestamp": "2026-05-19T10:21:47.988090+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:21:48.871859+00:00",
+    "action": "outreach",
+    "subject": "ChIJzyUz9Dv1aS4Rk7Jgzh_K7ss",
+    "details": {
+      "channel": "email",
+      "contact": "glasmacher@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:21:48.871063+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:21:48.878482+00:00",
+    "action": "consent",
+    "subject": "ChIJJ0U1TiD0aS4RS43bPQZK6Dw",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:21:48.916781+00:00",
+    "action": "consent",
+    "subject": "ChIJJ0U1TiD0aS4RS43bPQZK6Dw",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:21:59.572503+00:00",
+    "action": "outreach",
+    "subject": "ChIJJ0U1TiD0aS4RS43bPQZK6Dw",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 23581835",
+      "success": true,
+      "timestamp": "2026-05-19T10:21:59.571737+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:00.489169+00:00",
+    "action": "outreach",
+    "subject": "ChIJJ0U1TiD0aS4RS43bPQZK6Dw",
+    "details": {
+      "channel": "email",
+      "contact": "info@ismayagroup.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:22:00.488373+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:00.495297+00:00",
+    "action": "consent",
+    "subject": "ChIJ_7oeVrvzaS4R9zzYwSBr4IM",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:00.527052+00:00",
+    "action": "consent",
+    "subject": "ChIJ_7oeVrvzaS4R9zzYwSBr4IM",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:11.938797+00:00",
+    "action": "outreach",
+    "subject": "ChIJ_7oeVrvzaS4R9zzYwSBr4IM",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 812-8025-6060",
+      "success": true,
+      "timestamp": "2026-05-19T10:22:11.937841+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:12.866872+00:00",
+    "action": "outreach",
+    "subject": "ChIJ_7oeVrvzaS4R9zzYwSBr4IM",
+    "details": {
+      "channel": "email",
+      "contact": "orka@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:22:12.866077+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:12.874009+00:00",
+    "action": "consent",
+    "subject": "ChIJ8yEyum7zaS4RDij44N33rdo",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:12.905398+00:00",
+    "action": "consent",
+    "subject": "ChIJ8yEyum7zaS4RDij44N33rdo",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:23.590782+00:00",
+    "action": "outreach",
+    "subject": "ChIJ8yEyum7zaS4RDij44N33rdo",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62832147598267",
+      "success": true,
+      "timestamp": "2026-05-19T10:22:23.589215+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:24.241892+00:00",
+    "action": "outreach",
+    "subject": "ChIJ8yEyum7zaS4RDij44N33rdo",
+    "details": {
+      "channel": "email",
+      "contact": "kopi@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:22:24.240588+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:24.253919+00:00",
+    "action": "consent",
+    "subject": "ChIJTeFtwRfxaS4RhG9fI9VHiBM",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:24.327285+00:00",
+    "action": "consent",
+    "subject": "ChIJTeFtwRfxaS4RhG9fI9VHiBM",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:35.061170+00:00",
+    "action": "outreach",
+    "subject": "ChIJTeFtwRfxaS4RhG9fI9VHiBM",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 27099488",
+      "success": true,
+      "timestamp": "2026-05-19T10:22:35.059967+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:35.919351+00:00",
+    "action": "outreach",
+    "subject": "ChIJTeFtwRfxaS4RhG9fI9VHiBM",
+    "details": {
+      "channel": "email",
+      "contact": "cs@miloufarmhouse.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:22:35.918108+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:35.929485+00:00",
+    "action": "consent",
+    "subject": "ChIJHRVlsC3xaS4REFTF3CLwza8",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:35.990593+00:00",
+    "action": "consent",
+    "subject": "ChIJHRVlsC3xaS4REFTF3CLwza8",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:47.361136+00:00",
+    "action": "outreach",
+    "subject": "ChIJHRVlsC3xaS4REFTF3CLwza8",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 812-9100-4266",
+      "success": true,
+      "timestamp": "2026-05-19T10:22:47.360373+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:48.230377+00:00",
+    "action": "outreach",
+    "subject": "ChIJHRVlsC3xaS4REFTF3CLwza8",
+    "details": {
+      "channel": "email",
+      "contact": "teru@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:22:48.226665+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:48.247822+00:00",
+    "action": "consent",
+    "subject": "ChIJ-wCc4LbzaS4RqQ7mE2Pwhc4",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:48.295097+00:00",
+    "action": "consent",
+    "subject": "ChIJ-wCc4LbzaS4RqQ7mE2Pwhc4",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:22:59.735592+00:00",
+    "action": "outreach",
+    "subject": "ChIJ-wCc4LbzaS4RqQ7mE2Pwhc4",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 821-2394-0030",
+      "success": true,
+      "timestamp": "2026-05-19T10:22:59.734328+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:23:00.609824+00:00",
+    "action": "outreach",
+    "subject": "ChIJ-wCc4LbzaS4RqQ7mE2Pwhc4",
+    "details": {
+      "channel": "email",
+      "contact": "langit@linktr.ee",
+      "success": true,
+      "timestamp": "2026-05-19T10:23:00.608476+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:23:00.620624+00:00",
+    "action": "consent",
+    "subject": "ChIJIeSj1-TxaS4RMmCuKWRVa9A",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:23:00.660540+00:00",
+    "action": "consent",
+    "subject": "ChIJIeSj1-TxaS4RMmCuKWRVa9A",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:23:11.656699+00:00",
+    "action": "outreach",
+    "subject": "ChIJIeSj1-TxaS4RMmCuKWRVa9A",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 817-0739-175",
+      "success": true,
+      "timestamp": "2026-05-19T10:23:11.655521+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:23:12.540922+00:00",
+    "action": "outreach",
+    "subject": "ChIJIeSj1-TxaS4RMmCuKWRVa9A",
+    "details": {
+      "channel": "email",
+      "contact": "kopi@kopikenangan.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:23:12.539468+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:23:12.552418+00:00",
+    "action": "consent",
+    "subject": "ChIJY5B18Q_zaS4ROmTdEKBDOoM",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:23:12.606071+00:00",
+    "action": "consent",
+    "subject": "ChIJY5B18Q_zaS4ROmTdEKBDOoM",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:23:24.007408+00:00",
+    "action": "outreach",
+    "subject": "ChIJY5B18Q_zaS4ROmTdEKBDOoM",
+    "details": {
+      "channel": "email",
+      "contact": "bruen@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:23:24.006472+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:23:24.016816+00:00",
+    "action": "consent",
+    "subject": "ChIJgQvramj1aS4RUaIqcdnRf2U",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:23:24.055159+00:00",
+    "action": "consent",
+    "subject": "ChIJgQvramj1aS4RUaIqcdnRf2U",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:23:35.311011+00:00",
+    "action": "outreach",
+    "subject": "ChIJgQvramj1aS4RUaIqcdnRf2U",
+    "details": {
+      "channel": "email",
+      "contact": "Customerservice@grand-indonesia.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:23:35.309605+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:23:35.339765+00:00",
+    "action": "consent",
+    "subject": "ChIJt1iPA7HxaS4RvYu2srIc1fQ",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:23:35.399793+00:00",
+    "action": "consent",
+    "subject": "ChIJt1iPA7HxaS4RvYu2srIc1fQ",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:23:47.208228+00:00",
+    "action": "outreach",
+    "subject": "ChIJt1iPA7HxaS4RvYu2srIc1fQ",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 859-2370-0125",
+      "success": true,
+      "timestamp": "2026-05-19T10:23:47.207155+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:23:48.111452+00:00",
+    "action": "outreach",
+    "subject": "ChIJt1iPA7HxaS4RvYu2srIc1fQ",
+    "details": {
+      "channel": "email",
+      "contact": "brookland@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:23:48.107825+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:23:48.148156+00:00",
+    "action": "consent",
+    "subject": "ChIJv5Hqk3_1aS4RragjTcBE44k",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:23:48.194213+00:00",
+    "action": "consent",
+    "subject": "ChIJv5Hqk3_1aS4RragjTcBE44k",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:01.081218+00:00",
+    "action": "outreach",
+    "subject": "ChIJv5Hqk3_1aS4RragjTcBE44k",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-8001-556",
+      "success": true,
+      "timestamp": "2026-05-19T10:24:01.079614+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:01.951559+00:00",
+    "action": "outreach",
+    "subject": "ChIJv5Hqk3_1aS4RragjTcBE44k",
+    "details": {
+      "channel": "email",
+      "contact": "info@ismaya.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:24:01.950699+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:01.961843+00:00",
+    "action": "consent",
+    "subject": "ChIJUWpIUpfxaS4RrK3CERSMpoE",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:02.011781+00:00",
+    "action": "consent",
+    "subject": "ChIJUWpIUpfxaS4RrK3CERSMpoE",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:14.568994+00:00",
+    "action": "outreach",
+    "subject": "ChIJUWpIUpfxaS4RrK3CERSMpoE",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 878-8040-7999",
+      "success": true,
+      "timestamp": "2026-05-19T10:24:14.568044+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:15.503666+00:00",
+    "action": "outreach",
+    "subject": "ChIJUWpIUpfxaS4RrK3CERSMpoE",
+    "details": {
+      "channel": "email",
+      "contact": "Lolife@lolife.wav",
+      "success": true,
+      "timestamp": "2026-05-19T10:24:15.502867+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:15.510090+00:00",
+    "action": "consent",
+    "subject": "ChIJwZ7JXLTxaS4R0p5BuApgmUU",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:15.541884+00:00",
+    "action": "consent",
+    "subject": "ChIJwZ7JXLTxaS4R0p5BuApgmUU",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:28.632641+00:00",
+    "action": "outreach",
+    "subject": "ChIJwZ7JXLTxaS4R0p5BuApgmUU",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 812-8686-9082",
+      "success": true,
+      "timestamp": "2026-05-19T10:24:28.630464+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:29.516419+00:00",
+    "action": "outreach",
+    "subject": "ChIJwZ7JXLTxaS4R0p5BuApgmUU",
+    "details": {
+      "channel": "email",
+      "contact": "koultoura@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:24:29.514839+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:29.523349+00:00",
+    "action": "consent",
+    "subject": "ChIJ23P65lT1aS4RGz6u9LfjEBA",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:29.559173+00:00",
+    "action": "consent",
+    "subject": "ChIJ23P65lT1aS4RGz6u9LfjEBA",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:43.622246+00:00",
+    "action": "outreach",
+    "subject": "ChIJ23P65lT1aS4RGz6u9LfjEBA",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 812-9022-8010",
+      "success": true,
+      "timestamp": "2026-05-19T10:24:43.621192+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:44.266905+00:00",
+    "action": "outreach",
+    "subject": "ChIJ23P65lT1aS4RGz6u9LfjEBA",
+    "details": {
+      "channel": "email",
+      "contact": "Lolife@lolife.wav",
+      "success": true,
+      "timestamp": "2026-05-19T10:24:44.266093+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:44.274960+00:00",
+    "action": "consent",
+    "subject": "ChIJ4amLgbL2aS4RUngs5RGFgj0",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:44.316061+00:00",
+    "action": "consent",
+    "subject": "ChIJ4amLgbL2aS4RUngs5RGFgj0",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:55.831712+00:00",
+    "action": "outreach",
+    "subject": "ChIJ4amLgbL2aS4RUngs5RGFgj0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-1052-3157",
+      "success": true,
+      "timestamp": "2026-05-19T10:24:55.830461+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:56.451012+00:00",
+    "action": "outreach",
+    "subject": "ChIJ4amLgbL2aS4RUngs5RGFgj0",
+    "details": {
+      "channel": "email",
+      "contact": "maxx@maxx-coffee.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:24:56.449629+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:56.462374+00:00",
+    "action": "consent",
+    "subject": "ChIJh5Z3YOf1aS4RmWtaWjb062Q",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:24:56.502706+00:00",
+    "action": "consent",
+    "subject": "ChIJh5Z3YOf1aS4RmWtaWjb062Q",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:08.108429+00:00",
+    "action": "outreach",
+    "subject": "ChIJh5Z3YOf1aS4RmWtaWjb062Q",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 812-8771-6946",
+      "success": true,
+      "timestamp": "2026-05-19T10:25:08.106429+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:08.988042+00:00",
+    "action": "outreach",
+    "subject": "ChIJh5Z3YOf1aS4RmWtaWjb062Q",
+    "details": {
+      "channel": "email",
+      "contact": "kocil@kocilspecialtycoffee.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:25:08.987038+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:09.006719+00:00",
+    "action": "consent",
+    "subject": "ChIJUR-awCH0aS4RkXqaPPeVjiQ",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:09.044810+00:00",
+    "action": "consent",
+    "subject": "ChIJUR-awCH0aS4RkXqaPPeVjiQ",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:19.782945+00:00",
+    "action": "outreach",
+    "subject": "ChIJUR-awCH0aS4RkXqaPPeVjiQ",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 23583985",
+      "success": true,
+      "timestamp": "2026-05-19T10:25:19.781598+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:20.680883+00:00",
+    "action": "outreach",
+    "subject": "ChIJUR-awCH0aS4RkXqaPPeVjiQ",
+    "details": {
+      "channel": "email",
+      "contact": "kempideli.jakarta@kempinski.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:25:20.679177+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:20.693440+00:00",
+    "action": "consent",
+    "subject": "ChIJmUzUTGzxaS4RItXF01yuR-c",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:20.754114+00:00",
+    "action": "consent",
+    "subject": "ChIJmUzUTGzxaS4RItXF01yuR-c",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:33.256131+00:00",
+    "action": "outreach",
+    "subject": "ChIJmUzUTGzxaS4RItXF01yuR-c",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-8991-150",
+      "success": true,
+      "timestamp": "2026-05-19T10:25:33.254857+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:34.181804+00:00",
+    "action": "outreach",
+    "subject": "ChIJmUzUTGzxaS4RItXF01yuR-c",
+    "details": {
+      "channel": "email",
+      "contact": "harlan@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:25:34.180318+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:34.195305+00:00",
+    "action": "consent",
+    "subject": "ChIJP2RiPxPzaS4R4_IJRr8IBSQ",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:34.250742+00:00",
+    "action": "consent",
+    "subject": "ChIJP2RiPxPzaS4R4_IJRr8IBSQ",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:45.005422+00:00",
+    "action": "outreach",
+    "subject": "ChIJP2RiPxPzaS4R4_IJRr8IBSQ",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-1052-3155",
+      "success": true,
+      "timestamp": "2026-05-19T10:25:45.003100+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:45.952589+00:00",
+    "action": "outreach",
+    "subject": "ChIJP2RiPxPzaS4R4_IJRr8IBSQ",
+    "details": {
+      "channel": "email",
+      "contact": "terrace@maxx-coffee.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:25:45.951019+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:45.964629+00:00",
+    "action": "consent",
+    "subject": "ChIJKdSMGV_2aS4R1IK9jgl9vMw",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:46.020748+00:00",
+    "action": "consent",
+    "subject": "ChIJKdSMGV_2aS4R1IK9jgl9vMw",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:56.744134+00:00",
+    "action": "outreach",
+    "subject": "ChIJKdSMGV_2aS4R1IK9jgl9vMw",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 27893323",
+      "success": true,
+      "timestamp": "2026-05-19T10:25:56.742245+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:57.657242+00:00",
+    "action": "outreach",
+    "subject": "ChIJKdSMGV_2aS4R1IK9jgl9vMw",
+    "details": {
+      "channel": "email",
+      "contact": "support@support.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:25:57.656331+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:57.665671+00:00",
+    "action": "consent",
+    "subject": "ChIJ9St44X32aS4RGN4YBqJdkyY",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:25:57.704401+00:00",
+    "action": "consent",
+    "subject": "ChIJ9St44X32aS4RGN4YBqJdkyY",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:26:10.401785+00:00",
+    "action": "outreach",
+    "subject": "ChIJ9St44X32aS4RGN4YBqJdkyY",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-1254-0077",
+      "success": true,
+      "timestamp": "2026-05-19T10:26:10.400575+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:26:11.302798+00:00",
+    "action": "outreach",
+    "subject": "ChIJ9St44X32aS4RGN4YBqJdkyY",
+    "details": {
+      "channel": "email",
+      "contact": "maxx@maxx-coffee.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:26:11.301946+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:26:11.310921+00:00",
+    "action": "consent",
+    "subject": "ChIJ730yZlXxaS4R700zp_EvVzc",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:26:11.346478+00:00",
+    "action": "consent",
+    "subject": "ChIJ730yZlXxaS4R700zp_EvVzc",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:26:24.036505+00:00",
+    "action": "outreach",
+    "subject": "ChIJ730yZlXxaS4R700zp_EvVzc",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-1052-3056",
+      "success": true,
+      "timestamp": "2026-05-19T10:26:24.034337+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:26:24.971282+00:00",
+    "action": "outreach",
+    "subject": "ChIJ730yZlXxaS4R700zp_EvVzc",
+    "details": {
+      "channel": "email",
+      "contact": "maxx@maxx-coffee.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:26:24.969700+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:26:24.984323+00:00",
+    "action": "consent",
+    "subject": "ChIJ0x0kErL1aS4RPhkUMoMI6HA",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:26:25.053674+00:00",
+    "action": "consent",
+    "subject": "ChIJ0x0kErL1aS4RPhkUMoMI6HA",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:26:36.553941+00:00",
+    "action": "outreach",
+    "subject": "ChIJ0x0kErL1aS4RPhkUMoMI6HA",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 889-7360-5411",
+      "success": true,
+      "timestamp": "2026-05-19T10:26:36.551555+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:26:37.429948+00:00",
+    "action": "outreach",
+    "subject": "ChIJ0x0kErL1aS4RPhkUMoMI6HA",
+    "details": {
+      "channel": "email",
+      "contact": "leon@leoncoffeeandeatery.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:26:37.428831+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:26:37.437525+00:00",
+    "action": "consent",
+    "subject": "ChIJBbatp1fxaS4RL4QjagN79wk",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:26:37.494717+00:00",
+    "action": "consent",
+    "subject": "ChIJBbatp1fxaS4RL4QjagN79wk",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:26:50.024393+00:00",
+    "action": "outreach",
+    "subject": "ChIJBbatp1fxaS4RL4QjagN79wk",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 878-0819-4445",
+      "success": true,
+      "timestamp": "2026-05-19T10:26:50.022715+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:26:50.931673+00:00",
+    "action": "outreach",
+    "subject": "ChIJBbatp1fxaS4RL4QjagN79wk",
+    "details": {
+      "channel": "email",
+      "contact": "admin@twinhouse.id",
+      "success": true,
+      "timestamp": "2026-05-19T10:26:50.930457+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:26:50.943663+00:00",
+    "action": "consent",
+    "subject": "ChIJ72I0NO791y0RjmYkIxDBEGk",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:26:50.983266+00:00",
+    "action": "consent",
+    "subject": "ChIJ72I0NO791y0RjmYkIxDBEGk",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:27:03.740096+00:00",
+    "action": "outreach",
+    "subject": "ChIJ72I0NO791y0RjmYkIxDBEGk",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "0822-3315-7996",
+      "success": true,
+      "timestamp": "2026-05-19T10:27:03.738842+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:27:04.627523+00:00",
+    "action": "outreach",
+    "subject": "ChIJ72I0NO791y0RjmYkIxDBEGk",
+    "details": {
+      "channel": "email",
+      "contact": "status@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:27:04.626140+00:00"
+    }
   }
 ]

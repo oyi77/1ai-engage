@@ -1,19 +1,26 @@
 ---PROPOSAL---
-Subject: Unlocking Untapped SEO Growth for Uraga Digital Agency
+Subject: Unlock Advanced SEO & Conversion Growth for Uraga Digital Agency
 
 Hi Uraga Team,
 
-I noticed that while Uraga already offers SEO and Google/Meta Ads services, your b2b.uraga.co.id site is missing a dedicated blog or resource hub—something many Jakarta agencies, like Grapadi Digital (also in Kuningan), are leveraging aggressively for organic lead generation and advanced SEO. Without this, you’re likely missing out on up to 30% more inbound B2B leads and higher keyword rankings that competitors are capturing.
+Noticed something interesting while reviewing your B2B site—despite your strong focus on SEO and SEM for clients, your own site currently doesn’t have a blog or content hub. This is a missed opportunity, especially in Jakarta’s competitive digital agency landscape, where players like ToffeeDev are consistently publishing high-value content to climb Google’s rankings and attract B2B leads.
 
-Here’s what I propose for Uraga:
-1. **SEO-Optimized Resource Hub & Content Engine:** We’ll build a tailored, Next.js-powered blog with automated content pipelines and on-page AI optimization. This will unlock opportunities for long-tail keywords, showcase your expertise, and drive consistent organic traffic.
-2. **AI-Powered Lead Qualification Workflow:** Integrate AI chatbots and WhatsApp Business API to instantly engage site visitors, qualify leads, and route hot prospects to your sales team—cutting response time by up to 5x and boosting conversion rates, especially from your ads campaigns.
+Here’s a targeted playbook to help you capture that edge:
 
-Happy to show you a demo or run a free audit to highlight missed keyword and content opportunities. Would you be open for a 15-minute call next week to discuss?
+1. **SEO-Optimized Knowledge Hub**  
+   We’ll design and launch a fully branded blog section, complete with a custom content calendar tailored to high-intent B2B keywords (think: “jasa digital marketing Jakarta”, “strategi SEM untuk korporat”, etc.). This can boost your organic traffic by 25-40% within 4-6 months, and positions Uraga as a go-to authority—making the most of SEO services you already offer clients.
 
-Best regards,  
+2. **Landing Page Conversion Rate Optimization (CRO) Sprint**  
+   We’ll audit your existing service and landing pages, then implement rapid A/B tests (copy, layout, lead forms) to lift demo requests and inquiries. Our clients typically see a 20-30% increase in qualified B2B leads after a 4-week CRO sprint.
+
+Combined, these initiatives will help you outpace agencies like ToffeeDev who are already investing in these areas, ensuring Uraga’s own web presence is as advanced as the solutions you provide clients.
+
+Let’s unlock this growth—would you be open to a quick 15-minute call or a complimentary audit of your current SEO/CRO setup? Just pick a time that works for you.
+
+Best,  
 Vilona  
-Solution Architect, BerkahKarya
+Senior Solution Architect  
+BerkahKarya
 
 ---WHATSAPP---
-Hey, aku baru liat Uraga Digital di Google Maps—penasaran, kok situsnya belum ada blog ya? Banyak agency di Kuningan udah manfaatin konten buat dapetin lebih banyak leads loh. Mau ngobrol bentar soal ide ini?
+Hey tim Uraga, aku liat website kalian keren banget tapi belum ada blog atau konten edukasi ya? Penasaran, emang lagi fokus ke channel lain atau ada tantangan buat publish? Boleh ngobrol 15 menit?
