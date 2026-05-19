@@ -778,5 +778,545 @@
     "consent_method": "import",
     "ip_address": null,
     "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJpzeEJi_0aS4R-KnVa8ECVQE",
+    "email": "kopi@kopioey.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:03:39.566470+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJpzeEJi_0aS4R-KnVa8ECVQE",
+    "email": "+62 812-8044-7305",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:03:39.609779+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJgQfU2ybyaS4RvZgaWRnXrFI",
+    "email": "sales@brightstars.co.id",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:09:08.693340+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJgQfU2ybyaS4RvZgaWRnXrFI",
+    "email": "+62 21 71790561",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:09:09.121404+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJD3DptPn1aS4Rd1iQDDO9euI",
+    "email": "info@meson-digital.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:09:20.811597+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJD3DptPn1aS4Rd1iQDDO9euI",
+    "email": "+62 21 29608010",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:09:20.856590+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJT9WmUmfxaS4RCr8hQPoVBEE",
+    "email": "hello@sab.id",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:09:32.516692+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJT9WmUmfxaS4RCr8hQPoVBEE",
+    "email": "+62 821-7733-6889",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:09:32.560864+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJFwAAACn4aS4RUrliJc0qia8",
+    "email": "ayesa@neodigital.co.id",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:09:44.842358+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJFwAAACn4aS4RUrliJc0qia8",
+    "email": "+62 21 22521174",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:09:44.872305+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJA_kH2ybyaS4ReJ8kQbdAS4M",
+    "email": "sales@fsn.co.id",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:09:56.515578+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJA_kH2ybyaS4ReJ8kQbdAS4M",
+    "email": "+62 21 71790561",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:09:56.554603+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJuSPkt5D2aS4RFzChMV1PpM4",
+    "email": "sac@sac.id",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:10:08.209038+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJuSPkt5D2aS4RFzChMV1PpM4",
+    "email": "+62 21 5346631",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:10:08.247769+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJmxWCvLwdai4RzLrRObn67B0",
+    "email": "anto@redcomm.co.id",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:10:19.882603+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJmxWCvLwdai4RzLrRObn67B0",
+    "email": "+62 21 56944346",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:10:19.913220+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ6X6VE6jxaS4RkUUFGP_8QIY",
+    "email": "team@bigevo.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:10:31.483558+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ6X6VE6jxaS4RkUUFGP_8QIY",
+    "email": "+62 851-7979-8703",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:10:31.511557+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJGXVFEW_1aS4RtaaImF_H8_E",
+    "email": "partnership@haluandigital.agency",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:10:43.916498+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJGXVFEW_1aS4RtaaImF_H8_E",
+    "email": "+62 816-300-592",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:10:43.956025+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJL22D07nzaS4RphUpovYmr2o",
+    "email": "hello@uraga.co.id",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:10:55.886870+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJL22D07nzaS4RphUpovYmr2o",
+    "email": "+62 821-3909-7937",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:10:55.917764+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJTxXuafP3aS4RrAYF6cA-t94",
+    "email": "brandztory@brandztory.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:11:08.307759+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJTxXuafP3aS4RrAYF6cA-t94",
+    "email": "+62 21 29675959",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:11:08.346285+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJkX6XuH5D0i0RlwFz4jtiG4c",
+    "email": "danielsastra.com@danielsastra.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:11:19.957170+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJkX6XuH5D0i0RlwFz4jtiG4c",
+    "email": "+62 818-0988-8767",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:11:19.994093+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJA5Bidt7zaS4RyuNeCT3lnpo",
+    "email": "peramu@instagram.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:11:32.386960+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJA5Bidt7zaS4RyuNeCT3lnpo",
+    "email": "+62 858-9426-4885",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:11:32.417920+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJn_BpO6yMaS4R2qTTxRXyzcc",
+    "email": "admin@communic8.id",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:11:44.784089+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJn_BpO6yMaS4R2qTTxRXyzcc",
+    "email": "+62 817-7415-6280",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:11:44.832774+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJWShhcoHzaS4RU0Y52rz1J2U",
+    "email": "orisul@orisul.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:11:57.111808+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJWShhcoHzaS4RU0Y52rz1J2U",
+    "email": "+62 21 29926867",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:11:57.170852+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJBwAAANvzaS4RTYhgWbE_xu0",
+    "email": "info@smartdigital.id",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:12:08.769985+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJBwAAANvzaS4RTYhgWbE_xu0",
+    "email": "+62 857-1400-0064",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:12:08.814632+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ9UFwzvbzaS4R91dtdzt6_U8",
+    "email": "lucky@instagram.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:12:32.895935+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ9UFwzvbzaS4R91dtdzt6_U8",
+    "email": "+62 21 52961475",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:12:32.949029+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJZ3frHBX0aS4Rb3PvKlxkrHk",
+    "email": "giyanti@giyanticoffeeroastery.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:12:44.585844+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJZ3frHBX0aS4Rb3PvKlxkrHk",
+    "email": "+62 21 31923698",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:12:44.614585+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ8dzvp4vzaS4RuDg1TnzsGb0",
+    "email": "tanatap@instagram.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:12:56.188590+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ8dzvp4vzaS4RuDg1TnzsGb0",
+    "email": "+62 812-7419-4789",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:12:56.218776+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJMYalj9f1aS4RaX5Zhk5W8X0",
+    "email": "titik@titiktemu.cafe",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:13:08.507984+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJMYalj9f1aS4RaX5Zhk5W8X0",
+    "email": "+62 811-1776-708",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:13:08.701605+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJLSH8Jz_0aS4R_fiIMX4JkO8",
+    "email": "bakoel@bakoelkoffie.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:13:20.990819+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJLSH8Jz_0aS4R_fiIMX4JkO8",
+    "email": "+62 21 31936608",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:13:21.042618+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJUbFWB1vxaS4Rz4bnXgpxEoc",
+    "email": "anomali@store.anomalicoffee.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:13:32.343485+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJUbFWB1vxaS4Rz4bnXgpxEoc",
+    "email": "+62 21 52920102",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:13:32.382672+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJk_fpSDn3aS4RjNUHgt0h0Gw",
+    "email": "jak@instagram.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:13:44.076453+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJk_fpSDn3aS4RjNUHgt0h0Gw",
+    "email": "+62 896-5437-6901",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:13:44.130230+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJz0jrX_b1aS4RqDoP-ENf25c",
+    "email": "Lolife@lolife.wav",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:13:56.354778+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJz0jrX_b1aS4RqDoP-ENf25c",
+    "email": "+62 899-9440-003",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:13:56.411479+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJrVnt94H3aS4RhGui6bVezME",
+    "email": "Lolife@lolife.wav",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:14:08.360809+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJrVnt94H3aS4RhGui6bVezME",
+    "email": "+6282246239567",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:14:08.419571+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJf6MNsRj0aS4RDjI7MBqjIG4",
+    "email": "1/15@1-15coffee.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:14:20.553898+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJf6MNsRj0aS4RDjI7MBqjIG4",
+    "email": "+62 812-9000-2128",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T10:14:20.614477+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
   }
 ]

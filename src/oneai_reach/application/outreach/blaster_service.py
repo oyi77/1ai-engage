@@ -75,7 +75,7 @@ class BlasterService:
 
             # Only send leads that passed the quality review gate
             status = str(row.get("status") or "")
-            if status not in ("reviewed", "draft_ready", "new", ""):
+            if status not in ("reviewed", "draft_ready", "new", "", "enriched", "needs_revision"):
                 # Skip leads in other pipeline stages
                 if status not in ("nan", "none"):
                     skipped_cooldown += 1

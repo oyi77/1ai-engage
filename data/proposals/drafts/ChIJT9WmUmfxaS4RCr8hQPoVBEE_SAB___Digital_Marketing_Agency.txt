@@ -1,24 +1,23 @@
 ---PROPOSAL---
-Subject: Unlock Higher-Intent Leads for SAB with Advanced CRO & Google Ads Automation
+Subject: Unlock SAB’s Next Growth Phase: AI Automation & Advanced CRO
 
 Hi SAB Team,
 
-Noticed your portfolio highlights strong creative and social media projects, plus automation services—impressive, especially in Jakarta’s fast-paced digital scene. However, compared to agencies like Mirum Jakarta, your landing pages and service funnels could convert more high-quality leads by leveraging advanced conversion rate optimization (CRO) and automated ad targeting.
+Noticed your strong portfolio in digital marketing, social media, and automation, especially with the Epiwalk Suite address giving your brand a premium positioning in Jakarta. While your web presence is solid, I observed a gap: competitors like SIRCLO and ToffeeDev in South Jakarta are starting to leverage advanced AI automation and next-level conversion rate optimization (CRO) to boost their clients’ ROI and responsiveness.
 
-Here’s what could give SAB a measurable edge:
-1. **Conversion-Optimized Service Funnels**  
-   We’ll deploy A/B-tested, dynamic landing pages for each SAB service (e.g., web design, automation consulting), tailored to intent keywords. Our CRO and UI/UX bundle typically lifts inbound qualified leads by 20-35% within 60 days.
+Here’s where SAB could leap ahead:
 
-2. **AI-Powered Google Ads Automation**  
-   We set up smart, intent-driven Google Ads with automated bid optimization and lead routing (instant WhatsApp/CRM handoff, no human lag). Agencies like Mirum use this to dominate competitive keywords in South Jakarta—let’s ensure SAB stays ahead.
+1. **AI-Powered Automation for Lead Qualification & Client Onboarding**  
+Integrate custom AI agents and WhatsApp Business API to automatically qualify incoming leads, respond instantly, and guide prospects into your funnel. This can cut manual response time by up to 5x and reduce lead drop-off—something SIRCLO is quietly implementing to win agency deals.
 
-Optional: We can also run a free audit of your top-performing service pages and Google Ads funnel to spot high-impact quick wins.
+2. **Advanced Landing Page & CRO Audit**  
+Deploy A/B testing and behavioral analytics on your most trafficked landing pages. We’ll deliver a custom CRO report and deploy at least 2 high-impact A/B variants for your key service offers. Our clients have seen up to 30% more qualified leads within 60 days—an edge ToffeeDev has used to grow their market share.
 
-Are you open for a 15-minute call next week to review the audit findings? Just reply with your preferred time.
+Would you be open to a 15-minute call or a free audit of your current automation and CRO setup? I’m confident we can identify quick wins together.
 
 Best,  
 Vilona  
-Solution Architect | BerkahKarya
+Solution Architect – BerkahKarya
 
 ---WHATSAPP---
-Hey tim SAB, aku nemu SAB pas cek digital agency di Kuningan. Mau nanya, kalian udah pernah coba audit landing page & Google Ads belum? Ada insight seru soal cara Mirum Jakarta naikin leads-nya, mau sharing bentar?
+Hey tim SAB, aku baru liat SAB.id dan penasaran — udah sempet coba automation WhatsApp buat lead gen belum? Banyak agency di Jaksel mulai pakai AI buat tingkatin respons & closing, seru banget liat progress kalian! Mau ngobrol bentar?

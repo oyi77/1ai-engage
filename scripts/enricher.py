@@ -58,7 +58,7 @@ def process_leads() -> None:
             enriched += 1
             if str(df.at[index, "status"] or "") in ("new", ""):
                 df.at[index, "status"] = "enriched"
-        time.sleep(0.5)
+        time.sleep(0.2)
 
     save_leads(df)
     print(f"Enrichment complete. {enriched} leads updated.")

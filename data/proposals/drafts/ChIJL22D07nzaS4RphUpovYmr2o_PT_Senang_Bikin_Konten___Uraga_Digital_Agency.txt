@@ -1,25 +1,19 @@
 ---PROPOSAL---
-Subject: Unlock Higher-Intent Leads for Uraga Digital Agency with Advanced SEO & AI Automation
+Subject: Unlocking Untapped SEO Growth for Uraga Digital Agency
 
 Hi Uraga Team,
 
-Noticed your agency is already strong in SEO and Google/Meta Ads, but your b2b.uraga.co.id site currently doesn’t have a blog or content engine—something top Jakarta agencies like Toffeedev are leveraging for 10x organic traffic growth and premium B2B leads.
+I noticed that while Uraga already offers SEO and Google/Meta Ads services, your b2b.uraga.co.id site is missing a dedicated blog or resource hub—something many Jakarta agencies, like Grapadi Digital (also in Kuningan), are leveraging aggressively for organic lead generation and advanced SEO. Without this, you’re likely missing out on up to 30% more inbound B2B leads and higher keyword rankings that competitors are capturing.
 
-Here’s where you could outpace them:
+Here’s what I propose for Uraga:
+1. **SEO-Optimized Resource Hub & Content Engine:** We’ll build a tailored, Next.js-powered blog with automated content pipelines and on-page AI optimization. This will unlock opportunities for long-tail keywords, showcase your expertise, and drive consistent organic traffic.
+2. **AI-Powered Lead Qualification Workflow:** Integrate AI chatbots and WhatsApp Business API to instantly engage site visitors, qualify leads, and route hot prospects to your sales team—cutting response time by up to 5x and boosting conversion rates, especially from your ads campaigns.
 
-1. **Strategic Blog Engine + Advanced SEO**  
-We’ll rapidly spin up a high-converting blog with a tailored content calendar, optimized pillar pages, and automated internal linking. Expect up to 30% more inbound B2B leads from high-intent keywords (tracked via dashboard).  
-Deliverables: SEO audit, content strategy, blog setup (Next.js), and 6 months of AI-assisted content publishing.
+Happy to show you a demo or run a free audit to highlight missed keyword and content opportunities. Would you be open for a 15-minute call next week to discuss?
 
-2. **AI-Powered Lead Qualification & WhatsApp Workflow**  
-Automate lead capture from your site and route qualified leads directly to WhatsApp or CRM—slashing your response time by 5x and reducing lost deals.  
-Deliverables: Custom n8n workflow, WhatsApp API integration, and reporting dashboard.
-
-Let’s run a free audit and show you quick wins. How about a 15-minute call next week?
-
-Best,  
+Best regards,  
 Vilona  
 Solution Architect, BerkahKarya
 
 ---WHATSAPP---
-Hey, aku baru nemu Uraga di Google Maps. Mau nanya, kalian udah pernah kepikiran buat aktifin blog di website? Banyak agency Jakarta yang udah mulai dan hasilnya naik banget loh. Boleh ngobrol sebentar aja?
+Hey, aku baru liat Uraga Digital di Google Maps—penasaran, kok situsnya belum ada blog ya? Banyak agency di Kuningan udah manfaatin konten buat dapetin lebih banyak leads loh. Mau ngobrol bentar soal ide ini?

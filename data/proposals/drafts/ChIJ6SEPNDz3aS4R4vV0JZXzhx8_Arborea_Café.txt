@@ -1,0 +1,24 @@
+---PROPOSAL---
+Subject: Boost Arborea Café's Weekday Footfall & Bookings with Advanced Automation & Targeted Ads
+
+Hi Arborea Café Team,
+
+Noticed from your Instagram and reviews that you’re a favorite for nature-inspired ambience and community events, but traffic seems to spike mostly on weekends and during special events. Meanwhile, nearby competitors like Kopi Kalyan Senayan are running retargeted Google/Meta Ads and WhatsApp booking automations—helping them fill seats even on slow days.
+
+There’s a real opportunity for Arborea Café to capture more weekday visitors and private bookings by combining:
+1. **Automated WhatsApp Booking & Promo Workflows**  
+   - We’ll integrate a WhatsApp Business API chatbot, letting customers instantly book tables or event spaces directly from Instagram or Google Maps. This can cut response time by 5x and improve weekday reservation rates.
+   - Deliverable: Fully branded WhatsApp bot, connected to your team with instant notifications and easy customer management.
+
+2. **Hyperlocal Google & Meta Ads Campaigns with Conversion Tracking**  
+   - We’ll set up and manage ads targeting office workers and residents within 3km, promoting weekday lunch deals or event packages. We'll track conversion rates and optimize for cost per booking—aiming for at least 25% more weekday reservations.
+   - Deliverable: Custom landing pages (if needed), ad creatives, and monthly ROI analytics dashboard.
+
+Would you be open to a quick 15-minute call or a free audit to see how these could work for Arborea Café? Just reply, and I’ll send over a few time slots.
+
+Best,  
+Vilona  
+Solution Architect – BerkahKarya
+
+---WHATSAPP---
+Hey, aku baru nemu Arborea Café di IG & Maps—seru banget konsepnya! Mau nanya, udah pernah coba booking otomatis via WhatsApp? Banyak kafe sekitar Senayan mulai pakai, katanya lumayan bantu tambah pengunjung di weekdays. Boleh ngobrol bentar?
