@@ -1,0 +1,8 @@
+=== Task 1 Verification ===Date: 2026-04-16T04:23:18+07:00
+Packages installed:- torch 2.11.0+cu130
+- torchaudio 2.11.0
+- chatterbox-tts 0.1.7
+- nltk 3.9.4
+- transformers 5.5.4- diffusers 0.37.1
+- librosa 0.11.0Verification:✓ torch import: OK✓ CUDA available: False (CPU mode - driver incompatibility)
+✓ chatterbox import: OK✓ nltk import: OK✓ nltk.sent_tokenize works: ['Halo.', 'Apa kabar?']GPU NOTE: CUDA driver too old (12040). Using CPU for TTS/STT. Performance will be slower. 

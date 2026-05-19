@@ -1,0 +1,16 @@
+Initial state:
+  on_hand: 140
+  reserved: 0
+  available: 140
+
+✓ Reserved 30 units
+  on_hand: 140 (unchanged)
+  reserved: 30
+  available: 110
+
+✓ Released 10 units
+  on_hand: 140 (unchanged)
+  reserved: 20
+  available: 120
+
+✓ QA Scenario 2 PASSED: Reserve and release stock operations work correctly

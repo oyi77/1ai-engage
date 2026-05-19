@@ -1,0 +1,8 @@
+=== TASK 4: Schema Migration ===
+New columns:
+28|matched_services|TEXT|0||0
+29|lead_score|REAL|0||0
+30|tier|TEXT|0||0
+31|service_proposed|TEXT|0||0
+Lead count:
+123

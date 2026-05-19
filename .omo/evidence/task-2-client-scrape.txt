@@ -1,0 +1,5 @@
+=== TASK 2: gmaps_client.py Live Test ===
+Import: OK
+Mapping: id=test123, name=Test Cafe, source=gmaps_scraper, rating=4.5, reviews=100
+Config URL: http://localhost:8082
+ALL TESTS PASSED

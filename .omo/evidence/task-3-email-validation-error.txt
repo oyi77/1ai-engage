@@ -1,0 +1,4 @@
+✓ ValidationError raised for invalid email:
+  Field: email
+  Type: value_error
+  Message: value is not a valid email address: An email address must have an @-sign.

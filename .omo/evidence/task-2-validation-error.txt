@@ -1,0 +1,10 @@
+Validation Error Test - PASSED
+
+Error Type: ValidationError
+Error Message: 1 validation error for PipelineSettings
+loop_sleep_seconds
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='invalid_number', input_type=str]
+    
+
+✓ Pydantic correctly validates type constraints
+✓ Invalid integer values are rejected

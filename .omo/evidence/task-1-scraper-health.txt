@@ -1,0 +1,15 @@
+=== TASK 1: Scraper Health ===
+HTTP Status: 200
+● gmaps-scraper.service - gosom Google Maps Scraper (Docker)
+     Loaded: loaded (/etc/systemd/system/gmaps-scraper.service; enabled; preset: disabled)
+     Active: active (running) since Thu 2026-04-23 00:38:54 WIB; 3min 21s ago
+ Invocation: 27221993036741e889dada1e1356abff
+    Process: 3106104 ExecStartPre=/usr/bin/docker rm -f gmaps-scraper (code=exited, status=0/SUCCESS)
+   Main PID: 3106118 (docker)
+      Tasks: 10 (limit: 18901)
+     Memory: 9.6M (peak: 18.5M)
+        CPU: 41ms
+     CGroup: /system.slice/gmaps-scraper.service
+---
+LISTEN 0      4096                       0.0.0.0:8082       0.0.0.0:*                                                                     
+LISTEN 0      4096                          [::]:8082          [::]:*                                                                     

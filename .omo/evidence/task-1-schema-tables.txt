@@ -1,0 +1,6 @@
+inventory
+product_images
+product_overrides
+product_variants
+products
+variant_options

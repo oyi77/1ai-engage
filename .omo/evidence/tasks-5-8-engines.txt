@@ -1,0 +1,21 @@
+=== Tasks 5-8 Evidence ===
+Task 5: stt_engine.py created
+✓ Imports: stt_engine OK
+✓ Singleton pattern with lazy loading
+✓ faster-whisper integration
+
+Task 6: tts_engine.py created
+✓ Imports: tts_engine OK
+✓ ChatterBox Multilingual integration
+✓ CPU fallback on OOM
+✓ Long-form synthesis with sentence splitting
+
+Task 7: voice_pipeline.py created
+✓ Imports: voice_pipeline OK
+✓ End-to-end orchestration: download → STT → cs_engine → TTS → send
+✓ Error handling with text fallback
+
+Task 8: send_voice_note added to senders.py
+✓ WAHA /api/sendVoice integration
+✓ Base64 encoding
+✓ Multi-target fallback (WAHA + WAHA_DIRECT)

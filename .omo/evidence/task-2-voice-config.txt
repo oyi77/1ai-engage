@@ -1,0 +1,1 @@
+=== Task 2: voice_config.py ===Created: scripts/voice_config.pyVerification:✓ Imports: enabled=True, lang=ms, mode=auto✓ No ML imports at module level

@@ -1,0 +1,13 @@
+✓ Inventory created with ID: 04cb050f-2c59-4b83-b785-10d0bdcdebc0
+  Initial on_hand: 100
+  Initial available: 100
+
+✓ Stock adjusted by -10
+  New on_hand: 90
+  Expected: 90
+
+✓ Stock adjusted by +50
+  New on_hand: 140
+  Expected: 140
+
+✓ QA Scenario 1 PASSED: Stock adjustment updates inventory

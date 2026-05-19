@@ -1,0 +1,43 @@
+# JSON Log Format Evidence
+
+## Logger Configuration
+
+- **Console Output**: Colored, human-readable format
+- **File Output**: JSON format with rotation
+- **Rotation**: 10MB per file, keep 10 backup files
+- **Log Directory**: logs/
+
+## JSON Schema
+
+```json
+{
+  "timestamp": "ISO 8601 UTC timestamp",
+  "level": "DEBUG|INFO|WARNING|ERROR|CRITICAL",
+  "logger": "logger name",
+  "message": "log message",
+  "correlation_id": "request ID or null",
+  "exception": "exception traceback (if applicable)"
+}
+```
+
+## Sample Log Entry
+
+```json
+{
+  "timestamp": "2026-04-17T14:38:55.617157Z",
+  "level": "INFO",
+  "logger": "correlation.test",
+  "message": "Processing order",
+  "correlation_id": "order-req-2026-04-17-001"
+}
+```
+
+## Features Verified
+
+✓ Structured JSON logging
+✓ Correlation ID support via context manager
+✓ Log rotation (10MB, 10 backups)
+✓ Dual output (console + file)
+✓ Exception logging with traceback
+✓ Thread-local correlation ID storage
+✓ get_logger() caching via @lru_cache

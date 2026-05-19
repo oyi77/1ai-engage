@@ -1,0 +1,12 @@
+=== Task 4: ChatterBox Validation Status ===Date: 2026-04-16T04:31:00+07:00
+Status: MODEL DOWNLOADING (HuggingFace rate limit - slow)I will continue download + test in next session.Current Task 4 progress:- Model fetch in progress (6 files from HF)
+- This is expected to take a few more minutes on slow connectionOnce complete, run:
+  . .venv/bin/activate && PYTHONPATH=scripts python3 -c "
+from chatterbox.mtl_tts import ChatterboxMultilingualTTS
+m = Ch
+
+atterboxMultilingualTTS.from_pretrained(device='cpu')
+wav = m.generate('Test', language_id='ms')
+import torchaudio as ta; ta.save('/tmp/test.wav', wav, m.sr)
+print('OK')
+"NOTE: GPU unavailable (CUDA driver 12040 too old), using CPU mode. TTS will work but be slower (~30s per second of audio).

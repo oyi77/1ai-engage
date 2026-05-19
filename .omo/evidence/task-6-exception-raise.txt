@@ -1,0 +1,35 @@
+EXCEPTION HIERARCHY TEST RESULTS
+======================================================================
+
+DOMAIN EXCEPTIONS
+----------------------------------------------------------------------
+✓ LeadNotFoundError: LEAD_001 - Lead not found: lead_123
+✓ InvalidLeadStatusError: LEAD_002 - Invalid status transition from new to won: Invalid transition
+✓ DuplicateLeadError: LEAD_003 - Lead with email test@example.com already exists (ID: lead_456)
+✓ ConversationNotFoundError: CONV_001 - Conversation not found: conv_789
+✓ InvalidConversationStateError: CONV_002 - Cannot send_message on conversation conv_789 in state closed
+✓ KnowledgeNotFoundError: KB_001 - Knowledge entry not found: kb_001
+✓ InvalidKnowledgeError: KB_002 - Invalid knowledge entry kb_001: Invalid category
+
+INFRASTRUCTURE EXCEPTIONS
+----------------------------------------------------------------------
+✓ DatabaseError: DB_001 - Database insert on leads failed: Disk quota exceeded
+✓ DatabaseConnectionError: DB_002 - Cannot connect to database at localhost:5432: Connection refused
+✓ DatabaseIntegrityError: DB_003 - Database integrity violation on leads (unique_email): Duplicate email
+✓ ExternalAPIError: API_001 - External API error from google_places /search: 500 - Server error
+✓ APITimeoutError: API_002 - API call to minerva /enrich timed out after 30s
+✓ APIRateLimitError: API_003 - Rate limit exceeded for google_places: 100 requests per 3600s
+✓ ConfigurationError: CONFIG_001 - Configuration error for DATABASE_URL: Invalid connection string
+✓ MissingConfigurationError: CONFIG_002 - Missing required configuration: WAHA_API_KEY (Required for WhatsApp)
+
+APPLICATION EXCEPTIONS
+----------------------------------------------------------------------
+✓ ValidationError: VAL_001 - Validation failed for email: Invalid format
+✓ InvalidInputError: VAL_002 - Invalid json input: Missing required field
+✓ AuthenticationError: AUTH_001 - Authentication failed (api_key): Invalid or expired
+✓ AuthorizationError: AUTH_002 - User user_123 lacks permission edit_lead for lead_456
+✓ RateLimitError: RATE_001 - Rate limit exceeded for user user_123: 100 requests per 3600s
+
+======================================================================
+✓ ALL 20 EXCEPTION TYPES TESTED SUCCESSFULLY
+======================================================================

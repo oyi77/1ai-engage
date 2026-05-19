@@ -1,0 +1,42 @@
+{
+  "status": "success",
+  "message": "Lead timeline retrieved",
+  "data": {
+    "lead": {
+      "id": "ChIJ-6G9IOf3aS4R3CcKodcsMCo",
+      "displayName": "Kedai Kopi Koeii",
+      "formattedAddress": "Jl. Kemanggisan Raya No.40, RT.5/RW.7, Kemanggisan, Kec. Palmerah, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11480, Indonesia",
+      "internationalPhoneNumber": "+62 851-7996-8238",
+      "phone": "0851-7996-8238",
+      "websiteUri": "https://www.instagram.com/kedaikopikoeii/",
+      "primaryType": "coffee_shop",
+      "type": "Kedai Kopi",
+      "source": "google_places",
+      "status": "draft_ready",
+      "contacted_at": null,
+      "email": null,
+      "linkedin": null,
+      "followup_at": null,
+      "replied_at": null,
+      "research": "no_data",
+      "review_score": null,
+      "review_issues": null,
+      "reply_text": null,
+      "created_at": null,
+      "updated_at": "2026-04-17 12:50:45",
+      "email_delivered_at": null,
+      "email_opened_at": null,
+      "email_clicked_at": null,
+      "email_open_count": 0,
+      "email_click_count": 0,
+      "email_bounce_reason": null,
+      "email_message_id": null
+    },
+    "research": "No research data available for Kedai Kopi Koeii.",
+    "proposal": {
+      "email": null,
+      "whatsapp": null
+    },
+    "messages": []
+  }
+}

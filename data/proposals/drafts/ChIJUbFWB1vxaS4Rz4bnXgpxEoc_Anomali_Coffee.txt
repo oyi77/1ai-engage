@@ -1,19 +1,23 @@
 ---PROPOSAL---
-Subject: Unlock New Revenue Streams for Anomali Coffee with Advanced Digital Growth
+Subject: How Anomali Coffee Can Win More Loyal Fans (and Orders) in Senopati
 
 Hi Anomali Coffee Team,
 
-Noticed your store site’s online ordering flow and product listing while reviewing http://store.anomalicoffee.com/—great job on showcasing local coffee! However, I observed that your checkout process requires multiple steps, and there’s no clear WhatsApp integration for quick orders or customer support. In Jakarta’s café scene, chains like Kopi Kulo have been leveraging AI-powered WhatsApp chatbots, enabling instant pre-orders and personalized promotions—giving them a significant edge during peak hours.
+I noticed that your store’s website has a beautiful product lineup and easy navigation, but there’s an opportunity to convert even more of your Senopati visitors into loyal buyers—especially with foot traffic and digital interest booming in your area. For instance, Kopi Kalyan (just a few blocks away) is aggressively running Meta Ads with limited-time offers, and it’s driving repeat visits and FOMO-driven orders.
 
-Here’s how you can stay ahead:
-1. Conversion Rate Optimization Sprint: We’ll streamline your current checkout with a single-page flow and deploy A/B-tested call-to-actions, aiming for at least a 20% uplift in completed orders.
-2. WhatsApp Business API Integration: Enable instant ordering and customer support via WhatsApp, reducing response time by up to 5x and capturing impulse buyers—especially effective for new menu launches or limited promos.
+Here are two concrete ways we can help Anomali Coffee get ahead:
 
-If you’re interested, I can offer a free 15-minute audit to show quick wins specific to Anomali’s digital journey. Would next week work for a quick call?
+1. **CRO Booster: Flash-Deal Landing Page + WhatsApp Cart**  
+We’ll create a high-converting landing page for your next seasonal promo (e.g., “Senopati Exclusive: Buy 1 Get 1, This Week Only!”). Integrated with WhatsApp Cart, it captures impulse orders directly from social or Google Ads—reducing checkout steps and cutting drop-off rates by up to 30%.
 
-Best regards,  
+2. **AI-Powered Google & Meta Ads Automation**  
+We’ll set up AI-optimized ad campaigns that automatically retarget recent website visitors with personalized, time-limited offers. This can lift paid order conversions by 20-35% and ensure your ads stay top-of-mind—especially when customers are deciding between you, Kopi Kalyan, or other nearby cafés.
+
+Would you like a quick 15-minute call or a free landing page audit to see what this could look like for your team? Just reply to this email and we’ll set it up.
+
+Best,  
 Vilona  
-Solution Architect, BerkahKarya
+Solution Architect | BerkahKarya
 
 ---WHATSAPP---
-Hey, aku baru liat Anomali Coffee di Maps & websitenya—keren banget! Mau tanya, pernah kepikiran ga buat bikin orderan via WhatsApp biar pelanggan cepet & gampang? Boleh diskusi bentar, penasaran sama ide buat naikin repeat ordernya!
+Hai, ini Vilona dari BerkahKarya. Barusan lihat Anomali Coffee di Google Maps, penasaran deh—kalau ada promo seru, biasanya infoinnya lewat mana ya? Boleh minta waktu bentar buat ngobrol?

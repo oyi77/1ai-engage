@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-04-21T16:24:58.216Z",
+  "consoleErrors": [],
+  "results": {
+    "test1": {
+      "name": "WA Numbers Page",
+      "passed": true,
+      "errors": [],
+      "details": {
+        "sessionCount": 4,
+        "statusBadges": 8,
+        "personaDropdowns": 4
+      }
+    },
+    "test2": {
+      "name": "Outreach Tracker Page",
+      "passed": true,
+      "errors": [],
+      "details": {
+        "leadCount": 100,
+        "filteredCount": 0,
+        "searchWorks": true,
+        "panelSections": {
+          "research": true,
+          "email": true,
+          "whatsapp": true,
+          "messages": false
+        },
+        "whatsappProposalVisible": true
+      }
+    },
+    "test3": {
+      "name": "Navigation",
+      "passed": true,
+      "errors": [],
+      "details": {
+        "url": "http://localhost:3456/wa-numbers"
+      }
+    },
+    "test4": {
+      "name": "Real-time Updates",
+      "passed": true,
+      "errors": [],
+      "details": {
+        "apiCalls": 2,
+        "consoleErrorsDuringPolling": 0
+      }
+    }
+  }
+}

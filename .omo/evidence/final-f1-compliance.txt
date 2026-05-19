@@ -1,0 +1,28 @@
+<string>:55: SyntaxWarning: "\|" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\|"? A raw string is also an option.
+============================================================
+F1: PLAN COMPLIANCE AUDIT
+============================================================
+  ✅ gosom scraper Docker container
+  ✅ gmaps_client.py exists
+  ✅ service_detector.py exists
+  ✅ lead_scorer.py exists
+  ✅ 5 YAML templates
+  ✅ generator updated with template loading
+  ✅ brain_client service param
+  ✅ orchestrator has scraper methods
+  ✅ 6 API endpoints
+  ✅ AB testing module
+  ✅ researcher signal detection
+
+Must Have: 11/11
+
+Must NOT Have:
+  ✅ No docker-compose.yml
+  ❌ Google Places API preserved in scraper.py
+  ❌ Original columns preserved (15 checked)
+  ✅ No port conflicts in new files
+  ✅ Leads count preserved (123 leads)
+
+Must NOT Have: 3/5
+
+VERDICT: REJECT

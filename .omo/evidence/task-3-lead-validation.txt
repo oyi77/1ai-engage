@@ -1,0 +1,11 @@
+✓ Email validation working:
+  value is not a valid email address: An email address must have an @-sign.
+✓ Phone normalization: 081234567890 -> +6281234567890
+✓ Phone already normalized: +6281234567890 -> +6281234567890
+✓ Computed properties:
+  is_warm: True
+  days_since_contact: 5
+  days_since_reply: 2
+  is_replied: True
+
+✅ All validation tests passed!

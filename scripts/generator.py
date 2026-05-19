@@ -91,8 +91,11 @@ def process_proposals(lead_id: str = None, dry_run: bool = False) -> None:
         if not leads:
             print("No eligible leads found.")
             return
+        # Batch: process max 15 leads per cycle (speed > completeness)
+        batch_size = 15
+        batch = leads[:batch_size]
         generated = skipped = 0
-        for lead in leads:
+        for lead in batch:
             email = str(lead.get("email") or "").strip()
             if is_empty(email):
                 skipped += 1
@@ -102,7 +105,7 @@ def process_proposals(lead_id: str = None, dry_run: bool = False) -> None:
                 generated += 1
             else:
                 skipped += 1
-        print(f"\nGeneration complete. {generated} generated, {skipped} skipped.")
+        print(f"\nGeneration complete. {generated} generated, {skipped} skipped (batch {len(batch)}/{len(leads)}).")
         return
 
     generated = skipped = 0

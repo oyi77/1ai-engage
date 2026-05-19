@@ -1,0 +1,31 @@
+# Correlation ID Test Evidence
+## Test: Correlation ID Propagation
+
+Total log entries: 3
+
+### Log Entries with Correlation ID:
+
+**Entry 1:**
+- Timestamp: 2026-04-17T14:38:55.617157Z
+- Level: INFO
+- Message: Processing order
+- Correlation ID: order-req-2026-04-17-001
+
+**Entry 2:**
+- Timestamp: 2026-04-17T14:38:55.617307Z
+- Level: INFO
+- Message: Validating payment
+- Correlation ID: order-req-2026-04-17-001
+
+**Entry 3:**
+- Timestamp: 2026-04-17T14:38:55.617379Z
+- Level: INFO
+- Message: Sending confirmation
+- Correlation ID: order-req-2026-04-17-001
+
+## JSON Log Format Verification
+
+✓ All logs are valid JSON
+✓ Each entry contains: timestamp, level, logger, message, correlation_id
+✓ Correlation ID is properly propagated across all calls within context
+✓ Correlation ID is None outside context

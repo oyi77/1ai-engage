@@ -1,0 +1,9 @@
+{
+  "status": "success",
+  "message": "WhatsApp session persona updated",
+  "data": {
+    "ok": true,
+    "session_name": "Detergen",
+    "persona": "QA Test Persona"
+  }
+}

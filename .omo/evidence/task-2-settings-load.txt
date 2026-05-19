@@ -1,0 +1,13 @@
+Settings Load Test - PASSED
+
+Loaded configuration:
+  Database leads_file: data/leads.csv
+  Pipeline loop_sleep_seconds: 60
+  LLM generator_model: sonnet
+  Hub URL: http://localhost:9099
+  WAHA URL: https://waha.aitradepulse.com
+  Email SMTP host: mail.berkahkarya.org
+  Gmail account: moliangellina@gmail.com
+  PaperClip URL: http://localhost:3100
+  Scraper aggregator domains: 28 domains
+  Default verticals: 10 verticals

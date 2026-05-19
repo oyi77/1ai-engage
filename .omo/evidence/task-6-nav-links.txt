@@ -1,0 +1,16 @@
+Task 6: Navigation Links Verification
+======================================
+
+QA Scenario 1: Verify navigation links appear in sidebar
+Tool: curl + grep
+Result: PASS
+- curl -s http://localhost:3001/ | grep -o 'wa-numbers\|outreach-tracker' | wc -l
+- Output: 2 (both links present in HTML)
+
+QA Scenario 2: Click navigation links and verify pages load
+Tool: curl -I
+Results: PASS
+- curl -I http://localhost:3001/wa-numbers → HTTP/1.1 200 OK
+- curl -I http://localhost:3001/outreach-tracker → HTTP/1.1 200 OK
+
+Both navigation links successfully added and verified working.

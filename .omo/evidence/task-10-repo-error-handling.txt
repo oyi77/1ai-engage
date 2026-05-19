@@ -1,0 +1,12 @@
+Current state: on_hand=140, reserved=20, available=120
+
+Test 1: Reserve more than available
+✓ Correctly raised ValueError: Insufficient available stock: requested 220, available 120...
+
+Test 2: Release more than reserved
+✓ Correctly raised ValueError: Release quantity exceeds reserved stock: requested 120, reserved 20...
+
+Test 3: Adjust stock to negative
+✓ Correctly raised ValueError: Adjustment would result in negative stock: 140 + -240 = -100...
+
+✓ QA Scenario 3 PASSED: Error handling works correctly

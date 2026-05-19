@@ -1,0 +1,112 @@
+EXCEPTION to_dict() METHOD TEST RESULTS
+======================================================================
+
+Test 1: LeadNotFoundError.to_dict()
+----------------------------------------------------------------------
+{
+  "error_code": "LEAD_001",
+  "message": "Lead not found: lead_123",
+  "type": "LeadNotFoundError",
+  "context": {
+    "lead_id": "lead_123"
+  }
+}
+✓ Passed: error_code, type, and context preserved
+
+Test 2: InvalidLeadStatusError.to_dict()
+----------------------------------------------------------------------
+{
+  "error_code": "LEAD_002",
+  "message": "Invalid status transition from new to won: Invalid transition",
+  "type": "InvalidLeadStatusError",
+  "context": {
+    "current_status": "new",
+    "attempted_status": "won",
+    "reason": "Invalid transition"
+  }
+}
+✓ Passed: all context fields preserved
+
+Test 3: DatabaseConnectionError.to_dict()
+----------------------------------------------------------------------
+{
+  "error_code": "DB_002",
+  "message": "Cannot connect to database at db.example.com:5432: Connection refused",
+  "type": "DatabaseConnectionError",
+  "context": {
+    "host": "db.example.com",
+    "port": 5432,
+    "reason": "Connection refused"
+  }
+}
+✓ Passed: numeric fields preserved correctly
+
+Test 4: ExternalAPIError.to_dict()
+----------------------------------------------------------------------
+{
+  "error_code": "API_001",
+  "message": "External API error from google_places /search: 500 - Server error",
+  "type": "ExternalAPIError",
+  "context": {
+    "service": "google_places",
+    "endpoint": "/search",
+    "status_code": 500,
+    "reason": "Server error"
+  }
+}
+✓ Passed: HTTP status code preserved
+
+Test 5: ValidationError.to_dict()
+----------------------------------------------------------------------
+{
+  "error_code": "VAL_001",
+  "message": "Validation failed for email: Invalid format",
+  "type": "ValidationError",
+  "context": {
+    "field": "email",
+    "value": "invalid@",
+    "reason": "Invalid format"
+  }
+}
+✓ Passed: field and value preserved
+
+Test 6: RateLimitError.to_dict() with retry_after
+----------------------------------------------------------------------
+{
+  "error_code": "RATE_001",
+  "message": "Rate limit exceeded for user user_123: 100 requests per 3600s",
+  "type": "RateLimitError",
+  "context": {
+    "user_id": "user_123",
+    "limit": 100,
+    "window_seconds": 3600,
+    "retry_after_seconds": 300
+  }
+}
+✓ Passed: optional retry_after preserved
+
+Test 7: RateLimitError.to_dict() without retry_after
+----------------------------------------------------------------------
+{
+  "error_code": "RATE_001",
+  "message": "Rate limit exceeded for user user_456: 50 requests per 60s",
+  "type": "RateLimitError",
+  "context": {
+    "user_id": "user_456",
+    "limit": 50,
+    "window_seconds": 60,
+    "retry_after_seconds": null
+  }
+}
+✓ Passed: None values handled correctly
+
+Test 8: JSON serialization of to_dict()
+----------------------------------------------------------------------
+Original: {'error_code': 'API_001', 'message': 'External API error from minerva /enrich: 503 - Service unavailable', 'type': 'ExternalAPIError', 'context': {'service': 'minerva', 'endpoint': '/enrich', 'status_code': 503, 'reason': 'Service unavailable'}}
+JSON: {"error_code": "API_001", "message": "External API error from minerva /enrich: 503 - Service unavailable", "type": "ExternalAPIError", "context": {"service": "minerva", "endpoint": "/enrich", "status_code": 503, "reason": "Service unavailable"}}
+Parsed: {'error_code': 'API_001', 'message': 'External API error from minerva /enrich: 503 - Service unavailable', 'type': 'ExternalAPIError', 'context': {'service': 'minerva', 'endpoint': '/enrich', 'status_code': 503, 'reason': 'Service unavailable'}}
+✓ Passed: to_dict() output is JSON serializable
+
+======================================================================
+✓ ALL to_dict() TESTS PASSED
+======================================================================

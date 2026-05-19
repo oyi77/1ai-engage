@@ -1,0 +1,5 @@
+idx_images_product
+idx_inventory_variant
+idx_overrides_tenant_product
+idx_variants_product
+idx_variants_sku

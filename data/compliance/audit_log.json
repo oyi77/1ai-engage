@@ -1281,5 +1281,748 @@
       "success": true,
       "timestamp": "2026-04-30T22:19:12.626809+00:00"
     }
+  },
+  {
+    "timestamp": "2026-05-19T08:43:07.539590+00:00",
+    "action": "consent",
+    "subject": "ChIJwYXKAb_3aS4RgbFMgDbUCck",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T08:43:07.607893+00:00",
+    "action": "consent",
+    "subject": "ChIJwYXKAb_3aS4RgbFMgDbUCck",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T08:43:19.111696+00:00",
+    "action": "outreach",
+    "subject": "ChIJwYXKAb_3aS4RgbFMgDbUCck",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-8862-527",
+      "success": true,
+      "timestamp": "2026-05-19T08:43:19.111034+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T08:48:18.576515+00:00",
+    "action": "outreach",
+    "subject": "ChIJwYXKAb_3aS4RgbFMgDbUCck",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-8862-527",
+      "success": true,
+      "timestamp": "2026-05-19T08:48:18.575393+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T08:53:18.517956+00:00",
+    "action": "outreach",
+    "subject": "ChIJwYXKAb_3aS4RgbFMgDbUCck",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-8862-527",
+      "success": true,
+      "timestamp": "2026-05-19T08:53:18.517372+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T08:58:17.855535+00:00",
+    "action": "outreach",
+    "subject": "ChIJwYXKAb_3aS4RgbFMgDbUCck",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-8862-527",
+      "success": true,
+      "timestamp": "2026-05-19T08:58:17.854642+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:08:19.443985+00:00",
+    "action": "outreach",
+    "subject": "ChIJwYXKAb_3aS4RgbFMgDbUCck",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-8862-527",
+      "success": true,
+      "timestamp": "2026-05-19T09:08:19.443237+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:08:50.400211+00:00",
+    "action": "outreach",
+    "subject": "ChIJwYXKAb_3aS4RgbFMgDbUCck",
+    "details": {
+      "channel": "email",
+      "contact": "WFB@pakar.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T09:08:50.399758+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:08:50.408633+00:00",
+    "action": "consent",
+    "subject": "ChIJ64NT0f7zaS4RD49mHAZXcBM",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:08:50.454450+00:00",
+    "action": "consent",
+    "subject": "ChIJ64NT0f7zaS4RD49mHAZXcBM",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:09:01.157672+00:00",
+    "action": "outreach",
+    "subject": "ChIJ64NT0f7zaS4RD49mHAZXcBM",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62832147598267",
+      "success": true,
+      "timestamp": "2026-05-19T09:09:01.156452+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:09:15.909368+00:00",
+    "action": "outreach",
+    "subject": "ChIJwYXKAb_3aS4RgbFMgDbUCck",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-8862-527",
+      "success": true,
+      "timestamp": "2026-05-19T09:09:15.907406+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:09:46.784714+00:00",
+    "action": "outreach",
+    "subject": "ChIJwYXKAb_3aS4RgbFMgDbUCck",
+    "details": {
+      "channel": "email",
+      "contact": "WFB@pakar.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T09:09:46.784361+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:09:57.863800+00:00",
+    "action": "outreach",
+    "subject": "ChIJ64NT0f7zaS4RD49mHAZXcBM",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62832147598267",
+      "success": true,
+      "timestamp": "2026-05-19T09:09:57.862621+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:10:28.773353+00:00",
+    "action": "outreach",
+    "subject": "ChIJ64NT0f7zaS4RD49mHAZXcBM",
+    "details": {
+      "channel": "email",
+      "contact": "fillmore@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T09:10:28.773124+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:10:28.777877+00:00",
+    "action": "consent",
+    "subject": "ChIJ2x5FVWP1aS4RkfroWFJBo6k",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:10:28.808591+00:00",
+    "action": "consent",
+    "subject": "ChIJ2x5FVWP1aS4RkfroWFJBo6k",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:10:39.884938+00:00",
+    "action": "outreach",
+    "subject": "ChIJ2x5FVWP1aS4RkfroWFJBo6k",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-8081-168",
+      "success": true,
+      "timestamp": "2026-05-19T09:10:39.883861+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:10:54.875867+00:00",
+    "action": "outreach",
+    "subject": "ChIJ2x5FVWP1aS4RkfroWFJBo6k",
+    "details": {
+      "channel": "email",
+      "contact": "copper@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T09:10:54.875471+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:10:54.882143+00:00",
+    "action": "consent",
+    "subject": "ChIJ3UjX98v3aS4RNtOUnu_wSkw",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:10:54.930686+00:00",
+    "action": "consent",
+    "subject": "ChIJ3UjX98v3aS4RNtOUnu_wSkw",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:11:06.411049+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3UjX98v3aS4RNtOUnu_wSkw",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 821-6684-5000",
+      "success": true,
+      "timestamp": "2026-05-19T09:11:06.410094+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:11:37.364852+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3UjX98v3aS4RNtOUnu_wSkw",
+    "details": {
+      "channel": "email",
+      "contact": "roast@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T09:11:37.364383+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:11:37.369850+00:00",
+    "action": "consent",
+    "subject": "ChIJ-6G9IOf3aS4R3CcKodcsMCo",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:11:37.415766+00:00",
+    "action": "consent",
+    "subject": "ChIJ-6G9IOf3aS4R3CcKodcsMCo",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:11:48.419598+00:00",
+    "action": "outreach",
+    "subject": "ChIJ-6G9IOf3aS4R3CcKodcsMCo",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 851-7996-8238",
+      "success": true,
+      "timestamp": "2026-05-19T09:11:48.418986+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:12:19.289674+00:00",
+    "action": "outreach",
+    "subject": "ChIJ-6G9IOf3aS4R3CcKodcsMCo",
+    "details": {
+      "channel": "email",
+      "contact": "kedai@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T09:12:19.288620+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:12:19.295054+00:00",
+    "action": "consent",
+    "subject": "ChIJ271PZCQdai4RX6bqtJ6ZRho",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:12:19.323637+00:00",
+    "action": "consent",
+    "subject": "ChIJ271PZCQdai4RX6bqtJ6ZRho",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:12:30.005883+00:00",
+    "action": "outreach",
+    "subject": "ChIJ271PZCQdai4RX6bqtJ6ZRho",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 29032885",
+      "success": true,
+      "timestamp": "2026-05-19T09:12:30.005172+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:12:45.415148+00:00",
+    "action": "outreach",
+    "subject": "ChIJ271PZCQdai4RX6bqtJ6ZRho",
+    "details": {
+      "channel": "email",
+      "contact": "lima@instagram.com",
+      "success": true,
+      "timestamp": "2026-05-19T09:12:45.414885+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:12:45.432810+00:00",
+    "action": "consent",
+    "subject": "67da60d2a3acb4b1effb4edfab867ae9",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:12:45.461637+00:00",
+    "action": "consent",
+    "subject": "67da60d2a3acb4b1effb4edfab867ae9",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:12:56.152001+00:00",
+    "action": "outreach",
+    "subject": "67da60d2a3acb4b1effb4edfab867ae9",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+622762804056",
+      "success": true,
+      "timestamp": "2026-05-19T09:12:56.151321+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:13:25.324515+00:00",
+    "action": "outreach",
+    "subject": "67da60d2a3acb4b1effb4edfab867ae9",
+    "details": {
+      "channel": "email",
+      "contact": "kopi@kopikenangan.com",
+      "success": true,
+      "timestamp": "2026-05-19T09:13:25.324157+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:13:25.327769+00:00",
+    "action": "consent",
+    "subject": "9db5acf01067ab19087f83eb4df0b85a",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:13:25.374532+00:00",
+    "action": "consent",
+    "subject": "9db5acf01067ab19087f83eb4df0b85a",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:13:36.095408+00:00",
+    "action": "outreach",
+    "subject": "9db5acf01067ab19087f83eb4df0b85a",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+6221-87654321",
+      "success": true,
+      "timestamp": "2026-05-19T09:13:36.094014+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:13:49.985189+00:00",
+    "action": "outreach",
+    "subject": "9db5acf01067ab19087f83eb4df0b85a",
+    "details": {
+      "channel": "email",
+      "contact": "starbucks@starbucks.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T09:13:49.984743+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:51:50.645267+00:00",
+    "action": "consent",
+    "subject": "ChIJTZ-EYBj3aS4RAjTEos17M0U",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:51:51.031500+00:00",
+    "action": "consent",
+    "subject": "ChIJTZ-EYBj3aS4RAjTEos17M0U",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:52:02.213640+00:00",
+    "action": "outreach",
+    "subject": "ChIJTZ-EYBj3aS4RAjTEos17M0U",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58901608",
+      "success": true,
+      "timestamp": "2026-05-19T09:52:02.212761+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:52:03.120919+00:00",
+    "action": "outreach",
+    "subject": "ChIJTZ-EYBj3aS4RAjTEos17M0U",
+    "details": {
+      "channel": "email",
+      "contact": "toffeedev@toffeedev.com",
+      "success": true,
+      "timestamp": "2026-05-19T09:52:03.120377+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:54:52.199405+00:00",
+    "action": "outreach",
+    "subject": "ChIJTZ-EYBj3aS4RAjTEos17M0U",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58901608",
+      "success": true,
+      "timestamp": "2026-05-19T09:54:52.198189+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:54:53.137799+00:00",
+    "action": "outreach",
+    "subject": "ChIJTZ-EYBj3aS4RAjTEos17M0U",
+    "details": {
+      "channel": "email",
+      "contact": "toffeedev@toffeedev.com",
+      "success": true,
+      "timestamp": "2026-05-19T09:54:53.136907+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:54:53.141676+00:00",
+    "action": "consent",
+    "subject": "ChIJg572HHTxaS4RMlay9B1kovY",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:54:53.187854+00:00",
+    "action": "consent",
+    "subject": "ChIJg572HHTxaS4RMlay9B1kovY",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:55:03.878253+00:00",
+    "action": "outreach",
+    "subject": "ChIJg572HHTxaS4RMlay9B1kovY",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 27826379",
+      "success": true,
+      "timestamp": "2026-05-19T09:55:03.876597+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:55:04.776333+00:00",
+    "action": "outreach",
+    "subject": "ChIJg572HHTxaS4RMlay9B1kovY",
+    "details": {
+      "channel": "email",
+      "contact": "web@think.web.id",
+      "success": true,
+      "timestamp": "2026-05-19T09:55:04.775738+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:55:04.786715+00:00",
+    "action": "consent",
+    "subject": "ChIJh3QoL8P1aS4RRPrrPtM8cxw",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:55:04.820945+00:00",
+    "action": "consent",
+    "subject": "ChIJh3QoL8P1aS4RRPrrPtM8cxw",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:55:15.486880+00:00",
+    "action": "outreach",
+    "subject": "ChIJh3QoL8P1aS4RRPrrPtM8cxw",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 812-9263-9121",
+      "success": true,
+      "timestamp": "2026-05-19T09:55:15.486123+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:55:16.381731+00:00",
+    "action": "outreach",
+    "subject": "ChIJh3QoL8P1aS4RRPrrPtM8cxw",
+    "details": {
+      "channel": "email",
+      "contact": "digital@digitalagencyjakarta.id",
+      "success": true,
+      "timestamp": "2026-05-19T09:55:16.380886+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:59:52.834761+00:00",
+    "action": "outreach",
+    "subject": "ChIJTZ-EYBj3aS4RAjTEos17M0U",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58901608",
+      "success": true,
+      "timestamp": "2026-05-19T09:59:52.833083+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T09:59:53.746395+00:00",
+    "action": "outreach",
+    "subject": "ChIJTZ-EYBj3aS4RAjTEos17M0U",
+    "details": {
+      "channel": "email",
+      "contact": "toffeedev@toffeedev.com",
+      "success": true,
+      "timestamp": "2026-05-19T09:59:53.745710+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:00:04.492413+00:00",
+    "action": "outreach",
+    "subject": "ChIJg572HHTxaS4RMlay9B1kovY",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 27826379",
+      "success": true,
+      "timestamp": "2026-05-19T10:00:04.486275+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:00:05.389957+00:00",
+    "action": "outreach",
+    "subject": "ChIJg572HHTxaS4RMlay9B1kovY",
+    "details": {
+      "channel": "email",
+      "contact": "web@think.web.id",
+      "success": true,
+      "timestamp": "2026-05-19T10:00:05.389207+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:00:16.187364+00:00",
+    "action": "outreach",
+    "subject": "ChIJh3QoL8P1aS4RRPrrPtM8cxw",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 812-9263-9121",
+      "success": true,
+      "timestamp": "2026-05-19T10:00:16.186579+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:00:16.819103+00:00",
+    "action": "outreach",
+    "subject": "ChIJh3QoL8P1aS4RRPrrPtM8cxw",
+    "details": {
+      "channel": "email",
+      "contact": "digital@digitalagencyjakarta.id",
+      "success": true,
+      "timestamp": "2026-05-19T10:00:16.818605+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:00:16.823641+00:00",
+    "action": "consent",
+    "subject": "ChIJ5c60Dgj0aS4RfyOIt92QTRo",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:00:16.858831+00:00",
+    "action": "consent",
+    "subject": "ChIJ5c60Dgj0aS4RfyOIt92QTRo",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:00:27.595448+00:00",
+    "action": "outreach",
+    "subject": "ChIJ5c60Dgj0aS4RfyOIt92QTRo",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62097041220",
+      "success": true,
+      "timestamp": "2026-05-19T10:00:27.594691+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:00:28.457502+00:00",
+    "action": "outreach",
+    "subject": "ChIJ5c60Dgj0aS4RfyOIt92QTRo",
+    "details": {
+      "channel": "email",
+      "contact": "ematic@ematicsolutions.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:00:28.456873+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:00:28.463049+00:00",
+    "action": "consent",
+    "subject": "ChIJJ5TBokSNaS4RYnfBlIPQBq4",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:00:28.492843+00:00",
+    "action": "consent",
+    "subject": "ChIJJ5TBokSNaS4RYnfBlIPQBq4",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:00:39.844218+00:00",
+    "action": "outreach",
+    "subject": "ChIJJ5TBokSNaS4RYnfBlIPQBq4",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 812-8999-1777",
+      "success": true,
+      "timestamp": "2026-05-19T10:00:39.842802+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:00:40.753521+00:00",
+    "action": "outreach",
+    "subject": "ChIJJ5TBokSNaS4RYnfBlIPQBq4",
+    "details": {
+      "channel": "email",
+      "contact": "halo@krona.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T10:00:40.752719+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:00:40.759307+00:00",
+    "action": "consent",
+    "subject": "ChIJEbAfemkdai4R0Cz-4gA1h3M",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:00:40.810778+00:00",
+    "action": "consent",
+    "subject": "ChIJEbAfemkdai4R0Cz-4gA1h3M",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:00:52.246500+00:00",
+    "action": "outreach",
+    "subject": "ChIJEbAfemkdai4R0Cz-4gA1h3M",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 821-9318-1000",
+      "success": true,
+      "timestamp": "2026-05-19T10:00:52.245848+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:00:53.173397+00:00",
+    "action": "outreach",
+    "subject": "ChIJEbAfemkdai4R0Cz-4gA1h3M",
+    "details": {
+      "channel": "email",
+      "contact": "story@putihagency.com",
+      "success": true,
+      "timestamp": "2026-05-19T10:00:53.172955+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:03:26.882958+00:00",
+    "action": "consent",
+    "subject": "ChIJJVY7VUv1aS4RWBO_wgi3Bi4",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T10:03:27.321885+00:00",
+    "action": "consent",
+    "subject": "ChIJJVY7VUv1aS4RWBO_wgi3Bi4",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
   }
 ]

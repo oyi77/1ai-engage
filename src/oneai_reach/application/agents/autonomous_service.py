@@ -14,7 +14,7 @@ class AutonomousService:
 
     def __init__(self, config: Settings):
         self.config = config
-        self.loop_sleep_seconds = getattr(config, 'autonomous', type('obj', (object,), {'loop_sleep_seconds': 300})).loop_sleep_seconds
+        self.loop_sleep_seconds = getattr(config, 'autonomous', type('obj', (object,), {'loop_sleep_seconds': 120})).loop_sleep_seconds
         self.min_new_leads_threshold = getattr(config, 'autonomous', type('obj', (object,), {'min_new_leads_threshold': 10})).min_new_leads_threshold
         self.scripts_dir = Path(__file__).resolve().parents[4] / 'scripts'
         self._running = {}
@@ -68,10 +68,13 @@ class AutonomousService:
         if counts.get("enriched", 0) > 0:
             self.dispatch("researcher.py", dry_run=dry_run)
 
-        if counts.get("enriched", 0) > 0 or counts.get("needs_revision", 0) > 0:
+        # Always run generator if any leads need drafts
+        if counts.get("enriched", 0) > 0 or counts.get("needs_revision", 0) > 0 or counts.get("reviewed", 0) > 0 or counts.get("draft_ready", 0) > 0:
             self.dispatch("generator.py", dry_run=dry_run)
 
-        if counts.get("draft_ready", 0) > 0:
+        # Always run blaster if any leads are sendable (speed > perfection)
+        sendable = counts.get("reviewed", 0) + counts.get("draft_ready", 0) + counts.get("new", 0) + counts.get("enriched", 0)
+        if sendable > 0:
             self.dispatch("blaster.py", dry_run=dry_run)
 
         if counts.get("replied", 0) > 0:

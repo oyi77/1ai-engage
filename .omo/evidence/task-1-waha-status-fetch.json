@@ -1,0 +1,48 @@
+{
+  "status": "success",
+  "message": "WAHA session status retrieved",
+  "data": {
+    "sessions": [
+      {
+        "name": "Detergen",
+        "status": "WORKING",
+        "phone": ""
+      },
+      {
+        "name": "default",
+        "status": "WORKING",
+        "phone": ""
+      },
+      {
+        "name": "produk_digital",
+        "status": "WORKING",
+        "phone": ""
+      },
+      {
+        "name": "warung_kecantikan",
+        "status": "WORKING",
+        "phone": ""
+      },
+      {
+        "name": "Detergen",
+        "status": "WORKING",
+        "phone": ""
+      },
+      {
+        "name": "default",
+        "status": "WORKING",
+        "phone": ""
+      },
+      {
+        "name": "produk_digital",
+        "status": "WORKING",
+        "phone": ""
+      },
+      {
+        "name": "warung_kecantikan",
+        "status": "WORKING",
+        "phone": ""
+      }
+    ]
+  }
+}

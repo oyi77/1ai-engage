@@ -1,0 +1,76 @@
+TASK 4: Abstract Repository Interfaces - Import Test
+=====================================================
+
+CREATED FILES:
+- src/oneai_reach/domain/repositories/lead_repository.py
+- src/oneai_reach/domain/repositories/conversation_repository.py
+- src/oneai_reach/domain/repositories/knowledge_repository.py
+- src/oneai_reach/domain/repositories/__init__.py
+
+IMPORT TEST RESULTS:
+✓ LeadRepository imported successfully
+✓ ConversationRepository imported successfully
+✓ KnowledgeRepository imported successfully
+✓ All repositories available from __init__.py
+
+INTERFACE METHODS:
+
+LeadRepository (14 methods):
+- get_by_id(lead_id: str) -> Optional[Lead]
+- get_all() -> List[Lead]
+- save(lead: Lead) -> Lead
+- update(lead: Lead) -> Lead
+- delete(lead_id: str) -> bool
+- find_by_status(status: LeadStatus) -> List[Lead]
+- find_by_email(email: str) -> Optional[Lead]
+- find_by_phone(phone: str) -> Optional[Lead]
+- find_by_website(website: str) -> Optional[Lead]
+- find_warm_leads() -> List[Lead]
+- find_cold_leads() -> List[Lead]
+- find_needs_followup() -> List[Lead]
+- count_by_status() -> dict[LeadStatus, int]
+- search(query: str) -> List[Lead]
+
+ConversationRepository (13 methods):
+- get_by_id(conversation_id: int) -> Optional[Conversation]
+- get_all() -> List[Conversation]
+- save(conversation: Conversation) -> Conversation
+- update(conversation: Conversation) -> Conversation
+- delete(conversation_id: int) -> bool
+- find_by_phone(wa_number_id: str, contact_phone: str) -> Optional[Conversation]
+- find_by_status(status: ConversationStatus) -> List[Conversation]
+- find_active(wa_number_id: Optional[str]) -> List[Conversation]
+- find_by_lead_id(lead_id: str) -> List[Conversation]
+- find_stale(hours: int) -> List[Conversation]
+- find_by_engine_mode(engine_mode: EngineMode) -> List[Conversation]
+- count_by_status() -> dict[ConversationStatus, int]
+- count_by_wa_number(wa_number_id: str) -> int
+
+KnowledgeRepository (15 methods):
+- get_by_id(entry_id: int) -> Optional[KnowledgeEntry]
+- get_all(wa_number_id: str) -> List[KnowledgeEntry]
+- save(entry: KnowledgeEntry) -> KnowledgeEntry
+- update(entry: KnowledgeEntry) -> KnowledgeEntry
+- delete(entry_id: int) -> bool
+- find_by_category(wa_number_id: str, category: KnowledgeCategory) -> List[KnowledgeEntry]
+- search(wa_number_id: str, query: str, limit: int) -> List[KnowledgeEntry]
+- search_with_outcome_weighting(wa_number_id: str, query: str, limit: int) -> List[KnowledgeEntry]
+- find_high_priority(wa_number_id: str) -> List[KnowledgeEntry]
+- find_by_tag(wa_number_id: str, tag: str) -> List[KnowledgeEntry]
+- find_learned_entries(wa_number_id: str, limit: int) -> List[KnowledgeEntry]
+- count_by_category(wa_number_id: str) -> dict[KnowledgeCategory, int]
+- count_total(wa_number_id: str) -> int
+- import_entries(wa_number_id: str, entries: List[dict]) -> int
+- export_entries(wa_number_id: str) -> List[dict]
+
+TYPE HINTS:
+✓ All methods have complete type hints
+✓ Return types use domain models (Lead, Conversation, KnowledgeEntry)
+✓ Optional types properly annotated
+✓ List types properly annotated
+
+DOCSTRINGS:
+✓ Module-level docstrings present
+✓ Class-level docstrings present
+✓ All methods have comprehensive docstrings
+✓ Docstrings include Args, Returns, and Raises sections

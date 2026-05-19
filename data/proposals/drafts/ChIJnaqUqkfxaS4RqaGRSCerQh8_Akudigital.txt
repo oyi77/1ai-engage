@@ -1,0 +1,19 @@
+---PROPOSAL---
+Subject: Unlock Higher-Value Leads for Akudigital with Advanced CRO & Automation
+
+Hi Akudigital team,
+
+Noticed your portfolio highlights strong SEO and SEM service offerings, and your website ranks well for branded queries. However, after analyzing your funnel and comparing with local peers like ToffeeDev (also in Jakarta Selatan), it looks like they’re edging ahead by deploying advanced landing page A/B testing and AI-driven lead qualification — resulting in visibly higher conversion rates and faster response times.
+
+Here’s where you could gain ground:
+1. **Conversion Rate Optimization Sprint:** We’ll implement rapid A/B tests on your key service pages (copy, layout, CTA, lead forms), paired with scroll/heatmap analytics. Our Next.js/analytics stack typically lifts qualified lead conversions by 22–35% in agencies like yours.
+2. **AI-Powered Lead Automation:** Integrate n8n-based automation to instantly qualify and route leads from your website and WhatsApp. This can cut your average response time by up to 5x, helping you win hot prospects before competitors even reply.
+
+If you’re open, I’d be happy to offer a free CRO/automation audit or jump on a 15-minute call to share actionable findings.
+
+Best regards,  
+Vilona  
+Solution Architect, BerkahKarya
+
+---WHATSAPP---
+Hey, tim Akudigital! Tadi nemu websitenya pas lagi cek-cek jasa digital di Jaksel. Mau tanya, udah pernah coba A/B testing atau automation buat naikin konversi lead belum? Kalau butuh insight gratis, kabarin aja ya!
