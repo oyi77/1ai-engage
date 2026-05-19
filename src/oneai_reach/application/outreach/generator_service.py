@@ -367,10 +367,16 @@ class GeneratorService:
             print("=" * 72)
             return ""
 
-        # LLM chain: Omniroute API → CLI fallback
-        models = []
+        # LLM chain: Omniroute → Direct API fallbacks
+        omniroute_models = [
+            ("omniroute-gpt-4.1", "github/gpt-4.1"),
+            ("omniroute-gpt-5-mini", "github/gpt-5-mini"),
+            ("omniroute-claude-sonnet", "cc/claude-sonnet-4-6"),
+            ("omniroute-claude-haiku", "cc/claude-haiku-4-5-20251001"),
+        ]
 
-        for label, model_id in models:
+        # Try Omniroute first
+        for label, model_id in omniroute_models:
             try:
                 result = self._call_omniroute(full_prompt, model_id)
                 if result:
@@ -379,29 +385,20 @@ class GeneratorService:
             except Exception as e:
                 logger.warning(f"{label} failed: {e}")
 
-        # CLI fallback
-        for tool, cmd, use_stdin in [
-            ("claude", ["claude", "--bare", "-p", "--model", self.generator_model, full_prompt], False),
-        ]:
+        # Direct API fallbacks
+        direct_apis = [
+            ("openai-direct-gpt4.1", lambda p: self._call_openai_direct(p, "gpt-4.1")),
+            ("deepseek-direct", lambda p: self._call_deepseek_direct(p, "deepseek-chat")),
+            ("openai-direct-gpt4o", lambda p: self._call_openai_direct(p, "gpt-4o")),
+        ]
+        for label, call_fn in direct_apis:
             try:
-                kwargs = dict(capture_output=True, text=True, timeout=90)
-                if use_stdin:
-                    kwargs["input"] = full_prompt
-
-                result = subprocess.run(cmd, **kwargs)
-
-                if result.returncode == 0 and result.stdout.strip():
-                    logger.info(f"Successfully generated proposal using {tool}")
-                    return result.stdout
-
-                logger.warning(
-                    f"{tool} failed (exit {result.returncode}): "
-                    f"{result.stderr.strip()}"
-                )
-            except subprocess.TimeoutExpired:
-                logger.warning(f"{tool} timed out after 90s")
+                result = call_fn(full_prompt)
+                if result:
+                    logger.info(f"Successfully generated proposal using {label}")
+                    return result
             except Exception as e:
-                logger.warning(f"{tool} error: {e}")
+                logger.warning(f"{label} failed: {e}")
 
         # All LLMs failed
         error_msg = f"All LLM tools failed for {lead_name}"
@@ -438,24 +435,78 @@ class GeneratorService:
 
     @staticmethod
     def _call_omniroute(prompt: str, model: str, max_tokens: int = 4096, timeout: int = 120) -> Optional[str]:
+        """Call Omniroute proxy with retry logic."""
+        import time as _time
+        for attempt in range(3):
+            try:
+                import requests
+                resp = requests.post(
+                    "http://localhost:20128/v1/chat/completions",
+                    json={
+                        "model": model,
+                        "messages": [{"role": "user", "content": prompt}],
+                        "max_tokens": max_tokens,
+                        "temperature": 0.7,
+                        "stream": False,
+                    },
+                    timeout=timeout,
+                )
+                if resp.status_code == 429:
+                    wait = min(5 * (attempt + 1), 15)
+                    logger.warning(f"Rate limited on {model}, waiting {wait}s (attempt {attempt+1}/3)")
+                    _time.sleep(wait)
+                    continue
+                resp.raise_for_status()
+                data = resp.json()
+                content = data.get("choices", [{}])[0].get("message", {}).get("content", "")
+                return content.strip() if content else None
+            except Exception as e:
+                if attempt < 2:
+                    _time.sleep(2)
+                    continue
+                logger.warning(f"Omniroute call failed for {model}: {e}")
+                return None
+
+    @staticmethod
+    def _call_openai_direct(prompt: str, model: str = "gpt-4.1", max_tokens: int = 4096, timeout: int = 120) -> Optional[str]:
+        """Call OpenAI API directly as fallback."""
         try:
-            import requests
-            resp = requests.post(
-                "http://localhost:20128/v1/chat/completions",
-                json={
-                    "model": model,
-                    "messages": [{"role": "user", "content": prompt}],
-                    "max_tokens": max_tokens,
-                    "temperature": 0.7,
-                },
-                timeout=timeout,
+            import openai, os
+            api_key = os.getenv("OPENAI_API_KEY")
+            if not api_key:
+                return None
+            client = openai.OpenAI(api_key=api_key, timeout=timeout)
+            resp = client.chat.completions.create(
+                model=model,
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=max_tokens,
+                temperature=0.7,
             )
-            resp.raise_for_status()
-            data = resp.json()
-            content = data.get("choices", [{}])[0].get("message", {}).get("content", "")
+            content = resp.choices[0].message.content
             return content.strip() if content else None
         except Exception as e:
-            logger.warning(f"Omniroute call failed for {model}: {e}")
+            logger.warning(f"OpenAI direct call failed for {model}: {e}")
+            return None
+
+    @staticmethod
+    def _call_deepseek_direct(prompt: str, model: str = "deepseek-chat", max_tokens: int = 4096, timeout: int = 120) -> Optional[str]:
+        """Call DeepSeek API directly as fallback."""
+        try:
+            import openai as _openai, os
+            api_key = os.getenv("DEEPSEEK_API_KEY")
+            if not api_key:
+                return None
+            client = _openai.OpenAI(api_key=api_key, base_url="https://api.deepseek.com/v1", timeout=timeout)
+            resp = client.chat.completions.create(
+                model=model,
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=max_tokens,
+                temperature=0.7,
+            )
+            content = resp.choices[0].message.content
+            return content.strip() if content else None
+        except Exception as e:
+            logger.warning(f"DeepSeek direct call failed for {model}: {e}")
             return None
 
     @staticmethod

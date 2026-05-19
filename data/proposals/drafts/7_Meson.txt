@@ -1,20 +1,23 @@
 ---PROPOSAL---
-I noticed something interesting while reviewing Meson Digital's online presence: your agency is positioned as a full-service digital partner with strong capabilities in SEO, Google Ads, and AI, yet your WordPress site lacks a content strategy to showcase that expertise.
+Subject: Unlock More Leads & Visibility for Meson — 2 Quick Wins
 
-Specifically, you're missing a blog section — which means Meson isn't ranking for high-intent long-tail keywords like "AI automation case studies Indonesia" or "digital PR strategies Jakarta" that potential clients are actively searching. Meanwhile, Haluan Digital Agency (also based in Jakarta) has been capturing these organic leads with a consistent content strategy that ranks them on page 1 for multiple service-related keywords.
+Hi Meson Team,
 
-I recommend implementing an **Advanced SEO Content Program** that includes:
-- 4 strategic blog posts per month targeting high-intent industry keywords
-- Technical optimization of your WordPress site for Core Web Vitals
-- Schema markup to boost rich snippet presence
+Noticed while browsing meson-digital.com that, although you’re strong in SEO and digital ads, there’s currently no live chat or WhatsApp widget—and no blog/content hub to fuel organic growth. Both are critical for instant conversion and search visibility, especially as local players like Digimaru (Kelapa Gading) have started leveraging these to boost their inbound leads.
 
-This typically drives 40-60% more organic qualified leads within 90 days, and the content assets can be repurposed across your social and PR channels.
+Here are two concrete ways we can help you get ahead:
 
-I'd be happy to run a quick SEO audit and show you the exact keywords Meson is leaving on the table. Would you be open to a 15-minute call next week to discuss?
+1. **WhatsApp Business API Integration & Live Chat Widget:**  
+Let’s add a branded live chat and WhatsApp widget (works seamlessly with your current WordPress stack) to your site. This alone can cut your response time by 5x and, based on our benchmarks, drive 30% more qualified leads—especially from mobile visitors.
 
-Best,
-Vilona
-BerkahKarya
+2. **Growth-Driven Blog/Content Engine (with AI Automation):**  
+We’ll set up a custom blog section, plus a workflow for regular, SEO-optimized content. Our AI-powered system can generate draft topics, automate publishing, and track keyword gaps—helping you rank for more mid/long-tail queries and outperform competitors who are still doing content manually.
+
+Happy to show you a quick demo or run a free audit of your current funnel and content opportunities. Would a 15-minute call next week work for your team?
+
+Best,  
+Vilona  
+Senior Solution Architect, BerkahKarya
 
 ---WHATSAPP---
-Halo, baru lihat website Meson Digital. Keren banget jajarannya, tapi kok gak ada bagian blog ya? Padahal banyak banget keyword SEO yang bisa ke-target buat nangkin klien. Sempet ngobrol santai 15 menit buat bahas ini?
+Hey, aku tadi cek Meson Digital di Google Maps & websitenya. Mau nanya, kalian udah pernah coba pasang WhatsApp chat langsung di web? Aku lihat kompetitor di Kelapa Gading udah mulai pakai, lumayan banget buat naikin leads loh!

@@ -1,0 +1,23 @@
+---PROPOSAL---
+Subject: Unlock Higher Conversion & Trust for SmartDigital with Strategic CRO & AI Automation
+
+Hi SmartDigital Team,
+
+I came across your site while researching Jakarta SEO leaders—your positioning as “#1 AI-Friendly Search Engine Optimisation” is impressive, and your range of services (SEO, SEM, branding, e-commerce) is strong. However, I noticed something your competitors like ToffeeDev in Jakarta are already leveraging: robust, real-time social proof and rapid lead engagement automation.
+
+Currently, SmartDigital’s website lacks testimonial or case study content, which can limit conversion for prospects who need trust signals before engaging. Here’s how you can outpace the market:
+
+1. **Automated Testimonial & Case Study Engine**  
+   - We’ll build a workflow (n8n + custom web modules) that auto-requests, collects, and displays fresh client testimonials and case studies directly on your site. You’ll see up to 30% more inbound leads by amplifying trust—ToffeeDev’s visible testimonials are likely boosting their close rate already.
+
+2. **AI-Powered Instant Lead Response via WhatsApp & Email**  
+   - Integrate a smart agent that engages new inquiries within 60 seconds (vs. typical 1-2 hours), pre-qualifies leads, and books calls automatically. Our Jakarta clients have cut lead response time by 5x—critical for closing high-intent prospects faster than your competition.
+
+Would you like a quick 15-minute call or a free personalized CRO & automation audit for SmartDigital? Just reply to this email, and I’ll set it up.
+
+Best,  
+Vilona  
+Solution Architect, BerkahKarya
+
+---WHATSAPP---
+Hey, aku baru lihat SmartDigital di Google Maps—keren banget nih branding-nya! Mau nanya, kalian udah coba otomatisasi buat kumpulin testimoni klien sama respon chat super cepat belum? Kalau mau diskusi santai, kabarin aja ya!

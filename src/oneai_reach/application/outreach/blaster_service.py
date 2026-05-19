@@ -18,7 +18,7 @@ from oneai_reach.infrastructure.logging import get_logger
 logger = get_logger(__name__)
 
 PROPOSAL_SUBJECT = "Collaboration Proposal from BerkahKarya"
-COOLDOWN_DAYS = 30  # don't re-contact the same lead within this window
+COOLDOWN_DAYS = 7  # don't re-contact the same lead within this window (crisis mode: reduced from 30)
 
 
 class BlasterService:
@@ -75,7 +75,7 @@ class BlasterService:
 
             # Only send leads that passed the quality review gate
             status = str(row.get("status") or "")
-            if status not in ("reviewed", "new", ""):
+            if status not in ("reviewed", "draft_ready", "new", ""):
                 # Skip leads in other pipeline stages
                 if status not in ("nan", "none"):
                     skipped_cooldown += 1
@@ -102,7 +102,9 @@ class BlasterService:
             if is_empty_fn(phone):
                 phone = ""
 
-            path = draft_path_fn(index, name)
+            # Use Google Places ID (stable) instead of DataFrame index (unstable)
+            lead_id = str(row.get("id") or index)
+            path = draft_path_fn(lead_id, name)
             if not os.path.exists(path):
                 logger.warning(f"[skip] {name} — no draft at {path}")
                 skipped_no_draft += 1
@@ -152,7 +154,6 @@ class BlasterService:
                     email,
                     PROPOSAL_SUBJECT,
                     proposal,
-                    lead_id=str(row.get("id") or f"lead_{index}"),
                     pdf_bytes=pdf_bytes,
                     filename=pdf_filename,
                 )

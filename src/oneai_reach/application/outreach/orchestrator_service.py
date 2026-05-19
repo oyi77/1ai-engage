@@ -16,7 +16,7 @@ class OrchestratorService:
 
     def __init__(self, config: Settings):
         self.config = config
-        self.scripts_dir = Path(__file__).parent.parent.parent.parent / "scripts"
+        self.scripts_dir = Path(__file__).parent.parent.parent.parent.parent / "scripts"
 
     def run_gmaps_scraper(self, query: str, max_results: int = 60) -> bool:
         """Scrape leads using gosom Google Maps scraper."""

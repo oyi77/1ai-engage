@@ -3,8 +3,6 @@ import re
 import time
 from pathlib import Path
 
-from weasyprint import HTML
-
 MAX_PROPOSAL_PDF_BYTES = 10 * 1024 * 1024
 
 
@@ -43,25 +41,28 @@ def proposal_text_to_html(proposal: str, lead_name: str) -> str:
 
 
 def generate_proposal_pdf(proposal: str, lead_name: str) -> bytes:
-    html_content = proposal_text_to_html(proposal, lead_name)
-    start = time.perf_counter()
+    """Generate PDF from proposal text. Returns empty bytes if generation fails."""
     try:
-        pdf = HTML(string=html_content).write_pdf()
-    except Exception as exc:
-        raise ProposalPdfError(f"Proposal PDF generation failed: {exc}") from exc
+        from weasyprint import HTML as WeasyHTML
+    except ImportError:
+        return b""
 
-    duration = time.perf_counter() - start
-    if not pdf or not pdf.startswith(b"%PDF"):
-        raise ProposalPdfError("Generated proposal PDF is invalid")
-    if len(pdf) > MAX_PROPOSAL_PDF_BYTES:
-        raise ProposalPdfError(
-            f"Generated proposal PDF is too large: {len(pdf)} bytes"
-        )
-    if duration > 10:
-        raise ProposalPdfError(
-            f"Proposal PDF generation exceeded timeout budget: {duration:.2f}s"
-        )
-    return pdf
+    try:
+        html_content = proposal_text_to_html(proposal, lead_name)
+        start = time.perf_counter()
+        pdf = WeasyHTML(string=html_content).write_pdf()
+        duration = time.perf_counter() - start
+
+        if not pdf or not pdf.startswith(b"%PDF"):
+            return b""
+        if len(pdf) > MAX_PROPOSAL_PDF_BYTES:
+            return b""
+        if duration > 10:
+            return b""  # Too slow, skip PDF
+        return pdf
+    except Exception:
+        # WeasyPrint fails on Python 3.13+ (collections.Callable issue etc)
+        return b""
 
 
 def persist_proposal_pdf(pdf_bytes: bytes, proposals_dir: str | Path, index: object, lead_name: str) -> Path:

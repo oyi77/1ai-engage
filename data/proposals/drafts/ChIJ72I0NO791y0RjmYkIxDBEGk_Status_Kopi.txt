@@ -1,0 +1,23 @@
+---PROPOSAL---
+Subject: Unlock Higher Foot Traffic & Revenue at Status Kopi with Advanced AI & FOMO Campaigns
+
+Hi Status Kopi Team,
+
+Noticed how engaged your Instagram audience is—your visual content and community vibes are spot on for attracting Surabaya’s coffee lovers. However, I see there’s an untapped opportunity: most interactions are stuck on Instagram, and there’s no seamless way for curious followers to book tables, claim promos, or get instant responses outside social media.
+
+Here are two concrete solutions to boost your in-store visits and conversion rates:
+
+1. **AI-Powered WhatsApp Chatbot with FOMO Campaign Automation**  
+We’ll deploy an AI chatbot on WhatsApp (integrated via Business API) that instantly responds to DMs, sends out flash promo codes, and handles reservation requests. This taps into FOMO by offering limited-time deals (e.g., “20% off for the next 15 customers!”) and personalized reminders—cutting average response times by 5x and nudging your followers to visit the café ASAP.
+
+2. **Conversion-Optimized Landing Page for Campaigns**  
+We’ll build a dedicated landing page (linked from IG bio) tied to your FOMO campaigns. This page will have dynamic countdowns, promo claim buttons, and Google Analytics tracking—designed to turn traffic into walk-ins. Similar implementations have increased promo redemption by 30%+ for our clients.
+
+Happy to run a free audit of your current digital funnel or brainstorm ideas on a quick 15-minute call. Let me know what works for you!
+
+Best,  
+Vilona  
+Solution Architect, BerkahKarya
+
+---WHATSAPP---
+Hey, aku nemu Status Kopi pas lagi cari tempat ngopi di Dukuh Pakis. Penasaran, kalian pernah coba blast promo dadakan via WhatsApp? Bisa bikin makin rame lho! Mau ngobrol bentar soal ide ini?

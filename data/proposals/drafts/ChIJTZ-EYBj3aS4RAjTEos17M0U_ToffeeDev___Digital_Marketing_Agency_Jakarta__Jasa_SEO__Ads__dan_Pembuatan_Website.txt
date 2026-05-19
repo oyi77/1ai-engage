@@ -1,0 +1,23 @@
+---PROPOSAL---
+Subject: Unlocking Advanced Growth for ToffeeDev: AI-Powered Automation & Conversion Optimization
+
+Hi ToffeeDev Team,
+
+Noticed how your site highlights strong SEO and Ads services—impressive portfolio and your client case studies stand out. However, when analyzing your lead capture flow and comparing it to Mirum Jakarta’s recent moves, there’s a clear opportunity: they’re leveraging AI-driven automation to cut lead response times and using advanced CRO techniques to boost their qualified leads.
+
+Here’s how ToffeeDev can leap ahead:
+
+1. **AI-Powered Lead Routing & Instant WhatsApp Response**  
+Implement an AI automation workflow (using n8n + WhatsApp Business API) that instantly qualifies and routes new web leads, sending personalized responses within seconds via WhatsApp. Agencies using this approach have reported up to 5x faster response times and up to 30% increase in client conversion rates.
+
+2. **A/B Tested Landing Pages with Dynamic Content Personalization**  
+Deploy conversion-optimized landing pages (Next.js) with real-time A/B testing and dynamic content blocks tailored by traffic source or campaign. This can lift your Google/Meta Ads ROI by 25%+ and help outperform competitors like Mirum who are already experimenting with tailored conversion funnels.
+
+Would you be open to a quick 15-minute call or a free audit of your current lead funnel? I’d love to share a few actionable insights specific to ToffeeDev’s stack.
+
+Best regards,  
+Vilona  
+Solution Architect, BerkahKarya
+
+---WHATSAPP---
+Hey ToffeeDev, aku nemu websitemu pas lagi cek digital agency di Jakarta. Mau nanya, kalian udah pernah coba auto-respond WhatsApp buat leads masuk belum? Bisa bantu naikin closing tanpa nambah tim lho. Kalau mau, aku bisa kasih audit gratis, interested?

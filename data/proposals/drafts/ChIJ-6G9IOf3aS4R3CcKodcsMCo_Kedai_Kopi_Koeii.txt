@@ -1,0 +1,23 @@
+---PROPOSAL---
+Subject: Unlock More Local Coffee Lovers for Kedai Kopi Koeii with Smart Automation & Ads
+
+Hi Kedai Kopi Koeii Team,
+
+Scrolling through your Instagram, I noticed you’ve built a strong visual brand and community vibe around your Kemanggisan location—great job! However, I couldn't find any direct link for WhatsApp ordering, automated responses, or special campaign landing pages. This is where local cafes like Kopikalyan in West Jakarta are quietly pulling ahead: they’ve integrated WhatsApp Business API for instant ordering and run targeted Google/Meta Ads with city-specific offers.
+
+Here’s how you can leapfrog:
+
+1. **WhatsApp Ordering & Promo Automation**  
+Set up a WhatsApp Business API with a chatbot that takes orders, answers FAQs, and sends automatic promo codes to new chatters. This typically cuts response time by 5x and can drive up to 30% more direct orders—especially for busy lunch and evening hours.
+
+2. **Hyperlocal Google & Meta Ads + Conversion Landing Page**  
+Launch city-targeted ads (radius around Kemanggisan) with a custom landing page—think: “Order Kopi Susu Koeii, Get Free Pastry Today Only!” We’ll track every click and conversion, so you see exactly which ads bring in walk-ins and orders.
+
+If you’re curious how these would work for Koeii, let’s schedule a free 15-minute call or let me send a quick audit of your current digital touchpoints.
+
+Best,  
+Vilona  
+Solution Architect, BerkahKarya
+
+---WHATSAPP---
+Hey, aku baru lihat Kedai Kopi Koeii di IG & Maps—seru banget tempatnya! Boleh tanya, udah pernah coba sistem WhatsApp otomatis buat order atau promo langsung? Kalau belum, seru juga kali ya, bisa cepet banget balas chat pelanggan. Mau sharing ide singkat, kapan ya enaknya?

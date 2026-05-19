@@ -12,6 +12,11 @@ from typing import Optional, Set
 from pydantic import ConfigDict, Field, field_validator
 import os
 from pydantic_settings import BaseSettings
+from dotenv import load_dotenv
+
+# Load .env file at module level
+_env_path = Path(__file__).resolve().parents[3] / ".env"
+load_dotenv(_env_path)
 
 
 class DatabaseSettings(BaseSettings):
@@ -76,6 +81,13 @@ class BookingSettings(BaseSettings):
 class EmailSettings(BaseSettings):
     """Email configuration (Brevo + Stalwart SMTP)."""
 
+    model_config = ConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=False,
+        extra="ignore",
+    )
+
     brevo_api_key: str = Field(
         default="", description="Brevo API key for email sending"
     )
@@ -92,8 +104,6 @@ class EmailSettings(BaseSettings):
     smtp_port: int = Field(default=587, description="SMTP server port")
     smtp_user: str = Field(default="marketing", description="SMTP username")
     smtp_password: str = Field(default="", description="SMTP password")
-
-    model_config = ConfigDict(env_prefix="SMTP_")
 
 
 class GmailSettings(BaseSettings):

@@ -1,0 +1,22 @@
+---PROPOSAL---
+Subject: Unlock 30% More Qualified Leads for SAC Indonesia with Advanced Automation & CRO
+
+Hi SAC Indonesia Team,
+
+I noticed that your website (sac.id) highlights a range of facility and building management services, and your digital presence is already solid. However, when reviewing your lead capture funnel and comparing it with FMS Indonesia (based in Jakarta), I observed that they leverage AI-powered chatbots and automated WhatsApp follow-ups to capture and qualify leads instantly—minimizing drop-offs and boosting conversion rates.
+
+Here’s a concrete opportunity for SAC Indonesia:
+1. **AI-Driven Lead Automation & WhatsApp Integration**  
+   Implement an AI-powered WhatsApp chatbot and web automation (using n8n) to respond to inquiries within seconds and qualify leads automatically. This can reduce manual response time by 5x, and based on similar deployments, typically increases qualified leads by 30%—putting you ahead of competitors still relying on manual replies.
+
+2. **Conversion Rate Optimization (CRO) Audit & Funnel Redesign**  
+   We’ll analyze your existing inquiry and contact forms, then A/B test optimized landing pages and submission flows. The goal: reduce drop-offs, streamline quote requests, and potentially double your web-to-lead conversion rate, as seen in recent projects in Jakarta’s service sector.
+
+Would you be open to a quick 15-minute call or a free CRO & automation audit? I can share actionable insights tailored for SAC Indonesia—no obligations.
+
+Best regards,  
+Vilona  
+Solution Architect, BerkahKarya
+
+---WHATSAPP---
+Hai kak, aku baru lihat SAC Indonesia di Google Maps — keren banget! Mau tanya, udah pernah coba otomatisasi chat WhatsApp buat jawab pertanyaan klien lebih cepat belum? Kalau tertarik ngobrol sebentar, aku bisa share tips yang lagi dipakai kompetitor di Jakarta biar leads makin banyak.

@@ -119,15 +119,21 @@ def process_proposals(lead_id: str = None, dry_run: bool = False) -> None:
             "won",
             "lost",
         ):
-            skipped += 1
-            continue
+            # Check if draft exists; if not, regenerate
+            lead_id_check = str(row.get("id") or index)
+            path_check = draft_path(lead_id_check, name)
+            if os.path.exists(path_check):
+                skipped += 1
+                continue
 
         val = row.get("email"); email = "" if pd.isna(val) else str(val).strip()
         if is_empty(email):
             skipped += 1
             continue
 
-        path = draft_path(index, name)
+        # Use Google Places ID (stable) instead of DataFrame index (unstable)
+        lead_id = str(row.get("id") or index)
+        path = draft_path(lead_id, name)
         if os.path.exists(path) and status != "needs_revision":
             skipped += 1
             continue
@@ -136,7 +142,7 @@ def process_proposals(lead_id: str = None, dry_run: bool = False) -> None:
         csv_research = str(row.get("research") or "")
 
         lead_dict = {
-            "id": str(index),
+            "id": lead_id,
             "displayName": row.get("displayName"),
             "type": row.get("type"),
             "primaryType": row.get("primaryType"),

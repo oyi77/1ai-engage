@@ -1,8 +1,12 @@
 import sys
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Get the project root directory (parent of scripts/)
 _PROJECT_ROOT = Path(__file__).parent.parent.resolve()
+
+# Load .env BEFORE importing settings
+load_dotenv(_PROJECT_ROOT / ".env")
 
 sys.path.insert(0, str(_PROJECT_ROOT / "src"))
 
