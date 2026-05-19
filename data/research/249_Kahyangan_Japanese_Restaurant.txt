@@ -1,0 +1,8 @@
+# Prospect Research: Kahyangan Japanese Restaurant
+Services detected: AI
+Tech stack: wordpress
+Observed gaps/pain points:
+  - No blog or content section (missing organic SEO leverage)
+  - No visible client testimonials or case studies
+  - Weak or missing call-to-action
+  - No portfolio / 'our work' section

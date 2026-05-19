@@ -1,0 +1,6 @@
+# Prospect Research: Plan B Spanish Resto
+Services detected: social media, digital PR, AI
+Tech stack: shopify, react, next.js, google_ads
+Observed gaps/pain points:
+  - Weak or missing call-to-action
+  - No portfolio / 'our work' section

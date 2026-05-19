@@ -2518,5 +2518,25 @@
     "consent_method": "import",
     "ip_address": null,
     "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJg1TYEI_1aS4RXr5tUDchUcg",
+    "email": "hitomoro@tomoro-coffee.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T15:07:10.738096+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJg1TYEI_1aS4RXr5tUDchUcg",
+    "email": "+62 811-1920-1071",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T15:07:11.272067+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
   }
 ]

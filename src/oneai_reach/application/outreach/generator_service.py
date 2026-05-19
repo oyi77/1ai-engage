@@ -385,10 +385,10 @@ class GeneratorService:
             except Exception as e:
                 logger.warning(f"{label} failed: {e}")
 
-        # Direct API fallbacks
+        # Direct API fallbacks (DeepSeek first — cheapest, most reliable)
         direct_apis = [
-            ("openai-direct-gpt4.1", lambda p: self._call_openai_direct(p, "gpt-4.1")),
             ("deepseek-direct", lambda p: self._call_deepseek_direct(p, "deepseek-chat")),
+            ("openai-direct-gpt4.1", lambda p: self._call_openai_direct(p, "gpt-4.1")),
             ("openai-direct-gpt4o", lambda p: self._call_openai_direct(p, "gpt-4o")),
         ]
         for label, call_fn in direct_apis:
@@ -437,11 +437,17 @@ class GeneratorService:
     def _call_omniroute(prompt: str, model: str, max_tokens: int = 4096, timeout: int = 120) -> Optional[str]:
         """Call Omniroute proxy with retry logic."""
         import time as _time
+        omniroute_key = os.getenv("OMNIRoute_API_KEY", "ffc36d9b8c9755bc9b3a3410e1ea308911078dbced08483c63d5fca456f0ccb3")
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {omniroute_key}",
+        }
         for attempt in range(3):
             try:
                 import requests
                 resp = requests.post(
                     "http://localhost:20128/v1/chat/completions",
+                    headers=headers,
                     json={
                         "model": model,
                         "messages": [{"role": "user", "content": prompt}],

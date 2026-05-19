@@ -91,8 +91,8 @@ def process_proposals(lead_id: str = None, dry_run: bool = False) -> None:
         if not leads:
             print("No eligible leads found.")
             return
-        # Batch: process max 30 leads per cycle (speed > completeness)
-        batch_size = 30
+        # Batch: process max 10 leads per cycle (avoid LLM rate limits)
+        batch_size = 10
         batch = leads[:batch_size]
         generated = skipped = 0
         for lead in batch:
@@ -103,6 +103,8 @@ def process_proposals(lead_id: str = None, dry_run: bool = False) -> None:
             ok = _process_single_lead(service, lead, dry_run=dry_run)
             if ok:
                 generated += 1
+                import time
+                time.sleep(2)  # Rate limit breathing room between proposals
             else:
                 skipped += 1
         print(f"\nGeneration complete. {generated} generated, {skipped} skipped (batch {len(batch)}/{len(leads)}).")

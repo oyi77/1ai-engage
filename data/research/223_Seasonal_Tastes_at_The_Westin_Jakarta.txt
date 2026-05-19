@@ -1,0 +1,7 @@
+# Prospect Research: Seasonal Tastes at The Westin Jakarta
+Services detected: AI
+Tech stack: react, next.js
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No visible client testimonials or case studies
+  - No portfolio / 'our work' section

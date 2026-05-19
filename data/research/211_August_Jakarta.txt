@@ -1,0 +1,7 @@
+# Prospect Research: August Jakarta
+Services detected: AI
+Tech stack: google_analytics
+Observed gaps/pain points:
+  - No blog or content section (missing organic SEO leverage)
+  - No visible client testimonials or case studies
+  - No portfolio / 'our work' section

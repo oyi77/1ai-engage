@@ -1,0 +1,7 @@
+# Prospect Research: il Mare
+Services detected: AI
+Tech stack: webflow
+Observed gaps/pain points:
+  - No live chat / WhatsApp widget on site
+  - No visible client testimonials or case studies
+  - No portfolio / 'our work' section

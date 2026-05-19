@@ -1,0 +1,33 @@
+---PROPOSAL---
+Subject: TOMORO Coffee's conversion gap: Why customers browse but don't book
+
+Hi there,
+
+I was checking out TOMORO Coffee's website and Google presence—solid branding, great location in Menteng. But I noticed something: your site has no chatbot handling inquiries, no customer testimonials building trust, and critically, no clear CTAs guiding visitors to either order online or book a table. Meanwhile, competitors like Kopi Kenangan and local roasters in Jakarta Pusat are capturing weekend traffic through WhatsApp automation + review-driven ads.
+
+Here's the gap: You're getting foot traffic and organic searches, but your digital funnel isn't converting browsers into repeat customers or online orders.
+
+**We propose a 2-phase solution:**
+
+**Phase 1: WhatsApp Chatbot + Review Amplification (4 weeks)**
+- Deploy WhatsApp Business API chatbot to handle menu inquiries, reservations, and order tracking 24/7 (reduces response time from hours to instant)
+- Embed customer testimonials + photos on homepage with auto-collection system
+- Add sticky CTAs ("Reserve a Table" / "Order Now") strategically across pages
+- Expected outcome: 25-40% increase in qualified inquiries, faster booking confirmations
+
+**Phase 2: Google Ads + SEO Refinement (ongoing)**
+- Launch geo-targeted Google Ads campaign for "kopi terbaik Jakarta Pusat" + "cafe menteng" (capture high-intent searches)
+- Implement blog content (coffee origin stories, brewing guides) to own long-tail keywords and build authority
+- Expected outcome: 30-50% more qualified foot traffic + online orders within 60 days
+
+Both phases integrate with your existing site—no rebuild needed.
+
+Want to see a quick audit of your conversion funnel? I can walk you through a 15-minute call this week to show exactly where you're losing customers.
+
+Best,
+Vilona
+Senior Solution Architect
+BerkahKarya
+
+---WHATSAPP---
+Halo! Baru aja liat TOMORO Coffee di Google Maps—tempat bagus banget di Menteng. Cuma penasaran, apakah kalian udah pake WhatsApp Bot buat handle booking & order? Soalnya banyak kafe sekitar sini yang mulai pakai, dan conversion-nya naik jauh. Mau diskusi cepet aja?

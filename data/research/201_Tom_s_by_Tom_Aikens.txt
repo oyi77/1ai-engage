@@ -1,0 +1,8 @@
+# Prospect Research: Tom’s by Tom Aikens
+Services detected: AI
+Tech stack: next.js
+Observed gaps/pain points:
+  - No blog or content section (missing organic SEO leverage)
+  - No visible client testimonials or case studies
+  - Weak or missing call-to-action
+  - No portfolio / 'our work' section
