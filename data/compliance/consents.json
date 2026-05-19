@@ -2538,5 +2538,65 @@
     "consent_method": "import",
     "ip_address": null,
     "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ3yiSDfHzaS4RmgnzjYbGhrw",
+    "email": "febi.setianingrum@westin.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:49:36.245848+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ3yiSDfHzaS4RmgnzjYbGhrw",
+    "email": "+6287800028008622127887788",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:49:37.510182+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJfYemRwX0aS4RdaYdCViX-5U",
+    "email": "hola@hausemade.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:50:08.024632+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJfYemRwX0aS4RdaYdCViX-5U",
+    "email": "+6281210015880",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:50:08.104236+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ91EGWSP0aS4R2FsHVktCgwk",
+    "email": "reservation.menteng@plataran.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:50:40.673260+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ91EGWSP0aS4R2FsHVktCgwk",
+    "email": "+62 21 29627771",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:50:40.757400+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
   }
 ]

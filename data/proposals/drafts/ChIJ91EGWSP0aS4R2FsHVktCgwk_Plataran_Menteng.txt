@@ -1,0 +1,25 @@
+---PROPOSAL---
+Subject: Outpacing competitors in Menteng: AI automation for Plataran Menteng
+
+Dear Plataran Menteng team,
+
+While reviewing your online presence, I noticed something striking: your website at plataran.com/plataran-menteng beautifully showcases your Indonesian cuisine, but it lacks a key component that competitors like **Lara Djonggrang** (also in Menteng) are aggressively using—an AI-powered chatbot and automated reservation system. They’ve recently integrated a WhatsApp chatbot to handle bookings and inquiries 24/7, and it’s likely giving them a significant edge in conversion.
+
+Here’s the gap I see: your site has no chatbot, no call-to-action (CTA) for reservations, and no customer testimonials to build trust. This means potential diners are visiting, browsing, and leaving without a clear next step—or worse, choosing a competitor who responds instantly.
+
+I propose two concrete solutions tailored to Plataran Menteng:
+
+1. **WhatsApp Business API + AI Chatbot for Reservations**  
+   - Deliverable: A custom chatbot integrated into your website and WhatsApp that handles table bookings, menu inquiries, and special requests automatically. This cuts response time from hours to seconds, and can increase confirmed reservations by up to **30%** by capturing leads after hours.
+
+2. **Conversion Rate Optimization (CRO) + Social Proof Layer**  
+   - Deliverable: Add a floating CTA button (“Reserve Now via WhatsApp”), a testimonial carousel from past guests, and a simple blog section (e.g., “Behind the Dish” stories) to boost SEO and trust. This can lift conversion rates by **15-20%** based on similar restaurant projects.
+
+I’d love to show you a quick 15-minute audit of how your site compares to Lara Djonggrang’s setup, and how we can implement this in under two weeks. Are you open to a brief call this week?
+
+Best regards,  
+Vilona  
+Solution Architect, BerkahKarya
+
+---WHATSAPP---
+Halo Tim Plataran Menteng, saya lihat website kalian keren banget, tapi kok belum ada chatbot ya? Banyak restoran di Menteng udah pake AI buat reservasi otomatis lewat WhatsApp, loh. Pengen tahu cara pasangnya? Bisa kita bahas 5 menit aja, gimana?

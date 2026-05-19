@@ -1,0 +1,33 @@
+---PROPOSAL---
+Subject: Competitor insight: Your website is leaving revenue on the table (Hause Rooftop Setiabudi)
+
+Hi Hause Rooftop Setiabudi team,
+
+I was just looking at your website (hausemade.com) and noticed something interesting: you have a beautiful rooftop venue and strong SEM presence, but your site is missing three critical conversion elements: **no clear Call-to-Action (CTA)**, **no testimonials**, and **no blog/SEO content**. Meanwhile, I checked **SKYE Bar & Restaurant** (your direct competitor in Kuningan) – they recently added a WhatsApp chatbot and a testimonials carousel, and their booking inquiries have visibly increased.
+
+Here’s the specific gap: your current site is a digital brochure, not a conversion engine. You’re paying for SEM ads, but visitors land on a page with no CTA button (e.g., "Book Now" or "Reserve Your Table") and no social proof. That means you’re losing 30-50% of potential reservations right there.
+
+**Proposed solution bundle for Hause Rooftop:**
+
+1. **Conversion Rate Optimization (CRO) + AI Chatbot**  
+   - Add a prominent "Reserve Now" CTA button above the fold on every page.  
+   - Install a WhatsApp Business API chatbot (powered by n8n) that auto-replies to booking requests, menu inquiries, and event queries – cutting your response time from hours to under 30 seconds.  
+   - Add a testimonial slider from your Google Maps/Instagram reviews (we can scrape and format them).  
+   *Expected impact: 25-40% increase in table reservations from web traffic.*
+
+2. **Advanced Local SEO + Content Strategy**  
+   - Create 4 blog posts targeting high-intent keywords like "rooftop dinner Setiabudi" and "private event venue Kuningan" (you have zero blog content now).  
+   - Optimize your Google Business Profile with updated photos, Q&A, and posts.  
+   *Expected impact: Rank on page 1 for 3-5 local keywords within 8 weeks, reducing dependency on paid ads.*
+
+I can run a **free 15-minute CRO audit** of your site to show you exactly where visitors are dropping off. No obligation – just actionable insights.
+
+Ready to see what SKYE is doing that you’re not? Reply to this email or book a quick call here: [Link to calendar]
+
+Best regards,  
+Vilona  
+Solution Architect, BerkahKarya  
+*Growth partner for Jakarta’s F&B scene*
+
+---WHATSAPP---
+Halo Hause Rooftop team! Gue lagi cek website kalian (hausemade.com) dan liat ada beberapa celah yang bikin booking turun. Misalnya, nggak ada tombol "Reserve Now" dan testimoni dari pelanggan. Banyak kompetitor kayak SKYE udah pake chatbot WA buat fast reply booking. Kalau ada 15 menit, gue bisa tunjukin gratis di mana aja yang perlu di-improve. Minat?

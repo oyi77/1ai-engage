@@ -1,0 +1,31 @@
+---PROPOSAL---
+Subject: Competitor Insight: How [Competitor Name] is capturing more Jakarta diners via AI & SEO
+
+Dear Plataran Dharmawangsa Team,
+
+I was reviewing your online presence and noticed something interesting: while your website beautifully showcases the dining experience at Plataran Dharmawangsa, there are three critical gaps that local competitors like **Lara Djonggrang** or **Seribu Rasa Menteng** are actively exploiting to capture more reservations.
+
+1. **No chatbot or AI automation** – Your website has no instant booking or inquiry assistant. A potential guest browsing at 10 PM cannot get a quick answer about table availability or private room pricing. Competitors with WhatsApp chatbots are converting these late-night browsers into confirmed reservations, cutting response time by 5x.
+2. **No blog or testimonial section** – You have no way to capture organic traffic from people searching "best Indonesian fine dining in South Jakarta" or "private dining Dharmawangsa." A competitor who publishes 1-2 SEO-optimized articles per month is stealing your search visibility.
+3. **No clear CTA or portfolio** – Your property page lacks a direct "Reserve Now" button or a gallery of signature dishes/ambiance. This creates friction, causing visitors to leave without booking.
+
+**Proposed Solution (Growth + AI Automation + CRO Bundle):**
+
+**1. WhatsApp AI Chatbot + Instant Booking Flow**
+- Deploy a WhatsApp Business chatbot (via API) that answers menu questions, shares reservation links, and collects guest preferences (e.g., dietary restrictions, special occasions).
+- Integrate with your existing reservation system to confirm bookings automatically.
+- *Expected ROI: 30% more confirmed bookings from website visitors, with zero manual follow-up.*
+
+**2. SEO Content Engine + CRO Landing Page Audit**
+- Create 4 high-intent blog posts/month (e.g., "5 Traditional Indonesian Dishes You Must Try in South Jakarta") targeting local diners and tourists.
+- Redesign your property page with a sticky "Reserve Now" CTA, social proof (guest testimonials), and a high-res photo gallery.
+- *Expected ROI: 40% increase in organic traffic to your reservation page within 3 months.*
+
+I can also run a **free 15-minute audit** of your current site's conversion funnel to show you exactly where bookings are being lost. Would you be open to a quick call this week to discuss?
+
+Best regards,  
+**Vilona**  
+Solution Architect, BerkahKarya
+
+---WHATSAPP---
+Halo, tim Plataran Dharmawangsa! Saya nemu profil Anda di Google Maps, dan website-nya keren banget. Cuma saya lihat belum ada chatbot WhatsApp buat reservasi langsung — padahal banyak kompetitor kayak Lara Djonggrang udah pakai itu dan booking mereka naik drastis. Ada waktu 5 menit buat diskusi? Saya bisa bantu tanpa ribet. 😊

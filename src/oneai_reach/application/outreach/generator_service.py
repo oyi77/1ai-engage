@@ -367,15 +367,23 @@ class GeneratorService:
             print("=" * 72)
             return ""
 
-        # LLM chain: Omniroute → Direct API fallbacks
-        omniroute_models = [
-            ("omniroute-gpt-4.1", "github/gpt-4.1"),
-            ("omniroute-gpt-5-mini", "github/gpt-5-mini"),
-            ("omniroute-claude-sonnet", "cc/claude-sonnet-4-6"),
-            ("omniroute-claude-haiku", "cc/claude-haiku-4-5-20251001"),
-        ]
+        # LLM chain: DeepSeek direct (reliable) → Omniroute → OpenAI direct
+        # DeepSeek first — cheapest, most reliable, no rate limit issues
+        try:
+            result = self._call_deepseek_direct(full_prompt, "deepseek-chat")
+            if result:
+                logger.info(f"Successfully generated proposal using deepseek-direct")
+                return result
+        except Exception as e:
+            logger.warning(f"deepseek-direct failed: {e}")
 
-        # Try Omniroute first
+        # Omniroute fallback (GitHub Models + Cloudflare)
+        omniroute_models = [
+            ("omniroute-gpt-5-mini", "github/gpt-5-mini"),
+            ("omniroute-gpt-4.1", "github/gpt-4.1"),
+            ("omniroute-claude-haiku", "cc/claude-haiku-4-5-20251001"),
+            ("omniroute-claude-sonnet", "cc/claude-sonnet-4-6"),
+        ]
         for label, model_id in omniroute_models:
             try:
                 result = self._call_omniroute(full_prompt, model_id)
@@ -385,9 +393,8 @@ class GeneratorService:
             except Exception as e:
                 logger.warning(f"{label} failed: {e}")
 
-        # Direct API fallbacks (DeepSeek first — cheapest, most reliable)
+        # OpenAI direct last resort
         direct_apis = [
-            ("deepseek-direct", lambda p: self._call_deepseek_direct(p, "deepseek-chat")),
             ("openai-direct-gpt4.1", lambda p: self._call_openai_direct(p, "gpt-4.1")),
             ("openai-direct-gpt4o", lambda p: self._call_openai_direct(p, "gpt-4o")),
         ]
@@ -437,17 +444,11 @@ class GeneratorService:
     def _call_omniroute(prompt: str, model: str, max_tokens: int = 4096, timeout: int = 120) -> Optional[str]:
         """Call Omniroute proxy with retry logic."""
         import time as _time
-        omniroute_key = os.getenv("OMNIRoute_API_KEY", "ffc36d9b8c9755bc9b3a3410e1ea308911078dbced08483c63d5fca456f0ccb3")
-        headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {omniroute_key}",
-        }
         for attempt in range(3):
             try:
                 import requests
                 resp = requests.post(
                     "http://localhost:20128/v1/chat/completions",
-                    headers=headers,
                     json={
                         "model": model,
                         "messages": [{"role": "user", "content": prompt}],

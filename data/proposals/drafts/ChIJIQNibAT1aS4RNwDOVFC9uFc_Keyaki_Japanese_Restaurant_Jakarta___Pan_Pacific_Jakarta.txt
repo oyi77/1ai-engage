@@ -1,0 +1,27 @@
+---PROPOSAL---
+Subject: Keyaki’s hidden asset (and how a competitor is quietly outpacing you)
+
+Hi Keyaki team,
+
+I spent some time on your Pan Pacific Jakarta page and noticed something striking: your Keyaki dining experience is world-class—omakase, teppanyaki, and a serene private room setting—but your digital front door is almost entirely static. There’s no blog, no customer testimonials, no clear call-to-action for reservations, and no portfolio showcasing your chef’s seasonal creations. Meanwhile, a direct competitor in Tanah Abang—**Sushi Masa**—has been aggressively running Google Ads with testimonial carousels and a “book a table” CTA that captures intent immediately. They’re likely pulling 25-30% more direct bookings from search because of it.
+
+Here’s what I’d propose to close that gap and turn your existing traffic into confirmed reservations:
+
+**1. Conversion Rate Optimization (CRO) + Google Ads Retargeting Bundle**  
+- Redesign your Keyaki landing page with a prominent, low-friction “Reserve Your Omakase” CTA, a rotating testimonial block from past guests, and a seasonal dish gallery.  
+- Launch a Google Ads campaign targeting “fine dining Jakarta” and “Japanese omakase Jakarta” with a retargeting pixel, so visitors who browse but don’t book see a personalized ad with a limited-time offer (e.g., “Complimentary sake pairing on your first reservation”).  
+- Expected outcome: 20-30% increase in direct reservation conversions within 8 weeks.
+
+**2. AI-Powered WhatsApp Booking Assistant**  
+- Deploy an n8n-based chatbot integrated with your existing WhatsApp Business number. It can handle reservation inquiries, confirm table availability, and send automatic reminders—all without human intervention.  
+- This cuts response time from hours to seconds, and can upsell omakase upgrades during the chat.  
+- Expected outcome: 5x faster response time, plus a measurable lift in average check size.
+
+I’d love to run a free 15-minute audit of your current page performance and show you exactly where competitors are winning. Can we grab a quick call this week?
+
+Best,  
+Vilona  
+Solution Architect, BerkahKarya
+
+---WHATSAPP---
+Halo, tim Keyaki! Saya nemu halaman Keyaki di website Pan Pacific—menu omakase dan teppanyaki-nya kelihatan premium banget. Cuma, saya lihat belum ada testimoni tamu atau tombol reservasi yang jelas di situ. Saya punya ide simpel buat ningkatin booking langsung lewat Google dan WhatsApp—mungkin bisa diskusi 15 menit?

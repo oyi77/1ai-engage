@@ -6138,5 +6138,81 @@
       "success": true,
       "timestamp": "2026-05-19T16:31:22.739301+00:00"
     }
+  },
+  {
+    "timestamp": "2026-05-19T20:49:36.251812+00:00",
+    "action": "consent",
+    "subject": "ChIJ3yiSDfHzaS4RmgnzjYbGhrw",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:49:37.516898+00:00",
+    "action": "consent",
+    "subject": "ChIJ3yiSDfHzaS4RmgnzjYbGhrw",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:50:08.006855+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3yiSDfHzaS4RmgnzjYbGhrw",
+    "details": {
+      "channel": "email",
+      "contact": "febi.setianingrum@westin.com",
+      "success": true,
+      "timestamp": "2026-05-19T20:50:08.005193+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:50:08.031459+00:00",
+    "action": "consent",
+    "subject": "ChIJfYemRwX0aS4RdaYdCViX-5U",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:50:08.115816+00:00",
+    "action": "consent",
+    "subject": "ChIJfYemRwX0aS4RdaYdCViX-5U",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:50:40.665705+00:00",
+    "action": "outreach",
+    "subject": "ChIJfYemRwX0aS4RdaYdCViX-5U",
+    "details": {
+      "channel": "email",
+      "contact": "hola@hausemade.com",
+      "success": true,
+      "timestamp": "2026-05-19T20:50:40.664085+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:50:40.677857+00:00",
+    "action": "consent",
+    "subject": "ChIJ91EGWSP0aS4R2FsHVktCgwk",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:50:40.762395+00:00",
+    "action": "consent",
+    "subject": "ChIJ91EGWSP0aS4R2FsHVktCgwk",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
   }
 ]

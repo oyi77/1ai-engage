@@ -1,0 +1,30 @@
+---PROPOSAL---
+Subject: Tom’s by Tom Aikens: 2 growth gaps we spotted (and how a competitor is closing them)
+
+Hi Tom’s by Tom Aikens team,
+
+I was reviewing your dining page at The Langham Jakarta, and noticed something interesting: your menu and ambiance are world-class, but your digital presence is missing two key conversion levers that a nearby competitor—**SKYE Restaurant & Bar** in Senayan—has been aggressively using to capture more reservations.
+
+Specifically, SKYE has started publishing guest testimonials and running Google Ads with direct CTA buttons (e.g., "Book Now" on their landing page). Meanwhile, your site has **no testimonials, no blog, and no clear CTA** above the fold. This means potential diners who land on your page have no social proof or immediate reason to book—they browse and leave.
+
+Here’s how we can fix that in 2 weeks:
+
+**1. Conversion Rate Optimization (CRO) + Social Proof Injection**  
+- Add a dynamic testimonial carousel (pulled from Google Reviews & TripAdvisor) to your homepage.  
+- Insert a sticky "Reserve a Table" CTA button on every page.  
+- Expected outcome: +25% more booking form submissions within 30 days.
+
+**2. Google Ads + Meta Ads Retargeting (with AI Automation)**  
+- Launch a 3-campaign Google Ads set targeting "fine dining Jakarta", "romantic dinner Senayan", and "Tom Aikens chef menu".  
+- Pair with Meta retargeting ads for visitors who viewed your menu but didn’t book.  
+- Use our AI automation (n8n) to sync booking inquiries directly to your reservation system—cutting response time by 5x.  
+- Estimated ROI: 4:1 ad spend to reservation value based on similar hotel restaurant campaigns.
+
+I’d love to show you a 5-minute audit of your current site’s conversion gaps. Available for a 15-minute call this Thursday or Friday?
+
+Best,  
+Vilona  
+Solution Architect, BerkahKarya
+
+---WHATSAPP---
+Halo Tim Tom’s by Tom Aikens, saya Vilona dari BerkahKarya. Baru lihat website kalian di The Langham—menunya keren banget! Tapi saya perhatiin, belum ada testimoni atau tombol booking yang jelas. Padahal kompetitor kayak SKYE udah mulai pasang Google Ads dan testimoni tamu, lho. Bisa kita ngobrol 15 menit gimana caranya bikin lebih banyak orang langsung reservasi?
