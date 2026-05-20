@@ -1,0 +1,35 @@
+---PROPOSAL---
+Subject: Le Petit Chef – 3x More Reservations via WhatsApp + Smart Reservation AI
+
+Hi there,
+
+I noticed Le Petit Chef's website gets decent traffic from Google Maps and direct searches, but there's a critical gap: **no automated way to convert hungry customers into actual bookings after hours**. Right now, when someone discovers you on their phone at 10 PM and wants to reserve, they either call (and get voicemail) or bounce to a competitor with instant booking.
+
+Here's what I'm seeing: fine dining spots in Central Jakarta like Locavore and Kayuputi are capturing 40%+ of their weekday reservations through WhatsApp Business + AI chatbots that handle instant confirmations, menu inquiries, and upsells. You're leaving that revenue on the table.
+
+**I'm proposing a bundled solution:**
+
+1. **WhatsApp Business API + Reservation Chatbot** (2-week build)
+   - Customers message directly from Google Maps or your website
+   - AI bot confirms availability, takes deposits, sends calendar links
+   - Your team gets real-time notifications—no missed bookings
+   - Expected outcome: 25-35% increase in confirmed reservations, especially during off-peak hours
+
+2. **Conversion Rate Optimization Audit + Landing Page Redesign** (3-week sprint)
+   - Current site has no social proof (zero testimonials, no guest reviews carousel)
+   - No clear CTA above the fold—"Reserve Now" button buried
+   - We'll add video testimonials, real guest photos, trust badges, and a sticky reservation widget
+   - Expected outcome: 20-30% lift in click-through to booking
+
+**Deliverables:** Fully functional WhatsApp bot, redesigned booking flow, 5 video testimonials from your guests, conversion-optimized landing page.
+
+This is the exact playbook Michelin-adjacent restaurants in Jakarta are using right now. Happy to show you a 15-minute live demo of how it works for a similar venue, or run a free conversion audit on your current site.
+
+When works best for a quick call?
+
+Cheers,
+Vilona
+Senior Solution Architect
+BerkahKarya
+---WHATSAPP---
+Hey! Baru liat Le Petit Chef di Maps—keren banget konsepnya. Mau tanya: berapa persen reservasi kalian dateng dari WhatsApp atau chat? Soalnya banyak resto fine dining di Jakarta yang mulai pakai bot untuk booking malam-malam, hasilnya lumayan. Mungkin worth explore?

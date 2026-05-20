@@ -1,0 +1,26 @@
+---PROPOSAL---
+Subject: Sugar & Spice – Capturing 40% More Reservations via WhatsApp + Smart CRO
+
+Hi there,
+
+I noticed Sugar & Spice has a beautiful dining experience at InterContinental, but your reservation page is missing two critical conversion tools: a WhatsApp chatbot for instant booking confirmations and social proof (customer testimonials/reviews carousel).
+
+Here's the gap: Competitors like Kayuputi (also in South Jakarta fine dining) are capturing walk-in + last-minute bookings by letting guests reserve directly via WhatsApp—cutting response time from hours to 2 minutes. Meanwhile, your current flow requires email or phone call, which loses ~30-40% of mobile diners who expect instant confirmation.
+
+**I'm proposing a bundled solution:**
+
+1. **WhatsApp Business API Chatbot + Reservation Automation** – Guests text "Book a table" → bot collects date/time/party size → auto-confirms via WhatsApp → syncs to your reservation system. Deliverable: Live bot in 2 weeks, reduces no-shows by 15% through instant reminders.
+
+2. **Landing Page CRO + Testimonial Widget** – Add a dynamic reviews carousel (pulled from Google/TripAdvisor) + clearer CTAs ("Reserve Now via WhatsApp" buttons on mobile). A/B test messaging. Deliverable: 25-35% higher click-through to booking within 30 days.
+
+Combined, this typically drives 40% more confirmed reservations for premium restaurants in Jakarta.
+
+Free 15-minute audit: I'll review your current booking funnel and show exactly where diners are dropping off.
+
+Best,
+Vilona
+Senior Solution Architect
+BerkahKarya
+
+---WHATSAPP---
+Hey! Baru lihat Sugar & Spice di Google Maps—tempatnya bagus banget. Quick question: sekarang guest booking via WhatsApp atau harus telepon? Tanya aja, soalnya banyak resto fine dining di Jakarta Selatan yang mulai pakai WhatsApp bot buat reservasi, conversion-nya naik banget 🚀

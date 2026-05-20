@@ -2598,5 +2598,855 @@
     "consent_method": "import",
     "ip_address": null,
     "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJq39stBzxaS4RzSdYU01AwQU",
+    "email": "tljkt.dining@langhamhotels.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:51:11.865359+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJq39stBzxaS4RzSdYU01AwQU",
+    "email": "+62 21 27087888",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:51:12.039946+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJX6uOoA_1aS4Rclea-3F8LqE",
+    "email": "bastian@arkagroup.co.id",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:51:47.431864+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJX6uOoA_1aS4Rclea-3F8LqE",
+    "email": "+62 821-2115-2142",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:51:48.063289+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJIQNibAT1aS4RNwDOVFC9uFc",
+    "email": "enquiry.ppjkt@panpacific.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:52:04.740410+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJIQNibAT1aS4RNwDOVFC9uFc",
+    "email": "+62 21 50820003",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:52:04.881704+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJU80L2nbxaS4R_m_3MgI5JiM",
+    "email": "reservation.dharmawangsa@plataran.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:52:25.707352+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJU80L2nbxaS4R_m_3MgI5JiM",
+    "email": "+62 21 29044167",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:52:26.359889+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ_zh9TXfxaS4RoFJBiBh54Sw",
+    "email": "reservation@the-dharmawangsa.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:52:42.461097+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ_zh9TXfxaS4RoFJBiBh54Sw",
+    "email": "+62 811-1025-999",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:52:43.063961+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJNx626AH0aS4RlQ5CSlPnxao",
+    "email": "jktmd.reservation@lemeridien.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:53:19.893418+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJNx626AH0aS4RlQ5CSlPnxao",
+    "email": "+62 21 5711577",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:53:20.745661+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ_02K8JbxaS4RX9G3vNqXim8",
+    "email": "pasola.jakarta@ritzcarlton.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:53:53.582305+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ_02K8JbxaS4RX9G3vNqXim8",
+    "email": "+62 21 25501993",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:53:53.999466+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ1fW7LRvxaS4RtFghnQES8Jo",
+    "email": "reservation.icjakarta@ihg.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:54:11.608043+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ1fW7LRvxaS4RtFghnQES8Jo",
+    "email": "+62 21 39507355",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:54:11.749474+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJWakHrTXxaS4Rf8RXhBHg-W4",
+    "email": "rsvp@augustjakarta.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:57:36.482245+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJWakHrTXxaS4Rf8RXhBHg-W4",
+    "email": "+62 877-3800-0808",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:57:36.927312+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ-3euTPjzaS4RJ8x5NT-A3Xw",
+    "email": "erre@melia.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T20:57:56.831315+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJEWUwBT0eai4RzXuvMnRvC4I",
+    "email": "layanan.bdancol@bandar-djakarta.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:01:36.225414+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJEWUwBT0eai4RzXuvMnRvC4I",
+    "email": "+62 21 6455472",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:01:36.489894+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ4UnlqwL0aS4Rsx3kmKaRK8Y",
+    "email": "info@primarasagroup.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:02:06.485153+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ4UnlqwL0aS4Rsx3kmKaRK8Y",
+    "email": "+62 811-1460-808",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:02:06.535668+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJZ3XYYj70aS4RyDFzTQx4BFY",
+    "email": "laradjonggrang@tuguhotels.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:03:36.075127+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJZ3XYYj70aS4RyDFzTQx4BFY",
+    "email": "+62 811-9108-966",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:03:36.432797+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJuQszoyH0aS4RpCt8AqUo27g",
+    "email": "oku.jakarta@kempinski.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:05:37.901732+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJuQszoyH0aS4RpCt8AqUo27g",
+    "email": "+62 21 23583896",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:05:38.463948+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ-fxdpiLxaS4R_PwmXPPTfbs",
+    "email": "reservations@txokojakarta.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:09:36.827409+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ-fxdpiLxaS4R_PwmXPPTfbs",
+    "email": "+62 21 27082215",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:09:37.481217+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJNejSzeTzaS4R4H-4VM-q3gc",
+    "email": "info@uniongroupjakarta.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:10:03.526913+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJNejSzeTzaS4R4H-4VM-q3gc",
+    "email": "+62 21 25542378",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:10:03.558539+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJlfV-oRDxaS4RgeWn0RceUeQ",
+    "email": "anigre.jakartagandariacity@sheraton.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:13:36.930338+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJlfV-oRDxaS4RgeWn0RceUeQ",
+    "email": "+62 811-1095-983",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:13:37.442904+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJKVsfXRb1aS4RB_lBsoGSJ-Y",
+    "email": "club@hyatt.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:13:59.085448+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJKVsfXRb1aS4RB_lBsoGSJ-Y",
+    "email": "+62 815-8621-1234",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:13:59.152285+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJMVBdEvHzaS4RzzD3mbhj5PI",
+    "email": "seasonaltaste.jakarta@westin.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:17:37.470801+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJMVBdEvHzaS4RzzD3mbhj5PI",
+    "email": "+62 812-9295-5393",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:17:37.906911+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJN_OwPSH0aS4RAXJX58WorqU",
+    "email": "altitude@altitudejakarta.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:19:36.865613+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJN_OwPSH0aS4RAXJX58WorqU",
+    "email": "+62 21 29922448",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:19:37.273926+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJtTWkIYz1aS4RwnajrFij71Q",
+    "email": "silk@biko-group.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:23:37.936336+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJtTWkIYz1aS4RwnajrFij71Q",
+    "email": "+62 21 21393348",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:23:38.715087+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJPw1c-Vj3aS4RkqRbPYZGw6E",
+    "email": "furusato@barcelo.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:24:31.650366+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJPw1c-Vj3aS4RkqRbPYZGw6E",
+    "email": "+62 811-9250-020",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:24:31.724200+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJSerL17X2aS4Rk1eOXtjj7ZE",
+    "email": "santiago@planbjakarta.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:27:37.068435+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJSerL17X2aS4Rk1eOXtjj7ZE",
+    "email": "+62 811-9532-526",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:27:37.977878+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJEW-XL9HxaS4RizPGQxbU_hY",
+    "email": "shikaku@shikakujakarta.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:28:24.050513+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJEW-XL9HxaS4RizPGQxbU_hY",
+    "email": "+62 812-3544-7479",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:28:24.067846+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJRWFOKs71aS4RvHVWAvAJgbs",
+    "email": "dapurbabah@tuguhotels.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:48:56.345612+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJRWFOKs71aS4RvHVWAvAJgbs",
+    "email": "+62 851-0060-2256",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:48:56.379770+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJoWDK7gH0aS4R4Q18WUnbJgU",
+    "email": "jktmd.reservation@lemeridien.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:49:08.580691+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJoWDK7gH0aS4R4Q18WUnbJgU",
+    "email": "+62 21 5711577",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:49:08.591721+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJg7H3VrT2aS4R5PgC665IvU4",
+    "email": "fb.reservation@hotelmulia.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:49:20.625285+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJg7H3VrT2aS4R5PgC665IvU4",
+    "email": "+62 21 5747777",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:49:20.641803+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ3WK32eTzaS4RQFJx1tH3WrY",
+    "email": "rc.jktrz.restaurant.reservation@ritzcarlton.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:49:32.147340+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ3WK32eTzaS4RQFJx1tH3WrY",
+    "email": "+62 21 25518322",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:49:32.160815+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJj0QN9vX2aS4R1jKGYBG-TII",
+    "email": "collage@restaurants.accorhotels.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:49:43.541336+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJj0QN9vX2aS4R1jKGYBG-TII",
+    "email": "+62 815-8043-999",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:49:43.567878+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ7TuejYfxaS4RITOYKc7rlJI",
+    "email": "reservation.hutankota@plataran.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:49:55.981144+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ7TuejYfxaS4RITOYKc7rlJI",
+    "email": "+62 812-9440-9007",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:49:55.993141+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJiVYlIeLzaS4RRryFFIkd0Lc",
+    "email": "palmcourt.jkr@fourseasons.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:50:08.041665+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJiVYlIeLzaS4RRryFFIkd0Lc",
+    "email": "+62 21 22771888",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:50:08.051828+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJmYqZCUP1aS4R55A6xyKy_IM",
+    "email": "kita@hyatt.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:50:19.757461+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJmYqZCUP1aS4R55A6xyKy_IM",
+    "email": "+62 21 31190333",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:50:19.774786+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJecv8OB30aS4RxldV7DZbkog",
+    "email": "reservation.jakarta@ayana.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:50:31.235489+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJecv8OB30aS4RxldV7DZbkog",
+    "email": "+62 21 2510888",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:50:31.250388+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ6WhPvg4dai4RRDWbaBmJkqM",
+    "email": "webmaster@kamsroast.co.id",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:51:35.675294+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ6WhPvg4dai4RRDWbaBmJkqM",
+    "email": "+62 878-8996-7011",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:51:36.298226+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ_8E2s2f1aS4RSraUoOQTRZU",
+    "email": "clubitaliano.ghjakarta@hyatt.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:53:36.129894+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ_8E2s2f1aS4RSraUoOQTRZU",
+    "email": "+62 21 29921298",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:53:36.394929+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJL4yEpC_1aS4RNNDIqn9yfAo",
+    "email": "putien@putien.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:53:48.509495+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJL4yEpC_1aS4RNNDIqn9yfAo",
+    "email": "+62 21 6260038",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:53:48.523085+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJA4ZZ3yP0aS4RoivdWsJVi3k",
+    "email": "H8491-FB7@accor.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:56:00.265245+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJA4ZZ3yP0aS4RoivdWsJVi3k",
+    "email": "+62 21 3912963",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:56:00.275682+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ_SonugL0aS4R7nyuLeFhjhk",
+    "email": "info@laposta.id",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:56:11.702490+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ_SonugL0aS4R7nyuLeFhjhk",
+    "email": "+62 812-8587-2935",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:56:11.728722+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJWeqySZb1aS4RVOJlLsuILyk",
+    "email": "mega.meiliawati@accor.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:57:35.816448+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJWeqySZb1aS4RVOJlLsuILyk",
+    "email": "+62 811-1980-4573",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:57:35.986862+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "email": "reservation.jakarta@ayana.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:59:36.239706+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "email": "+62 21 5707333",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T21:59:36.486635+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "email": "ajita@ajita.co.id",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T22:01:36.024393+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "email": "+62 21 58904454",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T22:01:36.265272+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "email": "remboelan@remboelan.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T22:03:48.056278+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "email": "+62 21 72781586",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-19T22:03:48.066840+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJR9nMy5j3aS4R9NphBtuiYQw",
+    "email": "expat.@expatroasters.com",
+    "consent_type": "email_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-20T08:13:38.463369+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
+  },
+  {
+    "lead_id": "ChIJR9nMy5j3aS4R9NphBtuiYQw",
+    "email": "+62 811-3830-6012",
+    "consent_type": "whatsapp_marketing",
+    "consent_given": true,
+    "consent_date": "2026-05-20T08:13:38.751427+00:00",
+    "consent_method": "import",
+    "ip_address": null,
+    "withdrawn_date": null
   }
 ]

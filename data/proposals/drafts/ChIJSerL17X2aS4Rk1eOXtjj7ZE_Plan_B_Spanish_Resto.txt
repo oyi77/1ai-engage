@@ -1,0 +1,32 @@
+---PROPOSAL---
+Subject: Plan B's Instagram Traffic Isn't Converting to Reservations (Here's Why)
+
+Hi Santiago,
+
+I noticed Plan B has solid social media presence across Instagram and TikTok—great content, consistent posting. But here's the gap I spotted: your Linktree landing page has **no conversion mechanism**. No reservation button, no WhatsApp CTA, no email capture. You're driving followers, but they hit a dead-end when they want to actually book a table.
+
+Meanwhile, competitors like **Cervecería (Senayan)** and **La Paella (Menteng)** have already implemented Google Local Services Ads + WhatsApp chatbots, which means they're capturing 40-60% of the "Spanish restaurant Jakarta" search traffic you're leaving on the table.
+
+**Here's what we propose—a 2-phase quick win:**
+
+**Phase 1: Conversion-Optimized Landing Page + WhatsApp Automation** (2 weeks)
+- Replace Linktree with a dedicated landing page featuring: reservation calendar, table availability widget, menu preview, and direct WhatsApp booking button
+- Deploy AI chatbot on WhatsApp Business API to handle reservation inquiries 24/7 (responds in <2 seconds, cuts your response time from hours to instant)
+- Expected result: 25-35% of your Instagram traffic converts to actual reservations
+
+**Phase 2: Google Local Services Ads + SEO Optimization** (ongoing)
+- Launch Google LSA for "Spanish restaurant Jakarta" to capture high-intent searches (appears above organic results, pay-per-lead model)
+- Optimize your Google Business Profile and local SEO to rank for "paella near me," "Spanish tapas Jakarta," etc.
+- Expected result: 50+ qualified reservation leads/month at ~Rp 15-25k per lead
+
+Both are measurable, ROI-positive within 30 days.
+
+**Quick next step?** Let's do a free 15-minute audit of your current conversion funnel + competitor analysis. I'll show you exactly where the leaks are.
+
+Free or paid—your choice. When works for you this week?
+
+Vilona
+Senior Solution Architect
+BerkahKarya
+---WHATSAPP---
+Halo Santiago! Baru liat Plan B di Google Maps—resto Spanyolnya bagus banget. Cepet aja pertanyaan: berapa persen Instagram followers lu yang actually book meja? Penasaran aja, soalnya ada potensi gede di sini.

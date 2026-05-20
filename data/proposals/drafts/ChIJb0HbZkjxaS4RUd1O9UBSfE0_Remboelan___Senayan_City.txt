@@ -1,0 +1,33 @@
+---PROPOSAL---
+
+Subject: Remboelan's Google visibility gap vs competitors in Senayan dining
+
+Hi there,
+
+I noticed Remboelan ranks well for "restoran Indonesia Jakarta" on Google, but your website has zero customer testimonials, no active blog content, and critically—no conversion mechanism (no reservation CTA, no WhatsApp chatbot for table bookings). Meanwhile, competitors like Bale Bengil and Warung Bodag in the same mall corridor are capturing reservation inquiries 24/7 through automated WhatsApp flows while you're likely losing walk-in bookings to guests who can't easily reserve online.
+
+Here's the gap: You're getting search traffic but converting it at maybe 2-3%. We've seen similar F&B clients in premium malls increase reservation volume by 35-40% within 60 days using two integrated solutions:
+
+**1. WhatsApp Business Chatbot + Reservation Automation**
+We'd deploy a custom n8n workflow that:
+- Captures reservation requests directly from your website via a sticky CTA button
+- Auto-responds with availability, table options, and confirmation
+- Syncs bookings to your internal system (cuts manual admin by 5 hours/week)
+- Handles dietary restrictions, event inquiries, and upsells (wine pairings, private dining)
+
+**2. Social Proof + SEO Content Bundle**
+- Implement testimonial carousel on homepage (leverage your existing Google Reviews)
+- Create 4-6 blog posts targeting high-intent keywords ("best Indonesian restaurant Senayan," "private dining Jakarta") to own local search
+- Optimize your Google Business Profile with weekly updates and service photos
+
+Combined, this drives repeat bookings and reduces your customer acquisition cost by 20-30%.
+
+Can we grab 15 minutes next week to audit your current conversion funnel? I'll show you exactly where bookings are leaking.
+
+Best,
+Vilona
+BerkahKarya — Technology & Growth Partner
+
+---WHATSAPP---
+
+Hey! Baru aja lihat Remboelan di Google Maps—resto-nya kelihatan bagus banget. Cepet aja pertanyaan: sekarang booking meja lewat WhatsApp atau website? Nanya aja, soalnya banyak restoran di Senayan udah pakai chatbot buat handle reservasi 24/7 🤔

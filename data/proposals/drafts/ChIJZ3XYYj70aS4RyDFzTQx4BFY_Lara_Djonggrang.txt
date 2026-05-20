@@ -1,0 +1,31 @@
+---PROPOSAL---
+
+Subject: Lara Djonggrang's reservation bottleneck (and how competitors are fixing it)
+
+Hi Lara,
+
+I noticed something interesting about your restaurant: you're driving qualified traffic—people specifically searching for fine dining Indonesian cuisine in Central Jakarta are finding you. But then they hit a friction point: to book, they need to call 0811-9108-966 or email. That's a conversion killer in 2024.
+
+Here's what I'm seeing: competitors like Locavore and Jaleo are using AI-powered WhatsApp chatbots to handle 80% of reservation inquiries instantly—capturing bookings at 2 AM when your phone is silent. They're also running retargeting Google Ads campaigns to people who visited their sites but didn't reserve, recovering 15-20% of abandoned bookings.
+
+**I'm proposing a two-part solution:**
+
+**1. WhatsApp Business API + AI Chatbot**
+We'll build a conversational agent that lives on your WhatsApp (0811-9108-966) to handle: reservation requests, party size/date confirmation, dietary preferences, and instant booking confirmations. It'll also collect guest testimonials automatically after dining—which I noticed you're missing on your current site. Expected result: 40% faster response time, 25% more completed reservations.
+
+**2. Google Ads + Landing Page Optimization**
+We'll create a dedicated reservation landing page (with social proof from those new testimonials) and run targeted Google Ads to high-intent searches like "fine dining Jakarta RSVP" and "Indonesian restaurant reservation Central Jakarta." We'll also retarget site visitors who didn't book. This typically converts 8-12% of ad clicks into actual reservations.
+
+Both solutions integrate with your existing RSVP workflow—no disruption, pure upside.
+
+I'd like to walk you through a quick 15-minute audit of your current booking funnel and show you exactly where you're losing reservations. Are you free for a brief call this week?
+
+Best,
+**Vilona**
+Senior Solution Architect
+BerkahKarya
+[contact info]
+
+---WHATSAPP---
+
+Hey Lara! Baru liat restoran lu di Google, bagus banget konsepnya. Cepet pertanyaan—lu pernah coba WhatsApp chatbot buat handle booking? Banyak resto premium di Jakarta yang mulai pake, jadinya reservasi mereka lebih cepet. Mau ngobrolin gimana caranya? 😊

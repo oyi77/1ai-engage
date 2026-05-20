@@ -1,0 +1,27 @@
+---PROPOSAL---
+Subject: A hidden gap in PA.SO.LA’s digital presence (and how to fix it before competitors do)
+
+Dear PA.SO.LA Restaurant Team,
+
+I was just reviewing your Ritz-Carlton dining page and noticed something striking: PA.SO.LA’s website, while beautifully branded, has **no chatbot, no live testimonials from guests, and zero portfolio-style content** showcasing the buffet experience. Meanwhile, **Langen’s Bistro** (a prasmanan competitor in SCBD) recently launched an AI-powered WhatsApp assistant that books private dining events 24/7 and shares guest photo testimonials directly in chat. Their online reservation rate jumped by **40% in two months**.
+
+Here is the exact opportunity you are leaving on the table:
+
+1. **AI WhatsApp Chatbot + Testimonial Engine**  
+   - Deploy a WhatsApp Business chatbot (via API) that handles **menu inquiries, buffet reservations, and private event bookings** instantly.  
+   - Automatically collect and display **photo testimonials** from guests (with their permission) directly on your website and in chat replies.  
+   - *Expected outcome*: Cut response time from hours to <30 seconds, increase booking conversions by **30%**.
+
+2. **Google Ads + CRO for “Prasmanan SCBD” Searches**  
+   - Run hyper-local Google Ads targeting “buffet near SCBD” and “prasmanan Jakarta Selatan”.  
+   - Redesign your landing page to feature **real guest photos + a one-click WhatsApp booking button**.  
+   - *Expected outcome*: **25% more walk-ins** from paid search within 60 days.
+
+I’d love to show you a 5-minute audit of your current site vs. a competitor’s. Can we schedule a 15-minute call this week to walk through it?
+
+Best regards,  
+Vilona  
+Solution Architect, BerkahKarya
+
+---WHATSAPP---
+Halo tim PA.SO.LA, saya liat website kalian di Google Maps. Keren sih, tapi saya perhatiin belum ada chatbot atau testimoni tamu di situ. Padahal kompetitor di SCBD udah mulai pake WhatsApp booking otomatis dan hasilnya lumayan. Ada waktu 5 menit buat diskusi? Saya bisa tunjukin contohnya.

@@ -77,6 +77,26 @@ init_db()
 # ── WAHA Webhook ──────────────────────────────────────────────────────────
 
 
+@app.route("/webhook/waha", methods=["GET", "POST"])
+@app.route("/api/v1/webhooks/waha/message", methods=["GET", "POST"])
+def webhook_waha_meta():
+    """Handle Meta WhatsApp Cloud API webhook verification & messages"""
+    if request.method == "GET":
+        # Meta webhook verification
+        mode = request.args.get("hub.mode")
+        token = request.args.get("hub.verify_token")
+        challenge = request.args.get("hub.challenge")
+        logger.info(f"[WEBHOOK] Verify: mode={mode}, token={token}")
+        if mode == "subscribe" and token == "Sugehberkah100%":
+            logger.info("[WEBHOOK] ✅ Verification successful!")
+            return challenge, 200
+        # Fallback: also accept custom token
+        if mode == "subscribe" and token == "berkahkarya_2026":
+            logger.info("[WEBHOOK] ✅ Verification successful!")
+            return challenge, 200
+        logger.warning("[WEBHOOK] ❌ Verification failed")
+        return "Verification failed", 403
+
 @app.route("/webhook/waha", methods=["POST"])
 def webhook_waha():
     try:

@@ -1,0 +1,33 @@
+---PROPOSAL---
+
+Subject: il Mare's reservation response time — opportunity to beat Locatelli
+
+Hi there,
+
+I was checking out il Mare's reservation flow on your website, and I noticed something: your phone line (021) 5747777 is the only way diners can book or ask questions about your Italian menu. That's a bottleneck.
+
+Here's what I'm seeing: competitors like Locatelli (also in Central Jakarta's fine dining space) are using WhatsApp chatbots + AI reservation agents to handle 60% of booking inquiries instantly—cutting response time from hours to seconds. Meanwhile, your team is manually fielding every call during service hours.
+
+**We can solve this with two integrated moves:**
+
+1. **WhatsApp Business API + AI Reservation Agent** — Deploy a conversational bot on your WhatsApp that handles table reservations, menu inquiries, and dietary restrictions 24/7. Customers text, bot confirms availability in real-time, and only complex requests escalate to your team. Result: 5x faster response time, zero missed bookings during peak dinner service.
+
+2. **Customer Testimonial Video + Google Review Amplification** — We've noticed zero video testimonials on your site (a massive trust gap for a Michelin-adjacent restaurant). We'll produce 3-4 short testimonial videos from your best diners + implement a structured review-collection workflow via WhatsApp post-visit. This directly feeds Google's local ranking algorithm—il Mare will dominate "fine dining Jakarta" search results.
+
+Both solutions feed into each other: happier customers (faster service) = more reviews = higher Google visibility = more qualified reservations.
+
+**Deliverables:**
+- WhatsApp bot live within 2 weeks
+- 3 testimonial videos + review collection system
+- Expected impact: 25-40% increase in online reservations within 60 days
+
+Can we grab 15 minutes next week to walk through your current booking flow? I'll also pull a quick audit of how you're ranking vs. Locatelli and other competitors.
+
+Best,  
+**Vilona**  
+Senior Solution Architect  
+BerkahKarya
+
+---WHATSAPP---
+
+Halo! Baru lihat il Mare di Google Maps—resto Italiannya keren banget. Mau tanya cepat: sekarang booking mostly via phone ya? Ada ide mau coba WhatsApp bot buat handle reservasi 24/7?

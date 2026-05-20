@@ -1,3 +1,4 @@
+---
 # 1ai-reach Agent Control Skill
 
 Use this skill when an AI agent needs to operate, inspect, or supervise the `1ai-reach` sales pipeline.

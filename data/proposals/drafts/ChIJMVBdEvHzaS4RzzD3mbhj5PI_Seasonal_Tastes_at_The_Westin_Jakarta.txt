@@ -1,0 +1,32 @@
+---PROPOSAL---
+
+Subject: Seasonal Tastes — Converting Fine Dining Browsers Into Reservations (WhatsApp Integration + Social Proof)
+
+Hi,
+
+I noticed Seasonal Tastes sits on a premium Marriott property with strong brand equity, but your dining page lacks two critical conversion drivers that competitors like Skye Bar and Juniper & Ivy are already leveraging: **live chat responsiveness** and **authentic guest testimonials**.
+
+Here's the gap: Fine dining prospects research heavily before booking. They land on your page, have questions about menu customization, wine pairings, or private events—but there's no way to engage in real-time. Meanwhile, your competitor properties in Jakarta are capturing these micro-moments with WhatsApp chatbots that answer FAQs instantly and funnel inquiries into reservations.
+
+**I'm proposing two integrated solutions:**
+
+**1. WhatsApp Business Chatbot + Reservation Flow**
+We'll build a conversational AI agent that lives on your website and handles the top 80% of questions (dietary restrictions, group sizes, event hosting, wine list inquiries). It routes complex requests to your team while capturing contact details for follow-up. This cuts response time from hours to seconds—directly improving your booking conversion rate.
+*Expected impact: 25-35% faster inquiry-to-reservation conversion.*
+
+**2. Guest Testimonial + UGC Gallery (with SEO boost)**
+We'll systematize collection of guest reviews and photos, then create a dynamic testimonial carousel on your site + optimize these reviews for local search. This builds social proof that fine dining prospects crave and signals freshness to Google's algorithm—giving you an edge in "best restaurant Jakarta" and "fine dining near Rasuna Said" searches.
+*Expected impact: 15-20% lift in click-through rate from search results.*
+
+Both solutions integrate seamlessly with Marriott's existing systems and take 4-6 weeks to launch.
+
+Would you be open to a 15-minute call this week to audit your current booking flow and identify the exact friction points? No obligation—just a quick diagnosis.
+
+Best,
+**Vilona**
+Solution Architect, BerkahKarya
+[Contact details]
+
+---WHATSAPP---
+
+Hey! Baru liat Seasonal Tastes di Google—tempat bagus banget. Quick question: apakah kalian pake WhatsApp untuk handle reservasi dan pertanyaan dari calon tamu? Soalnya banyak fine dining di Jakarta sekarang pake chatbot buat response lebih cepat. Mau diskusi singkat tentang ini?

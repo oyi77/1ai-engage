@@ -1,0 +1,33 @@
+---PROPOSAL---
+
+Subject: Club Italiano's Reservation Pipeline — Untapped Opportunity in Fine Dining Search
+
+Hi there,
+
+I noticed Club Italiano sits within Grand Hyatt Jakarta's dining portfolio, but when I searched "fine dining Italian restaurant Jakarta" and "Italian fine dining near Thamrin," your restaurant isn't capturing the high-intent searches that drive walk-ins and reservations during peak seasons.
+
+Here's what I observed: While your Hyatt listing is solid, you're competing against standalone Italian concepts like Locale (Senayan) and Opus Prima (Menteng) who've invested heavily in Google Local Services Ads and SEO-optimized content around keywords like "authentic Italian fine dining Jakarta" and "Italian wine pairing Jakarta." They're capturing 40-60% more inquiry volume because they own those search positions—and they're doing it *outside* the hotel's general dining page.
+
+**I'm proposing two complementary solutions:**
+
+**1. Conversion-Optimized Google Local Services + Meta Ads Campaign**
+We'll set up a dedicated Google Local Services listing (separate from Hyatt's general dining page) with reservation-focused ad copy, wine pairing highlights, and private dining CTAs. Paired with targeted Meta Ads reaching Jakarta's affluent diners (25-55, high income) with carousel ads showcasing your signature dishes and ambiance. Expected result: 25-35% increase in reservation inquiries within 90 days.
+
+**2. AI-Powered WhatsApp Reservation Bot + Booking Automation**
+Integrate WhatsApp Business API with an n8n workflow that handles reservation inquiries 24/7, confirms bookings instantly, and sends pre-arrival upsell messages (wine pairings, private events, special menus). This cuts your team's admin time by 70% and increases repeat bookings through automated follow-up.
+
+Both solutions work because fine dining patrons expect seamless, immediate responses—and right now, that's where your competitors are winning.
+
+I'd like to show you a quick 15-minute audit of your current search visibility vs. local competitors, plus a rough ROI projection for either approach. No obligation—just want to see if this fits.
+
+Are you free for a brief call this week?
+
+Best,
+**Vilona**
+Senior Solution Architect
+BerkahKarya
+[contact details]
+
+---WHATSAPP---
+
+Hi! Baru liat Club Italiano di Grand Hyatt. Penasaran—sekarang kalian handle reservasi online gimana? Soalnya resto Italia lain di Jakarta udah pakai WhatsApp bot, jadi response time mereka jauh lebih cepat. Mau coba?

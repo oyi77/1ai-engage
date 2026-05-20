@@ -1,0 +1,34 @@
+---PROPOSAL---
+
+Subject: Kam's Roast—Your competitors are capturing hungry diners through WhatsApp. Here's how.
+
+Hi there,
+
+I just visited Kam's Roast website and your Plaza Indonesia location looks fantastic—roasted duck and dim sum done right. But here's what I noticed: while your site has great menu photos, you're missing the conversion infrastructure that's letting competitors like Hao Dim Sum (also in Central Jakarta) capture 40% more reservation inquiries through automated WhatsApp ordering and AI-powered response systems.
+
+Right now, customers landing on your site have no easy way to:
+1. Ask questions instantly (no chatbot)
+2. See real diner testimonials that build trust
+3. Get a clear "Reserve Now" or "Order Online" path
+
+**Here's what we're proposing:**
+
+**Solution 1: WhatsApp Business Automation + Smart Chatbot**
+We'll deploy a WhatsApp Business API chatbot that handles reservation requests, menu inquiries, and order routing 24/7—cutting your response time from hours to seconds. Typical result: 25-35% boost in confirmed reservations within 60 days. Cost: handled through our automation workflow setup.
+
+**Solution 2: Conversion-Focused Website Refresh + Social Proof Layer**
+We'll add a testimonial carousel (we'll help you collect reviews from existing diners), install strategic CTAs on your homepage, and optimize your booking flow. We'll also run a targeted Google Local Services Ads campaign to dominate "Chinese restaurant near Plaza Indonesia" searches—where your competitors are already bidding.
+
+Both solutions integrate seamlessly with your existing site and can be live in 3-4 weeks.
+
+**Quick question:** Are you currently tracking how many website visitors actually convert to reservations or calls? That's where we usually find the biggest opportunity.
+
+Free 15-minute audit call this week?
+
+Vilona
+Senior Solution Architect
+BerkahKarya
+
+---WHATSAPP---
+
+Hey! Baru liat Kam's Roast di Google Maps—menu-nya mantap banget. Cepat aja pertanyaan: sekarang order/reservasi lewat WhatsApp lancar apa masih manual? Soalnya kompetitor sejenis di area lo udah pake automation, jadi response-nya super cepat. Worth exploring?

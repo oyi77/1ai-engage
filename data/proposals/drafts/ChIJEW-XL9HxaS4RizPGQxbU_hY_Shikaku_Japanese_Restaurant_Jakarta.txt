@@ -1,0 +1,34 @@
+---PROPOSAL---
+Subject: Shikaku's Missing Conversion Layer (Observation + Quick Fix)
+
+Hi Shikaku Team,
+
+I noticed your website has solid fundamentals—clean design, good menu presentation—but you're missing the conversion infrastructure that's letting competitors like Ichiran and Ippudo capture more reservation inquiries and repeat orders.
+
+Specifically: no WhatsApp chatbot handling reservation requests, no customer testimonials building trust, and no blog/content pulling organic search traffic from people searching "best Japanese restaurant Jakarta" or "authentic ramen near Dharmawangsa."
+
+Here's what's happening: while you're relying on walk-ins and direct calls, competitors with WhatsApp automation and Google review strategies are converting 3-4x more online inquiries into bookings.
+
+**We propose a 2-phase solution:**
+
+**Phase 1: WhatsApp Chatbot + Reservation Automation (4 weeks)**
+- Deploy a WhatsApp Business chatbot that handles reservation requests 24/7, confirms bookings, and sends prep reminders
+- Cuts your response time from hours to instant, reduces no-shows by ~20%
+- Integrates with your existing calendar/POS system
+- Deliverable: Live chatbot + training for your team
+
+**Phase 2: SEO + Review Strategy + Social Proof Layer (8 weeks)**
+- Optimize your website for high-intent keywords ("reservasi restoran Jepang Jakarta," "private dining Japanese restaurant")
+- Build a testimonial carousel on your homepage (we'll help collect from existing customers via WhatsApp)
+- Create a simple blog (2-3 posts/month) on Japanese dining culture, sake pairing, seasonal specials
+- Expected result: 40-60% increase in organic reservation inquiries within 3 months
+
+**Investment:** ~IDR 8-12M for both phases. ROI: typically breaks even in month 2 via increased bookings.
+
+Free alternative: I can audit your current Google Business Profile and WhatsApp messaging strategy in 15 minutes. Just reply with your preferred time.
+
+Best,
+**Vilona**
+Senior Solution Architect, BerkahKarya
+---WHATSAPP---
+Halo Shikaku! 👋 Baru liat website kalian—design bagus banget. Cuma penasaran, berapa persen reservation kalian yang masuk dari WhatsApp vs. Google Maps? Soalnya lihat kompetitor di area Dharmawangsa udah pake chatbot automation. Mungkin bisa nambah booking? 😊

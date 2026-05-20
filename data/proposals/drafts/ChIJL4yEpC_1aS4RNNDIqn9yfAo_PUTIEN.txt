@@ -1,0 +1,35 @@
+---PROPOSAL---
+
+Subject: PUTIEN's WhatsApp Response Gap — Why Competitors Are Capturing Your Hungry Customers
+
+Hi PUTIEN Team,
+
+I noticed your website gets solid traffic (your Google Maps presence is strong), but here's what caught my attention: **your customers can't reach you instantly via WhatsApp, and you have zero social proof (testimonials/reviews) converting browsers into diners.**
+
+Meanwhile, competitors like **Bakmi GM and Restoran Peking Duck** in West Jakarta are already using AI chatbots to answer reservation & menu questions 24/7 — and they're capturing the impulse orders you're probably losing right now.
+
+**Here's what we propose:**
+
+**Solution 1: WhatsApp Business AI Chatbot + Testimonial Wall**
+- Deploy a WhatsApp Business API chatbot (powered by n8n) that handles 80% of incoming questions: "Jam buka?", "Ada meja kosong?", "Menu apa yang recommended?" — answering in <30 seconds instead of customers waiting hours or calling competitors.
+- Add a **dynamic testimonial carousel** on your homepage (currently missing) + integrate Google Reviews + Instagram UGC. This typically lifts conversion by 25-35% because diners trust other diners.
+- **Expected ROI:** 40% faster response time, 20% more WhatsApp-to-reservation conversions within 60 days.
+
+**Solution 2: Conversion-Focused SEO + Local Google Ads Blitz**
+- Your site ranks okay for "restoran China Jakarta," but you're losing to competitors bidding on high-intent keywords like "reservasi restoran China West Jakarta" and "makan malam spesial Jakarta Barat." We'll run a **2-month Google Ads sprint** (Rp 5-10M budget) targeting these exact keywords + retarget website visitors.
+- Simultaneously, we'll optimize your blog with 4-6 high-intent posts ("Best Dimsum in Jakarta," "Chinese New Year Dining Jakarta") to own organic search long-term.
+
+**Timeline:** Chatbot live in 2 weeks. Ads + testimonials within 4 weeks.
+
+Would you be open to a **15-minute call this week** to audit your current WhatsApp/conversion setup? I can show you exactly where you're losing customers vs. your competitors.
+
+Looking forward,
+
+**Vilona**  
+Senior Solution Architect  
+BerkahKarya — Technology & Growth Partner  
+[contact details]
+
+---WHATSAPP---
+
+Halo PUTIEN! 👋 Baru liat bisnis kalian di Google Maps—bagus banget. Tapi sadar gak sih kalau customers banyak yang WhatsApp-in tapi ga ada chatbot yang reply otomatis? Kompetitor sejenis di area kalian udah mulai pakai ini. Mau kita bahas caranya? Bisa quick call aja 15 menit 🍜

@@ -6214,5 +6214,4015 @@
       "type": "whatsapp_marketing",
       "given": true
     }
+  },
+  {
+    "timestamp": "2026-05-19T20:51:11.827171+00:00",
+    "action": "outreach",
+    "subject": "ChIJ91EGWSP0aS4R2FsHVktCgwk",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.menteng@plataran.com",
+      "success": true,
+      "timestamp": "2026-05-19T20:51:11.825590+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:51:11.872713+00:00",
+    "action": "consent",
+    "subject": "ChIJq39stBzxaS4RzSdYU01AwQU",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:51:12.047962+00:00",
+    "action": "consent",
+    "subject": "ChIJq39stBzxaS4RzSdYU01AwQU",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:51:47.332104+00:00",
+    "action": "outreach",
+    "subject": "ChIJq39stBzxaS4RzSdYU01AwQU",
+    "details": {
+      "channel": "email",
+      "contact": "tljkt.dining@langhamhotels.com",
+      "success": true,
+      "timestamp": "2026-05-19T20:51:47.318071+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:51:47.564447+00:00",
+    "action": "consent",
+    "subject": "ChIJX6uOoA_1aS4Rclea-3F8LqE",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:51:48.066356+00:00",
+    "action": "consent",
+    "subject": "ChIJX6uOoA_1aS4Rclea-3F8LqE",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:52:03.673143+00:00",
+    "action": "outreach",
+    "subject": "ChIJX6uOoA_1aS4Rclea-3F8LqE",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 821-2115-2142",
+      "success": true,
+      "timestamp": "2026-05-19T20:52:03.670441+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:52:04.643307+00:00",
+    "action": "outreach",
+    "subject": "ChIJX6uOoA_1aS4Rclea-3F8LqE",
+    "details": {
+      "channel": "email",
+      "contact": "bastian@arkagroup.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T20:52:04.641827+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:52:04.749369+00:00",
+    "action": "consent",
+    "subject": "ChIJIQNibAT1aS4RNwDOVFC9uFc",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:52:04.910991+00:00",
+    "action": "consent",
+    "subject": "ChIJIQNibAT1aS4RNwDOVFC9uFc",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:52:23.983555+00:00",
+    "action": "outreach",
+    "subject": "ChIJIQNibAT1aS4RNwDOVFC9uFc",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 50820003",
+      "success": true,
+      "timestamp": "2026-05-19T20:52:23.981522+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:52:25.559761+00:00",
+    "action": "outreach",
+    "subject": "ChIJIQNibAT1aS4RNwDOVFC9uFc",
+    "details": {
+      "channel": "email",
+      "contact": "enquiry.ppjkt@panpacific.com",
+      "success": true,
+      "timestamp": "2026-05-19T20:52:25.551969+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:52:25.728845+00:00",
+    "action": "consent",
+    "subject": "ChIJU80L2nbxaS4R_m_3MgI5JiM",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:52:26.384956+00:00",
+    "action": "consent",
+    "subject": "ChIJU80L2nbxaS4R_m_3MgI5JiM",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:52:41.082550+00:00",
+    "action": "outreach",
+    "subject": "ChIJU80L2nbxaS4R_m_3MgI5JiM",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 29044167",
+      "success": true,
+      "timestamp": "2026-05-19T20:52:41.077174+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:52:42.342851+00:00",
+    "action": "outreach",
+    "subject": "ChIJU80L2nbxaS4R_m_3MgI5JiM",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.dharmawangsa@plataran.com",
+      "success": true,
+      "timestamp": "2026-05-19T20:52:42.327400+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:52:42.493453+00:00",
+    "action": "consent",
+    "subject": "ChIJ_zh9TXfxaS4RoFJBiBh54Sw",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:52:43.076788+00:00",
+    "action": "consent",
+    "subject": "ChIJ_zh9TXfxaS4RoFJBiBh54Sw",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:53:18.457932+00:00",
+    "action": "outreach",
+    "subject": "ChIJ_zh9TXfxaS4RoFJBiBh54Sw",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-1025-999",
+      "success": true,
+      "timestamp": "2026-05-19T20:53:18.449128+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:53:19.529361+00:00",
+    "action": "outreach",
+    "subject": "ChIJ_zh9TXfxaS4RoFJBiBh54Sw",
+    "details": {
+      "channel": "email",
+      "contact": "reservation@the-dharmawangsa.com",
+      "success": true,
+      "timestamp": "2026-05-19T20:53:19.522788+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:53:19.992975+00:00",
+    "action": "consent",
+    "subject": "ChIJNx626AH0aS4RlQ5CSlPnxao",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:53:20.779749+00:00",
+    "action": "consent",
+    "subject": "ChIJNx626AH0aS4RlQ5CSlPnxao",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:53:40.983822+00:00",
+    "action": "outreach",
+    "subject": "ChIJNx626AH0aS4RlQ5CSlPnxao",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5711577",
+      "success": true,
+      "timestamp": "2026-05-19T20:53:40.970623+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:53:53.559412+00:00",
+    "action": "outreach",
+    "subject": "ChIJNx626AH0aS4RlQ5CSlPnxao",
+    "details": {
+      "channel": "email",
+      "contact": "jktmd.reservation@lemeridien.com",
+      "success": true,
+      "timestamp": "2026-05-19T20:53:53.557821+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:53:53.586246+00:00",
+    "action": "consent",
+    "subject": "ChIJ_02K8JbxaS4RX9G3vNqXim8",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:53:54.020779+00:00",
+    "action": "consent",
+    "subject": "ChIJ_02K8JbxaS4RX9G3vNqXim8",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:54:10.327756+00:00",
+    "action": "outreach",
+    "subject": "ChIJ_02K8JbxaS4RX9G3vNqXim8",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 25501993",
+      "success": true,
+      "timestamp": "2026-05-19T20:54:10.312688+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:54:11.564463+00:00",
+    "action": "outreach",
+    "subject": "ChIJ_02K8JbxaS4RX9G3vNqXim8",
+    "details": {
+      "channel": "email",
+      "contact": "pasola.jakarta@ritzcarlton.com",
+      "success": true,
+      "timestamp": "2026-05-19T20:54:11.551607+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:54:11.611506+00:00",
+    "action": "consent",
+    "subject": "ChIJ1fW7LRvxaS4RtFghnQES8Jo",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:54:11.802646+00:00",
+    "action": "consent",
+    "subject": "ChIJ1fW7LRvxaS4RtFghnQES8Jo",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:54:29.914212+00:00",
+    "action": "outreach",
+    "subject": "ChIJ1fW7LRvxaS4RtFghnQES8Jo",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 39507355",
+      "success": true,
+      "timestamp": "2026-05-19T20:54:29.911699+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:54:35.604949+00:00",
+    "action": "outreach",
+    "subject": "ChIJ1fW7LRvxaS4RtFghnQES8Jo",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.icjakarta@ihg.com",
+      "success": true,
+      "timestamp": "2026-05-19T20:54:35.595801+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:57:36.486503+00:00",
+    "action": "consent",
+    "subject": "ChIJWakHrTXxaS4Rf8RXhBHg-W4",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:57:36.938292+00:00",
+    "action": "consent",
+    "subject": "ChIJWakHrTXxaS4Rf8RXhBHg-W4",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:57:54.815273+00:00",
+    "action": "outreach",
+    "subject": "ChIJWakHrTXxaS4Rf8RXhBHg-W4",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 877-3800-0808",
+      "success": true,
+      "timestamp": "2026-05-19T20:57:54.813001+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:57:56.808122+00:00",
+    "action": "outreach",
+    "subject": "ChIJWakHrTXxaS4Rf8RXhBHg-W4",
+    "details": {
+      "channel": "email",
+      "contact": "rsvp@augustjakarta.com",
+      "success": true,
+      "timestamp": "2026-05-19T20:57:56.806355+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:57:56.839883+00:00",
+    "action": "consent",
+    "subject": "ChIJ-3euTPjzaS4RJ8x5NT-A3Xw",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T20:57:58.109484+00:00",
+    "action": "outreach",
+    "subject": "ChIJ-3euTPjzaS4RJ8x5NT-A3Xw",
+    "details": {
+      "channel": "email",
+      "contact": "erre@melia.com",
+      "success": true,
+      "timestamp": "2026-05-19T20:57:58.105691+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:01:36.234886+00:00",
+    "action": "consent",
+    "subject": "ChIJEWUwBT0eai4RzXuvMnRvC4I",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:01:36.495896+00:00",
+    "action": "consent",
+    "subject": "ChIJEWUwBT0eai4RzXuvMnRvC4I",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:02:05.140945+00:00",
+    "action": "outreach",
+    "subject": "ChIJEWUwBT0eai4RzXuvMnRvC4I",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 6455472",
+      "success": true,
+      "timestamp": "2026-05-19T21:02:05.083755+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:02:06.421379+00:00",
+    "action": "outreach",
+    "subject": "ChIJEWUwBT0eai4RzXuvMnRvC4I",
+    "details": {
+      "channel": "email",
+      "contact": "layanan.bdancol@bandar-djakarta.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:02:06.411594+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:02:06.502889+00:00",
+    "action": "consent",
+    "subject": "ChIJ4UnlqwL0aS4Rsx3kmKaRK8Y",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:02:06.552087+00:00",
+    "action": "consent",
+    "subject": "ChIJ4UnlqwL0aS4Rsx3kmKaRK8Y",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:02:32.552624+00:00",
+    "action": "outreach",
+    "subject": "ChIJ4UnlqwL0aS4Rsx3kmKaRK8Y",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-1460-808",
+      "success": true,
+      "timestamp": "2026-05-19T21:02:32.550400+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:02:33.675840+00:00",
+    "action": "outreach",
+    "subject": "ChIJ4UnlqwL0aS4Rsx3kmKaRK8Y",
+    "details": {
+      "channel": "email",
+      "contact": "info@primarasagroup.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:02:33.671032+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:03:36.079776+00:00",
+    "action": "consent",
+    "subject": "ChIJZ3XYYj70aS4RyDFzTQx4BFY",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:03:36.439194+00:00",
+    "action": "consent",
+    "subject": "ChIJZ3XYYj70aS4RyDFzTQx4BFY",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:03:51.115017+00:00",
+    "action": "outreach",
+    "subject": "ChIJZ3XYYj70aS4RyDFzTQx4BFY",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-9108-966",
+      "success": true,
+      "timestamp": "2026-05-19T21:03:51.091588+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:03:52.288849+00:00",
+    "action": "outreach",
+    "subject": "ChIJZ3XYYj70aS4RyDFzTQx4BFY",
+    "details": {
+      "channel": "email",
+      "contact": "laradjonggrang@tuguhotels.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:03:52.281168+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:05:37.909385+00:00",
+    "action": "consent",
+    "subject": "ChIJuQszoyH0aS4RpCt8AqUo27g",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:05:38.470399+00:00",
+    "action": "consent",
+    "subject": "ChIJuQszoyH0aS4RpCt8AqUo27g",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:05:44.322176+00:00",
+    "action": "outreach",
+    "subject": "ChIJuQszoyH0aS4RpCt8AqUo27g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 23583896",
+      "success": true,
+      "timestamp": "2026-05-19T21:05:44.315465+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:05:46.464938+00:00",
+    "action": "outreach",
+    "subject": "ChIJuQszoyH0aS4RpCt8AqUo27g",
+    "details": {
+      "channel": "email",
+      "contact": "oku.jakarta@kempinski.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:05:46.452582+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:09:36.834157+00:00",
+    "action": "consent",
+    "subject": "ChIJ-fxdpiLxaS4R_PwmXPPTfbs",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:09:37.487100+00:00",
+    "action": "consent",
+    "subject": "ChIJ-fxdpiLxaS4R_PwmXPPTfbs",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:09:50.157209+00:00",
+    "action": "outreach",
+    "subject": "ChIJ-fxdpiLxaS4R_PwmXPPTfbs",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 27082215",
+      "success": true,
+      "timestamp": "2026-05-19T21:09:50.152082+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:10:03.495586+00:00",
+    "action": "outreach",
+    "subject": "ChIJ-fxdpiLxaS4R_PwmXPPTfbs",
+    "details": {
+      "channel": "email",
+      "contact": "reservations@txokojakarta.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:10:03.486048+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:10:03.537365+00:00",
+    "action": "consent",
+    "subject": "ChIJNejSzeTzaS4R4H-4VM-q3gc",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:10:03.592853+00:00",
+    "action": "consent",
+    "subject": "ChIJNejSzeTzaS4R4H-4VM-q3gc",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:10:21.643090+00:00",
+    "action": "outreach",
+    "subject": "ChIJNejSzeTzaS4R4H-4VM-q3gc",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 25542378",
+      "success": true,
+      "timestamp": "2026-05-19T21:10:21.640920+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:10:23.267141+00:00",
+    "action": "outreach",
+    "subject": "ChIJNejSzeTzaS4R4H-4VM-q3gc",
+    "details": {
+      "channel": "email",
+      "contact": "info@uniongroupjakarta.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:10:23.265385+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:13:36.940172+00:00",
+    "action": "consent",
+    "subject": "ChIJlfV-oRDxaS4RgeWn0RceUeQ",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:13:37.447464+00:00",
+    "action": "consent",
+    "subject": "ChIJlfV-oRDxaS4RgeWn0RceUeQ",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:13:59.061280+00:00",
+    "action": "outreach",
+    "subject": "ChIJlfV-oRDxaS4RgeWn0RceUeQ",
+    "details": {
+      "channel": "email",
+      "contact": "anigre.jakartagandariacity@sheraton.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:13:59.055434+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:13:59.114138+00:00",
+    "action": "consent",
+    "subject": "ChIJKVsfXRb1aS4RB_lBsoGSJ-Y",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:13:59.159388+00:00",
+    "action": "consent",
+    "subject": "ChIJKVsfXRb1aS4RB_lBsoGSJ-Y",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:15:34.233764+00:00",
+    "action": "outreach",
+    "subject": "ChIJKVsfXRb1aS4RB_lBsoGSJ-Y",
+    "details": {
+      "channel": "email",
+      "contact": "club@hyatt.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:15:34.227759+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:17:37.486095+00:00",
+    "action": "consent",
+    "subject": "ChIJMVBdEvHzaS4RzzD3mbhj5PI",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:17:37.910921+00:00",
+    "action": "consent",
+    "subject": "ChIJMVBdEvHzaS4RzzD3mbhj5PI",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:18:22.856662+00:00",
+    "action": "outreach",
+    "subject": "ChIJMVBdEvHzaS4RzzD3mbhj5PI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 812-9295-5393",
+      "success": true,
+      "timestamp": "2026-05-19T21:18:22.853561+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:18:54.457681+00:00",
+    "action": "outreach",
+    "subject": "ChIJMVBdEvHzaS4RzzD3mbhj5PI",
+    "details": {
+      "channel": "email",
+      "contact": "seasonaltaste.jakarta@westin.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:18:54.397218+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:19:36.871679+00:00",
+    "action": "consent",
+    "subject": "ChIJN_OwPSH0aS4RAXJX58WorqU",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:19:37.281835+00:00",
+    "action": "consent",
+    "subject": "ChIJN_OwPSH0aS4RAXJX58WorqU",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:20:05.034354+00:00",
+    "action": "outreach",
+    "subject": "ChIJN_OwPSH0aS4RAXJX58WorqU",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 29922448",
+      "success": true,
+      "timestamp": "2026-05-19T21:20:05.019451+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:20:07.538369+00:00",
+    "action": "outreach",
+    "subject": "ChIJN_OwPSH0aS4RAXJX58WorqU",
+    "details": {
+      "channel": "email",
+      "contact": "altitude@altitudejakarta.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:20:07.531229+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:23:37.946087+00:00",
+    "action": "consent",
+    "subject": "ChIJtTWkIYz1aS4RwnajrFij71Q",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:23:38.746509+00:00",
+    "action": "consent",
+    "subject": "ChIJtTWkIYz1aS4RwnajrFij71Q",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:24:31.614860+00:00",
+    "action": "outreach",
+    "subject": "ChIJtTWkIYz1aS4RwnajrFij71Q",
+    "details": {
+      "channel": "email",
+      "contact": "silk@biko-group.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:24:31.611902+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:24:31.673591+00:00",
+    "action": "consent",
+    "subject": "ChIJPw1c-Vj3aS4RkqRbPYZGw6E",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:24:31.729684+00:00",
+    "action": "consent",
+    "subject": "ChIJPw1c-Vj3aS4RkqRbPYZGw6E",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:25:28.923376+00:00",
+    "action": "outreach",
+    "subject": "ChIJPw1c-Vj3aS4RkqRbPYZGw6E",
+    "details": {
+      "channel": "email",
+      "contact": "furusato@barcelo.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:25:28.921595+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:27:37.074488+00:00",
+    "action": "consent",
+    "subject": "ChIJSerL17X2aS4Rk1eOXtjj7ZE",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:27:37.983578+00:00",
+    "action": "consent",
+    "subject": "ChIJSerL17X2aS4Rk1eOXtjj7ZE",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:28:24.044245+00:00",
+    "action": "outreach",
+    "subject": "ChIJSerL17X2aS4Rk1eOXtjj7ZE",
+    "details": {
+      "channel": "email",
+      "contact": "santiago@planbjakarta.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:28:24.043150+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:28:24.057728+00:00",
+    "action": "consent",
+    "subject": "ChIJEW-XL9HxaS4RizPGQxbU_hY",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:28:24.071556+00:00",
+    "action": "consent",
+    "subject": "ChIJEW-XL9HxaS4RizPGQxbU_hY",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:28:41.753881+00:00",
+    "action": "outreach",
+    "subject": "ChIJEW-XL9HxaS4RizPGQxbU_hY",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 812-3544-7479",
+      "success": true,
+      "timestamp": "2026-05-19T21:28:41.751599+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:29:19.373785+00:00",
+    "action": "outreach",
+    "subject": "ChIJEW-XL9HxaS4RizPGQxbU_hY",
+    "details": {
+      "channel": "email",
+      "contact": "shikaku@shikakujakarta.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:29:19.367433+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:32:35.754157+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3yiSDfHzaS4RmgnzjYbGhrw",
+    "details": {
+      "channel": "email",
+      "contact": "febi.setianingrum@westin.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:32:35.664926+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:33:11.368118+00:00",
+    "action": "outreach",
+    "subject": "ChIJfYemRwX0aS4RdaYdCViX-5U",
+    "details": {
+      "channel": "email",
+      "contact": "hola@hausemade.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:33:11.366926+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:33:50.996773+00:00",
+    "action": "outreach",
+    "subject": "ChIJ91EGWSP0aS4R2FsHVktCgwk",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.menteng@plataran.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:33:50.989959+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:34:18.199010+00:00",
+    "action": "outreach",
+    "subject": "ChIJq39stBzxaS4RzSdYU01AwQU",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 27087888",
+      "success": true,
+      "timestamp": "2026-05-19T21:34:18.190345+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:34:32.201314+00:00",
+    "action": "outreach",
+    "subject": "ChIJq39stBzxaS4RzSdYU01AwQU",
+    "details": {
+      "channel": "email",
+      "contact": "tljkt.dining@langhamhotels.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:34:32.191006+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:35:03.887967+00:00",
+    "action": "outreach",
+    "subject": "ChIJX6uOoA_1aS4Rclea-3F8LqE",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 821-2115-2142",
+      "success": true,
+      "timestamp": "2026-05-19T21:35:03.886140+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:35:04.797953+00:00",
+    "action": "outreach",
+    "subject": "ChIJX6uOoA_1aS4Rclea-3F8LqE",
+    "details": {
+      "channel": "email",
+      "contact": "bastian@arkagroup.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T21:35:04.792929+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:35:25.644411+00:00",
+    "action": "outreach",
+    "subject": "ChIJIQNibAT1aS4RNwDOVFC9uFc",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 50820003",
+      "success": true,
+      "timestamp": "2026-05-19T21:35:25.642933+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:35:26.743856+00:00",
+    "action": "outreach",
+    "subject": "ChIJIQNibAT1aS4RNwDOVFC9uFc",
+    "details": {
+      "channel": "email",
+      "contact": "enquiry.ppjkt@panpacific.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:35:26.741076+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:35:40.701368+00:00",
+    "action": "outreach",
+    "subject": "ChIJU80L2nbxaS4R_m_3MgI5JiM",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 29044167",
+      "success": true,
+      "timestamp": "2026-05-19T21:35:40.698696+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:35:41.899219+00:00",
+    "action": "outreach",
+    "subject": "ChIJU80L2nbxaS4R_m_3MgI5JiM",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.dharmawangsa@plataran.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:35:41.897471+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:35:54.216570+00:00",
+    "action": "outreach",
+    "subject": "ChIJ_zh9TXfxaS4RoFJBiBh54Sw",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-1025-999",
+      "success": true,
+      "timestamp": "2026-05-19T21:35:54.215591+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:35:56.235643+00:00",
+    "action": "outreach",
+    "subject": "ChIJ_zh9TXfxaS4RoFJBiBh54Sw",
+    "details": {
+      "channel": "email",
+      "contact": "reservation@the-dharmawangsa.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:35:56.220133+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:36:11.392891+00:00",
+    "action": "outreach",
+    "subject": "ChIJNx626AH0aS4RlQ5CSlPnxao",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5711577",
+      "success": true,
+      "timestamp": "2026-05-19T21:36:11.386546+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:36:16.213773+00:00",
+    "action": "outreach",
+    "subject": "ChIJNx626AH0aS4RlQ5CSlPnxao",
+    "details": {
+      "channel": "email",
+      "contact": "jktmd.reservation@lemeridien.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:36:16.208735+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:36:27.460841+00:00",
+    "action": "outreach",
+    "subject": "ChIJ_02K8JbxaS4RX9G3vNqXim8",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 25501993",
+      "success": true,
+      "timestamp": "2026-05-19T21:36:27.459853+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:36:31.136670+00:00",
+    "action": "outreach",
+    "subject": "ChIJ_02K8JbxaS4RX9G3vNqXim8",
+    "details": {
+      "channel": "email",
+      "contact": "pasola.jakarta@ritzcarlton.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:36:31.134879+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:37:03.241918+00:00",
+    "action": "outreach",
+    "subject": "ChIJ1fW7LRvxaS4RtFghnQES8Jo",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.icjakarta@ihg.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:37:02.951201+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:37:42.438571+00:00",
+    "action": "outreach",
+    "subject": "ChIJWakHrTXxaS4Rf8RXhBHg-W4",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 877-3800-0808",
+      "success": true,
+      "timestamp": "2026-05-19T21:37:42.436971+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:37:46.058123+00:00",
+    "action": "outreach",
+    "subject": "ChIJWakHrTXxaS4Rf8RXhBHg-W4",
+    "details": {
+      "channel": "email",
+      "contact": "rsvp@augustjakarta.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:37:46.010243+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:38:07.050048+00:00",
+    "action": "outreach",
+    "subject": "ChIJ-3euTPjzaS4RJ8x5NT-A3Xw",
+    "details": {
+      "channel": "email",
+      "contact": "erre@melia.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:38:07.006922+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:38:18.336228+00:00",
+    "action": "outreach",
+    "subject": "ChIJEWUwBT0eai4RzXuvMnRvC4I",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 6455472",
+      "success": true,
+      "timestamp": "2026-05-19T21:38:18.334398+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:38:25.746379+00:00",
+    "action": "outreach",
+    "subject": "ChIJEWUwBT0eai4RzXuvMnRvC4I",
+    "details": {
+      "channel": "email",
+      "contact": "layanan.bdancol@bandar-djakarta.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:38:25.712800+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:38:45.572799+00:00",
+    "action": "outreach",
+    "subject": "ChIJ4UnlqwL0aS4Rsx3kmKaRK8Y",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-1460-808",
+      "success": true,
+      "timestamp": "2026-05-19T21:38:45.565410+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:38:46.929801+00:00",
+    "action": "outreach",
+    "subject": "ChIJ4UnlqwL0aS4Rsx3kmKaRK8Y",
+    "details": {
+      "channel": "email",
+      "contact": "info@primarasagroup.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:38:46.922478+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:39:01.050046+00:00",
+    "action": "outreach",
+    "subject": "ChIJZ3XYYj70aS4RyDFzTQx4BFY",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-9108-966",
+      "success": true,
+      "timestamp": "2026-05-19T21:39:01.029775+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:39:13.656507+00:00",
+    "action": "outreach",
+    "subject": "ChIJZ3XYYj70aS4RyDFzTQx4BFY",
+    "details": {
+      "channel": "email",
+      "contact": "laradjonggrang@tuguhotels.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:39:13.635285+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:39:59.452528+00:00",
+    "action": "outreach",
+    "subject": "ChIJuQszoyH0aS4RpCt8AqUo27g",
+    "details": {
+      "channel": "email",
+      "contact": "oku.jakarta@kempinski.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:39:59.450753+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:40:38.253441+00:00",
+    "action": "outreach",
+    "subject": "ChIJ-fxdpiLxaS4R_PwmXPPTfbs",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 27082215",
+      "success": true,
+      "timestamp": "2026-05-19T21:40:38.250153+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:40:39.076743+00:00",
+    "action": "outreach",
+    "subject": "ChIJ-fxdpiLxaS4R_PwmXPPTfbs",
+    "details": {
+      "channel": "email",
+      "contact": "reservations@txokojakarta.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:40:39.074915+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:41:15.586702+00:00",
+    "action": "outreach",
+    "subject": "ChIJNejSzeTzaS4R4H-4VM-q3gc",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 25542378",
+      "success": true,
+      "timestamp": "2026-05-19T21:41:15.571027+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:41:18.009403+00:00",
+    "action": "outreach",
+    "subject": "ChIJNejSzeTzaS4R4H-4VM-q3gc",
+    "details": {
+      "channel": "email",
+      "contact": "info@uniongroupjakarta.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:41:17.993394+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:42:48.954242+00:00",
+    "action": "outreach",
+    "subject": "ChIJlfV-oRDxaS4RgeWn0RceUeQ",
+    "details": {
+      "channel": "email",
+      "contact": "anigre.jakartagandariacity@sheraton.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:42:48.912188+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:43:42.555738+00:00",
+    "action": "outreach",
+    "subject": "ChIJKVsfXRb1aS4RB_lBsoGSJ-Y",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 815-8621-1234",
+      "success": true,
+      "timestamp": "2026-05-19T21:43:42.552782+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:43:45.143015+00:00",
+    "action": "outreach",
+    "subject": "ChIJKVsfXRb1aS4RB_lBsoGSJ-Y",
+    "details": {
+      "channel": "email",
+      "contact": "club@hyatt.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:43:45.140080+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:44:17.784136+00:00",
+    "action": "outreach",
+    "subject": "ChIJMVBdEvHzaS4RzzD3mbhj5PI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 812-9295-5393",
+      "success": true,
+      "timestamp": "2026-05-19T21:44:17.753092+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:45:56.319261+00:00",
+    "action": "outreach",
+    "subject": "ChIJMVBdEvHzaS4RzzD3mbhj5PI",
+    "details": {
+      "channel": "email",
+      "contact": "seasonaltaste.jakarta@westin.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:45:56.311538+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:47:43.740087+00:00",
+    "action": "outreach",
+    "subject": "ChIJN_OwPSH0aS4RAXJX58WorqU",
+    "details": {
+      "channel": "email",
+      "contact": "altitude@altitudejakarta.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:47:43.733067+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:48:19.977556+00:00",
+    "action": "outreach",
+    "subject": "ChIJtTWkIYz1aS4RwnajrFij71Q",
+    "details": {
+      "channel": "email",
+      "contact": "silk@biko-group.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:48:19.973560+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:48:31.475078+00:00",
+    "action": "outreach",
+    "subject": "ChIJPw1c-Vj3aS4RkqRbPYZGw6E",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-9250-020",
+      "success": true,
+      "timestamp": "2026-05-19T21:48:31.473843+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:48:32.376007+00:00",
+    "action": "outreach",
+    "subject": "ChIJPw1c-Vj3aS4RkqRbPYZGw6E",
+    "details": {
+      "channel": "email",
+      "contact": "furusato@barcelo.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:48:32.374262+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:48:43.561410+00:00",
+    "action": "outreach",
+    "subject": "ChIJSerL17X2aS4Rk1eOXtjj7ZE",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-9532-526",
+      "success": true,
+      "timestamp": "2026-05-19T21:48:43.559182+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:48:44.217359+00:00",
+    "action": "outreach",
+    "subject": "ChIJSerL17X2aS4Rk1eOXtjj7ZE",
+    "details": {
+      "channel": "email",
+      "contact": "santiago@planbjakarta.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:48:44.215563+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:48:55.352301+00:00",
+    "action": "outreach",
+    "subject": "ChIJEW-XL9HxaS4RizPGQxbU_hY",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 812-3544-7479",
+      "success": true,
+      "timestamp": "2026-05-19T21:48:55.344208+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:48:56.327153+00:00",
+    "action": "outreach",
+    "subject": "ChIJEW-XL9HxaS4RizPGQxbU_hY",
+    "details": {
+      "channel": "email",
+      "contact": "shikaku@shikakujakarta.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:48:56.325434+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:48:56.356475+00:00",
+    "action": "consent",
+    "subject": "ChIJRWFOKs71aS4RvHVWAvAJgbs",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:48:56.386805+00:00",
+    "action": "consent",
+    "subject": "ChIJRWFOKs71aS4RvHVWAvAJgbs",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:07.566809+00:00",
+    "action": "outreach",
+    "subject": "ChIJRWFOKs71aS4RvHVWAvAJgbs",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 851-0060-2256",
+      "success": true,
+      "timestamp": "2026-05-19T21:49:07.564678+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:08.570242+00:00",
+    "action": "outreach",
+    "subject": "ChIJRWFOKs71aS4RvHVWAvAJgbs",
+    "details": {
+      "channel": "email",
+      "contact": "dapurbabah@tuguhotels.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:49:08.568287+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:08.584257+00:00",
+    "action": "consent",
+    "subject": "ChIJoWDK7gH0aS4R4Q18WUnbJgU",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:08.596249+00:00",
+    "action": "consent",
+    "subject": "ChIJoWDK7gH0aS4R4Q18WUnbJgU",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:19.714343+00:00",
+    "action": "outreach",
+    "subject": "ChIJoWDK7gH0aS4R4Q18WUnbJgU",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5711577",
+      "success": true,
+      "timestamp": "2026-05-19T21:49:19.712653+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:20.613267+00:00",
+    "action": "outreach",
+    "subject": "ChIJoWDK7gH0aS4R4Q18WUnbJgU",
+    "details": {
+      "channel": "email",
+      "contact": "jktmd.reservation@lemeridien.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:49:20.611407+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:20.631050+00:00",
+    "action": "consent",
+    "subject": "ChIJg7H3VrT2aS4R5PgC665IvU4",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:20.647802+00:00",
+    "action": "consent",
+    "subject": "ChIJg7H3VrT2aS4R5PgC665IvU4",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:31.363219+00:00",
+    "action": "outreach",
+    "subject": "ChIJg7H3VrT2aS4R5PgC665IvU4",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5747777",
+      "success": true,
+      "timestamp": "2026-05-19T21:49:31.361912+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:32.126959+00:00",
+    "action": "outreach",
+    "subject": "ChIJg7H3VrT2aS4R5PgC665IvU4",
+    "details": {
+      "channel": "email",
+      "contact": "fb.reservation@hotelmulia.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:49:32.118969+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:32.152646+00:00",
+    "action": "consent",
+    "subject": "ChIJ3WK32eTzaS4RQFJx1tH3WrY",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:32.164429+00:00",
+    "action": "consent",
+    "subject": "ChIJ3WK32eTzaS4RQFJx1tH3WrY",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:42.870405+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3WK32eTzaS4RQFJx1tH3WrY",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 25518322",
+      "success": true,
+      "timestamp": "2026-05-19T21:49:42.869151+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:43.526634+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3WK32eTzaS4RQFJx1tH3WrY",
+    "details": {
+      "channel": "email",
+      "contact": "rc.jktrz.restaurant.reservation@ritzcarlton.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:49:43.524597+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:43.547119+00:00",
+    "action": "consent",
+    "subject": "ChIJj0QN9vX2aS4R1jKGYBG-TII",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:43.576189+00:00",
+    "action": "consent",
+    "subject": "ChIJj0QN9vX2aS4R1jKGYBG-TII",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:54.958111+00:00",
+    "action": "outreach",
+    "subject": "ChIJj0QN9vX2aS4R1jKGYBG-TII",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 815-8043-999",
+      "success": true,
+      "timestamp": "2026-05-19T21:49:54.956457+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:55.967845+00:00",
+    "action": "outreach",
+    "subject": "ChIJj0QN9vX2aS4R1jKGYBG-TII",
+    "details": {
+      "channel": "email",
+      "contact": "collage@restaurants.accorhotels.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:49:55.966473+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:55.984492+00:00",
+    "action": "consent",
+    "subject": "ChIJ7TuejYfxaS4RITOYKc7rlJI",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:49:55.996916+00:00",
+    "action": "consent",
+    "subject": "ChIJ7TuejYfxaS4RITOYKc7rlJI",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:50:07.398429+00:00",
+    "action": "outreach",
+    "subject": "ChIJ7TuejYfxaS4RITOYKc7rlJI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 812-9440-9007",
+      "success": true,
+      "timestamp": "2026-05-19T21:50:07.396639+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:50:08.031141+00:00",
+    "action": "outreach",
+    "subject": "ChIJ7TuejYfxaS4RITOYKc7rlJI",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.hutankota@plataran.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:50:08.030074+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:50:08.044984+00:00",
+    "action": "consent",
+    "subject": "ChIJiVYlIeLzaS4RRryFFIkd0Lc",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:50:08.055281+00:00",
+    "action": "consent",
+    "subject": "ChIJiVYlIeLzaS4RRryFFIkd0Lc",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:50:19.097090+00:00",
+    "action": "outreach",
+    "subject": "ChIJiVYlIeLzaS4RRryFFIkd0Lc",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 22771888",
+      "success": true,
+      "timestamp": "2026-05-19T21:50:19.094246+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:50:19.742236+00:00",
+    "action": "outreach",
+    "subject": "ChIJiVYlIeLzaS4RRryFFIkd0Lc",
+    "details": {
+      "channel": "email",
+      "contact": "palmcourt.jkr@fourseasons.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:50:19.740673+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:50:19.763334+00:00",
+    "action": "consent",
+    "subject": "ChIJmYqZCUP1aS4R55A6xyKy_IM",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:50:19.780526+00:00",
+    "action": "consent",
+    "subject": "ChIJmYqZCUP1aS4R55A6xyKy_IM",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:50:30.491387+00:00",
+    "action": "outreach",
+    "subject": "ChIJmYqZCUP1aS4R55A6xyKy_IM",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 31190333",
+      "success": true,
+      "timestamp": "2026-05-19T21:50:30.489789+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:50:31.222600+00:00",
+    "action": "outreach",
+    "subject": "ChIJmYqZCUP1aS4R55A6xyKy_IM",
+    "details": {
+      "channel": "email",
+      "contact": "kita@hyatt.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:50:31.220817+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:50:31.241437+00:00",
+    "action": "consent",
+    "subject": "ChIJecv8OB30aS4RxldV7DZbkog",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:50:31.253898+00:00",
+    "action": "consent",
+    "subject": "ChIJecv8OB30aS4RxldV7DZbkog",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:50:41.964562+00:00",
+    "action": "outreach",
+    "subject": "ChIJecv8OB30aS4RxldV7DZbkog",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 2510888",
+      "success": true,
+      "timestamp": "2026-05-19T21:50:41.963027+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:50:42.977021+00:00",
+    "action": "outreach",
+    "subject": "ChIJecv8OB30aS4RxldV7DZbkog",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:50:42.975931+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:51:35.678737+00:00",
+    "action": "consent",
+    "subject": "ChIJ6WhPvg4dai4RRDWbaBmJkqM",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:51:36.302201+00:00",
+    "action": "consent",
+    "subject": "ChIJ6WhPvg4dai4RRDWbaBmJkqM",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:51:47.369233+00:00",
+    "action": "outreach",
+    "subject": "ChIJ6WhPvg4dai4RRDWbaBmJkqM",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 878-8996-7011",
+      "success": true,
+      "timestamp": "2026-05-19T21:51:47.366669+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:51:47.997117+00:00",
+    "action": "outreach",
+    "subject": "ChIJ6WhPvg4dai4RRDWbaBmJkqM",
+    "details": {
+      "channel": "email",
+      "contact": "webmaster@kamsroast.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T21:51:47.996009+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:53:36.135283+00:00",
+    "action": "consent",
+    "subject": "ChIJ_8E2s2f1aS4RSraUoOQTRZU",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:53:36.400663+00:00",
+    "action": "consent",
+    "subject": "ChIJ_8E2s2f1aS4RSraUoOQTRZU",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:53:47.498912+00:00",
+    "action": "outreach",
+    "subject": "ChIJ_8E2s2f1aS4RSraUoOQTRZU",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 29921298",
+      "success": true,
+      "timestamp": "2026-05-19T21:53:47.491777+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:53:48.500493+00:00",
+    "action": "outreach",
+    "subject": "ChIJ_8E2s2f1aS4RSraUoOQTRZU",
+    "details": {
+      "channel": "email",
+      "contact": "clubitaliano.ghjakarta@hyatt.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:53:48.499405+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:53:48.516786+00:00",
+    "action": "consent",
+    "subject": "ChIJL4yEpC_1aS4RNNDIqn9yfAo",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:53:48.526244+00:00",
+    "action": "consent",
+    "subject": "ChIJL4yEpC_1aS4RNNDIqn9yfAo",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:53:59.219919+00:00",
+    "action": "outreach",
+    "subject": "ChIJL4yEpC_1aS4RNNDIqn9yfAo",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 6260038",
+      "success": true,
+      "timestamp": "2026-05-19T21:53:59.218753+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:53:59.975389+00:00",
+    "action": "outreach",
+    "subject": "ChIJL4yEpC_1aS4RNNDIqn9yfAo",
+    "details": {
+      "channel": "email",
+      "contact": "putien@putien.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:53:59.973602+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:55:48.053444+00:00",
+    "action": "outreach",
+    "subject": "ChIJ_8E2s2f1aS4RSraUoOQTRZU",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 29921298",
+      "success": true,
+      "timestamp": "2026-05-19T21:55:48.050627+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:55:48.816378+00:00",
+    "action": "outreach",
+    "subject": "ChIJ_8E2s2f1aS4RSraUoOQTRZU",
+    "details": {
+      "channel": "email",
+      "contact": "clubitaliano.ghjakarta@hyatt.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:55:48.814409+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:55:59.510348+00:00",
+    "action": "outreach",
+    "subject": "ChIJL4yEpC_1aS4RNNDIqn9yfAo",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 6260038",
+      "success": true,
+      "timestamp": "2026-05-19T21:55:59.508080+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:56:00.257909+00:00",
+    "action": "outreach",
+    "subject": "ChIJL4yEpC_1aS4RNNDIqn9yfAo",
+    "details": {
+      "channel": "email",
+      "contact": "putien@putien.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:56:00.256192+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:56:00.268732+00:00",
+    "action": "consent",
+    "subject": "ChIJA4ZZ3yP0aS4RoivdWsJVi3k",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:56:00.278846+00:00",
+    "action": "consent",
+    "subject": "ChIJA4ZZ3yP0aS4RoivdWsJVi3k",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:56:10.968859+00:00",
+    "action": "outreach",
+    "subject": "ChIJA4ZZ3yP0aS4RoivdWsJVi3k",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 3912963",
+      "success": true,
+      "timestamp": "2026-05-19T21:56:10.967508+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:56:11.696041+00:00",
+    "action": "outreach",
+    "subject": "ChIJA4ZZ3yP0aS4RoivdWsJVi3k",
+    "details": {
+      "channel": "email",
+      "contact": "H8491-FB7@accor.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:56:11.694937+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:56:11.708312+00:00",
+    "action": "consent",
+    "subject": "ChIJ_SonugL0aS4R7nyuLeFhjhk",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:56:11.776203+00:00",
+    "action": "consent",
+    "subject": "ChIJ_SonugL0aS4R7nyuLeFhjhk",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:56:23.511354+00:00",
+    "action": "outreach",
+    "subject": "ChIJ_SonugL0aS4R7nyuLeFhjhk",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 812-8587-2935",
+      "success": true,
+      "timestamp": "2026-05-19T21:56:23.508927+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:56:24.267917+00:00",
+    "action": "outreach",
+    "subject": "ChIJ_SonugL0aS4R7nyuLeFhjhk",
+    "details": {
+      "channel": "email",
+      "contact": "info@laposta.id",
+      "success": true,
+      "timestamp": "2026-05-19T21:56:24.266768+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:57:35.819987+00:00",
+    "action": "consent",
+    "subject": "ChIJWeqySZb1aS4RVOJlLsuILyk",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:57:35.991413+00:00",
+    "action": "consent",
+    "subject": "ChIJWeqySZb1aS4RVOJlLsuILyk",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:57:47.100328+00:00",
+    "action": "outreach",
+    "subject": "ChIJWeqySZb1aS4RVOJlLsuILyk",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-1980-4573",
+      "success": true,
+      "timestamp": "2026-05-19T21:57:47.098734+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:57:48.111252+00:00",
+    "action": "outreach",
+    "subject": "ChIJWeqySZb1aS4RVOJlLsuILyk",
+    "details": {
+      "channel": "email",
+      "contact": "mega.meiliawati@accor.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:57:48.110196+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:59:36.246376+00:00",
+    "action": "consent",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:59:36.492782+00:00",
+    "action": "consent",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:59:47.556672+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T21:59:47.554337+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T21:59:48.293693+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T21:59:48.292572+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:01:36.032641+00:00",
+    "action": "consent",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:01:36.269251+00:00",
+    "action": "consent",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:01:46.999110+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:01:46.996537+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:01:47.765199+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:01:47.763278+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:01:58.498225+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:01:58.497000+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:01:59.230236+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:01:59.229089+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:03:47.047890+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:03:47.045486+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:03:48.034533+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:03:48.033434+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:03:48.059612+00:00",
+    "action": "consent",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:03:48.070110+00:00",
+    "action": "consent",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:03:58.748930+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:03:58.747690+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:03:59.491167+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:03:59.490114+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:04:10.180788+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:04:10.179480+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:04:10.943435+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:04:10.941986+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:05:48.364183+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:05:48.362033+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:05:49.344335+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:05:49.343066+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:06:00.074513+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:06:00.072980+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:06:00.714628+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:06:00.713456+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:06:11.398918+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:06:11.397563+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:06:12.276921+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:06:12.275115+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:07:46.941757+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:07:46.938961+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:07:47.975848+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:07:47.973782+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:07:58.704774+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:07:58.703310+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:07:59.693117+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:07:59.691979+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:08:10.699015+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:08:10.697619+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:08:11.722703+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:08:11.721538+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:09:47.068494+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:09:47.065601+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:09:47.802398+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:09:47.801221+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:09:58.513491+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:09:58.511418+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:09:59.562468+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:09:59.561434+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:10:10.274213+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:10:10.273016+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:10:11.272176+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:10:11.271140+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:11:47.369924+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:11:47.367391+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:11:48.410930+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:11:48.409900+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:11:59.109709+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:11:59.108485+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:12:00.064509+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:12:00.062552+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:12:10.774254+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:12:10.772953+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:12:11.487120+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:12:11.485995+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:15:48.499930+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:15:48.498259+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:15:49.129960+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:15:49.128754+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:15:59.862583+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:15:59.861155+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:16:00.484517+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:16:00.482475+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:16:11.191320+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:16:11.189947+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:16:11.950102+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:16:11.940003+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:17:50.111294+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:17:50.109787+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:17:51.087253+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:17:51.085320+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:18:01.795013+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:18:01.793060+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:18:02.805167+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:18:02.804054+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:18:13.489284+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:18:13.487897+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:18:14.519850+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:18:14.518651+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:19:47.023897+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:19:47.021210+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:19:47.953111+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:19:47.951848+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:19:58.661796+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:19:58.659429+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:19:59.395311+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:19:59.394195+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:20:10.096989+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:20:10.094676+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:20:11.153280+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:20:11.152199+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:21:47.110694+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:21:47.109009+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:21:48.029653+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:21:48.027598+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:21:58.768015+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:21:58.765763+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:21:59.510667+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:21:59.509219+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:22:10.219633+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:22:10.218299+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:22:10.971995+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:22:10.970800+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:23:47.496624+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:23:47.494531+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:23:48.484234+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:23:48.483105+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:23:59.195642+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:23:59.194261+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:24:00.212567+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:24:00.211420+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:24:10.917305+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:24:10.915993+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:24:11.550466+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:24:11.549319+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:27:47.522369+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:27:47.520411+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:27:48.484463+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:27:48.483146+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:27:59.288833+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:27:59.287494+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:28:00.266044+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:28:00.264888+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:28:10.984742+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:28:10.983434+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:28:11.971726+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:28:11.968939+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:31:47.521073+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:31:47.518074+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:31:48.282048+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:31:48.280661+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:31:59.033463+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:31:59.032012+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:32:00.061910+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:32:00.059778+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:32:10.811944+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:32:10.805345+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:32:11.737522+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:32:11.736429+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:33:47.336677+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:33:47.334231+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:33:48.368717+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:33:48.366842+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:33:59.123171+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:33:59.118468+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:34:00.157337+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:34:00.155889+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:34:10.872750+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:34:10.871261+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:34:11.534313+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:34:11.532885+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:35:47.509574+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:35:47.507472+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:35:48.140224+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:35:48.139095+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:35:58.890807+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:35:58.888254+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:35:59.941510+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:35:59.939440+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:36:10.643843+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:36:10.642350+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:36:11.560455+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:36:11.559211+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:37:47.512081+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:37:47.509882+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:37:48.551168+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:37:48.549974+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:37:59.259467+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:37:59.257940+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:38:00.176327+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:38:00.174525+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:38:10.860605+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:38:10.859146+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:38:11.863356+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:38:11.861369+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:39:47.096507+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:39:47.093279+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:39:47.857305+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:39:47.855600+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:39:58.582305+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:39:58.579943+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:39:59.320307+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:39:59.318994+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:40:10.027016+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:40:10.024926+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:40:10.787651+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:40:10.786398+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:41:47.355714+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:41:47.353867+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:41:48.362690+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:41:48.361453+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:41:59.091440+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:41:59.088764+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:41:59.831285+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:41:59.829101+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:42:10.541663+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:42:10.540264+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:42:11.513946+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:42:11.512533+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:45:48.363638+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:45:48.361882+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:45:49.414121+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:45:49.412905+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:46:00.120485+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:46:00.118211+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:46:00.866004+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:46:00.864874+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:46:11.549458+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:46:11.547140+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:46:12.430347+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:46:12.428376+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:47:47.680932+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:47:47.669708+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:47:48.649130+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:47:48.646312+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:47:59.424550+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:47:59.422191+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:48:00.180636+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:48:00.179207+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:48:10.885036+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:48:10.883348+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:48:11.608732+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:48:11.606859+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:49:47.134682+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:49:47.132348+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:49:48.111434+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:49:48.110212+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:49:58.845091+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:49:58.842359+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:49:59.786659+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:49:59.785491+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:50:10.490509+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:50:10.489110+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:50:11.487853+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:50:11.486502+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:51:47.504860+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:51:47.502981+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:51:48.468605+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:51:48.467386+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:51:59.202771+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:51:59.201216+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:51:59.952947+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:51:59.947235+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:52:10.696456+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:52:10.695004+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:52:11.693157+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:52:11.691380+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:55:47.479318+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:55:47.477274+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:55:48.106139+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:55:48.103975+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:55:58.827941+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:55:58.826501+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:55:59.880609+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:55:59.879331+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:56:10.559995+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:56:10.558554+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:56:11.577325+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:56:11.575069+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:57:52.623546+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:57:52.621813+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:57:53.310158+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:57:53.307953+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:58:04.074756+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:58:04.073275+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:58:04.813609+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:58:04.811463+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:58:15.542872+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T22:58:15.540499+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:58:16.547965+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T22:58:16.546520+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:59:47.545335+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T22:59:47.542776+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:59:48.560298+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T22:59:48.558031+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T22:59:59.303496+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T22:59:59.302053+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T23:00:00.293038+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T23:00:00.290808+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T23:00:11.028126+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T23:00:11.025653+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T23:00:14.639523+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T23:00:14.587444+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T23:03:48.277548+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T23:03:48.274342+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T23:03:49.286645+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T23:03:49.282802+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T23:04:00.043081+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 72781586",
+      "success": true,
+      "timestamp": "2026-05-19T23:04:00.041741+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T23:04:00.798672+00:00",
+    "action": "outreach",
+    "subject": "ChIJb0HbZkjxaS4RUd1O9UBSfE0",
+    "details": {
+      "channel": "email",
+      "contact": "remboelan@remboelan.com",
+      "success": true,
+      "timestamp": "2026-05-19T23:04:00.795072+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T23:04:11.489364+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 5707333",
+      "success": true,
+      "timestamp": "2026-05-19T23:04:11.487838+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T23:04:12.425478+00:00",
+    "action": "outreach",
+    "subject": "ChIJ3xfuTUD1aS4RkgJRm6_nF1g",
+    "details": {
+      "channel": "email",
+      "contact": "reservation.jakarta@ayana.com",
+      "success": true,
+      "timestamp": "2026-05-19T23:04:12.424300+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T23:07:47.358718+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T23:07:47.356892+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T23:07:48.310724+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T23:07:48.308783+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T23:11:47.922001+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T23:11:47.918935+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T23:11:48.717135+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T23:11:48.715768+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T23:13:47.751222+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T23:13:47.747621+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T23:13:48.641230+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T23:13:48.639354+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T23:15:47.858180+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 21 58904454",
+      "success": true,
+      "timestamp": "2026-05-19T23:15:47.854803+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-19T23:15:48.627496+00:00",
+    "action": "outreach",
+    "subject": "ChIJQ8ZsjSX3aS4RGxjFRoQybiI",
+    "details": {
+      "channel": "email",
+      "contact": "ajita@ajita.co.id",
+      "success": true,
+      "timestamp": "2026-05-19T23:15:48.626216+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:13:38.469217+00:00",
+    "action": "consent",
+    "subject": "ChIJR9nMy5j3aS4R9NphBtuiYQw",
+    "details": {
+      "type": "email_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:13:38.758980+00:00",
+    "action": "consent",
+    "subject": "ChIJR9nMy5j3aS4R9NphBtuiYQw",
+    "details": {
+      "type": "whatsapp_marketing",
+      "given": true
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:13:50.164720+00:00",
+    "action": "outreach",
+    "subject": "ChIJR9nMy5j3aS4R9NphBtuiYQw",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-3830-6012",
+      "success": true,
+      "timestamp": "2026-05-20T08:13:50.158977+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:13:51.132014+00:00",
+    "action": "outreach",
+    "subject": "ChIJR9nMy5j3aS4R9NphBtuiYQw",
+    "details": {
+      "channel": "email",
+      "contact": "expat.@expatroasters.com",
+      "success": true,
+      "timestamp": "2026-05-20T08:13:51.129783+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:15:49.734812+00:00",
+    "action": "outreach",
+    "subject": "ChIJR9nMy5j3aS4R9NphBtuiYQw",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-3830-6012",
+      "success": true,
+      "timestamp": "2026-05-20T08:15:49.731602+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:15:50.687698+00:00",
+    "action": "outreach",
+    "subject": "ChIJR9nMy5j3aS4R9NphBtuiYQw",
+    "details": {
+      "channel": "email",
+      "contact": "expat.@expatroasters.com",
+      "success": true,
+      "timestamp": "2026-05-20T08:15:50.679322+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:19:49.597279+00:00",
+    "action": "outreach",
+    "subject": "ChIJR9nMy5j3aS4R9NphBtuiYQw",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-3830-6012",
+      "success": true,
+      "timestamp": "2026-05-20T08:19:49.593990+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:19:50.516538+00:00",
+    "action": "outreach",
+    "subject": "ChIJR9nMy5j3aS4R9NphBtuiYQw",
+    "details": {
+      "channel": "email",
+      "contact": "expat.@expatroasters.com",
+      "success": true,
+      "timestamp": "2026-05-20T08:19:50.514692+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:21:49.257642+00:00",
+    "action": "outreach",
+    "subject": "ChIJR9nMy5j3aS4R9NphBtuiYQw",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-3830-6012",
+      "success": true,
+      "timestamp": "2026-05-20T08:21:49.255129+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:21:50.153986+00:00",
+    "action": "outreach",
+    "subject": "ChIJR9nMy5j3aS4R9NphBtuiYQw",
+    "details": {
+      "channel": "email",
+      "contact": "expat.@expatroasters.com",
+      "success": true,
+      "timestamp": "2026-05-20T08:21:50.152425+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:23:49.158609+00:00",
+    "action": "outreach",
+    "subject": "ChIJR9nMy5j3aS4R9NphBtuiYQw",
+    "details": {
+      "channel": "whatsapp",
+      "contact": "+62 811-3830-6012",
+      "success": true,
+      "timestamp": "2026-05-20T08:23:49.156331+00:00"
+    }
+  },
+  {
+    "timestamp": "2026-05-20T08:23:50.053609+00:00",
+    "action": "outreach",
+    "subject": "ChIJR9nMy5j3aS4R9NphBtuiYQw",
+    "details": {
+      "channel": "email",
+      "contact": "expat.@expatroasters.com",
+      "success": true,
+      "timestamp": "2026-05-20T08:23:50.051510+00:00"
+    }
   }
 ]

@@ -1,0 +1,35 @@
+---PROPOSAL---
+
+Subject: Silk Bistro's reservation pipeline is leaving money on the table
+
+Hi Silk Bistro team,
+
+I was researching fine dining establishments in Central Jakarta and noticed your website showcases beautiful plating and ambiance—but I spotted a critical gap: visitors land on your site with zero way to ask questions in real-time, no social proof from past diners, and no clear "Reserve Now" momentum.
+
+Here's what's happening: competitors like Jagjag (Menteng area) are already capturing your walk-in + online reservation traffic by deploying WhatsApp chatbots that answer "Do you have a table for 4 tonight?" instantly, plus they're running Google Local Services Ads to dominate the "fine dining near me" search. Meanwhile, your site has no testimonials section, no blog content about your chef's philosophy or seasonal menus (which kills SEO for "best restaurant Jakarta"), and no conversion-focused CTAs.
+
+**We propose a 2-phase solution:**
+
+**Phase 1: WhatsApp Chatbot + Conversion Layer (4 weeks)**
+- Deploy a WhatsApp Business chatbot integrated to your reservation system (Jagjag's customers are booking 40% faster this way)
+- Add a testimonials carousel + chef's story section to your homepage
+- Install strategic CTAs: "Reserve Your Table" buttons, "See Today's Menu" links
+- Expected outcome: 25-35% increase in qualified reservation inquiries
+
+**Phase 2: Content SEO + Google Local Ads (ongoing)**
+- Launch a monthly blog: seasonal dishes, chef interviews, food pairing guides (captures "fine dining Jakarta" searches your competitors own)
+- Run Google Local Services Ads for "restaurant reservations near me" + Meta retargeting to past website visitors
+- Expected outcome: 3-4x more qualified traffic, 15-20% improvement in conversion rate within 90 days
+
+Both phases work together: chatbot handles the surge, blog + ads bring the right people to your door.
+
+I'd love to walk through a quick 15-minute audit of your current reservation funnel and show you exactly where Silk Bistro is losing bookings. Are you free for a call this week?
+
+Best,
+**Vilona**
+Senior Solution Architect
+BerkahKarya
+
+---WHATSAPP---
+
+Halo, baru lihat Silk Bistro di Google Maps—resto-nya bagus banget. Cepat aja, kalian pakai WhatsApp untuk handle reservasi atau masih manual? Tanya aja soalnya kami bantu beberapa restoran di area Menteng dengan chatbot yang bisa langsung terima booking. Mau coba konsultasi gratis?

@@ -1,0 +1,36 @@
+---PROPOSAL---
+
+Subject: Blue Terrace's Missing Conversion Layer (+ How Competitors Are Capitalizing)
+
+Hi there,
+
+I noticed Blue Terrace has a beautiful dining experience at AYANA Midplaza, but your website is doing heavy lifting without a safety net: zero customer testimonials, no blog content to own "French fine dining Jakarta" search results, and most critically—no clear conversion pathway to turn curious diners into confirmed reservations.
+
+Here's what I'm seeing: competitors like Locavore and Kayuputi in Jakarta are already ranking for "French restaurant Jakarta" + "fine dining reservations" by publishing chef stories, seasonal menu blogs, and customer reviews. Meanwhile, your site has the luxury positioning but lacks the SEO + social proof layer that converts Google searchers into actual bookings.
+
+**I'm proposing two connected solutions:**
+
+**1. SEO + Content Authority Package** (6-week sprint)
+- 12 blog posts targeting high-intent keywords ("best French restaurant Jakarta," "fine dining with wine pairing," "romantic dinner reservation Jakarta")
+- Schema markup + technical SEO audit to boost your Google Business Profile visibility
+- Customer testimonial video + review showcase on homepage
+- Expected outcome: 40-60% increase in organic reservation inquiries
+
+**2. Google Local Services Ads + Conversion Rate Optimization**
+- Setup Google LSA specifically for "fine dining reservations" to capture high-intent searchers
+- A/B test homepage CTAs, reservation form friction, and menu showcase layouts
+- WhatsApp Business API integration for instant reservation confirmations (reduce no-shows by 15-20%)
+- Expected outcome: 25-35% higher booking conversion rate from existing traffic
+
+Both solutions leverage your existing website as the foundation—no rebuild needed. We'd start with a free 30-minute audit to identify your exact SEO gaps and reservation drop-off points.
+
+**Next step?** Let's hop on a quick call this week. I'll show you exactly where Blue Terrace is losing reservations to competitors.
+
+Looking forward,
+
+**Vilona**
+Senior Solution Architect
+BerkahKarya
+---WHATSAPP---
+
+Halo! Baru liat Blue Terrace di Google, resto Prancis bagus banget. Tanya dong—berapa persen booking reservation kalian dari Google vs walk-in? Lagi ada program khusus buat fine dining yang mau boost online reservation. Mau discuss singkat?

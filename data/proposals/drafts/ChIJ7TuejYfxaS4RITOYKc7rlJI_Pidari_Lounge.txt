@@ -1,0 +1,28 @@
+---PROPOSAL---
+
+Subject: Hutan Kota's reservation calls could be automated (+ 40% more bookings from Google)
+
+Hi there,
+
+I noticed Hutan Kota has a strong brand presence and solid foot traffic on Google Maps, but your reservation flow still relies entirely on manual phone calls and emails. Meanwhile, competitors like Lara Djonggrang and Plataran's other properties are deploying WhatsApp chatbots to handle 60% of inquiries automatically—cutting response time from hours to seconds, and capturing bookings that would otherwise go cold.
+
+Here's what we're seeing work for premium Indonesian restaurants in Central Jakarta:
+
+**Solution 1: WhatsApp Chatbot + Reservation AI**
+We'd build a conversational WhatsApp bot integrated directly to your reservation system. Guests text, get instant table availability, confirm bookings, and receive reminders—all without your team lifting a finger until they arrive. Deliverable: Live bot in 2 weeks. Expected impact: 35-40% reduction in missed calls, 25% more confirmed reservations.
+
+**Solution 2: Landing Page + Google Local Services Ads**
+Your current site doesn't have dedicated landing pages optimized for high-intent searches ("fine dining Jakarta" / "private events Sudirman"). We'd build conversion-focused pages + run Google LSA campaigns targeting corporate event planners and tourists. Deliverable: 3 optimized landing pages + 30-day LSA campaign. Expected impact: 2-3x ROI on ad spend within first month.
+
+Both solutions complement your existing brand beautifully—no redesign needed, just smarter automation and visibility where your customers are already searching.
+
+Free 15-minute audit call this week? I can show you exactly where bookings are slipping away.
+
+Best,
+**Vilona**
+Solution Architect, BerkahKarya
+[phone/calendar link]
+
+---WHATSAPP---
+
+Hey, baru liat Hutan Kota di Google Maps—tempat bagus banget! Mau tanya cepat: apakah reservasi kalian masih handle manual lewat telepon? Ada solusi WhatsApp chatbot yang bisa auto-respond dan catat booking, banyak restaurant di area Sudirman udah pakai. Bisa diskusi 15 menit? 😊

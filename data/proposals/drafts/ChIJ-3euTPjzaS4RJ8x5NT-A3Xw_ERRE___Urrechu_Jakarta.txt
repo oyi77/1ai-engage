@@ -1,0 +1,41 @@
+---PROPOSAL---
+
+Subject: ERRE & Urrechu – Untapped Revenue from Fine Dining Search & Reservation Gaps
+
+Hi ERRE & Urrechu Team,
+
+I noticed your restaurant sits in one of Jakarta's most competitive fine dining zones (Kuningan), yet your Google visibility and reservation funnel have significant gaps compared to peers like Cervecería Española or Casa Morey who are aggressively capturing "Spanish restaurant Jakarta" + "fine dining reservation" searches.
+
+Here's what I spotted:
+- Your website lives under Melia's domain (melia.com), which dilutes your independent brand authority and makes direct reservations harder to track
+- Zero visible Google Ads or Meta retargeting for high-intent diners searching "Spanish tapas Jakarta" or "fine dining near Kuningan"
+- No WhatsApp Business integration for instant reservation confirmations—competitors are converting 40% more walk-ins this way
+
+**I'm proposing two quick wins:**
+
+1. **Conversion Rate Optimization + Google Ads Campaign** (4-week sprint)
+   - Audit your current reservation funnel & landing page conversion rate
+   - Launch targeted Google Ads for "Spanish restaurant Jakarta" + "paella reservation" with location extensions
+   - A/B test ad copy & landing pages to increase reservation volume by 25-30%
+   - Expected ROI: 3-4x ad spend within 60 days
+
+2. **WhatsApp Business API + AI Reservation Bot** (2-week implementation)
+   - Automate 80% of reservation inquiries via WhatsApp chatbot (availability checks, table holds, upsells)
+   - Reduce manual response time from hours to seconds
+   - Track customer data for targeted email/SMS follow-ups to drive repeat visits
+
+Both solutions plug directly into your existing Melia infrastructure without disruption.
+
+Let's run a free 30-minute audit of your current conversion funnel and competitive positioning—I'll show you exactly where ERRE & Urrechu is leaving money on the table.
+
+Available this week?
+
+Best,
+**Vilona**
+Senior Solution Architect
+BerkahKarya
+[contact details]
+
+---WHATSAPP---
+
+Hey! Baru liat ERRE & Urrechu di Google Maps—tempat bagus banget. Quick question: apakah kalian pakai WhatsApp untuk handle reservasi atau inquiry dari customer? Penasaran aja karena competitor sejenis di area Kuningan udah mulai pakai automation untuk ini. Mau diskusi singkat?

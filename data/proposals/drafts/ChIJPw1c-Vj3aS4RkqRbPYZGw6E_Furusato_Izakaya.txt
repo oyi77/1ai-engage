@@ -1,0 +1,34 @@
+---PROPOSAL---
+Subject: Furusato Izakaya – Capturing Walk-ins & Reservations 24/7 (Without Extra Staff)
+
+Hi there,
+
+I noticed Furusato's presence on Barceló's site, but your independent booking funnel ends there—visitors interested in direct reservations, private events, or late-night walk-ins have no way to reach you outside hotel concierge hours. Meanwhile, competitors like Gonpachi Nishi-Azabu (also in Central Jakarta) are capturing this demand with AI-powered WhatsApp ordering and automated reservation systems.
+
+Here's what we're seeing: Japanese izakayas in Jakarta's hotel district lose ~40% of potential direct bookings because there's no friction-free way for guests to message, reserve, or ask about specials after 11 PM.
+
+**We propose a 2-part solution:**
+
+1. **WhatsApp Business Chatbot + Reservation Engine** (4-week deployment)
+   - Automated responses for reservation inquiries, menu questions, and event bookings
+   - Integrates with your POS/calendar so guests book real-time slots
+   - Handles 80% of routine inquiries—your team only manages complex requests
+   - Expected result: 25-35% increase in direct reservations within 60 days
+
+2. **Conversion-Optimized Landing Page + Google Local Services Ads**
+   - Dedicated booking page (separate from Barceló listing) targeting "izakaya Jakarta private dining" and "Japanese restaurant near Sudirman"
+   - Google Local Services Ads showing real-time availability and direct booking CTA
+   - Expected result: 15-20 qualified reservation inquiries/month from high-intent search traffic
+
+Both solutions stack together: WhatsApp handles the conversation; landing page + ads bring the traffic.
+
+Would a 15-minute call work to walk through your current booking flow and show a quick mockup? I can also pull your Google visibility audit in 48 hours if you'd prefer.
+
+Best,
+**Vilona**
+Senior Solution Architect
+BerkahKarya
+vilona@berkahkarya.com
+
+---WHATSAPP---
+Hey, aku liat Furusato di Google Maps tadi. Mau tanya—sekarang booking langsung lewat apa? Atau mostly through hotel concierge aja? 👀
