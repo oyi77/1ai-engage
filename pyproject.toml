@@ -20,7 +20,7 @@ dependencies = [
   "uvicorn>=0.24.0",
   "starlette>=0.27.0",
   "email-validator>=2.0",
-  "weasyprint>=68.0",
+  "fpdf2>=2.7.0",
 ]
 
 [project.optional-dependencies]

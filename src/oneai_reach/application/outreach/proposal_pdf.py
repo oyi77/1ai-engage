@@ -10,6 +10,11 @@ class ProposalPdfError(RuntimeError):
     pass
 
 
+def proposal_text_to_html(proposal: str, lead_name: str) -> str:
+    """Escape proposal text and lead name for safe HTML embedding."""
+    return f"<p>{html.escape(proposal)}</p><p>Prepared for {html.escape(lead_name)}</p>"
+
+
 def proposal_pdf_filename(lead_name: str) -> str:
     safe_name = re.sub(r"[^A-Za-z0-9._-]+", "_", lead_name).strip("._-")
     return f"Proposal_{safe_name or 'Business'}.pdf"

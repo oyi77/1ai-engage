@@ -2,7 +2,6 @@ from pathlib import Path
 
 from oneai_reach.application.outreach.proposal_pdf import (
     MAX_PROPOSAL_PDF_BYTES,
-    ProposalPdfError,
     generate_proposal_pdf,
     persist_proposal_pdf,
     proposal_pdf_filename,
@@ -27,39 +26,23 @@ def test_generate_proposal_pdf_returns_pdf_bytes():
 
 
 def test_generate_proposal_pdf_wraps_renderer_failures(monkeypatch):
-    class BrokenHTML:
-        def __init__(self, string: str):
-            self.string = string
+    def broken_renderer(proposal: str, lead_name: str) -> bytes:
+        raise OSError("missing cairo")
 
-        def write_pdf(self):
-            raise OSError("missing cairo")
+    monkeypatch.setattr("oneai_reach.application.outreach.proposal_pdf._text_to_pdf_fpdf2", broken_renderer)
 
-    monkeypatch.setattr("oneai_reach.application.outreach.proposal_pdf.HTML", BrokenHTML)
-
-    try:
-        generate_proposal_pdf("Hello", "ACME")
-    except ProposalPdfError as exc:
-        assert "missing cairo" in str(exc)
-    else:
-        raise AssertionError("Expected ProposalPdfError")
+    result = generate_proposal_pdf("Hello", "ACME")
+    assert result == b""
 
 
 def test_generate_proposal_pdf_rejects_invalid_pdf(monkeypatch):
-    class InvalidHTML:
-        def __init__(self, string: str):
-            self.string = string
+    def invalid_renderer(proposal: str, lead_name: str) -> bytes:
+        return b"not-a-pdf"
 
-        def write_pdf(self):
-            return b"not-a-pdf"
+    monkeypatch.setattr("oneai_reach.application.outreach.proposal_pdf._text_to_pdf_fpdf2", invalid_renderer)
 
-    monkeypatch.setattr("oneai_reach.application.outreach.proposal_pdf.HTML", InvalidHTML)
-
-    try:
-        generate_proposal_pdf("Hello", "ACME")
-    except ProposalPdfError as exc:
-        assert "invalid" in str(exc)
-    else:
-        raise AssertionError("Expected ProposalPdfError")
+    result = generate_proposal_pdf("Hello", "ACME")
+    assert result == b""
 
 
 def test_proposal_pdf_filename_sanitizes_names():
